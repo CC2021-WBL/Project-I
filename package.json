@@ -3,60 +3,69 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "source": "index.html",
+  "browserslist": [
+    "> 0.5%, last 2 versions, not dead"
+  ],
   "scripts": {
-    "clean": "rimraf .cache && rimraf coverage && rimraf dist && rimraf node_modules",
-    "prebuild": "rimraf dist",
-    "build": "parcel build index.html --public-url ./",
-    "format": "prettier --write \"src/**/*.js\" \"src/**/*.ts\" \"test/**/*.js\" \"test/**/*.ts\"",
-    "start:dev": "parcel -p 8765 watch index.html",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage"
+    "clean": "",
+    "prebuild": "",
+    "start": "parcel",
+    "build": "parcel build",
+    "format": "",
+    "start:dev": "",
+    "test": "",
+    "test:watch": "",
+    "test:cov": ""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CodersCamp2020/CodersCamp2020.Project.JavaScript.StarWarsQuiz.git"
   },
   "keywords": [],
-  "author": "CodersCamp2020",
+  "author": {
+    "name": "CodersCamp2021",
+    "email": "kontakt@coderscrew.pl",
+    "url": "https://github.com/CodersCamp2021"
+  },
+  "contributors": [
+    {
+      "name": "Katarzyna Chmielecka",
+      "url": "https://github.com/KatarzynaChmielecka"
+    },
+    {
+      "name": "Klaudia Dąbrowska",
+      "url": "https://github.com/KlaudiaDabrowska"
+    },
+    {
+      "name": "Alicja Kondrat",
+      "url": "https://github.com/pierwszazlewej"
+    },
+    {
+      "name": "Monika Krella",
+      "url": "https://github.com/MonikaKrella"
+    },
+    {
+      "name": "Tomasz Skrętkowski",
+      "url": "https://github.com/n0macx"
+    },
+    {
+      "name": "Adam Smycz",
+      "url": "https://github.com/Smyku6"
+    }
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/CodersCamp2020/CodersCamp2020.Project.JavaScript.StarWarsQuiz/issues"
   },
   "homepage": "https://github.com/CodersCamp2020/CodersCamp2020.Project.JavaScript.StarWarsQuiz#readme",
-  "dependencies": {
-    "regenerator-runtime": "^0.13.7",
-    "uuid": "^8.3.0"
-  },
   "devDependencies": {
-    "@babel/core": "^7.11.6",
-    "@babel/preset-env": "^7.11.5",
-    "@testing-library/dom": "^7.26.6",
-    "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/user-event": "^12.2.2",
-    "babel-jest": "^26.5.0",
-    "cssnano": "^4.1.10",
-    "jest": "^26.4.2",
-    "jest-fetch-mock": "^3.0.3",
-    "msw": "^0.21.3",
-    "parcel-plugin-static-files-copy": "^2.5.0",
-    "prettier": "^2.1.2",
-    "rimraf": "^3.0.2"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "ts"
-    ],
-    "testRegex": "(spec|test)[.]js",
-    "coverageDirectory": "../coverage",
-    "setupFiles": [
-      "./test/setupJest.js"
-    ],
-    "collectCoverageFrom": [
-      "./src/**"
-    ]
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "eslint": "^8.3.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3",
+    "parcel": "^2.0.1"
   },
   "staticFiles": {
     "staticPath": [
@@ -65,5 +74,8 @@
         "staticOutDir": "static"
       }
     ]
+  },
+  "dependencies": {
+    "regenerator-runtime": "^0.13.9"
   }
 }
