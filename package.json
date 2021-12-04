@@ -2,7 +2,6 @@
   "name": "@coderscamp2020/project-javascript-typescript-starwarsquiz",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "source": "index.html",
   "browserslist": [
     "> 0.5%, last 2 versions, not dead"
