@@ -1,23 +1,24 @@
 {
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CodersCamp2020/CodersCamp2020.Project.JavaScript.StarWarsQuiz.git"
+    "url": "git+https://github.com/CC2021-WBL/Project-I.git"
   },
   "keywords": [],
   "author": "CodersCamp2020",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CodersCamp2020/CodersCamp2020.Project.JavaScript.StarWarsQuiz/issues"
+    "url": "https://github.com/CC2021-WBL/Project-I.gitissues"
   },
-  "homepage": "https://github.com/CodersCamp2020/CodersCamp2020.Project.JavaScript.StarWarsQuiz#readme",
-  "name": "my-project",
+  "homepage": "https://github.com/CC2021-WBL/Project-I.git#readme",
   "source": "index.html",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build"
+    "clean": "rimraf .cache && rimraf coverage && rimraf dist && rimraf node_modules",
+    "prebuild": "rimraf dist",
+    "build": "parcel build index.html --public-url ./"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
@@ -31,7 +32,8 @@
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0",
     "parcel": "latest",
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "rimraf": "latest"
   },
   "dependencies": {
     "regenerator-runtime": "^0.13.9"
