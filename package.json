@@ -1,7 +1,6 @@
 {
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CC2021-WBL/Project-I.git"
