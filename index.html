@@ -6,33 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>CodersCamp2021 | Harry potter API QUIZ</title>
+    <link rel="stylesheet" href="./styles/index.css">
 </head>
 
 <body>
-    <header>
-        <div class="header-content">
+    <div class="game-wrapper">
+        <header class="header-content">
             <div class="header-content__game-logo"></div>
             <div class="header-content__game-nav"> </div>
-        </div>
-    </header>
+        </header>
 
-    <aside>
-        <div class="game-image"></div>
-    </aside>
+        <aside class="game-image">
 
-    <main>
-        <div class="game-main-content">
-            <div class="game-main-content__mode"></div>
-            <div class="game-main-content__mode-rules"></div>
-            <button class="game-main-content__ranking-btn game-main-content__rules-btn"></button>
-            <button class="game-main-content__play-btn"></button>
-        </div>
-    </main>
+        </aside>
 
-    <footer>
-        <button class="game-settings"></button>
-        <div class="game-time-lapse"></div>
-    </footer>
+        <main class="game">
+            <div class="game__mode"></div>
+            <div class="game__mode-rules"></div>
+            <div class="game__btns">
+                <button class="game__ranking game__rules"></button>
+                <button class="game__play"></button>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <button class="game-settings"></button>
+            <div class="game-time-lapse"></div>
+        </footer>
+    </div>
 </body>
 
 </html>
