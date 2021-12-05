@@ -2,4 +2,4 @@
 dist
 .cache
 node_modules
-coverage
+.parcel-cache
