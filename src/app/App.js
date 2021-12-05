@@ -1,4 +1,6 @@
-export const App = ({options}) => {
-}
+const App = ({ title, options }) => {
+  const quizTitle = document.createElement('h1');
+  quizTitle.textContent = document.querySelector('#hpquiz-app').append(title);
+};
 
-
+export default App;
