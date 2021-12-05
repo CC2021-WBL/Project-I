@@ -1,32 +1,25 @@
-const testObject1 = {
-  name: 'Albus Dumbledore',
-  result: 225,
-  mode: 'Characters',
-};
-const testObject2 = {
-  name: 'Severus Snape',
-  result: 125,
-  mode: 'Characters',
-};
-
-const testObject3 = {
-  name: 'Rubeus Hagrid',
-  result: 300,
-  mode: 'Characters',
-};
-
-const rankings = [];
-
-function addResult(resultObject) {
-  rankings.push(resultObject);
+function addResult(rankings, gameInfo, amountOfResults) {
+  const { name, result, mode } = gameInfo;
+  // push gameinfo (only name and result, we don't need mode in this place) into the right mode in
+  // rankings
+  rankings[mode].push({ name, result });
+  // sort in descending order by points
+  rankings[mode].sort((a, b) => (a.result < b.result ? 1 : -1));
+  // remove last element if there's to many gameinfos in our game ranking
+  if (rankings[mode].length > amountOfResults) rankings[mode].pop();
+  // update rankings in localStorage
+  localStorage.setItem('rankings', JSON.stringify(rankings));
 }
 
-addResult(testObject1);
-addResult(testObject2);
-addResult(testObject3);
+/**
+ * Pattern of input object:
+ * return gameInfo = {
+ *   name: String,
+ *   result: Number,
+ *   mode: String,
+ * }
+ */
 
-console.log(rankings);
-
-function _saveGameInfoInLocalStorage(object) {
-  localStorage.setItem('gameinfo', JSON.stringify(object));
-}
+module.exports = {
+  addResult,
+};
