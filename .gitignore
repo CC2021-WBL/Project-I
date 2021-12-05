@@ -2,5 +2,4 @@
 dist
 .cache
 node_modules
-.github
 .parcel-cache

@@ -1,5 +1,5 @@
 {
-  "name": "@coderscamp2020/project-javascript-typescript-starwarsquiz",
+  "name": "@coderscamp2021/project-javascript-harrypottersquiz",
   "version": "1.0.0",
   "description": "",
   "source": "index.html",
@@ -7,21 +7,14 @@
     "> 0.5%, last 2 versions, not dead"
   ],
   "scripts": {
-    "clean": "",
-    "prebuild": "",
     "start": "parcel",
-    "build": "parcel build",
-    "format": "",
-    "start:dev": "",
-    "test": "",
-    "test:watch": "",
-    "test:cov": ""
+    "build": "parcel build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CodersCamp2020/CodersCamp2020.Project.JavaScript.StarWarsQuiz.git"
+    "url": "git+https://github.com/CC2021-WBL/Project-I.git"
   },
-  "keywords": [],
+  "keywords": ["coderscamp2021", "harrypotterquiz"],
   "author": {
     "name": "CodersCamp2021",
     "email": "kontakt@coderscrew.pl",
@@ -51,19 +44,25 @@
     {
       "name": "Adam Smycz",
       "url": "https://github.com/Smyku6"
+    },
+    {
+      "name": "Weronika Boszko",
+      "url": "https://github.com/vieraboschkova"
     }
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CodersCamp2020/CodersCamp2020.Project.JavaScript.StarWarsQuiz/issues"
+    "url": "https://github.com/CC2021-WBL/Project-I/issues"
   },
-  "homepage": "https://github.com/CodersCamp2020/CodersCamp2020.Project.JavaScript.StarWarsQuiz#readme",
+  "homepage": "https://github.com/CC2021-WBL/Project-I/#readme",
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
     "eslint": "^8.3.0",
     "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-prettier": "^4.0.0",
     "parcel": "^2.0.1",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2"
