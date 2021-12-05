@@ -7,8 +7,5 @@ export const questionForMode = (mode) => {
 
   const modeQuestion = `MODE: ${questions[mode]}`;
 
-  const el = document.createElement('p');
-  document.body.appendChild(el);
-  el.classList.add('.game-main__content-mode');
-  el.textContent = modeQuestion;
+  document.querySelector('.game__mode').textContent = modeQuestion;
 };
