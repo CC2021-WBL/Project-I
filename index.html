@@ -17,27 +17,27 @@
 
 <body>
     <div class="game-wrapper">
-        <header class="header-content">
-            <div class="header-content__game-logo"></div>
-            <div class="header-content__game-nav"> </div>
+        <header class="header">
+            <div class="header__game-logo"></div>
+            <div class="header__game-nav"> </div>
         </header>
 
         <aside class="game-image">
-<img src="./images/QuizBackground.png" alt="">
+            <div class="game-image__content"></div>
         </aside>
 
         <main class="game">
             <div class="game__mode"></div>
             <div class="game__mode-rules"></div>
             <div class="game__btns">
-                <button class="game__ranking game__rules"></button>
-                <button class="game__play"></button>
+                <button class="game__btn" id="game__btn"></button>
+                <button class="game__play" id="game_play"></button>
             </div>
         </main>
 
         <footer class="footer">
-            <button class="game-settings"></button>
-            <div class="game-time-lapse"></div>
+            <button class="game__btn" id="game__btn"></button>
+            <div class="game-timer"></div>
         </footer>
     </div>
 </body>
