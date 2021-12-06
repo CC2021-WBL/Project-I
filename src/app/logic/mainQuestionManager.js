@@ -6,20 +6,35 @@ let urlAdress = 'http://hp-api.herokuapp.com/api/characters';
 let amountOfIDs = 50;
 //---------------------------------------------------------------------------------------------------------------
 
-let arrayWithID =
-  QuestionGenerator.generateQuestionsForCurrentMode(amountOfIDs);
-let idOfCorrectAnswer = QuestionGenerator.chooseCorrectAnswer(arrayWithID);
+export class MainQuestionManager {
+  constructor(urlAdress, amountOfIDs) {
+    this.urlAdress = urlAdress;
+    this.amountOfIDs = amountOfIDs;
+    
+  }
 
-let dataManager = new DataManager(arrayWithID, urlAdress, idOfCorrectAnswer);
-await dataManager.getDataByAPI();
-let arraywithAnswersForQuestion = dataManager.arraywithAnswersForQuestion;
-let rightAnswer = dataManager.rightAnswer;
-let base64imgForRightAnswer = dataManager.base64dataImgForRightAnswer;
+  GetQuestion() {
+    let arrayWithID =
+      QuestionGenerator.generateQuestionsForCurrentMode(this.amountOfIDs);
+    let idOfCorrectAnswer = QuestionGenerator.chooseCorrectAnswer(arrayWithID);
 
-//-----------------FINAL QUESTION OBJECT FOR EXPORT -----------------------------
+    let dataManager = new DataManager(
+      arrayWithID,
+      urlAdress,
+      idOfCorrectAnswer,
+    );
+    await dataManager.getDataByAPI();
+    let arraywithAnswersForQuestion = dataManager.arraywithAnswersForQuestion;
+    let rightAnswer = dataManager.rightAnswer;
+    let base64imgForRightAnswer = dataManager.base64dataImgForRightAnswer;
 
-export const question = {
-  image: base64imgForRightAnswer,
-  answers: arraywithAnswersForQuestion,
-  rightAnswer: rightAnswer,
-};
+    return question = {
+      image: base64imgForRightAnswer,
+      answers: arraywithAnswersForQuestion,
+      rightAnswer: rightAnswer,
+    }
+
+  };
+ 
+}
+
