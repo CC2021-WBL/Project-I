@@ -2,46 +2,95 @@ import elementCreator from './utils/elementCreator';
 import elementInjector from './utils/elementInjector';
 
 const App = ({ title, options }) => {
-  const headerLogo = document.getElementsByClassName('header__game-logo')[0];
-  const headerNav = document.getElementsByClassName('header__game-nav')[0];
-  const asideImage = document.getElementsByClassName('game-image__content')[0];
-  const mainMode = document.getElementsByClassName('game__mode')[0];
-  const mainModeRules = document.getElementsByClassName('game__mode-rules')[0];
-  const mainButtons = document.getElementsByClassName('game__btns')[0];
+  const gameWrapper = document.querySelector('.game-wrapper');
 
-  const footerTimer = document.getElementsByClassName('game-timer')[0];
+  // CREATE MAIN ELEMENTS
+  const header = elementCreator('header', { class: 'header' });
+  const aside = elementCreator('aside', { class: 'game-image' });
+  const main = elementCreator('main', { class: 'game' });
+  const footer = elementCreator('footer', { class: 'footer' });
+  // elements injected into gameWrapper
+  elementInjector(gameWrapper, header, aside, main, footer);
 
-  const quizTitle = elementCreator('h3', { style: 'color:white' }, title);
-  const quizNav = elementCreator('h3', {}, 'Here we will have our nav');
-  const image = elementCreator('h3', {}, 'Here we will have our image');
-  const mode = elementCreator('h1', {}, 'Students / Staff / Houses');
-  const modeRules = elementCreator('h2', {}, 'Here we will have our rules');
-  const testText = elementCreator('h2', {}, 'Test1');
-  const buttons = elementCreator('h2', {}, 'Here we will have our buttons');
-  const timer = elementCreator(
-    'h2',
-    { style: 'color:white' },
-    'Here we will have our magic wand game-timer',
-  );
-
-  const testDiv = elementCreator(
+  // HEADER ELEMENTS
+  const headerGameLogo = elementCreator(
     'div',
-    { style: 'color:white' },
-    elementCreator('p', {}, 'VOLDEMORT TEST'),
+    { class: 'header__game-logo' },
+    'logo',
   );
+  const headerGameNav = elementCreator(
+    'div',
+    { class: 'header__game-nav' },
+    'navigation',
+  );
+  elementInjector(header, headerGameLogo, headerGameNav);
 
-  elementInjector(mainModeRules, testDiv);
+  // ASIDE ELEMENTS
+  const asideGameImage = elementCreator('div', {
+    class: 'game-image__content',
+  });
+  elementInjector(aside, asideGameImage);
 
-  elementInjector(headerLogo, quizTitle);
-  elementInjector(headerNav, quizNav);
+  // MAIN ELEMENTS
+  const mainGameMode = elementCreator(
+    'div',
+    { class: 'game__mode' },
+    'choose game mode',
+  );
+  const mainGameModeRules = elementCreator(
+    'div',
+    {
+      class: 'game__mode-rules',
+    },
+    'rules',
+  );
+  const mainGameButtons = elementCreator('div', { class: 'game__btns' });
+  elementInjector(main, mainGameMode, mainGameModeRules, mainGameButtons);
 
-  elementInjector(asideImage, image);
+  // FOOTER ELEMENTS
+  const footerGameTimer = elementCreator(
+    'div',
+    { class: 'game-timer' },
+    'game-timer',
+  );
+  elementInjector(footer, footerGameTimer);
 
-  elementInjector(mainMode, mode);
-  elementInjector(mainModeRules, modeRules, testText);
-  elementInjector(mainButtons, buttons);
+  // CREATE BUTTONS
+  const gameBtn = elementCreator(
+    'button',
+    {
+      class: 'game__btn',
+      id: 'game__btn',
+    },
+    'random text button',
+  );
+  const playBtn = elementCreator(
+    'button',
+    {
+      class: 'game__play',
+      id: 'game__play',
+    },
+    'play button',
+  );
+  elementInjector(mainGameButtons, gameBtn, playBtn);
 
-  elementInjector(footerTimer, timer);
+  const gameBtn2 = elementCreator(
+    'button',
+    {
+      class: 'game__btn',
+      id: 'game__btn',
+    },
+    'random text button in footer',
+  );
+  elementInjector(footer, gameBtn2);
+
+  // HAGRID INJECTOR
+  const hagrid = elementCreator('img', {
+    src: 'https://pbs.twimg.com/profile_images/633953219811672064/U-Yzld1q_400x400.png',
+    width: '100%',
+    height: '100%',
+  });
+  elementInjector(asideGameImage, hagrid);
 };
 
 export default App;
