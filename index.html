@@ -1,21 +1,45 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>CodersCamp2021 | Harry Potter</title>
-    <link rel="stylesheet" href="static/styles/App.css"/>
-
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-          rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CodersCamp2021 | Harry potter API QUIZ</title>
+    <link rel="stylesheet" href='./static/styles/index.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,500;0,800;1,400;1,500;1,600;1,800&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
+    <div class="game-wrapper">
+        <header class="header">
+            <div class="header__game-logo"></div>
+            <div class="header__game-nav"> </div>
+        </header>
 
-<div id="hpquiz-app">
+        <aside class="game-image">
+            <div class="game-image__content"></div>
+        </aside>
 
-</div>
+        <main class="game">
+            <div class="game__mode"></div>
+            <div class="game__mode-rules"></div>
+            <div class="game__btns">
+                <!-- <button class="game__btn" id="game__btn"></button>
+                <button class="game__play" id="game_play"></button> -->
+            </div>
+        </main>
 
-<script type="module" src="src/index.js"></script>
+        <footer class="footer">
+            <!-- <button class="game__btn" id="game__btn"></button> -->
+            <div class="game-timer"></div>
+        </footer>
+    </div>
+    <script type="module" src="./src/index.js"></script>
 </body>
+
 </html>
