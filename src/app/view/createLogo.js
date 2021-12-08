@@ -9,3 +9,6 @@ export const createLogo = () => {
     //the page will be reload
   });
 };
+
+//Test
+//Call a function in App.js
