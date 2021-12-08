@@ -1,4 +1,4 @@
-const isAnswerCorrect = (correctAnswer, chosenAnswer) => {
+export const correctAnswer = (correctAnswer, chosenAnswer) => {
   return correctAnswer === chosenAnswer;
 };
 
