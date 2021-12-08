@@ -20,8 +20,7 @@
     "email": "kontakt@coderscrew.pl",
     "url": "https://github.com/CodersCamp2021"
   },
-  "contributors": [
-    {
+  "contributors": [{
       "name": "Katarzyna Chmielecka",
       "url": "https://github.com/KatarzynaChmielecka"
     },
@@ -68,12 +67,10 @@
     "rimraf": "^3.0.2"
   },
   "staticFiles": {
-    "staticPath": [
-      {
-        "staticPath": "static",
-        "staticOutDir": "static"
-      }
-    ]
+    "staticPath": [{
+      "staticPath": "static",
+      "staticOutDir": "static"
+    }]
   },
   "dependencies": {
     "regenerator-runtime": "^0.13.9"
