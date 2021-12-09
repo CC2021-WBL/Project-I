@@ -88,9 +88,24 @@
 }
 
 .game-wrapper .game__mode {
-  outline: white dotted 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   height: 30%;
+  color: black;
+  font-weight: 500;
+  font-size: 48px;
+  background-color: white;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 0px 28px -1px #d41619;
+          box-shadow: 0px 0px 28px -1px #d41619;
 }
 
 .game-wrapper .game__mode-rules {
