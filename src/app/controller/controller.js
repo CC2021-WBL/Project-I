@@ -1,6 +1,6 @@
-import gameModeButtons from '../view/components/gameModeButtons';
-import logo from '../view/components/createLogo';
-import createLogo from '../view/components/createLogo';
+// import gameModeButtons from '../view/components/gameModeButtons';
+// import logo from '../view/components/createLogo';
+// import createLogo from '../view/components/createLogo';
 
 class Controller {
   constructor(model, view) {
@@ -11,15 +11,7 @@ class Controller {
     localStorage.setItem('rankings', JSON.stringify(this.model.rankings));
 
     // INIT LOOK OF OUR APP
-
-    // RENDER LOGO
-    this.view.render('.header__game-logo', createLogo());
-    // RENDER GAME MODE BUTTONS
-    this.view.render('.header__game-nav', ...gameModeButtons);
-    // RENDER INIT LOOK OF GAME_MODE
-    this.view.render('.game__mode', 'Choose category');
-    // RENDER RULES
-    this.view.render('.game__mode-rules', 'Harry Potter Quiz Game');
+    this.view.renderInitialScreen();
   }
 
   // Funkcja znajduje się w kontrolerze, odpalana jest w momencie kliknięcia buttona na stronie.
@@ -27,7 +19,8 @@ class Controller {
   // a) zmienia wartość gameMode w obiekcie model
   // b) używa metody showQuestionForChoosenMode, żeby zaktualizować tekst w odpowiednim
   // elemencie DOM
-  gameModeChoosen(mode) {
+
+  changeGameMode(mode) {
     this.model.gameMode = mode;
     this.view.showViewsForChosenMode(mode);
   }

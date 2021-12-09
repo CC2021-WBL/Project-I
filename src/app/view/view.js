@@ -1,6 +1,8 @@
 import elementInjector from '../utils/elementInjector';
 import rules from './components/rules';
 import questionForMode from './components/questionForMode';
+// import createLogo from './components/createLogo';
+// import gameModeButtons from './components/gameModeButtons';
 
 class View {
   constructor() {
@@ -38,6 +40,17 @@ class View {
   showViewsForChosenMode(mode) {
     this.render('.game__mode', questionForMode(mode));
     this.render('.game__mode-rules', rules(mode));
+  }
+
+  renderInitialScreen() {
+    // RENDER LOGO
+    this.render('.header__game-logo', createLogo());
+    // RENDER GAME MODE BUTTONS
+    this.render('.header__game-nav', ...gameModeButtons);
+    // RENDER INIT LOOK OF GAME_MODE
+    this.render('.game__mode', 'Choose category');
+    // RENDER RULES
+    this.render('.game__mode-rules', 'Harry Potter Quiz Game');
   }
 }
 
