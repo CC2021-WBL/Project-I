@@ -44,13 +44,13 @@ class View {
 
   renderInitialScreen() {
     // RENDER LOGO
-    this.render('.header__game-logo', createLogo());
-    // RENDER GAME MODE BUTTONS
-    this.render('.header__game-nav', ...gameModeButtons);
-    // RENDER INIT LOOK OF GAME_MODE
-    this.render('.game__mode', 'Choose category');
-    // RENDER RULES
-    this.render('.game__mode-rules', 'Harry Potter Quiz Game');
+    // this.render('.header__game-logo', //createlogo);
+    // // RENDER GAME MODE BUTTONS
+    // this.render('.header__game-nav', //gamemodebuttons);
+    // // RENDER INIT LOOK OF GAME_MODE
+    // this.render('.game__mode', 'Choose category');
+    // // RENDER RULES
+    // this.render('.game__mode-rules', 'Harry Potter Quiz Game');
   }
 }
 
