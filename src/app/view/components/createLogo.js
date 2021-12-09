@@ -1,9 +1,10 @@
 import elementCreator from '../../utils/elementCreator';
+import logoPath from '../../../../static/assets/img/logo.png';
 
 const createLogo = () => {
   const logo = elementCreator('img', {
     class: '.header__game-logo',
-    src: '../static/assets/img/logo.png',
+    src: logoPath,
   });
 
   logo.addEventListener('click', () => {
