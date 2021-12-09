@@ -1,11 +1,11 @@
-:root {
-  font-family: 'Bitter', serif;
-}
+@import '_mainMenu.scss', '_vars.scss';
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Bitter', serif;
+  font-size: $primary-font-size;
 }
 
 .game-wrapper {
@@ -32,7 +32,7 @@
     &__game-nav {
       width: 60%;
       height: 80%;
-      background: rgb(130, 48, 0);
+      // background: rgb(130, 48, 0);
     }
   }
   .game-image {

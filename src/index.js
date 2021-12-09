@@ -1,7 +1,7 @@
 import 'regenerator-runtime/runtime'; // async/await with Parcel
 import Model from './app/logic/model';
 import View from './app/view/view';
-import Controller from './app/logic/controller';
+import Controller from './app/controller/controller';
 
 const ONE_SECOND_MILLIS = 1000;
 const HP_API_BASE_URL =
