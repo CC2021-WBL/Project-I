@@ -1,9 +1,9 @@
-function elementInjector(parentElement, ...children) {
+function elementInjector(parentElement, children) {
   children.forEach((child) => {
     if (typeof child === 'string') {
       parentElement.appendChild(document.createTextNode(child));
     } else {
-      parentElement.append(child);
+      parentElement.appendChild(child);
     }
   });
 }

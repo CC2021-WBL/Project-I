@@ -1,3 +1,7 @@
+import elementInjector from '../utils/elementInjector';
+import rules from './components/rules';
+import questionForMode from './components/questionForMode';
+
 class View {
   constructor() {
     // Selectory przygotowane do późniejszej manipulacji
@@ -18,13 +22,22 @@ class View {
     this.gameTimer = document.querySelector('.game-timer');
   }
 
-  showQuestionForChoosenMode(mode) {
-    const questions = {
-      Students: "Who is this Hogwart's student?",
-      Staff: "Who is this from Hogwart's staff?",
-      Houses: 'To which house do they belong\n?',
-    };
-    this.gameMode.textContent = `MODE: ${questions[mode]}`;
+  // eslint-disable-next-line class-methods-use-this
+  render(query, ...children) {
+    if (children.length === 0 || !query) {
+      throw new Error('Required query and at least one child in arguments');
+    }
+    const parentElem = document.querySelector(query);
+    parentElem.innerHTML = '';
+    if (!parentElem) {
+      throw new Error(`Not found element by query ${query}`);
+    }
+    elementInjector(parentElem, children);
+  }
+
+  showViewsForChosenMode(mode) {
+    this.render('.game__mode', questionForMode(mode));
+    this.render('.game__mode-rules', rules(mode));
   }
 }
 

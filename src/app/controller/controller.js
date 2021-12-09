@@ -1,8 +1,6 @@
-import gameWrapper from '../view/webStructure';
-// nie wiem czy już jest za późno i straciłem zdolność trzeźwego myślenia. Jak wywalę tę linijkę
-// z importem to znika całą strona. Czemu się tak dzieje? Masz jakiś pomysł jak elegancko
-// zainicjować ten nasz szkielet który przygotowała Kasia? Bo im dłużej kombinuję tym bardziej
-// się zastanawiam czy nie zostawić tego wszystkiego w htmlu.
+import gameModeButtons from '../view/components/gameModeButtons';
+import logo from '../view/components/logo';
+import createLogo from '../view/components/logo';
 
 class Controller {
   constructor(model, view) {
@@ -11,6 +9,17 @@ class Controller {
 
     // If rankings is empty arrays set this in localStorage
     localStorage.setItem('rankings', JSON.stringify(this.model.rankings));
+
+    // INIT LOOK OF OUR APP
+
+    // RENDER LOGO
+    this.view.render('.header__game-logo', createLogo());
+    // RENDER GAME MODE BUTTONS
+    this.view.render('.header__game-nav', ...gameModeButtons);
+    // RENDER INIT LOOK OF GAME_MODE
+    this.view.render('.game__mode', 'Choose category');
+    // RENDER RULES
+    this.view.render('.game__mode-rules', 'Harry Potter Quiz Game');
   }
 
   // Funkcja znajduje się w kontrolerze, odpalana jest w momencie kliknięcia buttona na stronie.
@@ -20,17 +29,7 @@ class Controller {
   // elemencie DOM
   gameModeChoosen(mode) {
     this.model.gameMode = mode;
-    this.view.showQuestionForChoosenMode(mode);
-  }
-
-  // Ta funkcja wywołana na obiekcie app pokaże w konsoli Obiekt modelu
-  showModelObject() {
-    console.log(this.model);
-  }
-
-  // Ta funkcja wywołana na obiekcie app pokaże w konsoli Obiekt widoku
-  showViewObject() {
-    console.log(this.view);
+    this.view.showViewsForChosenMode(mode);
   }
 }
 export default Controller;
