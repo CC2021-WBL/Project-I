@@ -8,20 +8,23 @@
   ],
   "scripts": {
     "start": "parcel",
-    "build": "parcel build"
+    "build": "parcel build",
+    "clean": "rimraf .cache && rimraf dist && rimraf node_modules && rimraf .parcel-cache"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CC2021-WBL/Project-I.git"
   },
-  "keywords": ["coderscamp2021", "harrypotterquiz"],
+  "keywords": [
+    "coderscamp2021",
+    "harrypotterquiz"
+  ],
   "author": {
     "name": "CodersCamp2021",
     "email": "kontakt@coderscrew.pl",
     "url": "https://github.com/CodersCamp2021"
   },
-  "contributors": [
-    {
+  "contributors": [{
       "name": "Katarzyna Chmielecka",
       "url": "https://github.com/KatarzynaChmielecka"
     },
@@ -68,12 +71,10 @@
     "rimraf": "^3.0.2"
   },
   "staticFiles": {
-    "staticPath": [
-      {
-        "staticPath": "static",
-        "staticOutDir": "static"
-      }
-    ]
+    "staticPath": [{
+      "staticPath": "static",
+      "staticOutDir": "static"
+    }]
   },
   "dependencies": {
     "regenerator-runtime": "^0.13.9"
