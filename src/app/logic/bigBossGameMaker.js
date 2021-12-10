@@ -2,49 +2,84 @@
 let urlAdress1 = 'http://hp-api.herokuapp.com/api/characters';
 let urlAdress2 = 'http://hp-api.herokuapp.com/api/characters/students';
 let urlAdress3 = 'http://hp-api.herokuapp.com/api/characters/staff';
-let amountOfIDs = 30;
+const amountOfIDs = 30;
+const playerName = 'Matylda';
+const gameTime = 2;
 
 //---------------------------------------------------------------------------------------------------------------
 
 import { MainQuestionManager } from './mainQuestionManager.js';
 import { Player } from './player.js';
+import { Timer } from './timer.js';
+//import {correctAnswer} from './correctAnswer.js'
 
 //STARTING NEW GAME---------------------------------------------------------------------------------------------------------
 export class GameMaker {
   #mainQuestionManager;
+  #player;
+  timer;
 
   constructor() {
-    this.#mainQuestionManager = new MainQuestionManager(urlAdress, amountOfIDs);
+    this.#mainQuestionManager = new MainQuestionManager(
+      urlAdress1,
+      amountOfIDs,
+    );
+    this.#player = new Player(playerName);
+    this.timer = new Timer(gameTime);
     this.initialGameTimeMinutes = 2;
+    this.objectsForMode = [];
+    this.questionObject;
   }
 
-  //startGameButton.AddEventLisneter('click', createQuestion());
+  //GENEROWANIE PYTANIA DLA GRACZA
+  createQuestion(callbackOnNewQuestionTaken) {
+    this.questionObject = await this.#mainQuestionManager.GetQuestion();
+    if (this.objectsForMode.length === 0) {
+      this.objectsForMode = this.#mainQuestionManager.arrayWithObjectsForMode;
+    }
+    callbackOnNewQuestionTaken(this.questionObject);
+  }
 
-  createQuestion() {
-    let questionObject = await this.#mainQuestionManager.GetQuestion();
+  //ZADANIE PYTANIA GRACZOWI
+
+  showQuestionAndAnswers() {
     //document.getElementById('Answer1').innerHTML = questionObject.answers[0];
     //document.getElementById('Answer2').innerHTML = questionObject.answers[1];
     //document.getElementById('Answer3').innerHTML = questionObject.answers[2];
     //document.getElementById('Answer4').innerHTML = questionObject.answers[3];
   }
 
-  runTimer() {
-    const initialTimeInMilisec = this.initialGameTimeMinutes * 60 * 1000;
-    const timeInterval = 1000;
-    let timeLeft = initialTimeInMilisec;
+  //ZAPISYWANIE ODPOWIEDZI GRACZA
 
-    let timer = setInterval(() => {
-      timeLeft = timeLeft - timeInterval;
-      let minutes = Math.floor(timeLeft / (1000 * 60));
-      let seconds = Math.floor(timeLeft % (1000 * 60) / 1000);
-      document.getElementById('TIMER-ELEMENT-WILL-BE-HERE').innerHTML = `Time left: ${minutes}m ${seconds}s`;
-      if (timeLeft <0) {
-        clearInterval();
-        //FINISH GAME FUNCTION / DISPLAY GAME OVER MODAL
-      }
-    }, timeInterval);
+  setAnswer(e) {
+    this.#player.playerAnswer = e.target.innerText;
   }
 
-//
-
+  //SPRAWDZANIE POPRAWNOŚCI ODPOWIEDZI
+  /*
+  checkAnswer(callbackOnAnswerChecked){
+  const rightAnswer = this.questionObject.rightAnswer;
+  const isAnswerCorrect = correctAnswer(rightAnswer, this.#player.playerAnswer)
+  }
+  
+   */
 }
+
+//---------------------PRZEPROWADZANIE ROZGRYWKI-----------------------------------------------------------------
+let gameMaker = new GameMaker();
+
+//startGameButton.AddEventLisneter('click', startGame());
+
+//ODLICZANIE CZASU DO KOŃCA ROZGRYWKI (//FUNKCJE NA ZAKOŃCZENIE ROZGRYWKI)
+gameMaker.timer.runTimer(callbackOnEndOfTime);
+
+//PRZEPROWADZANIE ROZGRWYKI
+do {
+  //GENEROWANIA PYTANIA DLA GRACZA     (//ZADANIE PYTANIA GRACZOWI)
+  gameMaker.createQuestion(gameMaker.showQuestionAndAnswers());
+  //REAGOWANIE NA ODP GRACZA
+  //AnswerButton.AddEventListener('Click', setAnswer(e))
+  //SPRAWDZANIE POPRAWNOŚCI ODPOWIEDZI (//KONTYNUACJA ROZGRYWKI)
+  //checkAnswer(callbackOnAnswerChecked)
+} while (gameMaker.timer.isTimeLeft === true);
+//ew.co ma się dziać po końcu czasu / lub podpięte pod callbackOnEndOfTime
