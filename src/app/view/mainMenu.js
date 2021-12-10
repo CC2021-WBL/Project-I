@@ -1,39 +1,37 @@
 const nav = document.querySelector('.header__game-nav');
 const tab = document.getElementsByClassName('button');
 
-const people = document.createElement('button');
-people.textContent = 'People';
-people.classList.add('active');
-people.classList.add('button');
-// nav.append(people);
+const students = document.createElement('button');
+students.textContent = 'Students';
+students.classList.add('active');
+students.classList.add('button');
 
 const houses = document.createElement('button');
 houses.textContent = 'Houses';
 houses.classList.add('button');
-// nav.append(houses);
 
-const wands = document.createElement('button');
-wands.textContent = 'Wands';
-wands.classList.add('button');
-nav.append(people, houses, wands);
+const staff = document.createElement('button');
+staff.textContent = 'Staff';
+staff.classList.add('button');
+nav.append(students, houses, staff);
 
 function init() {
   for (let i = 0; i < tab.length; i++) {
     tab[i].addEventListener('click', function () {
       if (tab[i].classList.contains('active')) {
-        clear(tab);
+        clearSelection(tab);
       } else {
-        clear(tab);
+        clearSelection(tab);
         tab[i].classList.add('active');
+
         console.log(tab[i].textContent);
       }
     });
   }
 }
-function clear(a) {
-  for (let i = 0; i < a.length; i++) {
-    a[i].classList.remove('active');
+function clearSelection(item) {
+  for (let i = 0; i < item.length; i++) {
+    item[i].classList.remove('active');
   }
 }
 init();
-// Zadanie do headerowe menu z opcjami. Musisz założyć że klikniecie spowoduje wywolanie funkcji, ktora przekaze reszcie aplikacji informacji o wybranym trybie oraz wizualne zaznaczenie tego trybu.
