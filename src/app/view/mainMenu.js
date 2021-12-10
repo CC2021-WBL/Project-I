@@ -15,9 +15,15 @@ staff.textContent = 'Staff';
 staff.classList.add('button');
 nav.append(students, houses, staff);
 
+function clearSelection(item) {
+  for (let i = 0; i < item.length; i++) {
+    item[i].classList.remove('active');
+  }
+}
+
 function init() {
   for (let i = 0; i < tab.length; i++) {
-    tab[i].addEventListener('click', function () {
+    tab[i].addEventListener('click', () => {
       if (tab[i].classList.contains('active')) {
         clearSelection(tab);
       } else {
@@ -29,9 +35,5 @@ function init() {
     });
   }
 }
-function clearSelection(item) {
-  for (let i = 0; i < item.length; i++) {
-    item[i].classList.remove('active');
-  }
-}
+
 init();
