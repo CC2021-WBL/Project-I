@@ -6,7 +6,7 @@ export class DataManager {
     this.reader = new FileReader();
     this.arraywithHPObjects;
     this.rightAnswer;
-    this.urlOfImgRightAnswer;
+    this.base64dataImg;
     this.arraywithAnswersForQuestion = [];
   }
 
@@ -18,17 +18,15 @@ export class DataManager {
         this.arraywithHPObjects !== undefined
       ) {
         this.arraywithAnswersForQuestion = getDataForIDs(IDsArray);
-        
 
         // data for right answer:
         let rightAnswerValues = await getDataForCorrectAnswer(
           this.idOfRightAnswer,
           this.arraywithHPObjects,
         ).json();
-        
+
         this.rightAnswer = rightAnswerValues[0];
-        this.urlOfImgRightAnswer = rightAnswerValues[1];
-        
+        this.base64dataImg = rightAnswerValues[1];
       }
       // Getting data first time and creating array with answers, img and name for correct answer
       else {
@@ -39,7 +37,6 @@ export class DataManager {
           this.IDsArray,
           this.arraywithHPObjects,
         );
-        
 
         //img for right answer:
         let rightAnswerValues = await getDataForCorrectAnswer(
@@ -47,14 +44,13 @@ export class DataManager {
           this.arraywithHPObjects,
         );
         this.rightAnswer = rightAnswerValues[0];
-        this.urlOfImgRightAnswer = rightAnswerValues[1];
+        this.base64dataImg = rightAnswerValues[1];
       }
     } catch (error) {
       console.log(error);
     }
   }
 }
-
 
 //----------------------------------------------------------------PRIVATE METHODS-----------------------------------------------------
 //1) CREATING ARRAY WITH ANSWERS = NAMES OF HARRY POTTER CHARACTERS
@@ -78,7 +74,12 @@ async function getDataForCorrectAnswer(
 ) {
   const obj = arraywithHPObjects[idOfRightAnswer];
   const rightAnswer = obj.name;
-  const imgUrl = obj.image;
+  const imgFromFile = await fetch('ŚCIEŻKA DOSTĘPU');
+  const imgBlob = imgFromFile.blob();
+  reader.readAsDataURL(imgBlob);
+  reader.onloadend = function () {
+  let base64dataImg = reader.result;
 
-  return [rightAnswer, imgUrl];
+    return [rightAnswer, base64dataImg];
+  };
 }
