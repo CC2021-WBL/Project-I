@@ -1,13 +1,58 @@
-export class DataManager {
-  constructor(IDsArray = [], resourceAPIadress, idOfRightAnswer) {
+class DataManager {
+  constructor(
+    resourceAPIadress,
+    idOfRightAnswer,
+    answerProperty,
+    IDsArray = [],
+  ) {
     this.idOfRightAnswer = idOfRightAnswer;
     this.resourceAPIadress = resourceAPIadress;
+    this.answerProperty = answerProperty;
+    // answerProperty should be 'name' for Students Mode or 'house' for Houses mode
     this.IDsArray = IDsArray;
-    this.reader = new FileReader();
-    this.arraywithHPObjects;
-    this.rightAnswer;
-    this.base64dataImg;
+    this.arraywithHPObjects = [];
+    this.rightAnswer = '';
+    this.base64dataImg = '';
     this.arraywithAnswersForQuestion = [];
+  }
+
+  getDataForMode() {
+    return this.arraywithHPObjects;
+  }
+
+  // 1) CREATING ARRAY WITH ANSWERS = NAMES OF HARRY POTTER CHARACTERS
+  getDataForIDs(arraywithHPObjects) {
+    const arrayWithAnswers = [];
+    this.IDsArray.forEach((element) => {
+      const obj = arraywithHPObjects[element];
+      const { name } = obj;
+      arrayWithAnswers.push(name);
+    });
+    return arrayWithAnswers;
+  }
+
+  async blobToBase64(blob) {
+    return new Promise((resolve, _) => {
+      const reader = new FileReader();
+      reader.onloadend = () => resolve(reader.result);
+      reader.readAsDataURL(blob);
+    });
+  }
+
+  // 2) GETTING NAME OF CHARACTER AND URL FOR IMAGE FOR CORRECT ANSWER
+  async getDataForCorrectAnswer() {
+    const obj = this.arraywithHPObjects[this.idOfRightAnswer];
+    if (this.answerProperty === 'house') {
+      this.rightAnswer = obj.house;
+    } else {
+      this.rightAnswer = obj.name;
+    }
+    const imgFromFile = await fetch(
+      './static/assets/img/images/students/0.jpg',
+    );
+    const imgBlob = await imgFromFile.blob();
+
+    this.base64dataImg = await this.blobToBase64(imgBlob);
   }
 
   async getDataByAPI() {
@@ -15,71 +60,30 @@ export class DataManager {
       // Checking if data are download, if yes -->  creating creating array with answers, img and name for correct answer
       if (
         this.arraywithHPObjects !== null &&
-        this.arraywithHPObjects !== undefined
+        this.arraywithHPObjects !== undefined &&
+        this.arraywithHPObjects.length !== 0
       ) {
-        this.arraywithAnswersForQuestion = getDataForIDs(IDsArray);
+        this.arraywithAnswersForQuestion = this.getDataForIDs(this.IDsArray);
 
         // data for right answer:
-        let rightAnswerValues = await getDataForCorrectAnswer(
-          this.idOfRightAnswer,
-          this.arraywithHPObjects,
-        ).json();
-
-        this.rightAnswer = rightAnswerValues[0];
-        this.base64dataImg = rightAnswerValues[1];
+        await this.getDataForCorrectAnswer();
       }
       // Getting data first time and creating array with answers, img and name for correct answer
       else {
         const response = await fetch(this.resourceAPIadress);
         const jsonData = await response.json();
-        this.arraywithHPObjects = await jsonData;
-        this.arraywithAnswersForQuestion = getDataForIDs(
-          this.IDsArray,
+        this.arraywithHPObjects = jsonData;
+        this.arraywithAnswersForQuestion = this.getDataForIDs(
           this.arraywithHPObjects,
         );
 
-        //img for right answer:
-        let rightAnswerValues = await getDataForCorrectAnswer(
-          this.idOfRightAnswer,
-          this.arraywithHPObjects,
-        );
-        this.rightAnswer = rightAnswerValues[0];
-        this.base64dataImg = rightAnswerValues[1];
+        // img for right answer:
+        await this.getDataForCorrectAnswer();
       }
     } catch (error) {
-      console.log(error);
+      throw Error(`${error}`);
     }
   }
 }
 
-//----------------------------------------------------------------PRIVATE METHODS-----------------------------------------------------
-//1) CREATING ARRAY WITH ANSWERS = NAMES OF HARRY POTTER CHARACTERS
-
-function getDataForIDs(IDsArray = [], arraywithHPObjects) {
-  let arrayWithAnswers = [];
-
-  IDsArray.forEach((element) => {
-    const obj = arraywithHPObjects[element];
-    const name = obj.name;
-    arrayWithAnswers.push(name);
-  });
-  return arrayWithAnswers;
-}
-
-//2) GETTING NAME OF CHARACTER AND URL FOR IMAGE FOR CORRECT ANSWER
-
-async function getDataForCorrectAnswer(
-  idOfRightAnswer,
-  arraywithHPObjects = [],
-) {
-  const obj = arraywithHPObjects[idOfRightAnswer];
-  const rightAnswer = obj.name;
-  const imgFromFile = await fetch('ŚCIEŻKA DOSTĘPU');
-  const imgBlob = imgFromFile.blob();
-  reader.readAsDataURL(imgBlob);
-  reader.onloadend = function () {
-  let base64dataImg = reader.result;
-
-    return [rightAnswer, base64dataImg];
-  };
-}
+export default DataManager;

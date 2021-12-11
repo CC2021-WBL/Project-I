@@ -1,34 +1,38 @@
-import { QuestionGenerator } from './questionGenerator.js';
-import { DataManager } from './dataManager.js';
+/* eslint-disable import/extensions */
+import QuestionGenerator from './questionGenerator.js';
+import DataManager from './dataManager.js';
 
-export class MainQuestionManager {
-  constructor(urlAdress, amountOfIDs) {
+class MainQuestionManager {
+  constructor(urlAdress, amountOfIDs, answerProperty) {
     this.urlAdress = urlAdress;
     this.amountOfIDs = amountOfIDs;
+    this.answerProperty = answerProperty;
     this.arrayWithObjectsForMode = [];
   }
 
   async GetQuestion() {
-    let arrayWithID = QuestionGenerator.generateQuestionsForCurrentMode(
+    const arrayWithID = QuestionGenerator.generateQuestionsForCurrentMode(
       this.amountOfIDs,
     );
-    let idOfCorrectAnswer = QuestionGenerator.chooseCorrectAnswer(arrayWithID);
+    const idOfCorrectAnswer =
+      QuestionGenerator.chooseCorrectAnswer(arrayWithID);
 
-    let dataManager = new DataManager(
-      arrayWithID,
+    const dataManager = new DataManager(
       this.urlAdress,
       idOfCorrectAnswer,
+      this.answerProperty,
+      arrayWithID,
     );
     await dataManager.getDataByAPI();
-    let arraywithAnswersForQuestion = dataManager.arraywithAnswersForQuestion;
-    let rightAnswer = dataManager.rightAnswer;
-    let imgUrlForRightAnswer = dataManager.urlOfImgRightAnswer;
-    this.arrayWithObjectsForMode = dataManager.arraywithHPObjects;
+    const { arraywithAnswersForQuestion } = dataManager;
+    const { rightAnswer } = dataManager;
+    const { base64dataImg } = dataManager;
+    this.arrayWithObjectsForMode = dataManager.getDataForMode();
 
     const question = {
-      image: imgUrlForRightAnswer,
+      image: base64dataImg,
       answers: arraywithAnswersForQuestion,
-      rightAnswer: rightAnswer,
+      rightAnswer,
     };
 
     return question;
@@ -37,10 +41,11 @@ export class MainQuestionManager {
   GetObjectsForMode() {
     if (this.arrayWithObjectsForMode.length > 0) {
       return this.arrayWithObjectsForMode;
-    } else {
-      console.log(
-        'arrayWithObjectsForMode is empty, lets start the game for the first time',
-      );
     }
+    throw Error(
+      'arrayWithObjectsForMode is empty, lets start the game for the first time',
+    );
   }
 }
+
+export default MainQuestionManager;

@@ -1,4 +1,4 @@
-export class QuestionGenerator {
+class QuestionGenerator {
   // argument argAmountOfId will be relaced by connection to CurrentMode and it's IDs'
 
   static generateRandomId(amountOfId) {
@@ -18,14 +18,14 @@ export class QuestionGenerator {
             Type must be number. Passed type: ${typeof amountOfId}`;
     }
 
-    for (let index = 0; index < amountOfAnswersPerQuestion; index + 1) {
+    for (let index = 0; index < amountOfAnswersPerQuestion; index += 1) {
       let id;
       do {
         id = QuestionGenerator.generateRandomId(amountOfId);
       } while (generatedIds.includes(id) === true);
-
       generatedIds.push(id);
     }
+
     return generatedIds;
   }
 
