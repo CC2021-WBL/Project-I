@@ -1,22 +1,24 @@
-//--------variables for testing, to be replaced in future---------------------------------------------------
-let urlAdress1 = 'http://hp-api.herokuapp.com/api/characters';
-let urlAdress2 = 'http://hp-api.herokuapp.com/api/characters/students';
-let urlAdress3 = 'http://hp-api.herokuapp.com/api/characters/staff';
-const amountOfIDs = 30;
-const playerName = 'Matylda';
-const gameTime = 2;
-
+// --------variables for testing, to be replaced in future---------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------
 
 import { MainQuestionManager } from './mainQuestionManager.js';
 import { Player } from './player.js';
-import { Timer } from './timer.js';
-//import {correctAnswer} from './correctAnswer.js'
+import correctAnswer from './correctAnswer.js';
+// import GameTimer 
 
-//STARTING NEW GAME---------------------------------------------------------------------------------------------------------
+const urlAdress1 = 'http://hp-api.herokuapp.com/api/characters';
+const urlAdress2 = 'http://hp-api.herokuapp.com/api/characters/students';
+const urlAdress3 = 'http://hp-api.herokuapp.com/api/characters/staff';
+const amountOfIDs = 30;
+const playerName = 'Matylda';
+const gameTime = 2;
+
+// STARTING NEW GAME---------------------------------------------------------------------------------------------------------
 export class GameMaker {
   #mainQuestionManager;
+
   #player;
+
   timer;
 
   constructor() {
@@ -25,61 +27,62 @@ export class GameMaker {
       amountOfIDs,
     );
     this.#player = new Player(playerName);
-    this.timer = new Timer(gameTime);
+    this.timer = new GameTimer(gameTime);
     this.initialGameTimeMinutes = 2;
     this.objectsForMode = [];
-    this.questionObject;
+    this.questionObject = {};
   }
 
-  //GENEROWANIE PYTANIA DLA GRACZA
-  createQuestion(callbackOnNewQuestionTaken) {
+  // GENEROWANIE PYTANIA DLA GRACZA
+  async createQuestion() {
     this.questionObject = await this.#mainQuestionManager.GetQuestion();
     if (this.objectsForMode.length === 0) {
       this.objectsForMode = this.#mainQuestionManager.arrayWithObjectsForMode;
     }
-    callbackOnNewQuestionTaken(this.questionObject);
+    return this.questionObject;
   }
 
-  //ZADANIE PYTANIA GRACZOWI
+  // ZAPISYWANIE ODPOWIEDZI GRACZA
 
-  showQuestionAndAnswers() {
-    //document.getElementById('Answer1').innerHTML = questionObject.answers[0];
-    //document.getElementById('Answer2').innerHTML = questionObject.answers[1];
-    //document.getElementById('Answer3').innerHTML = questionObject.answers[2];
-    //document.getElementById('Answer4').innerHTML = questionObject.answers[3];
+  setAnswer(answer) {
+    this.#player.playerAnswer = answer;
+    // this.#player.playerAnswer = e.target.innerText;
   }
 
-  //ZAPISYWANIE ODPOWIEDZI GRACZA
+  // SPRAWDZANIE POPRAWNOŚCI ODPOWIEDZI
 
-  setAnswer(e) {
-    this.#player.playerAnswer = e.target.innerText;
+  checkAnswer() {
+    isAnswerCorrect = correctAnswer(
+      this.questionObject.rightAnswer,
+      this.#player.playerAnswer,
+    );
   }
 
-  //SPRAWDZANIE POPRAWNOŚCI ODPOWIEDZI
-  /*
-  checkAnswer(callbackOnAnswerChecked){
-  const rightAnswer = this.questionObject.rightAnswer;
-  const isAnswerCorrect = correctAnswer(rightAnswer, this.#player.playerAnswer)
+  // FUNKCJE NA ZEWNĄTRZ ---------------------------------------------------------------------------
+
+  // Rozpoczynanie gry
+
+  async startGameAndGetFirstQuestion() {
+    this.timer.runTimer(callbackOnEndOfTime);
+    return await this.createQuestion();
   }
-  
-   */
+  // Sprawdzanie odp i Generowanie kolejnego pytania
+
+  async checkAnswerAndGetNewQuestion(answer) {
+    this.setAnswer(answer);
+    this.checkAnswer();
+    return await this.createQuestion();
+  }
 }
 
-//---------------------PRZEPROWADZANIE ROZGRYWKI-----------------------------------------------------------------
-let gameMaker = new GameMaker();
+// ---------------------PRZEPROWADZANIE ROZGRYWKI-----------------------------------------------------------------
 
-//startGameButton.AddEventLisneter('click', startGame());
+// startGameButton.AddEventLisneter('click', startGame());
+const gameMaker = new GameMaker();
 
-//ODLICZANIE CZASU DO KOŃCA ROZGRYWKI (//FUNKCJE NA ZAKOŃCZENIE ROZGRYWKI)
-gameMaker.timer.runTimer(callbackOnEndOfTime);
+// ROZPOCZĘCIE ROZGRYWKI, WŁĄCZENIE TIMERA I WYGENEROWANIE PIERWSZEGO PYTANIA
 
-//PRZEPROWADZANIE ROZGRWYKI
-do {
-  //GENEROWANIA PYTANIA DLA GRACZA     (//ZADANIE PYTANIA GRACZOWI)
-  gameMaker.createQuestion(gameMaker.showQuestionAndAnswers());
-  //REAGOWANIE NA ODP GRACZA
-  //AnswerButton.AddEventListener('Click', setAnswer(e))
-  //SPRAWDZANIE POPRAWNOŚCI ODPOWIEDZI (//KONTYNUACJA ROZGRYWKI)
-  //checkAnswer(callbackOnAnswerChecked)
-} while (gameMaker.timer.isTimeLeft === true);
-//ew.co ma się dziać po końcu czasu / lub podpięte pod callbackOnEndOfTime
+await gameMaker.startGameAndGetFirstQuestion();
+await gameMaker.checkAnswerAndGetNewQuestion(answer);
+
+// ew.co ma się dziać po końcu czasu / lub podpięte pod callbackOnEndOfTime
