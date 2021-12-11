@@ -10,17 +10,17 @@ class GameTimer {
     let timeLeft = initialTimeInMilisec;
     this.isTimeLeft = true;
 
-    // było const timer = setInterval...
-
-    setInterval(() => {
+    let timer = setInterval(() => {
       timeLeft -= timeInterval;
       const minutes = Math.floor(timeLeft / (1000 * 60));
       const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-      document.getElementById(
+      console.log(`Time left: ${minutes}m ${seconds}s`);
+      /*document.getElementById(
         'TIMER-ELEMENT-WILL-BE-HERE',
-      ).innerHTML = `Time left: ${minutes}m ${seconds}s`;
+      ).innerHTML = `Time left: ${minutes}m ${seconds}s`);*/
       if (timeLeft <= 0) {
-        clearInterval();
+        clearInterval(timer);
+        console.log(timeLeft);
         this.isTimeLeft = false;
         callbackOnEndOfTime();
         // FINISH GAME FUNCTION / DISPLAY GAME OVER MODAL -- z innych miejsc podpięcie się pod ten callback
@@ -28,5 +28,4 @@ class GameTimer {
     }, timeInterval);
   }
 }
-
 export default GameTimer;
