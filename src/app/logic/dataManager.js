@@ -3,12 +3,15 @@ class DataManager {
     resourceAPIadress,
     idOfRightAnswer,
     answerProperty,
+    gameMode,
     IDsArray = [],
   ) {
     this.idOfRightAnswer = idOfRightAnswer;
     this.resourceAPIadress = resourceAPIadress;
     this.answerProperty = answerProperty;
     // answerProperty should be 'name' for Students Mode or 'house' for Houses mode
+    this.gameMode = gameMode;
+    // gameMode should be 'students' for Students Mode or 'staff' for Staff Mode, or in future 'houses' for Houses Mode
     this.IDsArray = IDsArray;
     this.arraywithHPObjects = [];
     this.rightAnswer = '';
@@ -48,7 +51,7 @@ class DataManager {
       this.rightAnswer = obj.name;
     }
     const imgFromFile = await fetch(
-      './static/assets/img/images/students/0.jpg',
+      `./static/assets/img/images/${this.gameMode}/${this.idOfRightAnswer}.jpg`,
     );
     const imgBlob = await imgFromFile.blob();
 
