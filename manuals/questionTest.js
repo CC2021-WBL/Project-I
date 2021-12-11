@@ -4,22 +4,22 @@
 import MainQuestionManager from '../src/app/logic/mainQuestionManager.js';
 
 // -------------FOR TESTING VARIABLES----------------------------
-const urlStudents = 'http://hp-api.herokuapp.com/api/characters/students';
-// const urlStaff = 'http://hp-api.herokuapp.com/api/characters/staff';
-const idsStudents = 10;
-// const idsStaff = 8;
+//const urlStudents = 'http://hp-api.herokuapp.com/api/characters/students';
+const urlStaff = 'http://hp-api.herokuapp.com/api/characters/staff';
+// const idsStudents = 10;
+const idsStaff = 7;
 const nameProperty = 'name';
 // const houseProperty = 'house'; - DONT USE IT NOW IT WON'T WORK CORRECTLY!!!!!!!!!!!!!!!!!! (new issue - new way of creating answers)
-const gameModeStudents = 'students';
-// const gameModeStaff = 'staff'
+//const gameModeStudents = 'students';
+const gameModeStaff = 'staff';
 
 //----------------------------------------------------------------
 
 const mainQuestionManager = new MainQuestionManager(
-  urlStudents,
-  idsStudents,
+  urlStaff,
+  idsStaff,
   nameProperty,
-  gameModeStudents,
+  gameModeStaff,
 );
 
 const question = await mainQuestionManager.GetQuestion();
