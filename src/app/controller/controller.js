@@ -24,10 +24,5 @@ class Controller {
     this.model.gameMode = mode;
     this.view.showViewsForChosenMode(mode);
   }
-
-  resetView() {
-    this.model.gameMode = null;
-    this.view.renderInitialScreen();
-  }
 }
 export default Controller;
