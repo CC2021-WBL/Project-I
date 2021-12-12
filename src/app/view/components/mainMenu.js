@@ -1,5 +1,5 @@
-import elementCreator from '../../utils/elementCreator.js';
-import clearActive from '../../utils/clearActive.js';
+import elementCreator from '../../utils/elementCreator';
+import clearActive from '../../utils/clearActive';
 
 const modeButtons = [
   elementCreator('button', { class: 'button' }, 'Students'),
@@ -7,10 +7,10 @@ const modeButtons = [
   elementCreator('button', { class: 'button' }, 'Staff'),
 ];
 
-modeButtons.map(button =>
+modeButtons.map((button) =>
   button.addEventListener('click', () => {
     clearActive(modeButtons);
-    button.classList.add('active')
+    button.classList.add('active');
     window.app.changeGameMode(button.textContent);
   }),
 );
