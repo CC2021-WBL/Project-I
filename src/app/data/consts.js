@@ -1,5 +1,4 @@
-class Consts {
-  static GAME_MODES = {
+export GAME_MODES = {
     Students: {
       gamemode: 'Students',
       imgSubfolder: 'students',
@@ -26,17 +25,17 @@ class Consts {
     },
   };
 
-  static rankingsTemplate = {
+export rankingsTemplate = {
     students: [],
     staff: [],
     houses: [],
   };
 
-  static DEFAULT_BASE_URL = Consts.GAME_MODES.students.urlAdress;
+export DEFAULT_BASE_URL = Consts.GAME_MODES.students.urlAdress;
 
-  static ONE_SECOND_MILLIS = 1000;
+export ONE_SECOND_MILLIS = 1000;
 
-  static DEFAULT_MAX_TIME = 2; // in minutes
-}
+export ONE_MINUTE_SECONDS = 60;
 
-export default Consts;
+export DEFAULT_MAX_TIME = 2; // in minutes
+
