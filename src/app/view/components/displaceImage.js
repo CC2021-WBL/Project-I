@@ -1,7 +1,5 @@
 import elementCreator from "../../utils/elementCreator";
 
-import imageSrc from '../../../../static/assets/img/images/staff/1.jpg';
-
 const imageNode = {};
 
 const updateImage = (imageSource) => {
@@ -17,8 +15,8 @@ const updateImage = (imageSource) => {
 };
 
 function displaceImage(imageSource, altDescription) {
-    const image = elementCreator('img', {src: imageSrc, class: 'game-image__content--image', alt: 'blablabl'});
-    image.src = `./static/assets/img/images/students/${imageSource}`;
-    image.alt = `${altDescription}`;
+    const image = elementCreator('img', {class: 'game-image__content--image', alt: `${altDescription}`});
+    imageNode.ref = image;
+    updateImage(imageSource);
     return image;
 };
