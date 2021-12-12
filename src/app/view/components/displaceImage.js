@@ -22,4 +22,3 @@ function displaceImage(imageSource, altDescription) {
     image.alt = `${altDescription}`;
     return image;
 };
-
