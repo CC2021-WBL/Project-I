@@ -49,6 +49,16 @@ const testGameInfos = [
     result: 500,
     mode: 'houses',
   },
+  {
+    name: 'Adam Małysz',
+    result: 999,
+    mode: 'staff',
+  },
+  {
+    name: 'Robert Mateja',
+    result: 9999,
+    mode: 'staff',
+  },
 ];
 
 export default testGameInfos;
