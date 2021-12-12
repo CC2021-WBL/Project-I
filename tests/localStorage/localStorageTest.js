@@ -2,10 +2,11 @@ import testGameInfos from './localStorageTestData';
 import LocalStorageService from '../../src/app/logic/localStorage';
 
 // TESTING GUIDE
-// in controller.js add a the first lines:
+// in controller.js add the first lines:
 
 // import testGameInfos from '../../../tests/localStorage/localStorageTestData';
 // import testLocalStorage from '../../../tests/localStorage/localStorageTest';
+
 // in controller constructor add:
 // testLocalStorage(this.model.rankings, testGameInfos);
 // npm start
