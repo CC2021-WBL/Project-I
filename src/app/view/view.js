@@ -1,6 +1,8 @@
+/* eslint-disable import/extensions */
 import elementInjector from '../utils/elementInjector';
 import rules from './components/rules';
 import questionForMode from './components/questionForMode';
+import modeButtons from './components/mainMenu.js';
 // import createLogo from './components/createLogo';
 // import gameModeButtons from './components/gameModeButtons';
 
@@ -46,11 +48,11 @@ class View {
     // RENDER LOGO
     // this.render('.header__game-logo', //createlogo);
     // // RENDER GAME MODE BUTTONS
-    // this.render('.header__game-nav', //gamemodebuttons);
+    this.render('.header__game-nav', ...modeButtons);
     // // RENDER INIT LOOK OF GAME_MODE
-    // this.render('.game__mode', 'Choose category');
+    this.render('.game__mode', 'Choose category');
     // // RENDER RULES
-    // this.render('.game__mode-rules', 'Harry Potter Quiz Game');
+    this.render('.game__mode-rules', 'Harry Potter Quiz Game');
   }
 }
 
