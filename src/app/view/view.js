@@ -5,6 +5,7 @@ import questionForMode from './components/questionForMode';
 import modeButtons from './components/mainMenu.js';
 // import createLogo from './components/createLogo';
 // import gameModeButtons from './components/gameModeButtons';
+import createLogo from './components/createLogo';
 
 class View {
   constructor() {
