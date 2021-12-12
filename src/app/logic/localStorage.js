@@ -6,6 +6,7 @@ export const rankingsTemplate = {
 };
 
 class LocalStorageService {
+  // eslint-disable-next-line no-useless-constructor,no-empty-function
   constructor() {}
 
   static saveRankings(rankings) {

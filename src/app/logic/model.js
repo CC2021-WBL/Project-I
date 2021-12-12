@@ -1,4 +1,5 @@
 import LocalStorageService from './localStorage';
+
 class Model {
   constructor(object) {
     this.title = object.title;
