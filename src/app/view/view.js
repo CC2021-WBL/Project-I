@@ -1,8 +1,7 @@
 import elementInjector from '../utils/elementInjector';
 import rules from './components/rules';
 import questionForMode from './components/questionForMode';
-import createLogo from './createLogo';
-// import gameModeButtons from './components/gameModeButtons';
+import createLogo from './components/createLogo';
 
 class View {
   constructor() {
