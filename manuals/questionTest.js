@@ -10,8 +10,8 @@ const idsStudents = 28;
 // const idsStaff = 20;
 const nameProperty = 'name';
 // const houseProperty = 'house'; - DONT USE IT NOW IT WON'T WORK CORRECTLY!!!!!!!!!!!!!!!!!! (new issue - new way of creating answers)
-const gameModeStudents = 'students';
-// const gameModeStaff = 'staff';
+const imgSubfolderStudents = 'students';
+// const imgSubfolderStaff = 'staff';
 
 //----------------------------------------------------------------
 
@@ -19,7 +19,7 @@ const mainQuestionManager = new MainQuestionManager(
   urlStudents,
   idsStudents,
   nameProperty,
-  gameModeStudents,
+  imgSubfolderStudents,
 );
 
 const question = await mainQuestionManager.getQuestion();

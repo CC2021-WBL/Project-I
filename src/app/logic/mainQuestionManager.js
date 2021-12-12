@@ -3,11 +3,11 @@ import QuestionGenerator from './questionGenerator.js';
 import DataManager from './dataManager.js';
 
 class MainQuestionManager {
-  constructor(urlAdress, amountOfIDs, answerProperty, gameMode) {
+  constructor(urlAdress, amountOfIDs, answerProperty, imgSubfolder) {
     this.urlAdress = urlAdress;
     this.amountOfIDs = amountOfIDs;
     this.answerProperty = answerProperty;
-    this.gameMode = gameMode;
+    this.imgSubfolder = imgSubfolder;
     this.arrayWithObjectsForMode = [];
   }
 
@@ -22,7 +22,7 @@ class MainQuestionManager {
       this.urlAdress,
       idOfCorrectAnswer,
       this.answerProperty,
-      this.gameMode,
+      this.imgSubfolder,
       arrayWithID,
     );
     await dataManager.getDataByAPI();
