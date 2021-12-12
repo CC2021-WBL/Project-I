@@ -1,19 +1,12 @@
-import logo from '/static/assets/img/logo.png'
+import logo from '/static/assets/img/logo.png';
+import elementCreator from '../utils/elementCreator';
 
 export const createLogo = () => {
-  const img = document.createElement('img');
-  console.log(img);
-  img.classList.add('.header__game-logo__img');
-  console.log(img);
-  img.src = logo;
-  console.log(img);
+  const img = elementCreator('img', { src: logo, class: '.header__game-logo' });
   img.addEventListener('click', () => {
     // the page will be reload
   });
-  const header = document.querySelector('.header__game-logo');
-  header.append(img);
+  return img;
 };
 
-// Test
-// Call a function in App.js
 export default createLogo;
