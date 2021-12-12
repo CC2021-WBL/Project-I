@@ -1,5 +1,5 @@
 export GAME_MODES = {
-    Students: {
+    students: {
       gamemode: 'Students',
       imgSubfolder: 'students',
       question: 'Who is this student?',
@@ -7,7 +7,7 @@ export GAME_MODES = {
       ids: '28',
       answerProperty: 'name',
     },
-    Staff: {
+    staff: {
       gamemode: 'Staff',
       imgSubfolder: 'staff',
       question: 'Who is this staff?',
@@ -15,7 +15,7 @@ export GAME_MODES = {
       ids: '20',
       answerProperty: 'name',
     },
-    Houses: {
+    houses: {
       gamemode: 'Houses',
       imgSubfolder: 'students',
       question: 'From which house is this student?',
@@ -25,7 +25,7 @@ export GAME_MODES = {
     },
   };
 
-export rankingsTemplate = {
+export RANKINGS_TEMPLATE = {
     students: [],
     staff: [],
     houses: [],
