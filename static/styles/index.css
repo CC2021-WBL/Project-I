@@ -77,19 +77,11 @@
   outline: yellow dotted 5px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  /* background-image: url(../assets/img/hpImage.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-clip: padding-box;
-  border: 12px solid rgba(173, 25, 132, 0.26);
-  filter: drop-shadow(13px 17px 11px rgba(0, 0, 0, 0.5));
-  border-radius: 16px; */
+  align-items: stretch;
 }
 
 .game-image__content--image {
-  height: 411px;
-  width: 80%;
+  width: 100%;
   border: 12px solid rgba(173, 25, 132, 0.26);
   filter: drop-shadow(13px 17px 11px rgba(0, 0, 0, 0.5));
   border-radius: 16px;
