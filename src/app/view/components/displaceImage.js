@@ -14,9 +14,13 @@ const updateImage = (imageSource) => {
   }
 };
 
+const altDescription = 'blablabla'; // do podmianki w przyszłości
+
 function displaceImage(imageSource, altDescription) {
-    const image = elementCreator('img', {class: 'game-image__content--image', alt: `${altDescription}`});
+    const image = elementCreator('img', {class: 'game-image__content-image', alt: `${altDescription}`});
     imageNode.ref = image;
     updateImage(imageSource);
     return image;
 };
+
+export default displaceImage;

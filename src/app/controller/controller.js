@@ -12,6 +12,7 @@ class Controller {
 
     // INIT LOOK OF OUR APP
     this.view.renderInitialScreen();
+    this.view.renderImage();
   }
 
   // Funkcja znajduje się w kontrolerze, odpalana jest w momencie kliknięcia buttona na stronie.

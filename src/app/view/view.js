@@ -1,6 +1,7 @@
 import elementInjector from '../utils/elementInjector';
 import rules from './components/rules';
 import questionForMode from './components/questionForMode';
+import displaceImage from './components/displaceImage';
 // import createLogo from './components/createLogo';
 // import gameModeButtons from './components/gameModeButtons';
 
@@ -51,6 +52,10 @@ class View {
     // this.render('.game__mode', 'Choose category');
     // // RENDER RULES
     // this.render('.game__mode-rules', 'Harry Potter Quiz Game');
+  }
+
+  renderImage() {
+    this.render('.game-image__content', displaceImage());
   }
 }
 
