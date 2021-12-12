@@ -1,20 +1,20 @@
 class Consts {
   static GAME_MODES = {
-    students: {
+    Students: {
       gamemode: 'students',
       question: 'Who is this student?',
       urlAdress: 'http://hp-api.herokuapp.com/api/characters/students',
       ids: '28',
       answerProperty: 'name',
     },
-    staff: {
-      gamemode: 'students',
+    Staff: {
+      gamemode: 'staff',
       question: 'Who is this staff?',
       urlAdress: 'http://hp-api.herokuapp.com/api/characters/staff',
       ids: '20',
       answerProperty: 'name',
     },
-    houses: {
+    Houses: {
       gamemode: 'students',
       question: 'From which house is this student?',
       urlAdress: 'http://hp-api.herokuapp.com/api/characters/students',
