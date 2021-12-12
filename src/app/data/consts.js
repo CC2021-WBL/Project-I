@@ -1,21 +1,24 @@
 class Consts {
   static GAME_MODES = {
     Students: {
-      gamemode: 'students',
+      gamemode: 'Students',
+      imgSubfolder: 'students',
       question: 'Who is this student?',
       urlAdress: 'http://hp-api.herokuapp.com/api/characters/students',
       ids: '28',
       answerProperty: 'name',
     },
     Staff: {
-      gamemode: 'staff',
+      gamemode: 'Staff',
+      imgSubfolder: 'staff',
       question: 'Who is this staff?',
       urlAdress: 'http://hp-api.herokuapp.com/api/characters/staff',
       ids: '20',
       answerProperty: 'name',
     },
     Houses: {
-      gamemode: 'students',
+      gamemode: 'Houses',
+      imgSubfolder: 'students',
       question: 'From which house is this student?',
       urlAdress: 'http://hp-api.herokuapp.com/api/characters/students',
       ids: '28',
