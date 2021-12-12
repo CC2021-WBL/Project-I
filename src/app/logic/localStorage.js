@@ -1,9 +1,4 @@
-// this will go to the constant folder
-export const rankingsTemplate = {
-  students: [],
-  staff: [],
-  houses: [],
-};
+import { RANKINGS_TEMPLATE } from '../data/consts';
 
 class LocalStorageService {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
@@ -17,7 +12,7 @@ class LocalStorageService {
   static loadRankings() {
     return (
       JSON.parse(localStorage.getItem('rankings')) ||
-      this.saveRankings(rankingsTemplate)
+      this.saveRankings(RANKINGS_TEMPLATE)
     );
   }
 }
