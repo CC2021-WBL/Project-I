@@ -65,11 +65,14 @@ export class GameMaker {
   }
   // Checking answer nad generating nex question
 
-  async checkAnswerAndGetNewQuestion(answer) {
+  async setAndCheckAnswer(answer) {
     this.#setAnswer(answer);
-    const isAnswerCorrect = this.#checkAnswer();
-    //this.player.registerAnswer(answer, isAnswerCorrect);
-    //return isAnswerCorrect
+    const isAnswerCorrect = await this.#checkAnswer();
+    this.player.registerAnswer(answer, isAnswerCorrect);
+    return isAnswerCorrect
+  }
+
+  async getNextQuestion() {
     return await this.#createQuestion();
   }
 
