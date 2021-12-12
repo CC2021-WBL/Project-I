@@ -11,7 +11,7 @@ class MainQuestionManager {
     this.arrayWithObjectsForMode = [];
   }
 
-  async GetQuestion() {
+  async getQuestion() {
     const arrayWithID = QuestionGenerator.generateQuestionsForCurrentMode(
       this.amountOfIDs,
     );
@@ -26,9 +26,8 @@ class MainQuestionManager {
       arrayWithID,
     );
     await dataManager.getDataByAPI();
-    const { arraywithAnswersForQuestion } = dataManager;
-    const { rightAnswer } = dataManager;
-    const { base64dataImg } = dataManager;
+    const { arraywithAnswersForQuestion, rightAnswer, base64dataImg } =
+      dataManager;
     this.arrayWithObjectsForMode = dataManager.getDataForMode();
 
     const question = {
@@ -40,7 +39,7 @@ class MainQuestionManager {
     return question;
   }
 
-  GetObjectsForMode() {
+  getObjectsForMode() {
     if (this.arrayWithObjectsForMode.length > 0) {
       return this.arrayWithObjectsForMode;
     }
