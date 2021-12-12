@@ -26,6 +26,12 @@ class Consts {
     },
   };
 
+  static rankingsTemplate = {
+    students: [],
+    staff: [],
+    houses: [],
+  };
+
   static DEFAULT_BASE_URL = Consts.GAME_MODES.students.urlAdress;
 
   static ONE_SECOND_MILLIS = 1000;
