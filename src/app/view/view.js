@@ -3,8 +3,6 @@ import elementInjector from '../utils/elementInjector';
 import rules from './components/rules';
 import questionForMode from './components/questionForMode';
 import modeButtons from './components/mainMenu.js';
-// import createLogo from './components/createLogo';
-// import gameModeButtons from './components/gameModeButtons';
 import createLogo from './components/createLogo';
 
 class View {
@@ -47,7 +45,7 @@ class View {
 
   renderInitialScreen() {
     // RENDER LOGO
-    // this.render('.header__game-logo', //createlogo);
+    this.render('.header__game-logo', createLogo());
     // // RENDER GAME MODE BUTTONS
     this.render('.header__game-nav', ...modeButtons);
     // // RENDER INIT LOOK OF GAME_MODE
