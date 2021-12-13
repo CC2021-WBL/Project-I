@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import elementInjector from '../utils/elementInjector';
-import rules from './components/rules';
+// import rules from './components/rules';
 import questionForMode from './components/questionForMode';
 
 import displaceImage from './components/displaceImage';
@@ -10,7 +10,7 @@ import modeButtons from './components/mainMenu.js';
 // development
 // import createLogo from './components/createLogo';
 // import gameModeButtons from './components/gameModeButtons';
-import createLogo from './components/createLogo';
+// import createLogo from './components/createLogo';
 
 class View {
   constructor() {
@@ -47,7 +47,7 @@ class View {
 
   showViewsForChosenMode(mode) {
     this.render('.game__mode', questionForMode(mode));
-    this.render('.game__mode-rules', rules(mode));
+    this.render('.game__mode-rules', ...modeRules());
   }
 
   renderInitialScreen() {
@@ -58,7 +58,7 @@ class View {
     // // RENDER INIT LOOK OF GAME_MODE
     this.render('.game__mode', 'Choose category');
     // // RENDER RULES
-    // this.render('.game__mode-rules', 'Harry Potter Quiz Game');
+    this.render('.game__mode-rules', ...modeRules());
   }
 
   renderImage() {
@@ -66,10 +66,6 @@ class View {
       '.game-image__content',
       displaceImage('../../../static/assets/img/images/staff/1.jpg', 'dupa'),
     );
-  }
-
-  renderModeRules() {
-    this.render('.game__mode-rules', modeRules());
   }
 }
 

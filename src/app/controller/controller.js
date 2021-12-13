@@ -1,6 +1,7 @@
 // import gameModeButtons from '../view/components/gameModeButtons';
 // import logo from '../view/components/createLogo';
 // import createLogo from '../view/components/createLogo';
+// import modeRules from "../view/components/modeRules";
 
 class Controller {
   constructor(model, view) {

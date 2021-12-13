@@ -75,7 +75,7 @@
       color:black;
       font-weight: 500;
       font-size: 48px;
-      // background-color: white;
+      background-color: white;
       border-radius: 8px;
       box-shadow: 0px 0px 28px -1px rgba(212, 22, 25, 1);
     }
@@ -93,11 +93,11 @@
 
       &-header {
         padding: 20px 0 8px;
-        font-size: 2.5em;
+        font-size: 1em;
       }
 
       &-text {
-        font-size: 1.5em;
+        font-size: .7em;
         padding: 20px 25px 25px;
         line-height: 1.2;
       }
