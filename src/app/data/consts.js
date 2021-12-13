@@ -31,6 +31,10 @@ export const RANKINGS_TEMPLATE = {
   houses: [],
 };
 
+export const INITIAL_GAME_MODE_TEXT = 'Choose category';
+
+export const INITIAL_MAIN_TEXT = 'Harry Potter Quiz Game';
+
 export const DEFAULT_BASE_URL = GAME_MODES.students.urlAdress;
 
 export const ONE_SECOND_MILLIS = 1000;
