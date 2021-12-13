@@ -1,11 +1,10 @@
 import elementCreator from '../../utils/elementCreator';
 
 const rulesTextBoiler =
-  "You have one minute (1m) to answer as many questions as possible. During the game on each question you need to select"  ";
+  'You have one minute (1m) to answer as many questions as possible. During the game on each question you need to select';
 
-const rulesModeTexts = {
-  
-};
+// const rulesModeTexts = {
+// };
 
 const modeRules = () => {
   const rulesIcon = elementCreator('span', {

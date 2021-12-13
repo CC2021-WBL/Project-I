@@ -1,13 +1,13 @@
 /* eslint-disable import/extensions */
 import elementInjector from '../utils/elementInjector';
 // import rules from './components/rules';
-import questionForMode from './components/questionForMode';
-
 import displaceImage from './components/displaceImage';
+// eslint-disable-next-line import/no-named-as-default
 import modeRules from './components/modeRules'; // FIXME - add mode changes
 
 import modeButtons from './components/mainMenu.js';
 // development
+
 // import createLogo from './components/createLogo';
 // import gameModeButtons from './components/gameModeButtons';
 // import createLogo from './components/createLogo';
