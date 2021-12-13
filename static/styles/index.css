@@ -1,11 +1,55 @@
+<<<<<<< HEAD
 :root {
   font-family: "Bitter", serif;
+=======
+.header__game-nav {
+  width: 830px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header__game-nav button {
+  width: 150px;
+  height: 50px;
+  color: #ffffff61;
+  background: none;
+  border: none;
+}
+
+.header__game-nav button.active {
+  color: #f2f2f2;
+  position: relative;
+}
+
+.header__game-nav button.active::before {
+  content: '';
+  width: 100%;
+  height: 10px;
+  background: #ff9900f2;
+  border-radius: 4px;
+  position: absolute;
+  bottom: -25px;
+>>>>>>> development
 }
 
 * {
   margin: 0;
   padding: 0;
+<<<<<<< HEAD
   box-sizing: border-box;
+=======
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Bitter', serif;
+  font-size: 42px;
+>>>>>>> development
 }
 
 .game-wrapper {
@@ -27,12 +71,15 @@
 .game-wrapper .header__game-logo {
   width: 30%;
   height: 50%;
-  background: grey;
+}
+
+.game-wrapper .header__game-logo img {
+  width: 100%;
+  height: 100%;
 }
 .game-wrapper .header__game-nav {
   width: 60%;
   height: 80%;
-  background: #823000;
 }
 .game-wrapper .game-image {
   outline: black dotted 5px;
