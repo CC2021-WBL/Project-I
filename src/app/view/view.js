@@ -2,8 +2,11 @@ import elementInjector from '../utils/elementInjector';
 import rules from './components/rules';
 import questionForMode from './components/questionForMode';
 import displaceImage from './components/displaceImage';
+import modeRules from './components/modeRules'; // moje teraz 12.12
+
 // import createLogo from './components/createLogo';
 // import gameModeButtons from './components/gameModeButtons';
+
 
 class View {
   constructor() {
@@ -55,7 +58,11 @@ class View {
   }
 
   renderImage() {
-    this.render('.game-image__content', displaceImage());
+    this.render('.game-image__content', displaceImage('../../../static/assets/img/images/staff/0.jpg', 'dupa'));  
+  }
+
+  renderModeRules() {
+    this.render('.game__mode-rules', modeRules());
   }
 }
 
