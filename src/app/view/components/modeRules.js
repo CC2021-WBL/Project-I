@@ -5,9 +5,9 @@ const rulesTextBoiler =
 
 const modeRules = (mode) => {
   const rulesTextPart = {
-    students: "the name of the Hogwart's student,",
-    staff: "the name of the Hogwart's staff member,",
-    houses: 'magic house of the character,',
+    Students: "the name of the Hogwart's student,",
+    Staff: "the name of the Hogwart's staff member,",
+    Houses: 'magic house of the character,',
   };
 
   const rulesIcon = elementCreator('span', {
@@ -24,7 +24,7 @@ const modeRules = (mode) => {
   const rulesText = elementCreator(
     'p',
     { class: 'game__mode-rules-text' },
-    `${rulesTextBoiler} ${rulesTextPart[mode]} from availible options.`,
+    `${rulesTextBoiler} ${rulesTextPart[mode]} from available options.`,
   );
 
   const rulesFullElement = [rulesHeader, rulesText];
