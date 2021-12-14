@@ -46,8 +46,9 @@ class View {
   }
 
   showViewsForChosenMode(mode) {
+    // eslint-disable-next-line no-undef
     this.render('.game__mode', questionForMode(mode));
-    this.render('.game__mode-rules', ...modeRules());
+    // this.render('.game__mode-rules', ...modeRules());
   }
 
   renderInitialScreen() {
@@ -64,7 +65,10 @@ class View {
   renderImage() {
     this.render(
       '.game-image__content',
-      displaceImage('../../../static/assets/img/images/staff/1.jpg', 'dupa'),
+      displaceImage(
+        '../../../static/assets/img/images/staff/1.jpg',
+        'altDescription',
+      ),
     );
   }
 }

@@ -3,10 +3,13 @@ import elementCreator from '../../utils/elementCreator';
 const rulesTextBoiler =
   'You have one minute (1m) to answer as many questions as possible. During the game on each question you need to select';
 
-// const rulesModeTexts = {
-// };
+const modeRules = (mode) => {
+  const rulesTextPart = {
+    students: "the name of the Hogwart's student,",
+    staff: "the name of the Hogwart's staff member,",
+    houses: 'magic house of the character,',
+  };
 
-const modeRules = () => {
   const rulesIcon = elementCreator('span', {
     class: 'rules-icon fas fa-graduation-cap',
   });
@@ -21,8 +24,9 @@ const modeRules = () => {
   const rulesText = elementCreator(
     'p',
     { class: 'game__mode-rules-text' },
-    `${rulesTextBoiler} from availible options.`,
+    `${rulesTextBoiler} ${rulesTextPart[mode]} from availible options.`,
   );
+
   const rulesFullElement = [rulesHeader, rulesText];
   return rulesFullElement;
 };
