@@ -1,3 +1,5 @@
+import { DECIMAL_SYSTEM } from "../data/consts.js";
+
 class QuestionGenerator {
   // argument argAmountOfId will be relaced by connection to CurrentMode and it's IDs'
 
@@ -6,7 +8,8 @@ class QuestionGenerator {
     return Math.floor(Math.random() * (amountOfId - minId + 1) + minId);
   }
 
-  static generateQuestionsForCurrentMode(amountOfId) {
+  static generateQuestionsForCurrentMode(amountOfIdInString) {
+    const amountOfId = parseInt(amountOfIdInString, DECIMAL_SYSTEM);
     const amountOfAnswersPerQuestion = 4;
     const generatedIds = [];
 

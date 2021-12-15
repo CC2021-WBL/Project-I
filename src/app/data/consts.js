@@ -41,4 +41,6 @@ export const ONE_SECOND_MILLIS = 1000;
 
 export const ONE_MINUTE_SECONDS = 60;
 
+export const DECIMAL_SYSTEM = 10;
+
 export const DEFAULT_MAX_TIME = 2; // in minutes

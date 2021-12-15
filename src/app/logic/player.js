@@ -19,9 +19,9 @@ export class Player {
     this.amountOfAnsweredQuestions += 1;
   }
 
-  setName(name) {
-    this.name = name;
-  }
+  getPlayerQuestionsData() {
+    return this.detailQuestionData;
+ }
 
   clearGameData() {
     this.correctAnswersScore = 0;
