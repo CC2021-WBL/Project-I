@@ -15,11 +15,9 @@ class GameMaker {
     this.initialGameTimeMinutes = 2;
     this.objectsForMode = [];
     this.questionObject = {};
-    this.askedQuestions = 0;
   }
 
   async createQuestion() {
-    this.askedQuestions += 1;
     this.questionObject = await this.mainQuestionManager.getQuestion();
     if (this.objectsForMode.length === 0) {
       this.objectsForMode = this.mainQuestionManager.arrayWithObjectsForMode;
@@ -57,7 +55,7 @@ class GameMaker {
     return {
       correctAnswerScore: playerQuestionData.correctAnswersScore,
       detailQuestionData: playerQuestionData.detailQuestionData,
-      askedQuestions: this.askedQuestions,
+      askedQuestions: playerQuestionData.detailQuestionData.length,
     };
   }
 
