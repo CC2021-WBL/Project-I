@@ -17,13 +17,13 @@ console.log(player.detailQuestionData.length);
 player.registerAnswer('zombie', 'yeti', false);
 
 console.log(player.detailQuestionData.length);
-const gameData = player.getEndGameData();
+const gameData = player.getPlayerEndGameData();
 
 console.log(JSON.parse(JSON.stringify(gameData)));
 
 player.clearGameData();
 
-console.log(JSON.parse(JSON.stringify(player.getEndGameData())));
+console.log(JSON.parse(JSON.stringify(player.getPlayerEndGameData())));
 
 /* function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
