@@ -6,18 +6,18 @@ export class Player {
     this.endGameData = {};
   }
 
-  registerAnswer(correctAnswer, playerAnswer, isanswerCorrect) {
-    if (this.playerAnswer === false) {
+  registerAnswer(correctAnswer, playerAnswer, isAnswerCorrect) {
+    if (!this.playerAnswer?) {
       throw new Error(
         'error with playerAnswer, playerAnswer is null or undefined',
       );
     }
-    if (isanswerCorrect) {
+    if (isAnswerCorrect) {
       this.correctAnswersScore += 1;
     }
     this.detailQuestionData.push({
       playerAnswer,
-      isAnswerCorrect: isanswerCorrect,
+      isAnswerCorrect: isAnswerCorrect,
       answer: correctAnswer,
     });
     this.amountOfAnsweredQuestions += 1;

@@ -55,8 +55,8 @@ class GameMaker {
   }
 
   clearCurrentGameData() {
-    this.player.detailQuestionData = [];
-    this.timer.makeAStopGame = true;
+    this.player.clearGameData();
+    this.timer.stopGame = true;
   }
 }
 
