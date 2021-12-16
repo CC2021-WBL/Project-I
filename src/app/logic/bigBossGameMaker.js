@@ -10,15 +10,12 @@ class GameMaker {
 
   constructor(gameModesProperty, gameTime) {
     this.mainQuestionManager = new MainQuestionManager(gameModesProperty);
-    // this.correctAnswer = correctAnswer();
     this.player = new Player();
     this.timer = new GameTimer(gameTime);
     this.initialGameTimeMinutes = 2;
     this.objectsForMode = [];
     this.questionObject = {};
   }
-
-  // get next question
 
   async createQuestion() {
     this.questionObject = await this.mainQuestionManager.getQuestion();
@@ -36,16 +33,11 @@ class GameMaker {
     return isAnswerCorrect;
   }
 
-  // FUNKCJE NA ZEWNĄTRZ ---------------------------------------------------------------------------
-
-  // Starting game - set timer and get first question
-
   async startGameAndGetFirstQuestion(callbackOnInterval, callbackOnEndOfTime) {
     this.timer.runTimer(callbackOnInterval, callbackOnEndOfTime);
     const question = await this.createQuestion();
     return question;
   }
-  // Check and register player answer after click from player
 
   checkAndRegisterAnswer(answer) {
     const isAnswerCorrect = this.checkAnswer(answer);
@@ -57,14 +49,8 @@ class GameMaker {
     return isAnswerCorrect;
   }
 
-  // returns isAnswerCorrect to make button with answer green if true=correct and red if false
-
-  // to take next question --> createQuestion() which is upper
-
-  // when time goes to end or player click button to go out from game = po zakończeniu gry lub podpięte pod callbackOnEndOfTime
-
   getPlayerQuestionData() {
-    const playerQuestionData = this.player.getPlayerQuestionsData();
+    const playerQuestionData = this.player.getEndGameData();
     return playerQuestionData;
   }
 

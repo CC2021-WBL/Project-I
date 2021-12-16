@@ -1,29 +1,33 @@
+// connect this file to index.html
+
 /* eslint-disable import/named */
+// eslint-disable-next-line import/extensions
 import GameMaker from '../src/app/logic/bigBossGameMaker.js';
 // eslint-disable-next-line import/extensions
 import { GAME_MODES } from '../src/app/data/consts.js';
 
-function doSomething() {
+const gameModesProperties = Object.getOwnPropertyNames(GAME_MODES);
+
+function doSomethingAtTheEndOfTime() {
   console.log('-----------------the end-----------------------');
 }
 
 function doAtInterval(timeLeftInSec, totalTimeInSec) {
-  console.log('time left from timer:' + timeLeftInSec);
+  console.log(`time left from timer: ${timeLeftInSec} from ${totalTimeInSec}`);
 }
-//connect this file to index.html
 
-const gameMaker = new GameMaker('students', 0.5);
+const gameMaker = new GameMaker(gameModesProperties[0], 0.5);
 
 // works in live server
 const question = await gameMaker.startGameAndGetFirstQuestion(
   doAtInterval,
-  doSomething,
+  doSomethingAtTheEndOfTime,
 );
-console.log(question);
+console.log(`first question: ${question}`);
 
 // works in live server
 const isAnswerCorrect = gameMaker.checkAndRegisterAnswer('Heremione');
-console.log(isAnswerCorrect);
+console.log(`is answer correct? ${isAnswerCorrect}`);
 console.log(gameMaker.player.detailQuestionData);
 
 // works in live server
@@ -34,9 +38,8 @@ console.log(nextQuestion);
 const data = gameMaker.player.detailQuestionData;
 console.log(data);
 
-const aaa = gameMaker.player.getPlayerQuestionsData();
+const aaa = gameMaker.player.getEndGameData();
 console.log(aaa);
-
 
 // funkcja przerywająca timer, resetująca timer i dane tej rozgrywki
 gameMaker.clearCurrentGameData();
