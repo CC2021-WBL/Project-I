@@ -1,22 +1,12 @@
 export class Player {
-  constructor(name) {
-    this.name = name;
+  constructor() {
+    this.name = '';
     this.correctAnswersScore = 0;
-    this.amountOfDoneQuestions = 0;
+    this.amountOfAnsweredQuestions = 0;
     this.detailQuestionData = [];
-    this.playerAnswer;
   }
 
-  takeNewQuestion(callbackOnNewQuestionTaken) {
-    const questionObject = this.#mainQuestionManager.GetQuestion();
-    callbackOnNewQuestionTaken(questionObject);
-  }
-
-  setPlayerAnswer(answer) {
-    this.playerAnswer = answer;
-  }
-
-  registerAnswer(isanswerCorrect, callbackOnRegisteredAnswer) {
+  registerAnswer(correctAnswer, playerAnswer, isanswerCorrect) {
     if (this.playerAnswer === false) {
       throw new Error(
         'error with playerAnswer, playerAnswer is null or undefined',
@@ -25,8 +15,23 @@ export class Player {
     if (isanswerCorrect) {
       this.correctAnswersScore += 1;
     }
-    this.detailQuestionData.push({ playerAnswer, isanswerCorrect });
-    this.amountOfDoneQuestions += 1;
-    callbackOnRegisteredAnswer();
+    this.detailQuestionData.push({
+      playerAnswer,
+      isAnswerCorrect: isanswerCorrect,
+      answer: correctAnswer,
+    });
+    this.amountOfAnsweredQuestions += 1;
+  }
+
+  getPlayerQuestionsData() {
+    return this.detailQuestionData;
+  }
+
+  clearGameData() {
+    this.correctAnswersScore = 0;
+    this.amountOfAnsweredQuestions = 0;
+    this.detailQuestionData = [];
   }
 }
+
+export default Player;
