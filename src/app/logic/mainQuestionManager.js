@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import QuestionGenerator from './questionGenerator.js';
 import DataManager from './dataManager.js';
-import { GAME_MODES } from '../data/consts.js'
+import { GAME_MODES } from '../data/consts.js';
 
 class MainQuestionManager {
   constructor(gameModesProperty) {
