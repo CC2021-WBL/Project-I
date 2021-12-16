@@ -4,7 +4,7 @@ export const GAME_MODES = {
     imgSubfolder: 'students',
     question: 'Who is this student?',
     urlAdress: 'http://hp-api.herokuapp.com/api/characters/students',
-    ids: '28',
+    ids: 28,
     answerProperty: 'name',
   },
   staff: {
@@ -12,7 +12,7 @@ export const GAME_MODES = {
     imgSubfolder: 'staff',
     question: 'Who is this staff?',
     urlAdress: 'http://hp-api.herokuapp.com/api/characters/staff',
-    ids: '20',
+    ids: 20,
     answerProperty: 'name',
   },
   houses: {
@@ -20,7 +20,7 @@ export const GAME_MODES = {
     imgSubfolder: 'students',
     question: 'From which house is this student?',
     urlAdress: 'http://hp-api.herokuapp.com/api/characters/students',
-    ids: '28',
+    ids: 28,
     answerProperty: 'house',
   },
 };
