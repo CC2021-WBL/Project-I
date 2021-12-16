@@ -4,6 +4,7 @@ export class Player {
     this.correctAnswersScore = 0;
     this.amountOfAnsweredQuestions = 0;
     this.detailQuestionData = [];
+    this.endGameData = {};
   }
 
   registerAnswer(correctAnswer, playerAnswer, isanswerCorrect) {
@@ -23,14 +24,21 @@ export class Player {
     this.amountOfAnsweredQuestions += 1;
   }
 
-  getPlayerQuestionsData() {
-    return this.detailQuestionData;
-  }
-
   clearGameData() {
     this.correctAnswersScore = 0;
     this.amountOfAnsweredQuestions = 0;
     this.detailQuestionData = [];
+  }
+
+  createEndGameData() {
+    this.endGameData.correctAnswersScore = this.correctAnswersScore;
+    this.endGameData.amountOfAnsweredQuestions = this.amountOfAnsweredQuestions;
+    this.endGameData.detailQuestionData = this.detailQuestionData;
+  }
+
+  getEndGameData() {
+    this.createEndGameData();
+    return this.endGameData;
   }
 }
 
