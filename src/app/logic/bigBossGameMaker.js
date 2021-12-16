@@ -15,9 +15,11 @@ class GameMaker {
     this.initialGameTimeMinutes = 2;
     this.objectsForMode = [];
     this.questionObject = {};
+    this.askedQuestions = 0;
   }
 
   async createQuestion() {
+    this.askedQuestions += 1;
     this.questionObject = await this.mainQuestionManager.getQuestion();
     if (this.objectsForMode.length === 0) {
       this.objectsForMode = this.mainQuestionManager.arrayWithObjectsForMode;
@@ -34,6 +36,7 @@ class GameMaker {
   }
 
   async startGameAndGetFirstQuestion(callbackOnInterval, callbackOnEndOfTime) {
+    this.player = new Player();
     this.timer.runTimer(callbackOnInterval, callbackOnEndOfTime);
     const question = await this.createQuestion();
     return question;
@@ -49,9 +52,13 @@ class GameMaker {
     return isAnswerCorrect;
   }
 
-  getPlayerQuestionData() {
-    const playerQuestionData = this.player.getEndGameData();
-    return playerQuestionData;
+  getEndGameData() {
+    const playerQuestionData = this.player.getPlayerEndGameData();
+    return {
+      correctAnswerScore: playerQuestionData.correctAnswersScore,
+      detailQuestionData: playerQuestionData.detailQuestionData,
+      askedQuestions: this.askedQuestions,
+    };
   }
 
   clearCurrentGameData() {

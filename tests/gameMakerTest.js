@@ -35,14 +35,11 @@ const nextQuestion = await gameMaker.createQuestion();
 console.log(nextQuestion);
 
 // works in live server
-const data = gameMaker.player.detailQuestionData;
+const data = gameMaker.getEndGameData();
 console.log(data);
 
-const aaa = gameMaker.player.getEndGameData();
-console.log(aaa);
-
 // funkcja przerywająca timer, resetująca timer i dane tej rozgrywki
-gameMaker.clearCurrentGameData();
+// gameMaker.clearCurrentGameData();
 
-const array2 = gameMaker.getPlayerQuestionData();
+const array2 = gameMaker.getEndGameData();
 console.log(array2);

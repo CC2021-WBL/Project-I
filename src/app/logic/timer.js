@@ -4,11 +4,11 @@ import { ONE_SECOND_MILLIS, ONE_MINUTE_SECONDS } from '../data/consts.js';
 class GameTimer {
   constructor(gameTime) {
     this.gameTime = gameTime;
-    this.makeAStopGame = false; // zmiana wartości z zewnątrz zatrzyma timer?
+    this.stopGame = false; // zmiana wartości z zewnątrz zatrzyma timer?
   }
 
   runTimer(callbackOnInterval, callbackOnEndOfTime) {
-    this.makeAStopGame = false;
+    this.stopGame = false;
     const initialTimeInMilisec =
       this.gameTime * ONE_MINUTE_SECONDS * ONE_SECOND_MILLIS;
     const totalTimeInSec = this.gameTime * ONE_MINUTE_SECONDS;
@@ -19,7 +19,7 @@ class GameTimer {
       timeLeft -= timeInterval;
       const timeLeftInSec = timeLeft / ONE_SECOND_MILLIS;
       callbackOnInterval(timeLeftInSec, totalTimeInSec);
-      if (timeLeft <= 0 || this.makeAStopGame === true) {
+      if (timeLeft <= 0 || this.stopGame === true) {
         clearInterval(timer);
         timeLeft = initialTimeInMilisec; // restet do wartości pierwotnej
         callbackOnEndOfTime();

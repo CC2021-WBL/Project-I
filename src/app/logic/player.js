@@ -1,15 +1,13 @@
 export class Player {
   constructor() {
     this.correctAnswersScore = 0;
-    this.amountOfAnsweredQuestions = 0;
     this.detailQuestionData = [];
-    this.endGameData = {};
   }
 
   registerAnswer(correctAnswer, playerAnswer, isAnswerCorrect) {
-    if (!this.playerAnswer?) {
+    if (!playerAnswer) {
       throw new Error(
-        'error with playerAnswer, playerAnswer is null or undefined',
+        'error with given argument: playerAnswer, the value is incorrect, it should be string',
       );
     }
     if (isAnswerCorrect) {
@@ -17,7 +15,7 @@ export class Player {
     }
     this.detailQuestionData.push({
       playerAnswer,
-      isAnswerCorrect: isAnswerCorrect,
+      isAnswerCorrect,
       answer: correctAnswer,
     });
     this.amountOfAnsweredQuestions += 1;
@@ -25,19 +23,14 @@ export class Player {
 
   clearGameData() {
     this.correctAnswersScore = 0;
-    this.amountOfAnsweredQuestions = 0;
-    this.detailQuestionData = [];
+    this.detailQuestionData.length = 0;
   }
 
-  createEndGameData() {
-    this.endGameData.correctAnswersScore = this.correctAnswersScore;
-    this.endGameData.amountOfAnsweredQuestions = this.amountOfAnsweredQuestions;
-    this.endGameData.detailQuestionData = this.detailQuestionData;
-  }
-
-  getEndGameData() {
-    this.createEndGameData();
-    return this.endGameData;
+  getPlayerEndGameData() {
+    return {
+      correctAnswersScore: this.correctAnswersScore,
+      detailQuestionData: this.detailQuestionData,
+    };
   }
 }
 
