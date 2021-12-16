@@ -1,5 +1,5 @@
-import { ONE_SECOND_MILLIS } from '../data/consts.js';
-import { ONE_MINUTE_SECONDS } from '../data/consts.js';
+// eslint-disable-next-line import/extensions
+import { ONE_SECOND_MILLIS, ONE_MINUTE_SECONDS } from '../data/consts.js';
 
 class GameTimer {
   constructor(gameTime) {
@@ -18,13 +18,11 @@ class GameTimer {
     const timer = setInterval(() => {
       timeLeft -= timeInterval;
       const timeLeftInSec = timeLeft / ONE_SECOND_MILLIS;
-      // callbackOnInterval(timeLeftInSec, totalTimeInSec);
-      console.log('time left from timer:' + timeLeftInSec);
+      callbackOnInterval(timeLeftInSec, totalTimeInSec);
       if (timeLeft <= 0 || this.makeAStopGame === true) {
         clearInterval(timer);
         timeLeft = initialTimeInMilisec; // restet do wartości pierwotnej
-        console.log(timeLeft + 'THE END');
-        callbackOnEndOfTime;
+        callbackOnEndOfTime();
         // FINISH GAME FUNCTION / DISPLAY GAME OVER MODAL -- z innych miejsc podpięcie się pod ten callback
       }
     }, timeInterval);

@@ -18,6 +18,8 @@ class GameMaker {
     this.questionObject = {};
   }
 
+  // get next question
+
   async createQuestion() {
     this.questionObject = await this.mainQuestionManager.getQuestion();
     if (this.objectsForMode.length === 0) {
@@ -36,14 +38,14 @@ class GameMaker {
 
   // FUNKCJE NA ZEWNĄTRZ ---------------------------------------------------------------------------
 
-  // Starting game
+  // Starting game - set timer and get first question
 
-  async startGameAndGetFirstQuestion(callbackOnEndOfTime) {
-    this.timer.runTimer(callbackOnEndOfTime);
+  async startGameAndGetFirstQuestion(callbackOnInterval, callbackOnEndOfTime) {
+    this.timer.runTimer(callbackOnInterval, callbackOnEndOfTime);
     const question = await this.createQuestion();
     return question;
   }
-  // Checking answer nad generating nex question
+  // Check and register player answer after click from player
 
   checkAndRegisterAnswer(answer) {
     const isAnswerCorrect = this.checkAnswer(answer);
@@ -55,8 +57,14 @@ class GameMaker {
     return isAnswerCorrect;
   }
 
+  // returns isAnswerCorrect to make button with answer green if true=correct and red if false
+
+  // to take next question --> createQuestion() which is upper
+
+  // when time goes to end or player click button to go out from game = po zakończeniu gry lub podpięte pod callbackOnEndOfTime
+
   getPlayerQuestionData() {
-    const playerQuestionData = this.player.getPlayerQuestionsData;
+    const playerQuestionData = this.player.getPlayerQuestionsData();
     return playerQuestionData;
   }
 
@@ -67,23 +75,3 @@ class GameMaker {
 }
 
 export default GameMaker;
-
-// ---------------------PRZEPROWADZANIE ROZGRYWKI-----------------------------------------------------------------
-/* 
-// startGameButton.AddEventLisneter('click', startGame());
-const gameMaker = new GameMaker();
-
-// ROZPOCZĘCIE ROZGRYWKI, WŁĄCZENIE TIMERA I WYGENEROWANIE PIERWSZEGO PYTANIA
-
-await gameMaker.startGameAndGetFirstQuestion();
-
-// po kliknięciu odpowiedzi przez gracza --> sprawdzenie, zapisanie i zwrócenie czy odp była dobra
-
-gameMaker.checkAndRegisterAnswer(answer);
-
-// po wyświetleniu czy odp gracza była prawidłowa --> wygenerowanie nowego pytania
-await gameMaker.getNextQuestion();
-
-// po zakończeniu gry / lub podpięte pod callbackOnEndOfTime
-gameMaker.getPlayerQuestionData();
-gameMaker.clearCurrentGameData(); */
