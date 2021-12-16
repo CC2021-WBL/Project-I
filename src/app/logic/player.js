@@ -1,6 +1,5 @@
 export class Player {
   constructor() {
-    this.name = '';
     this.correctAnswersScore = 0;
     this.amountOfAnsweredQuestions = 0;
     this.detailQuestionData = [];
