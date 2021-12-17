@@ -114,6 +114,11 @@
   background: grey;
 }
 
+.game-wrapper .header__game-img {
+  width: 50%;
+  height: 50%;
+}
+
 .game-wrapper .header__game-nav {
   width: 60%;
   height: 80%;
