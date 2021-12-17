@@ -6,6 +6,7 @@ import modeButtons from './components/mainMenu.js';
 // import createLogo from './components/createLogo';
 // import gameModeButtons from './components/gameModeButtons';
 import createLogo from './components/createLogo';
+import ModalWindow from './components/modal/modalWindow';
 
 class View {
   constructor() {
@@ -54,6 +55,10 @@ class View {
     this.render('.game__mode', 'Choose category');
     // // RENDER RULES
     this.render('.game__mode-rules', 'Harry Potter Quiz Game');
+  }
+
+  renderModal() {
+    this.render('.modal', ModalWindow());
   }
 }
 
