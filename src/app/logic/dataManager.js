@@ -1,3 +1,5 @@
+import { HOGWART_HOUSES } from '../data/consts.js';
+
 class DataManager {
   constructor(
     resourceAPIadress,
@@ -25,12 +27,17 @@ class DataManager {
 
   // 1) CREATING ARRAY WITH ANSWERS = NAMES OF HARRY POTTER CHARACTERS
   getDataForIDs(arraywithHPObjects) {
-    const arrayWithAnswers = [];
-    this.IDsArray.forEach((element) => {
-      const obj = arraywithHPObjects[element];
-      const { name } = obj;
-      arrayWithAnswers.push(name);
-    });
+    let arrayWithAnswers = [];
+    if (this.answerProperty === 'house') {
+      arrayWithAnswers = HOGWART_HOUSES;
+    } else {
+      this.IDsArray.forEach((element) => {
+        const obj = arraywithHPObjects[element];
+        const { name } = obj;
+        arrayWithAnswers.push(name);
+      });
+    }
+
     return arrayWithAnswers;
   }
 

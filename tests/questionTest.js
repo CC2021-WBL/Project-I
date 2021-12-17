@@ -4,11 +4,13 @@ import { GAME_MODES } from '../src/app/data/consts.js';
 /* eslint-disable import/extensions */
 import MainQuestionManager from '../src/app/logic/mainQuestionManager.js';
 
-// const gameModesProperty[2]= 'house'; - DONT USE IT NOW IT WON'T WORK CORRECTLY!!!!!!!!!!!!!!!!!! (new issue - new way of creating answers)
+//  gameModesProperty[2]= houses
+//  gameModesProperty[1]= staff
+//  gameModesProperty[0]= students
 
 const gameModesProperties = Object.keys(GAME_MODES);
 
-const mainQuestionManager = new MainQuestionManager(gameModesProperties[0]);
+const mainQuestionManager = new MainQuestionManager(gameModesProperties[2]);
 
 const question = await mainQuestionManager.getQuestion();
 console.log(question);
