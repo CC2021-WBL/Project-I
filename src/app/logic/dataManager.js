@@ -1,3 +1,5 @@
+import { HOGWART_HOUSES } from "../data/consts.js";
+
 class DataManager {
   constructor(
     resourceAPIadress,
@@ -25,12 +27,17 @@ class DataManager {
 
   // 1) CREATING ARRAY WITH ANSWERS = NAMES OF HARRY POTTER CHARACTERS
   getDataForIDs(arraywithHPObjects) {
-    const arrayWithAnswers = [];
-    this.IDsArray.forEach((element) => {
-      const obj = arraywithHPObjects[element];
-      const { name } = obj;
-      arrayWithAnswers.push(name);
-    });
+    let arrayWithAnswers = [];
+    if (this.answerProperty === 'house') {
+      arrayWithAnswers = HOGWART_HOUSES;
+    } else {
+      this.IDsArray.forEach((element) => {
+        const obj = arraywithHPObjects[element];
+        const { name } = obj;
+        arrayWithAnswers.push(name);
+      });
+    }
+
     return arrayWithAnswers;
   }
 
@@ -66,22 +73,19 @@ class DataManager {
         this.arraywithHPObjects !== undefined &&
         this.arraywithHPObjects.length !== 0
       ) {
-        this.arraywithAnswersForQuestion = this.getDataForIDs(this.IDsArray);
-
-        // data for right answer:
         await this.getDataForCorrectAnswer();
+        this.arraywithAnswersForQuestion = this.getDataForIDs(this.IDsArray);
       }
       // Getting data first time and creating array with answers, img and name for correct answer
       else {
         const response = await fetch(this.resourceAPIadress);
         const jsonData = await response.json();
         this.arraywithHPObjects = jsonData;
+
+        await this.getDataForCorrectAnswer();
         this.arraywithAnswersForQuestion = this.getDataForIDs(
           this.arraywithHPObjects,
         );
-
-        // img for right answer:
-        await this.getDataForCorrectAnswer();
       }
     } catch (error) {
       throw Error(`${error}`);
