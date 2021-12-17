@@ -114,7 +114,7 @@
   background: grey;
 }
 
-.game-wrapper .header__game-img {
+.game-wrapper .header__game-logo .header__game-img {
   width: 50%;
   height: 50%;
 }

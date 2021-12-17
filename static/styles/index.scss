@@ -28,11 +28,12 @@
       width: 30%;
       height: 50%;
       background: grey;
+      .header__game-img {
+        width: 50%;
+        height: 50%;
+      }
     }
-    &__game-img {
-      width: 50%;
-      height: 50%;
-    }
+   
     &__game-nav {
       width: 60%;
       height: 80%;
