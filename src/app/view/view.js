@@ -4,11 +4,7 @@ import rules from './components/rules';
 import questionForMode from './components/questionForMode';
 import modeButtons from './components/mainMenu.js';
 import createLogo from './components/createLogo';
-<<<<<<< HEAD
 import ModalWindow from './components/modal/modalWindow';
-=======
-import { INITIAL_GAME_MODE_TEXT, INITIAL_MAIN_TEXT } from '../data/consts';
->>>>>>> development
 
 class View {
   constructor() {
