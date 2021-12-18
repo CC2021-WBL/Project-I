@@ -1,9 +1,16 @@
+import { startCountdown } from "../view/components/timerText";
+
 class Controller {
   constructor(model, view) {
     this.model = model;
     this.view = view;
     // INIT LOOK OF OUR APP
     this.view.renderInitialScreen();
+    const playButton = document.querySelector('.buttonPlay');
+    playButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.app.startCountdown();
+    });
   }
 
   // Funkcja znajduje się w kontrolerze, odpalana jest w momencie kliknięcia buttona na stronie.
@@ -15,6 +22,11 @@ class Controller {
   changeGameMode(mode) {
     this.model.gameMode = mode;
     this.view.showViewsForChosenMode(mode);
+  }
+
+  startCountdown() {
+    this.view.renderTimer();
+    startCountdown();
   }
 }
 export default Controller;
