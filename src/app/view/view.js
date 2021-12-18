@@ -5,6 +5,7 @@ import modeButtons from './components/mainMenu.js';
 import createLogo from './components/createLogo';
 import { INITIAL_GAME_MODE_TEXT, INITIAL_MAIN_TEXT } from '../data/consts';
 import modeRules from './components/modeRules';
+import buttonPlay from './components/buttonPlay';
 
 class View {
   constructor() {
@@ -53,6 +54,8 @@ class View {
     this.render('.game__mode', INITIAL_GAME_MODE_TEXT);
     // // RENDER RULES
     this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
+    // // RENDER BUTTON
+    this.render('.game__btns', buttonPlay('Play the game'));
   }
 }
 
