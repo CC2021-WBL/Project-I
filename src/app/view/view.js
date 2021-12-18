@@ -1,10 +1,10 @@
 /* eslint-disable import/extensions */
 import elementInjector from '../utils/elementInjector';
-import rules from './components/rules';
 import questionForMode from './components/questionForMode';
 import modeButtons from './components/mainMenu.js';
 import createLogo from './components/createLogo';
 import { INITIAL_GAME_MODE_TEXT, INITIAL_MAIN_TEXT } from '../data/consts';
+import modeRules from './components/modeRules';
 
 class View {
   constructor() {
@@ -41,7 +41,7 @@ class View {
 
   showViewsForChosenMode(mode) {
     this.render('.game__mode', questionForMode(mode));
-    this.render('.game__mode-rules', rules(mode));
+    this.render('.game__mode-rules', ...modeRules(mode));
   }
 
   renderInitialScreen() {
