@@ -14,7 +14,7 @@ function modalForm() {
 
   const modalFormConstructor = elementCreator(
     'div',
-    { class: 'modal__text' },
+    { class: 'modal__form' },
     modalInput,
     modalButton,
   );

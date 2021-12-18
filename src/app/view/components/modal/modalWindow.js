@@ -19,8 +19,7 @@ function ModalWindow() {
   const detailsContainer = modalDetails();
 
   // FORMS SECTION
-
-  const modalFormSection = modalForm();
+  const modalFormContainer = modalForm();
 
   // modalContainer construction //
   const modalContainer = elementCreator(
@@ -32,7 +31,7 @@ function ModalWindow() {
     modalHeader,
     modalText,
     detailsContainer,
-    modalFormSection,
+    modalFormContainer,
   );
   const modal = elementCreator('div', { className: 'modal' }, modalContainer);
 

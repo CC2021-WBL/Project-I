@@ -1,15 +1,10 @@
 import elementCreator from '../../../utils/elementCreator';
 
 function modalTable() {
-  const modalTableBody = elementCreator(
-    'table',
-    { class: 'details__table' },
-    'Here Comes the table',
-  );
   const tableCell1 = elementCreator(
     'td',
     { class: 'details__text' },
-    'Gamee Picture',
+    'Game Picture',
   );
   const tableCell2 = elementCreator(
     'td',
@@ -24,8 +19,7 @@ function modalTable() {
 
   const TableConstructor = elementCreator(
     'div',
-    { class: 'details__text' },
-    modalTableBody,
+    { class: 'details__table' },
     tableCell1,
     tableCell2,
     tableCell3,
