@@ -31,6 +31,13 @@ export const RANKINGS_TEMPLATE = {
   houses: [],
 };
 
+export const HOGWART_HOUSES = [
+  'Gryffindor',
+  'Slytherin',
+  'Hufflepuff',
+  'Ravenclaw',
+];
+
 export const INITIAL_GAME_MODE_TEXT = 'Choose category';
 
 export const INITIAL_MAIN_TEXT = 'Harry Potter Quiz Game';
