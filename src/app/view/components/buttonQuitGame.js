@@ -5,8 +5,13 @@ function buttonQuitGame(text) {
 
   buttonCreator.addEventListener('click', (event) => {
     event.preventDefault();
-    console.log('quit game');
-    console.log('We add here some function in the future');
+    const { correctAnswersScore, amountOfAnsweredQuestions } =
+      window.app.model.player;
+    window.app.view.renderQuitView(
+      'Evanesco! YOU HAVE LEFT THE GAME!',
+      correctAnswersScore,
+      amountOfAnsweredQuestions,
+    );
   });
 
   return buttonCreator;

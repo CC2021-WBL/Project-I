@@ -1,1 +1,1 @@
-export const GAME_TIME = 10 / 60; // ?seconds / 60seconds
+export const GAME_TIME = 8 / 60; // 8seconds

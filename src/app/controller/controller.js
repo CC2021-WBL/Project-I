@@ -26,6 +26,11 @@ class Controller {
       },
       () => {
         console.log('End of time');
+        this.view.renderQuitView(
+          'Avada Kedavra! END OF TIME!',
+          this.model.player.correctAnswersScore,
+          this.model.player.amountOfAnsweredQuestions,
+        );
       },
     );
     this.view.renderWand(gameTime);

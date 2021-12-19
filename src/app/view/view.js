@@ -72,6 +72,14 @@ class View {
   renderWand(gameTime) {
     this.render('.game-timer', ...wand(gameTime));
   }
+
+  renderQuitView(text, result, questions) {
+    this.render('.game__mode', text);
+    this.render(
+      '.game__mode-rules',
+      `YOUR GAME IS OVER | Your result is ${result}/${questions}`,
+    );
+  }
 }
 
 export default View;
