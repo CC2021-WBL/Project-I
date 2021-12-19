@@ -1,11 +1,18 @@
 // put path to this file into index.html
-
+// eslint-disable-next-line import/extensions
+import { GAME_MODES } from '../src/app/data/consts.js';
 /* eslint-disable import/extensions */
 import MainQuestionManager from '../src/app/logic/mainQuestionManager.js';
 
-const mainQuestionManager = new MainQuestionManager('students');
+//  gameModesProperty[2]= houses
+//  gameModesProperty[1]= staff
+//  gameModesProperty[0]= students
 
-const question = mainQuestionManager.getQuestion();
+const gameModesProperties = Object.keys(GAME_MODES);
+
+const mainQuestionManager = new MainQuestionManager(gameModesProperties[2]);
+
+const question = await mainQuestionManager.getQuestion();
 console.log(question);
 const modeObjects = mainQuestionManager.getObjectsForMode();
 console.log(modeObjects);
