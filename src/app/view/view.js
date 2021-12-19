@@ -1,7 +1,7 @@
 import elementInjector from '../utils/elementInjector';
 import rules from './components/rules';
 import questionForMode from './components/questionForMode';
-import displaceImage from './components/displaceImage';
+import displayImage from './components/displayImage';
 // import createLogo from './components/createLogo';
 // import gameModeButtons from './components/gameModeButtons';
 
@@ -55,7 +55,7 @@ class View {
   }
 
   renderImage() {
-    this.render('.game-image__content', displaceImage());
+    this.render('.game-image__content', displayImage());
   }
 }
 
