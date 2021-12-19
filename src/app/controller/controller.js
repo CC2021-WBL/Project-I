@@ -24,19 +24,18 @@ class Controller {
     this.view.showViewsForChosenMode(gameMode);
   }
 
-  async startGame(gameModeInfo) {
+  async startGame(gameModeInfo, gameTime) {
     this.model.mainQuestionManager = new MainQuestionManager(gameModeInfo);
     this.model.player = new Player();
-    this.model.timer = new GameTimer(GAME_TIME);
+    this.model.timer = new GameTimer(gameTime);
     this.model.timer.runTimer(
       (timeLeftInSec, totalTimeInSec) => {
-        console.log(`Time left: ${timeLeftInSec}/${totalTimeInSec}`);
+        console.log(`Time left: ${timeLeftInSec}/${totalTimeInSec} s`);
       },
       () => {
         console.log('End of time');
       },
     );
-
     await this.generateAndShowQuestion();
     this.view.renderQuitGameButton();
   }
@@ -48,11 +47,10 @@ class Controller {
   }
 
   checkPlayerAnswer(correctAnswer, playerAnswer) {
-    console.log(`Correct answer: ${correctAnswer}`);
-    console.log(`Player answer: ${playerAnswer}`);
+    console.log(`Player: ${playerAnswer} | Correct: ${correctAnswer}`);
     this.model.player.registerAnswer(correctAnswer, playerAnswer);
     console.log(
-      `You have answered ${this.model.player.amountOfAnsweredQuestions} and you have ${this.model.player.correctAnswersScore} points`,
+      `Your score: ${this.model.player.correctAnswersScore}/${this.model.player.amountOfAnsweredQuestions} pts`,
     );
   }
 }
