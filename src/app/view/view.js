@@ -9,6 +9,7 @@ import buttonPlay from './components/buttonPlay';
 import answersButtons from './components/answersButtons';
 import buttonQuitGame from './components/buttonQuitGame';
 import displayImage from './components/displayImage';
+import wand from './components/wand';
 
 class View {
   constructor() {
@@ -68,6 +69,10 @@ class View {
 
   renderQuitGameButton() {
     this.render('.game__btns', buttonQuitGame('Quit game'));
+  }
+
+  renderWand(gameTime) {
+    this.render('.game-timer', ...wand(gameTime));
   }
 }
 

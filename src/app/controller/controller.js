@@ -36,6 +36,7 @@ class Controller {
         console.log('End of time');
       },
     );
+    this.view.renderWand(gameTime);
     await this.generateAndShowQuestion();
     this.view.renderQuitGameButton();
   }
