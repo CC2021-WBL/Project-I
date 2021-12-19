@@ -1,4 +1,3 @@
-/* eslint-disable no-plusplus */
 import elementCreator from '../../utils/elementCreator';
 import imgWand from '../../../../static/assets/img/wand.png';
 import elementInjector from '../../utils/elementInjector';
@@ -20,7 +19,7 @@ function wand(gameTime) {
   let time = timeStart;
 
   const countDown = setInterval(() => {
-    time--;
+    time -= 1;
     const progressWidth = (time / timeStart) * 100;
 
     const inner = document.querySelector('.inner');

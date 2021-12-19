@@ -10,6 +10,7 @@ import answersButtons from './components/answersButtons';
 import buttonQuitGame from './components/buttonQuitGame';
 import displayImage from './components/displayImage';
 import wand from './components/wand';
+import harryPotterImg from '../../../static/assets/img/images/students/0.jpg';
 
 class View {
   constructor() {
@@ -51,14 +52,11 @@ class View {
   }
 
   renderInitialScreen() {
-    // RENDER LOGO
     this.render('.header__game-logo', createLogo());
-    // // RENDER GAME MODE BUTTONS
     this.render('.header__game-nav', ...modeButtons);
-    // // RENDER INIT LOOK OF GAME_MODE
     this.render('.game__mode', INITIAL_GAME_MODE_TEXT);
-    // // RENDER RULES
     this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
+    this.render('.game-image__content', displayImage(harryPotterImg));
   }
 
   renderQuestion(question) {

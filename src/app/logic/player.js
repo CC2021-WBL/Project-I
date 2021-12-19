@@ -1,4 +1,4 @@
-export class Player {
+class Player {
   constructor() {
     this.correctAnswersScore = 0;
     this.detailQuestionData = [];
