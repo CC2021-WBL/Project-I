@@ -3,7 +3,11 @@ class Controller {
     this.model = model;
     this.view = view;
     // INIT LOOK OF OUR APP
+
+    this.view.renderModal();
     this.view.renderInitialScreen();
+
+
   }
 
   // Funkcja znajduje się w kontrolerze, odpalana jest w momencie kliknięcia buttona na stronie.

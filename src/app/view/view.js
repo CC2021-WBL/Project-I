@@ -3,6 +3,7 @@ import elementInjector from '../utils/elementInjector';
 import questionForMode from './components/questionForMode';
 import modeButtons from './components/mainMenu.js';
 import createLogo from './components/createLogo';
+import ModalWindow from './components/modal/modalWindow';
 import { INITIAL_GAME_MODE_TEXT, INITIAL_MAIN_TEXT } from '../data/consts';
 import modeRules from './components/modeRules';
 import buttonPlay from './components/buttonPlay';
@@ -56,6 +57,10 @@ class View {
     this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
     // // RENDER BUTTON
     this.render('.game__btns', buttonPlay('Play the game'));
+  }
+
+  renderModal() {
+    this.render('.modal', ModalWindow());
   }
 }
 
