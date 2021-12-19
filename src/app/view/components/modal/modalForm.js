@@ -7,7 +7,7 @@ function modalForm() {
     'Input',
   );
   const modalButton = elementCreator(
-    'div',
+    'button',
     { class: 'modal__button' },
     'Save result and return to lobby!',
   );
@@ -18,6 +18,16 @@ function modalForm() {
     modalInput,
     modalButton,
   );
+  function closeModal() {
+    const modal = document.querySelector('.modal');
+    // modal.classList.toggle('modal__button');
+    modal.classList.add('modal__hidden');
+  }
+
+  modalButton.addEventListener('click', () => {
+    closeModal();
+  });
+
   return modalFormConstructor;
 }
 export default modalForm;
