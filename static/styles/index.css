@@ -34,6 +34,40 @@
   bottom: -25px;
 }
 
+.footer {
+  width: 100%;
+}
+
+.footer .game-timer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.footer .game-timer__wand {
+  height: 26px;
+  width: 70%;
+  position: absolute;
+  left: 229px;
+  bottom: 34px;
+  background: url("../assets/img/burn.png");
+  border-radius: 0 8px 8px 0;
+}
+
+.footer .game-timer__wand .inner {
+  width: 100%;
+  height: 100%;
+  -webkit-box-shadow: 10px -5px 15px #ff8a00, 10px 5px 15px #8e22c2, inset 0px 5px 4px #ff5c00;
+          box-shadow: 10px -5px 15px #ff8a00, 10px 5px 15px #8e22c2, inset 0px 5px 4px #ff5c00;
+  border-radius: inherit;
+  background: #ffd492;
+}
+
 .buttonPlay {
   background-color: orange;
   max-width: 400px;
@@ -86,9 +120,24 @@
   background: grey;
 }
 
+.game-wrapper .header__game-img {
+  width: 50%;
+  height: 50%;
+}
+
 .game-wrapper .header__game-nav {
   width: 60%;
   height: 80%;
+}
+
+.game-wrapper .game {
+  outline: green dotted 5px;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
 }
 
 .game-wrapper .game-image {
@@ -114,16 +163,6 @@
   width: 60%;
   height: 60%;
   outline: yellow dotted 5px;
-}
-
-.game-wrapper .game {
-  outline: green dotted 5px;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-column: 2/3;
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
-  grid-row: 2/3;
 }
 
 .game-wrapper .game__mode {
@@ -198,6 +237,40 @@
   width: 40%;
   height: 100%;
   background: green;
+}
+
+.game-wrapper .game-image {
+  outline: black dotted 5px;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.game-wrapper .game-image__content {
+  width: 55%;
+  height: 75%;
+  outline: yellow dotted 5px;
+}
+
+.game-wrapper .game-image__content-image {
+  height: 100%;
+  width: 100%;
+  border: 12px solid rgba(173, 25, 132, 0.26);
+  -webkit-filter: drop-shadow(13px 17px 11px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(13px 17px 11px rgba(0, 0, 0, 0.5));
+  border-radius: 16px;
 }
 
 .game-wrapper .footer {
