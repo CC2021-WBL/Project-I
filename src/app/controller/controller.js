@@ -1,6 +1,9 @@
 import { GAME_MODES } from '../data/consts';
 import MainQuestionManager from '../logic/mainQuestionManager';
 import Player from '../logic/player';
+import Timer from '../logic/timer';
+import GameTimer from '../logic/timer';
+import { GAME_TIME } from '../data/config';
 
 class Controller {
   constructor(model, view) {
@@ -24,6 +27,16 @@ class Controller {
   async startGame(gameModeInfo) {
     this.model.mainQuestionManager = new MainQuestionManager(gameModeInfo);
     this.model.player = new Player();
+    this.model.timer = new GameTimer(GAME_TIME);
+    this.model.timer.runTimer(
+      (timeLeftInSec, totalTimeInSec) => {
+        console.log(`Time left: ${timeLeftInSec}/${totalTimeInSec}`);
+      },
+      () => {
+        console.log('End of time');
+      },
+    );
+
     await this.generateAndShowQuestion();
     this.view.renderQuitGameButton();
   }
