@@ -1,16 +1,10 @@
-// import gameModeButtons from '../view/components/gameModeButtons';
-// import logo from '../view/components/createLogo';
-// import createLogo from '../view/components/createLogo';
-
 class Controller {
   constructor(model, view) {
     this.model = model;
     this.view = view;
-
-    // If rankings is empty arrays set this in localStorage
-    localStorage.setItem('rankings', JSON.stringify(this.model.rankings));
-
     // INIT LOOK OF OUR APP
+
+    this.view.renderModal();
     this.view.renderInitialScreen();
     this.view.renderImage();
   }
