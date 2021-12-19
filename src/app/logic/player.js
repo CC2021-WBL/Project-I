@@ -2,14 +2,17 @@ export class Player {
   constructor() {
     this.correctAnswersScore = 0;
     this.detailQuestionData = [];
+    this.amountOfAnsweredQuestions = 0;
   }
 
-  registerAnswer(correctAnswer, playerAnswer, isAnswerCorrect) {
+  registerAnswer(correctAnswer, playerAnswer) {
     if (!playerAnswer) {
       throw new Error(
         'error with given argument: playerAnswer, the value is incorrect, it should be string',
       );
     }
+
+    const isAnswerCorrect = correctAnswer === playerAnswer;
     if (isAnswerCorrect) {
       this.correctAnswersScore += 1;
     }

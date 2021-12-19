@@ -5,7 +5,7 @@ class Model {
     this.title = object.title;
     this.apiBase = object.options.hpApiBaseUrl;
     this.quizMaxTime = object.options.quizMaxTime;
-    this.gameMode = '';
+    this.gameModeInfo = '';
     this.rankings = LocalStorageService.loadRankings();
     this.localStorageService = LocalStorageService;
   }

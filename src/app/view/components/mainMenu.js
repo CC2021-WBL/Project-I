@@ -11,7 +11,7 @@ modeButtons.map((button) =>
   button.addEventListener('click', () => {
     clearActive(modeButtons);
     button.classList.add('active');
-    window.app.changeGameMode(button.textContent);
+    window.app.changeGameMode(button.textContent.toLowerCase());
   }),
 );
 

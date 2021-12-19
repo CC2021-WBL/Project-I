@@ -1,12 +1,25 @@
 import elementCreator from '../../utils/elementCreator';
 
-function answersButtons(answers) {
-  return [
-    elementCreator('button', { class: 'answerButton' }, answers[0]),
-    elementCreator('button', { class: 'answerButton' }, answers[1]),
-    elementCreator('button', { class: 'answerButton' }, answers[2]),
-    elementCreator('button', { class: 'answerButton' }, answers[3]),
-  ];
+function answersButtons(question) {
+  const buttons = [];
+  question.answers.forEach((button, index) => {
+    buttons.push(
+      elementCreator(
+        'button',
+        { class: 'answerButton' },
+        question.answers[index],
+      ),
+    );
+  });
+
+  buttons.map((button) =>
+    button.addEventListener('click', () => {
+      window.app.checkPlayerAnswer(question.rightAnswer, button.innerHTML);
+      window.app.generateAndShowQuestion();
+    }),
+  );
+
+  return buttons;
 }
 
 export default answersButtons;

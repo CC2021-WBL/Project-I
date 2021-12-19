@@ -6,6 +6,9 @@ import createLogo from './components/createLogo';
 import { INITIAL_GAME_MODE_TEXT, INITIAL_MAIN_TEXT } from '../data/consts';
 import modeRules from './components/modeRules';
 import buttonPlay from './components/buttonPlay';
+import answersButtons from './components/answersButtons';
+import buttonQuitGame from './components/buttonQuitGame';
+import displayImage from './components/displayImage';
 
 class View {
   constructor() {
@@ -43,6 +46,7 @@ class View {
   showViewsForChosenMode(mode) {
     this.render('.game__mode', questionForMode(mode));
     this.render('.game__mode-rules', ...modeRules(mode));
+    this.render('.game__btns', buttonPlay('Play the game'));
   }
 
   renderInitialScreen() {
@@ -54,8 +58,16 @@ class View {
     this.render('.game__mode', INITIAL_GAME_MODE_TEXT);
     // // RENDER RULES
     this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
-    // // RENDER BUTTON
-    this.render('.game__btns', buttonPlay('Play the game'));
+  }
+
+  renderQuestion(question) {
+    this.render('.game__mode', 'Who is this? What is his house');
+    this.render('.game__mode-rules', ...answersButtons(question));
+    this.render('.game-image__content', displayImage(question.image));
+  }
+
+  renderQuitGameButton() {
+    this.render('.game__btns', buttonQuitGame('Quit game'));
   }
 }
 

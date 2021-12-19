@@ -1,14 +1,13 @@
 /* eslint-disable import/extensions */
 import QuestionGenerator from './questionGenerator.js';
 import DataManager from './dataManager.js';
-import { GAME_MODES } from '../data/consts.js';
 
 class MainQuestionManager {
-  constructor(gameModesProperty) {
-    this.urlAdress = GAME_MODES[gameModesProperty].urlAdress;
-    this.amountOfIDs = GAME_MODES[gameModesProperty].ids;
-    this.answerProperty = GAME_MODES[gameModesProperty].answerProperty;
-    this.imgSubfolder = GAME_MODES[gameModesProperty].imgSubfolder;
+  constructor(gameModeInfo) {
+    this.urlAdress = gameModeInfo.urlAdress;
+    this.amountOfIDs = gameModeInfo.ids;
+    this.answerProperty = gameModeInfo.answerProperty;
+    this.imgSubfolder = gameModeInfo.imgSubfolder;
     this.arrayWithObjectsForMode = [];
   }
 
