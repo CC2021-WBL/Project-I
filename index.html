@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>CodersCamp2021 | Harry potter API QUIZ</title>
-    <link rel="stylesheet" href='./static/styles/index.css'>
+    <link rel="stylesheet" href='./static/styles/index.scss'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -17,6 +17,7 @@
 
 <body>
     <div class="game-wrapper">
+        <div class="modal"></div>
         <header class="header">
             <div class="header__game-logo"></div>
             <div class="header__game-nav"></div>
@@ -30,10 +31,17 @@
             <div class="game__btns"></div>
         </main>
         <footer class="footer">
-            <div class="game-timer"></div>
+            <div class="game-timer">
+                <img src="./static/assets/img/wand.png" alt="The shaft of the wand">
+                <div class="game-timer__wand">
+                    <div class="inner"></div>
+                </div>
+            </div>
+            <button class="start">START</button>
         </footer>
     </div>
     <script type="module" src="./src/index.js"></script>
+    <script src="./src/wand.js"></script>
 </body>
 
 </html>

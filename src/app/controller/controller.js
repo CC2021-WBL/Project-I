@@ -5,7 +5,11 @@ class Controller {
     this.model = model;
     this.view = view;
     // INIT LOOK OF OUR APP
+
+    this.view.renderModal();
     this.view.renderInitialScreen();
+
+
     const playButton = document.querySelector('.buttonPlay');
     playButton.addEventListener('click', (event) => {
       event.preventDefault();
