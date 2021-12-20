@@ -2,10 +2,10 @@
   background-color: orange;
   max-width: 400px;
   color: white;
-  transition: all 1s ease-in-out;
+  transition: all .25s ease-in-out;
 }
 
 .buttonPlay:hover {
   background-color: rgb(104, 67, 0);
-  color: white;
+  // color: white;
 }
