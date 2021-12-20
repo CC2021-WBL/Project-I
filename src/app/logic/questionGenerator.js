@@ -6,8 +6,7 @@ class QuestionGenerator {
     return Math.floor(Math.random() * (amountOfId - minId + 1) + minId);
   }
 
-  static generateQuestionsForCurrentMode(amountOfIds) {
-    const amountOfId = amountOfIds;
+  static generateQuestionsForCurrentMode(amountOfId) {
     const amountOfAnswersPerQuestion = 4;
     const generatedIds = [];
 

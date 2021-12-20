@@ -3,7 +3,8 @@
 import GameTimer from '../src/app/logic/timer.js';
 
 const timer = new GameTimer(0.5);
-
+// to check if setting function works:
+// timer.setGameTime(0.1);
 function doSomethingAtTheEndOfTime() {
   console.log('-----------------the end-----------------------');
 }
