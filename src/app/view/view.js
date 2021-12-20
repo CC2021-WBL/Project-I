@@ -11,6 +11,7 @@ import buttonQuitGame from './components/buttonQuitGame';
 import displayImage from './components/displayImage';
 import wand from './components/wand';
 import harryPotterImg from '../../../static/assets/img/images/students/0.jpg';
+import timerCountdown from './components/timerText';
 
 class View {
   constructor() {
@@ -67,6 +68,10 @@ class View {
 
   renderQuitGameButton() {
     this.render('.game__btns', buttonQuitGame('Quit game'));
+  }
+
+  renderTimerText(time) {
+    this.render('.game-timer-text', timerCountdown(time));
   }
 
   renderWand(gameTime) {

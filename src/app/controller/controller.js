@@ -2,6 +2,7 @@ import { GAME_MODES } from '../data/consts';
 import MainQuestionManager from '../logic/mainQuestionManager';
 import Player from '../logic/player';
 import GameTimer from '../logic/timer';
+import timerCountdown from '../view/components/timerText';
 
 class Controller {
   constructor(model, view) {
@@ -22,6 +23,7 @@ class Controller {
     this.model.timer = new GameTimer(gameTime);
     this.model.timer.runTimer(
       (timeLeftInSec, totalTimeInSec) => {
+        this.view.renderTimerText(timeLeftInSec);
         console.log(`Time left: ${timeLeftInSec}/${totalTimeInSec} s`);
       },
       () => {
