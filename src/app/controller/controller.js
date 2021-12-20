@@ -1,3 +1,5 @@
+import { startCountdown } from "../view/components/timerText";
+
 class Controller {
   constructor(model, view) {
     this.model = model;
@@ -12,6 +14,11 @@ class Controller {
   changeGameMode(mode) {
     this.model.gameMode = mode;
     this.view.showViewsForChosenMode(mode);
+  }
+
+  startCountdown() {
+    this.view.renderTimer();
+    startCountdown();
   }
 }
 export default Controller;
