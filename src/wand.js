@@ -60,4 +60,4 @@ const wand = () => {
 //   inner.style.width = `${progressWidth}%`;
 // };
 
-start.addEventListener('click', wand);
+// start.addEventListener('click', wand);
