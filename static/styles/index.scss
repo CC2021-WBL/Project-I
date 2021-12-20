@@ -29,11 +29,13 @@
       &-logo {
         width: 30%;
         height: 50%;
-        background: grey;
+        display: flex;
+        justify-content: center;
       }
+      
       &-img {
-        width: 50%;
-        height: 50%;
+        aspect-ratio: auto;
+        transform: scale(1.4);
       }
 
       &-nav {
@@ -59,7 +61,7 @@
       &__content {
         width: 60%;
         height: 60%;
-        outline: yellow dotted 5px;
+        // outline: yellow dotted 5px;
       }
     }
 
@@ -129,9 +131,9 @@
     align-items: center;
 
     &__content {
-      width: 55%;
-      height: 75%;
-      outline: yellow dotted 5px;
+      width: 250px;
+      height: 300px;
+      // outline: yellow dotted 5px;
 
       &-image {
         height: 100%;
