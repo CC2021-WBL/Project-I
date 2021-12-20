@@ -1,4 +1,4 @@
-import elementCreator from "../../utils/elementCreator";
+import elementCreator from '../../utils/elementCreator';
 
 const startingMinutes = 1;
 let time = startingMinutes * 5;

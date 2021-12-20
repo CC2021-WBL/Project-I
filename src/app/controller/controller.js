@@ -1,4 +1,4 @@
-import { startCountdown } from "../view/components/timerText";
+import { startCountdown } from '../view/components/timerText';
 
 class Controller {
   constructor(model, view) {
@@ -8,7 +8,6 @@ class Controller {
 
     this.view.renderModal();
     this.view.renderInitialScreen();
-    this.view.renderImage();
   }
 
   changeGameMode(mode) {
