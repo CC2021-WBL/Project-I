@@ -13,24 +13,8 @@ import buttonPlay from './components/buttonPlay';
 import { timer } from './components/timerText';
 
 class View {
-  constructor() {
-    // Selectory przygotowane do późniejszej manipulacji
-    this.gamewrapper = document.querySelector('.game-wrapper');
-
-    this.headerGameLogo = document.querySelector('.header__game-logo');
-    this.headerGameNav = document.querySelector('.header__game-nav');
-
-    this.gameImage = document.querySelector('.game-image');
-    this.gameImageContent = document.querySelector('.game-image__content');
-
-    this.game = document.querySelector('.game');
-    this.gameMode = document.querySelector('.game__mode');
-    this.gameModeRules = document.querySelector('.game__mode-rules');
-    this.gameBtns = document.querySelector('.game__btns');
-
-    this.footer = document.querySelector('.footer');
-    this.gameTimer = document.querySelector('.game-timer');
-  }
+  // eslint-disable-next-line no-useless-constructor,no-empty-function
+  constructor() {}
 
   // eslint-disable-next-line class-methods-use-this
   render(query, ...children) {
