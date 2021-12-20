@@ -28,7 +28,7 @@ const start = document.querySelector('.start');
 
 // };
 
-const timeStart = 60;
+const timeStart = 5;
 
 const wand = () => {
   let time = timeStart;
@@ -47,4 +47,17 @@ const wand = () => {
   }, 1000);
 };
 
-start.addEventListener('click', wand);
+// const timeStart = 60;
+// const endWand = () => {
+//   inner.style.width = '0%';
+//   inner.style.border = 'none';
+// };
+// const wand = (timeLeft, timeStart) => {
+//   // let time = timeStart;
+
+//   const progressWidth = (timeLeft / timeStart) * 100;
+
+//   inner.style.width = `${progressWidth}%`;
+// };
+
+// start.addEventListener('click', wand);
