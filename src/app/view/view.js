@@ -1,6 +1,9 @@
 /* eslint-disable import/extensions */
 import elementInjector from '../utils/elementInjector';
 import questionForMode from './components/questionForMode';
+import displayImage from './components/displayImage';
+// import createLogo from './components/createLogo';
+// import gameModeButtons from './components/gameModeButtons';
 import modeButtons from './components/mainMenu.js';
 import createLogo from './components/createLogo';
 import ModalWindow from './components/modal/modalWindow';
@@ -66,6 +69,10 @@ class View {
 
   renderModal() {
     this.render('.modal', ModalWindow());
+  }
+
+  renderImage() {
+    this.render('.game-image__content', displayImage());
   }
 }
 

@@ -8,20 +8,8 @@ class Controller {
 
     this.view.renderModal();
     this.view.renderInitialScreen();
-
-
-    const playButton = document.querySelector('.buttonPlay');
-    playButton.addEventListener('click', (event) => {
-      event.preventDefault();
-      window.app.startCountdown();
-    });
+    this.view.renderImage();
   }
-
-  // Funkcja znajduje się w kontrolerze, odpalana jest w momencie kliknięcia buttona na stronie.
-  // Po kliknięciu kontroler:
-  // a) zmienia wartość gameMode w obiekcie model
-  // b) używa metody showQuestionForChoosenMode, żeby zaktualizować tekst w odpowiednim
-  // elemencie DOM
 
   changeGameMode(mode) {
     this.model.gameMode = mode;
