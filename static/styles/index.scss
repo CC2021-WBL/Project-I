@@ -59,7 +59,7 @@
       &__content {
         width: 60%;
         height: 60%;
-        outline: yellow dotted 5px;
+        // outline: yellow dotted 5px;
       }
     }
 
@@ -129,9 +129,9 @@
     align-items: center;
 
     &__content {
-      width: 55%;
-      height: 75%;
-      outline: yellow dotted 5px;
+      width: 250px;
+      height: 300px;
+      // outline: yellow dotted 5px;
 
       &-image {
         height: 100%;
