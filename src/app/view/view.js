@@ -12,6 +12,7 @@ import modeRules from './components/modeRules';
 import buttonPlay from './components/buttonPlay';
 import { timer } from './components/timerText';
 import createImage from './components/createImage';
+import buttonHallOfFame from './components/buttonHallOfFame';
 
 class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
@@ -40,7 +41,11 @@ class View {
     this.render('.header__game-nav', ...modeButtons);
     this.render('.game__mode', INITIAL_GAME_MODE_TEXT);
     this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
-    this.render('.game__btns', buttonPlay('Play the game'));
+    this.render(
+      '.game__btns',
+      buttonHallOfFame('Hall of fame'),
+      buttonPlay('Play the game'),
+    );
     this.render('.game-image__content', createImage());
   }
 
