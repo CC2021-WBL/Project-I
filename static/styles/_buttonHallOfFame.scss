@@ -1,15 +1,22 @@
 .buttonHallOfFame {
   width: clamp(100px, 50%, 500px);
-  height: 2rem;
+  // height: 2rem; domyślnie jest to flex-stretch dla flex item
   border: none;
   outline: none;
-  color: black;
+  // color: black;
   background: #111;
   cursor: pointer;
   position: relative;
   z-index: 0;
   border-radius: 10px;
   margin: 0 0.5rem;
+  // font-size: .7rem;
+}
+
+.halloffame-icon {
+  position: relative;
+  top: .1rem;
+  Height: 40px;
 }
 
 .buttonHallOfFame:before {
@@ -58,7 +65,7 @@
   width: 100%;
   height: 100%;
   background: rgb(255, 255, 255);
-  left: 0px;
+  left: 0;
   top: 0;
   border-radius: 10px;
 }

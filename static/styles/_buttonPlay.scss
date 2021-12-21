@@ -1,6 +1,6 @@
 .buttonPlay {
   width: clamp(100px, 50%, 500px);
-  height: 2rem;
+  // height: 2rem; domyślnie jest to flex-stretch dla flex item
   border: none;
   outline: none;
   color: white;
