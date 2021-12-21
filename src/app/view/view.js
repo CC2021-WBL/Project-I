@@ -12,6 +12,8 @@ import modeRules from './components/modeRules';
 import buttonPlay from './components/buttonPlay';
 import { timer } from './components/timerText';
 import createImage from './components/createImage';
+import buttonSettings from './components/modal/settingsButton';
+import levelHeader from './components/settingsScreen';
 
 class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
@@ -42,6 +44,7 @@ class View {
     this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
     this.render('.game__btns', buttonPlay('Play the game'));
     this.render('.game-image__content', createImage());
+    this.render('.settings', buttonSettings('settings'));
   }
 
   renderTimer() {
@@ -54,6 +57,11 @@ class View {
 
   renderImage() {
     this.render('.game-image__content', displayImage());
+  }
+
+  showSettings() {
+    this.render('.game__mode', levelHeader('Level test'));
+    // this.render('.game__mode-rules', levelButtons());
   }
 }
 

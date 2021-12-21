@@ -19,5 +19,9 @@ class Controller {
     this.view.renderTimer();
     startCountdown();
   }
+
+  showSettingsScreen() {
+    this.view.showSettings();
+  }
 }
 export default Controller;
