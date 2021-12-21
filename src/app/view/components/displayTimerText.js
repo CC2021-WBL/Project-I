@@ -18,6 +18,5 @@ export default function displayTimerText() {
   } else {
     timer.innerHTML = `Time Left: ${min}m ${sec}s`;
   }
-  // console.log(timerCreator);
   return timer;
 }
