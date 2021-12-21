@@ -9,7 +9,7 @@ function buttonHallOfFame(text) {
     alt: 'Victory Cup',
   });
   const buttonCreator = elementCreator(
-    'button',
+    'button disabled',
     {
       class: 'buttonHallOfFame',
     },
