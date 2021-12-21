@@ -36,14 +36,14 @@ class View {
     this.render('.game__mode-rules', ...modeRules(mode));
   }
 
-  renderInitialScreen() {
+  renderInitialScreen(time) {
     this.render('.header__game-logo', createLogo());
     this.render('.header__game-nav', ...modeButtons);
     this.render('.game__mode', INITIAL_GAME_MODE_TEXT);
     this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
     this.render('.game__btns', buttonPlay('Play the game'));
     this.render('.game-image__content', createImage());
-    this.render('.game-timer', displayTimerText());
+    this.render('.game-timer', displayTimerText(time));
   }
 
   // renderTimer() {

@@ -1,9 +1,9 @@
 import elementCreator from '../../utils/elementCreator';
 
 // const tylko do testów, docelowo time powinien być pobierany z zewnątrz
-const time = 45;
+// const time = 45;
 
-export default function displayTimerText() {
+export default function displayTimerText(time) {
   const min = Math.floor(time / 60);
   const sec = time % 60;
 
