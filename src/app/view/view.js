@@ -11,6 +11,7 @@ import createImage from './components/createImage';
 import buttonSettings from './components/modal/settingsButton';
 import levelHeader from './components/settingsScreen';
 import displayTimerText from './components/displayTimerText';
+import levelButtons from './components/settingsLevel';
 
 class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
@@ -48,10 +49,11 @@ class View {
     this.render('.settings', settingsButton);
   }
 
+  // veronicas button
   showSettings() {
     console.log('showing settings');
     this.render('.game__mode', levelHeader('Level test'));
-    // this.render('.game__mode-rules', levelButtons());
+    this.render('.game__mode-rules', levelButtons('button one'));
   }
 
   hideSettings() {
