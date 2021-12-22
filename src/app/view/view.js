@@ -17,7 +17,9 @@ import levelHeader from './components/settingsScreen';
 
 class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
-  constructor() {}
+  constructor() {
+    this.settings = false;
+  }
 
   // eslint-disable-next-line class-methods-use-this
   render(query, ...children) {
@@ -44,8 +46,31 @@ class View {
     this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
     this.render('.game__btns', buttonPlay('Play the game'));
     this.render('.game-image__content', createImage());
-    this.render('.settings', buttonSettings('settings'));
+    const settingsButton = buttonSettings('settings');
+    settingsButton.addEventListener('click', this.toggleSettingsView);
+    this.render('.settings', settingsButton);
   }
+
+  showSettings() {
+    console.log('showing settings');
+    this.render('.game__mode', levelHeader('Level test'));
+    // this.render('.game__mode-rules', levelButtons());
+  }
+
+  hideSettings() {
+    console.log('hiding settings');
+    // do stg after hiding the settings
+  }
+
+  toggleSettingsView = () => {
+    console.log('clicked settings button');
+    if (!this.settings) {
+      this.showSettings();
+    } else {
+      this.hideSettings();
+    }
+    this.settings = !this.settings;
+  };
 
   renderTimer() {
     this.render('.game-timer', timer);
@@ -57,11 +82,6 @@ class View {
 
   renderImage() {
     this.render('.game-image__content', displayImage());
-  }
-
-  showSettings() {
-    this.render('.game__mode', levelHeader('Level test'));
-    // this.render('.game__mode-rules', levelButtons());
   }
 }
 
