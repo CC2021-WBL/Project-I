@@ -5,8 +5,7 @@
   height: 2rem;
   border: none;
   outline: none;
-  color: rgb(0, 0, 0);
-  background: rgb(164, 49, 49);
+  background: $white-color;
   cursor: pointer;
   position: relative;
   z-index: 0;
@@ -19,9 +18,9 @@
     background: linear-gradient(
       45deg,
       #eefa03,
-      #aed83b,
+      #fff951,
       #ffc300,
-      #ff5733,
+      #ca4122,
       #faa019,
       #eefa03
     );
@@ -39,9 +38,9 @@
     border-radius: 10px;
   }
   &:active {
-    color: rgb(34, 34, 34);
+    color: $black-color;
     &::after {
-      background: #e2e2e2;
+      background: $lite-gray;
     }
   }
   &:hover::before {
@@ -53,21 +52,21 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgb(255, 255, 255);
+    background: $white-color;
     left: 0;
     top: 0;
     border-radius: 10px;
   }
   &--orange {
-    color: rgb(255, 255, 255);
+    color: $white-color;
     z-index: 0;
     &::after {
-      background: orange;
+      background: $lite-orange;
     }
     &:active {
-      color: rgb(255, 255, 255);
+      color: $white-color;
       &::after {
-        background: rgb(233, 151, 0);
+        background: $orange;
       }
     }
   }
