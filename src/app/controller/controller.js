@@ -23,7 +23,7 @@ class Controller {
     const question = await this.model.gameMaker.startGameAndGetFirstQuestion(
       Controller.doAtInterval,
     );
-    console.log(question);
+    this.view.renderQuestion(question);
   }
 
   changeGameMode(mode) {

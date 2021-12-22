@@ -9,6 +9,7 @@ import modeRules from './components/modeRules';
 import buttonPlay from './components/buttonPlay';
 import createImage from './components/createImage';
 import displayTimerText from './components/displayTimerText';
+import answersButtons from './components/answersButtons';
 
 class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
@@ -51,6 +52,12 @@ class View {
 
   renderImage() {
     this.render('.game-image__content', displayImage());
+  }
+
+  renderQuestion(question) {
+    this.render('.gamemode', 'Who is this? What is his house');
+    this.render('.gamemode-rules', ...answersButtons(question));
+    this.render('.game-image__content', displayImage(question.image));
   }
 }
 
