@@ -2,7 +2,6 @@
 /* eslint-disable import/named */
 import MainQuestionManager from './mainQuestionManager.js';
 import { Player } from './player.js';
-import { correctAnswer } from './correctAnswer.js';
 import GameTimer from './timer.js';
 
 class GameMaker {
@@ -25,14 +24,6 @@ class GameMaker {
     return this.questionObject;
   }
 
-  checkAnswer(playerAnswer) {
-    const isAnswerCorrect = correctAnswer(
-      this.questionObject.rightAnswer,
-      playerAnswer,
-    );
-    return isAnswerCorrect;
-  }
-
   async startGameAndGetFirstQuestion(callbackOnInterval, callbackOnEndOfTime) {
     this.player = new Player();
     this.timer.runTimer(callbackOnInterval, callbackOnEndOfTime);
@@ -41,11 +32,9 @@ class GameMaker {
   }
 
   checkAndRegisterAnswer(answer) {
-    const isAnswerCorrect = this.checkAnswer(answer);
-    this.player.registerAnswer(
-      this.questionObject.rightAnswer,
+    const isAnswerCorrect = this.player.checkAndRegisterAnswer(
       answer,
-      isAnswerCorrect,
+      this.questionObject.rightAnswer,
     );
     return isAnswerCorrect;
   }
