@@ -9,13 +9,18 @@ class Controller {
 
     this.view.renderModal();
     this.view.renderInitialScreen();
+    this.view.bindButtonPlay(this.startGame);
   }
 
   static doAtInterval(time) {
     console.log(`time to end: ${time}`);
   }
 
-  async startGame() {
+  handlerPlayButton = () => {
+    this.startGame();
+  };
+
+  startGame = async () => {
     this.model.gameMaker = new GameMaker(
       this.model.gameMode,
       this.model.gameTime,
@@ -26,7 +31,7 @@ class Controller {
     this.view.renderQuestion(question);
 
     // await this.showQuestion();
-  }
+  };
 
   async showQuestion() {
     this.view.renderQuestion(await this.model.gameMaker.createQuestion());

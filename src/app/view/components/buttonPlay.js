@@ -6,8 +6,8 @@ const buttonPlay = elementCreator(
   `Play the game`,
 );
 
-buttonPlay.addEventListener('click', () => {
+/* buttonPlay.addEventListener('click', () => {
   window.app.startGame();
-});
+}); */
 
 export default buttonPlay;

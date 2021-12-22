@@ -58,7 +58,16 @@ class View {
     console.log('cokolwiek');
     this.render('.game__mode', 'Who is this? What is his house');
     this.render('.game__mode-rules', ...answersButtons(question));
-    this.render('.game-image__content', displayImage(question.image));
+    this.render(
+      '.game-image__content',
+      displayImage(question.image, 'very handsome Hatrry'),
+    );
+  }
+
+  bindButtonPlay(handler) {
+    buttonPlay.addEventListener('click', () => {
+      handler();
+    });
   }
 }
 
