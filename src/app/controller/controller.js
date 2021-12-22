@@ -1,4 +1,5 @@
 import GameMaker from '../logic/gameMaker';
+import answersButtons from '../view/components/answersButtons';
 import { startCountdown } from '../view/components/timerText';
 
 class Controller {
@@ -32,13 +33,15 @@ class Controller {
       this.doAtEnd,
     );
     this.view.renderQuestion(question);
+    console.log(answersButtons(question));
+    this.view.bindAnswerButtons(this.model.gameMaker.checkAndRegisterAnswer);
     // @TODO funckja blokująca przyciski
     // @TODO zamiana przycisku play gme na quit game
   };
 
   async showQuestion() {
     this.view.renderQuestion(await this.model.gameMaker.createQuestion());
-    this.view.bindAnswerButtons(this.doAtEnd);
+    this.view.bindAnswerButtons(this.model.gameMaker.checkAndRegisterAnswer);
   }
 
   changeGameMode = (mode) => {

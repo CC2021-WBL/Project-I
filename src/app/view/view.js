@@ -81,7 +81,9 @@ class View {
   }
 
   bindAnswerButtons(handler) {
-    modeButtons.map((button) =>
+    const answerButtons = [...document.getElementsByClassName]('answerButton');
+    console.log(answerButtons);
+    answerButtons.map((button) =>
       button.addEventListener('click', () => {
         handler(button.textContent);
       }),
