@@ -8,12 +8,9 @@ import { INITIAL_GAME_MODE_TEXT, INITIAL_MAIN_TEXT } from '../data/consts';
 import modeRules from './components/modeRules';
 import buttonPlay from './components/buttonPlay';
 import createImage from './components/createImage';
-<<<<<<< HEAD
 import doBtnHallOfFame from './components/doBtnHallOfFame';
 import doHallOfFameContent from './components/doHallOfFameContent';
-=======
 import displayTimerText from './components/displayTimerText';
->>>>>>> development
 
 class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
@@ -54,15 +51,11 @@ class View {
     this.render('.header__game-nav', ...modeButtons);
     this.render('.game__mode', INITIAL_GAME_MODE_TEXT);
     this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
-<<<<<<< HEAD
     this.render(
       '.game__btns',
       doBtnHallOfFame('Hall of fame'),
       buttonPlay('Play the game'),
     );
-=======
-    this.render('.game__btns', buttonPlay('Play'));
->>>>>>> development
     this.render('.game-image__content', createImage());
   }
 
