@@ -37,7 +37,7 @@ class View {
     this.render('.header__game-nav', ...modeButtons);
     this.render('.game__mode', INITIAL_GAME_MODE_TEXT);
     this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
-    this.render('.game__btns', buttonPlay('Play the game'));
+    this.render('.game__btns', buttonPlay('Play'));
     this.render('.game-image__content', createImage());
   }
 
