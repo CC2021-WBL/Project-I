@@ -10,15 +10,12 @@ class Controller {
     this.view.renderModal();
     this.view.renderInitialScreen();
     this.view.bindButtonPlay(this.startGame);
+    this.view.bindModeButtons(this.changeGameMode(mode));
   }
 
   static doAtInterval(time) {
     console.log(`time to end: ${time}`);
   }
-
-  handlerPlayButton = () => {
-    this.startGame();
-  };
 
   startGame = async () => {
     this.model.gameMaker = new GameMaker(
@@ -37,10 +34,11 @@ class Controller {
     this.view.renderQuestion(await this.model.gameMaker.createQuestion());
   }
 
-  changeGameMode(mode) {
-    this.model.gameMode = mode.toLowerCase();
-    this.view.showViewsForChosenMode(mode);
-  }
+  changeGameMode = (mode) => {
+    console.log(mode);
+    //this.model.gameMode = mode.toLowerCase();
+    //this.view.showViewsForChosenMode(mode);
+  };
 
   startCountdown() {
     this.view.renderTimer();

@@ -21,12 +21,6 @@ function answersButtons(question) {
     );
   });
 
-  // buttons.map((button) =>
-  //   button.addEventListener('click', () => {
-  // @TODO here we add in the future some function
-  //   }),
-  // );
-
   return buttons;
 }
 

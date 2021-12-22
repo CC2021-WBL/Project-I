@@ -10,6 +10,7 @@ import buttonPlay from './components/buttonPlay';
 import createImage from './components/createImage';
 import displayTimerText from './components/displayTimerText';
 import answersButtons from './components/answersButtons';
+import clearActive from '../utils/clearActive';
 
 class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
@@ -68,6 +69,16 @@ class View {
     buttonPlay.addEventListener('click', () => {
       handler();
     });
+  }
+
+  bindModeButtons(handler) {
+    modeButtons.map((button) =>
+      button.addEventListener('click', () => {
+        clearActive(modeButtons);
+        button.classList.add('active');
+        handler(button.textContent);
+      }),
+    );
   }
 }
 
