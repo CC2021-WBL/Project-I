@@ -1,16 +1,12 @@
-/* eslint-disable import/extensions */
 import elementInjector from '../utils/elementInjector';
 import questionForMode from './components/questionForMode';
 import displayImage from './components/displayImage';
-// import createLogo from './components/createLogo';
-// import gameModeButtons from './components/gameModeButtons';
-import modeButtons from './components/mainMenu.js';
+import modeButtons from './components/mainMenu';
 import createLogo from './components/createLogo';
 import ModalWindow from './components/modal/modalWindow';
 import { INITIAL_GAME_MODE_TEXT, INITIAL_MAIN_TEXT } from '../data/consts';
 import modeRules from './components/modeRules';
 import buttonPlay from './components/buttonPlay';
-// import { timer } from './components/timerText';
 import createImage from './components/createImage';
 import displayTimerText from './components/displayTimerText';
 
@@ -43,12 +39,11 @@ class View {
     this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
     this.render('.game__btns', buttonPlay('Play the game'));
     this.render('.game-image__content', createImage());
-    this.render('.game-timer', displayTimerText());
   }
 
-  // renderTimer() {
-  //   this.render('.game-timer', displayTimerText());
-  // }
+  renderTimer() {
+    this.render('.game-timer', displayTimerText());
+  }
 
   renderModal() {
     this.render('.modal', ModalWindow());
