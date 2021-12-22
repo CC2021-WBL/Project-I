@@ -4,21 +4,29 @@ export class Player {
     this.detailQuestionData = [];
   }
 
-  registerAnswer(correctAnswer, playerAnswer, isAnswerCorrect) {
+  checkAndRegisterAnswer(playerAnswer, correctAnswer) {
     if (!playerAnswer) {
       throw new Error(
         'error with given argument: playerAnswer, the value is incorrect, it should be string',
       );
     }
-    if (isAnswerCorrect) {
+    let isAnswerCorrect = true;
+    if (playerAnswer === correctAnswer) {
       this.correctAnswersScore += 1;
+      isAnswerCorrect = true;
+    } else {
+      isAnswerCorrect = false;
     }
+    this.registerAnswer(correctAnswer, playerAnswer, isAnswerCorrect);
+    return isAnswerCorrect;
+  }
+
+  registerAnswer(correctAnswer, playerAnswer, isAnswerCorrect) {
     this.detailQuestionData.push({
       playerAnswer,
       isAnswerCorrect,
       answer: correctAnswer,
     });
-    this.amountOfAnsweredQuestions += 1;
   }
 
   clearGameData() {

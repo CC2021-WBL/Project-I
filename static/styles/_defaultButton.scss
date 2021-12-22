@@ -1,0 +1,85 @@
+@import '_vars';
+
+.game__button {
+  width: clamp(100px, 50%, 500px);
+  height: 2rem;
+  border: none;
+  outline: none;
+  background: $white-color;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  text-transform: uppercase;
+  margin: 0 0.5rem;
+
+  &::before {
+    content: '';
+    background: linear-gradient(
+      45deg,
+      #eefa03,
+      #fff951,
+      #ffc300,
+      #ca4122,
+      #faa019,
+      #eefa03
+    );
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    background-size: 200%;
+    z-index: -1;
+    filter: blur(2px);
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+  }
+  &:active {
+    color: $black-color;
+    &::after {
+      background: $lite-gray;
+    }
+  }
+  &:hover::before {
+    opacity: 1;
+  }
+  &::after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: $white-color;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
+  &--orange {
+    color: $white-color;
+    z-index: 0;
+    &::after {
+      background: $lite-orange;
+    }
+    &:active {
+      color: $white-color;
+      &::after {
+        background: $orange;
+      }
+    }
+  }
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
