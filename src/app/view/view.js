@@ -55,8 +55,9 @@ class View {
   }
 
   renderQuestion(question) {
-    this.render('.gamemode', 'Who is this? What is his house');
-    this.render('.gamemode-rules', ...answersButtons(question));
+    console.log('cokolwiek');
+    this.render('.game__mode', 'Who is this? What is his house');
+    this.render('.game__mode-rules', ...answersButtons(question));
     this.render('.game-image__content', displayImage(question.image));
   }
 }

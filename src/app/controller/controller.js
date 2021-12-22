@@ -24,6 +24,12 @@ class Controller {
       Controller.doAtInterval,
     );
     this.view.renderQuestion(question);
+
+    // await this.showQuestion();
+  }
+
+  async showQuestion() {
+    this.view.renderQuestion(await this.model.gameMaker.createQuestion());
   }
 
   changeGameMode(mode) {

@@ -9,6 +9,7 @@ import elementCreator from '../../utils/elementCreator';
  */
 
 function answersButtons(question) {
+  console.log('wszedł w answersButtons');
   const buttons = [];
   question.answers.forEach((button, index) => {
     buttons.push(
