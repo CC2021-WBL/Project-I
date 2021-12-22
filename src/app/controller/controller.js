@@ -13,9 +13,14 @@ class Controller {
     this.view.bindModeButtons(this.changeGameMode);
   }
 
-  static doAtInterval(time) {
-    console.log(`time to end: ${time}`);
-  }
+  doAtInterval = (timeInSeconds) => {
+    this.view.renderTimer(timeInSeconds);
+    // @TODO do dodania różdżka czasu
+  };
+
+  doAtEnd = () => {
+    console.log('dupa');
+  };
 
   startGame = async () => {
     this.model.gameMaker = new GameMaker(
@@ -23,15 +28,17 @@ class Controller {
       this.model.gameTime,
     );
     const question = await this.model.gameMaker.startGameAndGetFirstQuestion(
-      Controller.doAtInterval,
+      this.doAtInterval,
+      this.doAtEnd,
     );
     this.view.renderQuestion(question);
-
-    // await this.showQuestion();
+    // @TODO funckja blokująca przyciski
+    // @TODO zamiana przycisku play gme na quit game
   };
 
   async showQuestion() {
     this.view.renderQuestion(await this.model.gameMaker.createQuestion());
+    this.view.bindAnswerButtons(this.doAtEnd);
   }
 
   changeGameMode = (mode) => {

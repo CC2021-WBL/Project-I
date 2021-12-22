@@ -43,8 +43,8 @@ class View {
     this.render('.game-image__content', createImage());
   }
 
-  renderTimer() {
-    this.render('.game-timer', displayTimerText());
+  renderTimer(timeInSeconds) {
+    this.render('.game-timer', displayTimerText(timeInSeconds));
   }
 
   renderModal() {
@@ -56,7 +56,6 @@ class View {
   }
 
   renderQuestion(question) {
-    console.log('cokolwiek');
     this.render('.game__mode', 'Who is this? What is his house');
     this.render('.game__mode-rules', ...answersButtons(question));
     this.render(
@@ -76,6 +75,14 @@ class View {
       button.addEventListener('click', () => {
         clearActive(modeButtons);
         button.classList.add('active');
+        handler(button.textContent);
+      }),
+    );
+  }
+
+  bindAnswerButtons(handler) {
+    modeButtons.map((button) =>
+      button.addEventListener('click', () => {
         handler(button.textContent);
       }),
     );

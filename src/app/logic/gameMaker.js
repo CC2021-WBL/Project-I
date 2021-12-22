@@ -1,5 +1,6 @@
 /* eslint-disable import/extensions */
 /* eslint-disable import/named */
+import answersButtons from '../view/components/answersButtons.js';
 import MainQuestionManager from './mainQuestionManager.js';
 import { Player } from './player.js';
 import GameTimer from './timer.js';
@@ -31,6 +32,7 @@ class GameMaker {
   }
 
   checkAndRegisterAnswer(answer) {
+    console.log(answer);
     const isAnswerCorrect = this.player.checkAndRegisterAnswer(
       answer,
       this.questionObject.rightAnswer,
