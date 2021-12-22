@@ -10,7 +10,7 @@ class Controller {
     this.view.renderModal();
     this.view.renderInitialScreen();
     this.view.bindButtonPlay(this.startGame);
-    this.view.bindModeButtons(this.changeGameMode(mode));
+    this.view.bindModeButtons(this.changeGameMode);
   }
 
   static doAtInterval(time) {
@@ -35,9 +35,8 @@ class Controller {
   }
 
   changeGameMode = (mode) => {
-    console.log(mode);
-    //this.model.gameMode = mode.toLowerCase();
-    //this.view.showViewsForChosenMode(mode);
+    this.model.gameMode = mode.toLowerCase();
+    this.view.showViewsForChosenMode(mode);
   };
 
   startCountdown() {
