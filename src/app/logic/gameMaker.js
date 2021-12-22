@@ -9,7 +9,6 @@ class GameMaker {
 
   constructor(gameModesProperty, gameTime) {
     this.mainQuestionManager = new MainQuestionManager(gameModesProperty);
-    this.player = new Player();
     this.timer = new GameTimer(gameTime);
     this.initialGameTimeMinutes = 2;
     this.objectsForMode = [];

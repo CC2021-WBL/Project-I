@@ -1,11 +1,10 @@
+import { DEFAULT_TIME } from '../data/consts';
 import LocalStorageService from './localStorage';
 
 class Model {
-  constructor(object) {
-    this.title = object.title;
-    this.apiBase = object.options.hpApiBaseUrl;
-    this.quizMaxTime = object.options.quizMaxTime;
+  constructor() {
     this.gameMode = '';
+    this.gameTime = DEFAULT_TIME;
     this.rankings = LocalStorageService.loadRankings();
     this.localStorageService = LocalStorageService;
   }
