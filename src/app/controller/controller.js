@@ -33,7 +33,6 @@ class Controller {
       this.doAtEnd,
     );
     this.view.renderQuestion(question);
-    console.log(answersButtons(question));
     this.view.bindAnswerButtons(this.model.gameMaker.checkAndRegisterAnswer);
     // @TODO funckja blokująca przyciski
     // @TODO zamiana przycisku play gme na quit game

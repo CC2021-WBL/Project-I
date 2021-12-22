@@ -80,12 +80,13 @@ class View {
     );
   }
 
-  bindAnswerButtons(handler) {
-    const answerButtons = [...document.getElementsByClassName]('answerButton');
-    console.log(answerButtons);
+  bindAnswerButtons(handler, handler2) {
+    const answerButtons = [...document.getElementsByClassName('answerButton')];
     answerButtons.map((button) =>
       button.addEventListener('click', () => {
         handler(button.textContent);
+        handler2();
+
       }),
     );
   }

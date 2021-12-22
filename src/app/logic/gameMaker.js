@@ -11,6 +11,7 @@ class GameMaker {
   constructor(gameModesProperty, gameTime) {
     this.mainQuestionManager = new MainQuestionManager(gameModesProperty);
     this.timer = new GameTimer(gameTime);
+    this.player = new Player();
     this.initialGameTimeMinutes = 2;
     this.objectsForMode = [];
     this.questionObject = {};
@@ -27,12 +28,13 @@ class GameMaker {
   async startGameAndGetFirstQuestion(callbackOnInterval, callbackOnEndOfTime) {
     this.player = new Player();
     this.timer.runTimer(callbackOnInterval, callbackOnEndOfTime);
-    const question = await this.createQuestion();
-    return question;
+    this.questionObject = await this.createQuestion();
+    return this.questionObject;
   }
 
   checkAndRegisterAnswer(answer) {
     console.log(answer);
+    console.log(this.questionObject);
     const isAnswerCorrect = this.player.checkAndRegisterAnswer(
       answer,
       this.questionObject.rightAnswer,
