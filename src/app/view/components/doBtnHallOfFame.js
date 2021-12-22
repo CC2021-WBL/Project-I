@@ -15,7 +15,7 @@ function doBtnHallOfFame(text, mode) {
     buttonCreator = elementCreator(
       'button',
       {
-        class: 'doBtnHallOfFame',
+        class: 'game__button game__button--disabled',
         disabled: 'disabled',
       },
       imageCup,
@@ -25,7 +25,7 @@ function doBtnHallOfFame(text, mode) {
     buttonCreator = elementCreator(
       'button',
       {
-        class: 'doBtnHallOfFame',
+        class: 'game__button',
       },
       imageCup,
       text,
