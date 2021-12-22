@@ -37,19 +37,17 @@ function doAtInterval(timeLeftInSec, totalTimeInSec) {
 // ---wywoływanie------------------------------------------------------------------------------------
 const gameMaker = new GameMaker(
   gameModesProperties[0],
-  difficultyLevelsProperty[0],
+  difficultyLevelsProperty[1],
 );
 
 console.log(`Difficulty level: ${gameMaker.difficultyLevelsProperty}`);
 
 const question = WrappedStartGameAndGetFirstQuestion();
 
-// works in live server
 const isAnswerCorrect = gameMaker.checkAndRegisterAnswer('Heremione');
+// TU PROBLEM!!! NIE REJESTRUJE PRAWIDŁOWEJ ODP
 console.log(`is answer correct? ${isAnswerCorrect}`);
-console.log(
-  `detailQuestionData: ${gameMaker.player.detailQuestionData} (empty in easy mode - not registered)`,
-);
+console.log(gameMaker.player.detailQuestionData);
 
 const nextQuestion = wrappedNextQuestion();
 
