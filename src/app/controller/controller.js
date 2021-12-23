@@ -33,15 +33,29 @@ class Controller {
       this.doAtInterval,
       this.doAtEnd,
     );
+    console.log(question);
+    console.log(this.model.gameMaker.questionObject);
     this.view.renderQuestion(question);
-    this.view.bindAnswerButtons(this.model.gameMaker.checkAndRegisterAnswer);
+    const closure = this;
+    this.view.bindAnswerButtons(async (answer) => {
+      const isAnswerCorrect =
+        closure.model.gameMaker.checkAndRegisterAnswer(answer);
+      console.log(isAnswerCorrect);
+      await closure.showQuestion();
+    });
     // @TODO funckja blokująca przyciski
     // @TODO zamiana przycisku play gme na quit game
   };
 
   async showQuestion() {
     this.view.renderQuestion(await this.model.gameMaker.createQuestion());
-    this.view.bindAnswerButtons(this.model.gameMaker.checkAndRegisterAnswer);
+    const closure = this;
+    this.view.bindAnswerButtons(async (answer) => {
+      const isAnswerCorrect =
+        closure.model.gameMaker.checkAndRegisterAnswer(answer);
+      console.log(isAnswerCorrect);
+      await closure.showQuestion();
+    });
   }
 
   changeGameMode = (mode) => {

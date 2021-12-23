@@ -60,8 +60,10 @@ class View {
     this.render('.game__mode-rules', ...answersButtons(question));
     this.render(
       '.game-image__content',
-      displayImage(question.image, 'very handsome Hatrry'),
+      displayImage(question.image, 'very handsome Harry'),
     );
+    console.log('question w view');
+    console.log(question);
   }
 
   bindButtonPlay(handler) {
@@ -80,13 +82,11 @@ class View {
     );
   }
 
-  bindAnswerButtons(handler, handler2) {
+  bindAnswerButtons(handler) {
     const answerButtons = [...document.getElementsByClassName('answerButton')];
     answerButtons.map((button) =>
       button.addEventListener('click', () => {
         handler(button.textContent);
-        handler2();
-
       }),
     );
   }

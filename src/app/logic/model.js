@@ -1,4 +1,5 @@
 import { DEFAULT_TIME } from '../data/consts';
+import GameMaker from './gameMaker';
 import LocalStorageService from './localStorage';
 
 class Model {
@@ -7,6 +8,7 @@ class Model {
     this.gameTime = DEFAULT_TIME;
     this.rankings = LocalStorageService.loadRankings();
     this.localStorageService = LocalStorageService;
+    this.gameMaker = undefined;
   }
 }
 

@@ -29,12 +29,12 @@ class GameMaker {
     this.player = new Player();
     this.timer.runTimer(callbackOnInterval, callbackOnEndOfTime);
     this.questionObject = await this.createQuestion();
+    console.log(this.questionObject);
     return this.questionObject;
   }
 
   checkAndRegisterAnswer(answer) {
     console.log(answer);
-    console.log(this.questionObject);
     const isAnswerCorrect = this.player.checkAndRegisterAnswer(
       answer,
       this.questionObject.rightAnswer,
