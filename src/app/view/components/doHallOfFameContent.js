@@ -1,7 +1,7 @@
 import elementCreator from '../../utils/elementCreator';
 
-const HallOfFame = (mode) => {
-  const HOFTextPart = {
+const hallOfFame = (mode) => {
+  const hofTextPart = {
     Students: 'Insert 3 winners in Students mode here, sorted',
     Staff: 'Insert 3 winners in Staff mode here, sorted',
     Houses: 'Insert 3 winner in Houses mode here, softed',
@@ -11,21 +11,21 @@ const HallOfFame = (mode) => {
     class: 'rules-icon fas fa-graduation-cap',
   });
 
-  const HOFHeader = elementCreator(
+  const hofHeader = elementCreator(
     'h2',
     { class: 'game__mode-rules-header' },
     cupIcon,
     'Mode Rules',
   );
 
-  const HOFText = elementCreator(
+  const hofText = elementCreator(
     'p',
     { class: 'game__mode-rules-text' },
-    `${HOFTextPart[mode]} concatenate.`,
+    `${hofTextPart[mode]} concatenate.`,
   );
 
-  const HOFFullElement = [HOFHeader, HOFText];
-  return HOFFullElement;
+  const hofFullElement = [hofHeader, hofText];
+  return hofFullElement;
 };
 
-export default HallOfFame;
+export default hallOfFame;
