@@ -9,6 +9,7 @@ import modeRules from './components/modeRules';
 import buttonPlay from './components/buttonPlay';
 import createImage from './components/createImage';
 import displayTimerText from './components/displayTimerText';
+import displayWand from './components/wand';
 
 class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
@@ -39,6 +40,7 @@ class View {
     this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
     this.render('.game__btns', buttonPlay('Play'));
     this.render('.game-image__content', createImage());
+    this.render('.game-timer', ...displayWand());
   }
 
   renderTimer() {
