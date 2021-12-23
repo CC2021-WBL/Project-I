@@ -8,6 +8,8 @@ import { INITIAL_GAME_MODE_TEXT, INITIAL_MAIN_TEXT } from '../data/consts';
 import modeRules from './components/modeRules';
 import buttonPlay from './components/buttonPlay';
 import createImage from './components/createImage';
+import doBtnHallOfFame from './components/doBtnHallOfFame';
+import doHallOfFameContent from './components/doHallOfFameContent';
 import displayTimerText from './components/displayTimerText';
 import displayWand from './components/wand';
 
@@ -31,6 +33,18 @@ class View {
   showViewsForChosenMode(mode) {
     this.render('.game__mode', questionForMode(mode));
     this.render('.game__mode-rules', ...modeRules(mode));
+    this.render(
+      '.game__btns',
+      doBtnHallOfFame(`Hall of fame`, mode),
+      buttonPlay('Play the game'),
+    );
+  }
+
+  // przygotowane pod dzialanie przycisku Hall Of Fame
+  updateViewsForHallOfFameAtChosenMode(mode) {
+    // this.render('.game__mode', questionForMode(mode));
+    this.render('.game__mode-rules', doHallOfFameContent);
+    this.render('.game__btns', doBtnHallOfFame(`Back`, mode));
   }
 
   renderInitialScreen() {
@@ -38,7 +52,11 @@ class View {
     this.render('.header__game-nav', ...modeButtons);
     this.render('.game__mode', INITIAL_GAME_MODE_TEXT);
     this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
-    this.render('.game__btns', buttonPlay('Play'));
+    this.render(
+      '.game__btns',
+      doBtnHallOfFame('Hall of fame'),
+      buttonPlay('Play'),
+    );
     this.render('.game-image__content', createImage());
     this.render('.game-timer', ...displayWand());
   }
