@@ -25,12 +25,9 @@ class GameMaker {
     return this.questionObject;
   }
 
-  async startGameAndGetFirstQuestion(callbackOnInterval, callbackOnEndOfTime) {
+  createPlayerAndRunTimer(callbackOnInterval, callbackOnEndOfTime) {
     this.player = new Player();
     this.timer.runTimer(callbackOnInterval, callbackOnEndOfTime);
-    this.questionObject = await this.createQuestion();
-    console.log(this.questionObject);
-    return this.questionObject;
   }
 
   checkAndRegisterAnswer(answer) {

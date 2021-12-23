@@ -28,21 +28,12 @@ class Controller {
       this.model.gameMode,
       this.model.gameTime,
     );
-    console.log(this.model.gameMode);
-    const question = await this.model.gameMaker.startGameAndGetFirstQuestion(
+    this.model.gameMaker.createPlayerAndRunTimer(
       this.doAtInterval,
       this.doAtEnd,
     );
-    console.log(question);
-    console.log(this.model.gameMaker.questionObject);
-    this.view.renderQuestion(question);
     const closure = this;
-    this.view.bindAnswerButtons(async (answer) => {
-      const isAnswerCorrect =
-        closure.model.gameMaker.checkAndRegisterAnswer(answer);
-      console.log(isAnswerCorrect);
-      await closure.showQuestion();
-    });
+    await closure.showQuestion();
     // @TODO funckja blokująca przyciski
     // @TODO zamiana przycisku play gme na quit game
   };
