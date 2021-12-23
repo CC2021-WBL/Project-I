@@ -28,6 +28,7 @@ class Controller {
       this.model.gameMode,
       this.model.gameTime,
     );
+    console.log(this.model.gameMode);
     const question = await this.model.gameMaker.startGameAndGetFirstQuestion(
       this.doAtInterval,
       this.doAtEnd,
