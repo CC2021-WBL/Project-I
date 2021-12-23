@@ -58,11 +58,11 @@ class View {
       buttonPlay('Play'),
     );
     this.render('.game-image__content', createImage());
-    this.render('.game-timer', ...displayWand());
   }
 
   renderTimer() {
     this.render('.game-timer', displayTimerText());
+    this.render('.game-timer', ...displayWand());
   }
 
   renderModal() {
