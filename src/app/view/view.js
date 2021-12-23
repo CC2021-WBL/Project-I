@@ -54,7 +54,7 @@ class View {
     this.render(
       '.game__btns',
       doBtnHallOfFame('Hall of fame'),
-      buttonPlay('Play the game'),
+      buttonPlay('Play'),
     );
     this.render('.game-image__content', createImage());
   }
