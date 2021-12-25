@@ -8,12 +8,11 @@ import { INITIAL_GAME_MODE_TEXT, INITIAL_MAIN_TEXT } from '../data/consts';
 import modeRules from './components/modeRules';
 import buttonPlay from './components/buttonPlay';
 import createImage from './components/createImage';
-import buttonSettings from './components/modal/settingsButton';
-import levelHeader from './components/settingsScreen';
 import doBtnHallOfFame from './components/doBtnHallOfFame';
 import doHallOfFameContent from './components/doHallOfFameContent';
 import displayTimerText from './components/displayTimerText';
 import levelButtons from './components/settingsLevel';
+import buttonWhite from './components/buttonWhite';
 
 class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
@@ -62,25 +61,28 @@ class View {
       buttonPlay('Play'),
     );
     this.render('.game-image__content', createImage());
-    const settingsButton = buttonSettings('settings');
+    const settingsButton = buttonWhite('settings');
     settingsButton.addEventListener('click', this.toggleSettingsView);
     this.render('.settings', settingsButton);
   }
 
-  // veronicas button
   showSettings() {
-    console.log('showing settings');
-    this.render('.game__mode', levelHeader('Level test'));
-    this.render('.game__mode-rules', levelButtons('button one'));
+    this.render('.game__mode', 'Choose level');
+    this.render('.game__mode-rules', ...levelButtons);
+    this.render(
+      '.game__btns',
+      buttonWhite('back'),
+      buttonPlay('Save and return to menu'),
+    );
   }
 
+  // hide settings screen
   hideSettings() {
-    console.log('hiding settings');
+    this.renderInitialScreen();
     // do stg after hiding the settings
   }
 
   toggleSettingsView = () => {
-    console.log('clicked settings button');
     if (!this.settings) {
       this.showSettings();
     } else {

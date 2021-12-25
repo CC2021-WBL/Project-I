@@ -22,6 +22,8 @@ class Controller {
 
   showSettingsScreen() {
     this.view.showSettings();
+  }
+
   updateViewsForHallOfFameAtChosenMode(mode) {
     // this.model.gameMode = mode;
     this.view.updateViewsForHallOfFameAtChosenMode(mode);

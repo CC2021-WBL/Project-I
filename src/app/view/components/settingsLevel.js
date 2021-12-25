@@ -1,15 +1,29 @@
+import clearActive from '../../utils/clearActive';
 import elementCreator from '../../utils/elementCreator';
 
-function levelButtons(text) {
-  const levelButton1 = elementCreator('div', { class: 'game__mode' }, text);
-  const levelButton2 = elementCreator('div', { class: 'game__mode' }, text);
-  const buttonContainer = elementCreator(
-    'div',
-    { class: '' },
-    levelButton1,
-    levelButton2,
-  );
-  const buttonsLvl = elementCreator('div', { class: '' }, buttonContainer);
-  return buttonsLvl;
-}
+const levelButtons = [
+  elementCreator(
+    'button',
+    { class: 'game__button game__button--lvlSettings' },
+    'Easy',
+  ),
+  elementCreator(
+    'button',
+    { class: 'game__button game__button--lvlSettings' },
+    'Medium',
+  ),
+  elementCreator(
+    'button',
+    { class: 'game__button game__button--lvlSettings' },
+    'Hard',
+  ),
+];
+
+levelButtons.map((button) =>
+  button.addEventListener('click', () => {
+    clearActive(levelButtons);
+    button.classList.add('active');
+  }),
+);
+
 export default levelButtons;
