@@ -72,7 +72,7 @@ class View {
     this.render(
       '.game__btns',
       buttonWhite('back'),
-      buttonPlay('Save and return to menu'),
+      buttonPlay('Save & return'),
     );
   }
 
