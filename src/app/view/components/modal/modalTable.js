@@ -29,36 +29,102 @@ function modalTable() {
 }
 export default modalTable;
 
-// function ModalScoreTable() {
-//   const imageCell = elementCreator(
-//     'td',
-//     {
-//       class: 'details__table__image',
-//     },
-//     'image',
-//   );
-//   const playerAnswer = elementCreator(
-//     'td',
-//     {
-//       class: 'details__table__image',
-//     },
-//     'player answear',
-//   );
-//   const correctAnswer = elementCreator(
-//     'td',
-//     {
-//       class: 'details__table__image',
-//     },
-//     'correct answear',
-//   );
-//   const newRow = elementCreator(
-//     'tr',
-//     {},
-//     imageCell,
-//     playerAnswer,
-//     correctAnswer,
-//   );
-//   return newRow;
-// });
+// function chooseStyleAndAnswer(round) {
+//   if (!round) {
+//     return ['', ''];
+//   }
+//   return round.isCorrect
+//     ? [round.answer, 'details__table__answer--correct']
+//     : [round.answer, 'details__table__answer--incorrect'];
+// }
 
-// export default ModalScoreTable;
+// function modalTable(quiz, humanData, computerData) {
+//   const {
+//     humanAnswers,
+//     computerAnswers,
+//     rightAnswers,
+//     paths,
+//   } = prepareDataForDetailsTable(quiz, humanData, computerData);
+
+//   const answersRows = rightAnswers.map((rightAnswer, index) => {
+//     const [humanAnswer, humanStyle] = chooseStyleAndAnswer(
+//       humanAnswers[index],
+//     );
+//     const [computerAnswer, computerStyle] = chooseStyleAndAnswer(
+//       computerAnswers[index],
+//     );
+//     const imageToInsert = elementCreator('img', {
+//       src: paths[index],
+//     });
+//     const newImageCell = elementCreator(
+//       'td',
+//       {
+//         className: 'details__table__image',
+//       },
+//       imageToInsert,
+//     );
+//     const newHumanAnswer = elementCreator(
+//       'td',
+//       humanStyle === '' ? {} : { className: humanStyle },
+//       humanAnswer,
+//     );
+//     const newComputerAnswer = elementCreator(
+//       'td',
+//       computerStyle === '' ? {} : { className: computerStyle },
+//       computerAnswer,
+//     );
+//     const newCorrectAnswer = elementCreator(
+//       'td',
+//       {
+//         className: 'details__table__answer',
+//       },
+//       rightAnswer,
+//     );
+//     const newRow = elementCreator(
+//       'tr',
+//       {},
+//       newImageCell,
+//       newHumanAnswer,
+//       newComputerAnswer,
+//       newCorrectAnswer,
+//     );
+//     return newRow;
+//   });
+
+//   // TABLE BODY
+//   const tableBody = elementCreator(
+//     'tbody',
+//     {
+//       className: 'details__table__body',
+//     },
+//     ...answersRows,
+//   );
+
+//   // JOIN TOGETHER
+//   const tableHeaders = ['', 'You', 'Computer', 'Answer'];
+//   const tableHeadersElements = tableHeaders.map((header) => {
+//     const tableHeader = elementCreator(
+//       'th',
+//       {
+//         className: 'details__table__head',
+//       },
+//       header,
+//     );
+//     return tableHeader;
+//   });
+//   const tableHeadRow = elementCreator('tr', {}, ...tableHeadersElements);
+
+//   const tableHead = elementCreator('thead', {}, tableHeadRow);
+//   const newTable = elementCreator(
+//     'table',
+//     {
+//       className: 'details__table',
+//     },
+//     tableHead,
+//     tableBody,
+//   );
+
+//   return newTable;
+// }
+
+// export default modalTable;
