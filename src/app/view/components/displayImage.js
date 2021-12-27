@@ -16,6 +16,7 @@ const updateImage = (imageSource) => {
 };
 
 function displayImage(imageSource, altDescription) {
+  console.log(imageSource);
   const image = elementCreator('img', {
     class: 'game-image__content-image',
     alt: `${altDescription}`,

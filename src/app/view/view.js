@@ -57,11 +57,11 @@ class View {
     this.render('.header__game-nav', ...modeButtons);
     this.render('.game__mode', INITIAL_GAME_MODE_TEXT);
     this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
-    this.render(
+    /*     this.render(
       '.game__btns',
       doBtnHallOfFame('Hall of fame'),
       buttonPlay('Play'),
-    );
+    ); */
     this.render('.game-image__content', createImage());
     const settingsButton = buttonWhite('settings');
     settingsButton.addEventListener('click', this.toggleSettingsView);
@@ -106,6 +106,7 @@ class View {
   }
 
   renderQuestion(question) {
+    console.log(question);
     this.render('.game__mode', 'Who is this? What is his house');
     this.render('.game__mode-rules', ...answersButtons(question));
     this.render(
@@ -117,7 +118,8 @@ class View {
   }
 
   bindButtonPlay(handler) {
-    buttonPlay.addEventListener('click', () => {
+    const playButton = document.querySelector('.game__button--orange');
+    playButton.addEventListener('click', () => {
       handler();
     });
   }
