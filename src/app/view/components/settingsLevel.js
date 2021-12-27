@@ -19,11 +19,11 @@ const levelButtons = [
   ),
 ];
 
-levelButtons.map((button) =>
+/* levelButtons.map((button) =>
   button.addEventListener('click', () => {
     clearActive(levelButtons);
     button.classList.add('active');
   }),
-);
+); */
 
 export default levelButtons;

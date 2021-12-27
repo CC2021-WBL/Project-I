@@ -45,6 +45,10 @@ class View {
     );
   }
 
+  howViewsForDifficultyLevel(difficultyLevel) {
+    // TODO wyświetlanie opisu poziomu trudności
+  }
+
   // przygotowane pod dzialanie przycisku Hall Of Fame
   updateViewsForHallOfFameAtChosenMode(mode) {
     // this.render('.game__mode', questionForMode(mode));
@@ -106,15 +110,12 @@ class View {
   }
 
   renderQuestion(question) {
-    console.log(question);
     this.render('.game__mode', 'Who is this? What is his house');
     this.render('.game__mode-rules', ...answersButtons(question));
     this.render(
       '.game-image__content',
       displayImage(question.image, 'very handsome Harry'),
     );
-    console.log('question w view');
-    console.log(question);
   }
 
   bindButtonPlay(handler) {
@@ -138,6 +139,23 @@ class View {
     const answerButtons = [...document.getElementsByClassName('answerButton')];
     answerButtons.map((button) =>
       button.addEventListener('click', () => {
+        handler(button.textContent);
+      }),
+    );
+  }
+
+/*  bindSettingsButton(handler) {
+    const settingButton = document.querySelector('.game__button');
+    settingButton.addEventListener('click', () => {
+      handler();
+    });
+  } */
+
+  bindDifficultyLevelButton(handler) {
+    levelButtons.map((button) =>
+      button.addEventListener('click', () => {
+        clearActive(levelButtons);
+        button.classList.add('active');
         handler(button.textContent);
       }),
     );

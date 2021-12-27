@@ -51,7 +51,6 @@ class DataManager {
 
   // 2) GETTING NAME OF CHARACTER AND URL FOR IMAGE FOR CORRECT ANSWER
   async getDataForCorrectAnswer() {
-    console.log('w getDataForCorrectAnswer');
     const obj = this.arraywithHPObjects[this.idOfRightAnswer];
     if (this.answerProperty === 'house') {
       this.rightAnswer = obj.house;
@@ -61,12 +60,9 @@ class DataManager {
     const imgFromFile = await fetch(
       `./img/images/${this.imgSubfolder}/${this.idOfRightAnswer}.jpg`,
     );
-    console.log(imgFromFile);
     const imgBlob = await imgFromFile.blob();
 
     this.base64dataImg = await this.blobToBase64(imgBlob);
-    console.log('w data manager');
-    console.log(this.base64dataImg);
   }
 
   async getDataByAPI() {

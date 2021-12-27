@@ -52,6 +52,7 @@ export const DIFFICULTY_LEVELS = {
     calculatingPoints: 'minus',
   },
 };
+export const DEFAULT_DIFFICULTY_LEVEL = 'medium';
 
 export const INITIAL_GAME_MODE_TEXT = 'Choose category';
 
