@@ -3,7 +3,7 @@
 import MainQuestionManager from './mainQuestionManager.js';
 import { Player } from './player.js';
 import GameTimer from './timer.js';
-import { DIFFICULTY_LEVELS } from '../data/consts.js';
+import { DEFAULT_TIME, DIFFICULTY_LEVELS } from '../data/consts.js';
 
 class GameMaker {
   // ---------------------------------PRIVATE METHODS----------------------------------------------
@@ -15,6 +15,8 @@ class GameMaker {
 
     this.difficultyLevelsProperty = difficultyLevelsProperty;
 
+    this.timer = new GameTimer(DEFAULT_TIME);
+    this.player = new Player();
     this.initialGameTimeMinutes = 2;
     this.objectsForMode = [];
     this.questionObject = {};
@@ -28,7 +30,7 @@ class GameMaker {
     return this.questionObject;
   }
 
-  async startGameAndGetFirstQuestion(callbackOnInterval, callbackOnEndOfTime) {
+  createPlayerAndRunTimer(callbackOnInterval, callbackOnEndOfTime) {
     this.player = new Player();
     if (DIFFICULTY_LEVELS[this.difficultyLevelsProperty].time !== null) {
       this.timer = new GameTimer(
@@ -36,11 +38,10 @@ class GameMaker {
       );
       this.timer.runTimer(callbackOnInterval, callbackOnEndOfTime);
     }
-    const question = await this.createQuestion();
-    return question;
   }
 
   checkAndRegisterAnswer(answer) {
+    console.log(answer);
     const isAnswerCorrect = this.player.checkAndRegisterAnswer(
       answer,
       this.questionObject.rightAnswer,

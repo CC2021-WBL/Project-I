@@ -13,6 +13,8 @@ import doHallOfFameContent from './components/doHallOfFameContent';
 import displayTimerText from './components/displayTimerText';
 import levelButtons from './components/settingsLevel';
 import buttonWhite from './components/buttonWhite';
+import answersButtons from './components/answersButtons';
+import clearActive from '../utils/clearActive';
 
 class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
@@ -91,8 +93,8 @@ class View {
     this.settings = !this.settings;
   };
 
-  renderTimer() {
-    this.render('.game-timer', displayTimerText());
+  renderTimer(timeInSeconds) {
+    this.render('.game-timer', displayTimerText(timeInSeconds));
   }
 
   renderModal() {
@@ -101,6 +103,42 @@ class View {
 
   renderImage() {
     this.render('.game-image__content', displayImage());
+  }
+
+  renderQuestion(question) {
+    this.render('.game__mode', 'Who is this? What is his house');
+    this.render('.game__mode-rules', ...answersButtons(question));
+    this.render(
+      '.game-image__content',
+      displayImage(question.image, 'very handsome Harry'),
+    );
+    console.log('question w view');
+    console.log(question);
+  }
+
+  bindButtonPlay(handler) {
+    buttonPlay.addEventListener('click', () => {
+      handler();
+    });
+  }
+
+  bindModeButtons(handler) {
+    modeButtons.map((button) =>
+      button.addEventListener('click', () => {
+        clearActive(modeButtons);
+        button.classList.add('active');
+        handler(button.textContent);
+      }),
+    );
+  }
+
+  bindAnswerButtons(handler) {
+    const answerButtons = [...document.getElementsByClassName('answerButton')];
+    answerButtons.map((button) =>
+      button.addEventListener('click', () => {
+        handler(button.textContent);
+      }),
+    );
   }
 }
 
