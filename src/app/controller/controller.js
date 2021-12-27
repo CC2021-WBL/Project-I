@@ -24,6 +24,7 @@ class Controller {
   };
 
   startGame = async () => {
+    console.log('pipa');
     this.model.gameMaker = new GameMaker(
       this.model.gameMode,
       this.model.gameTime,

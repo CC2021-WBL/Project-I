@@ -57,6 +57,8 @@ class View {
     this.render('.header__game-nav', ...modeButtons);
     this.render('.game__mode', INITIAL_GAME_MODE_TEXT);
     this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
+    // const newButtonPlay = buttonPlay('Play')
+    // newButtonPlay
     this.render(
       '.game__btns',
       doBtnHallOfFame('Hall of fame'),
@@ -117,7 +119,9 @@ class View {
   }
 
   bindButtonPlay(handler) {
-    buttonPlay.addEventListener('click', () => {
+    const btnPlay = document.querySelector('.game__button--orange');
+    console.log(btnPlay);
+    btnPlay.addEventListener('click', () => {
       handler();
     });
   }

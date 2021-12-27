@@ -5,6 +5,7 @@ import { GAME_MODES } from '../data/consts.js';
 
 class MainQuestionManager {
   constructor(gameModesProperty) {
+    console.log(gameModesProperty);
     this.urlAdress = GAME_MODES[gameModesProperty].urlAdress;
     this.amountOfIDs = GAME_MODES[gameModesProperty].ids;
     this.answerProperty = GAME_MODES[gameModesProperty].answerProperty;
