@@ -10,7 +10,6 @@ class Controller {
 
     this.view.renderModal();
     this.view.renderInitialScreen();
-    this.view.bindButtonPlay(this.startGame);
     this.view.bindModeButtons(this.changeGameMode);
   }
 
@@ -36,6 +35,7 @@ class Controller {
     await closure.showQuestion();
     // @TODO funckja blokująca przyciski
     // @TODO zamiana przycisku play gme na quit game
+    this.view.renderQuitGame();
   };
 
   async showQuestion() {
@@ -52,6 +52,7 @@ class Controller {
   changeGameMode = (mode) => {
     this.model.gameMode = mode.toLowerCase();
     this.view.showViewsForChosenMode(mode);
+    this.view.bindButtonPlay(this.startGame);
   };
 
   startCountdown() {

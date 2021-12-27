@@ -11,6 +11,7 @@ import createImage from './components/createImage';
 import displayTimerText from './components/displayTimerText';
 import answersButtons from './components/answersButtons';
 import clearActive from '../utils/clearActive';
+import displayQuitGameButton from './components/displayQuitGameButton';
 
 class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
@@ -55,6 +56,12 @@ class View {
     this.render('.game-image__content', displayImage());
   }
 
+  // @quit game test
+
+  renderQuitGame() {
+    this.render('.game__btns', displayQuitGameButton());
+  }
+
   renderQuestion(question) {
     this.render('.game__mode', 'Who is this? What is his house');
     this.render('.game__mode-rules', ...answersButtons(question));
@@ -62,6 +69,7 @@ class View {
       '.game-image__content',
       displayImage(question.image, 'very handsome Harry'),
     );
+    // this.render('.game-wrapper', displayQuitGameButton());
     console.log('question w view');
     console.log(question);
   }
