@@ -11,13 +11,10 @@ import createImage from './components/createImage';
 import doBtnHallOfFame from './components/doBtnHallOfFame';
 import doHallOfFameContent from './components/doHallOfFameContent';
 import displayTimerText from './components/displayTimerText';
-<<<<<<< HEAD
 import levelButtons from './components/settingsLevel';
 import buttonWhite from './components/buttonWhite';
-=======
 import answersButtons from './components/answersButtons';
 import clearActive from '../utils/clearActive';
->>>>>>> origin/#98/logic/controller-conntections
 
 class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
