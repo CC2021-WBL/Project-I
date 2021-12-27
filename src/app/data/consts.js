@@ -65,4 +65,4 @@ export const ONE_MINUTE_SECONDS = 60;
 
 export const DECIMAL_SYSTEM = 10;
 
-export const DEFAULT_MAX_TIME = 2; // in minutes
+export const DEFAULT_TIME = 0.5; // in minutes
