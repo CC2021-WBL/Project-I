@@ -38,6 +38,21 @@ export const HOGWART_HOUSES = [
   'Ravenclaw',
 ];
 
+export const DIFFICULTY_LEVELS = {
+  easy: {
+    time: null,
+    calculatingPoints: 'training',
+  },
+  medium: {
+    time: 1,
+    calculatingPoints: 'regular',
+  },
+  hard: {
+    time: 0.5,
+    calculatingPoints: 'minus',
+  },
+};
+
 export const INITIAL_GAME_MODE_TEXT = 'Choose category';
 
 export const INITIAL_MAIN_TEXT = 'Harry Potter Quiz Game';
