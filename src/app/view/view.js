@@ -5,16 +5,20 @@ import modeButtons from './components/mainMenu';
 import createLogo from './components/createLogo';
 import ModalWindow from './components/modal/modalWindow';
 import { INITIAL_GAME_MODE_TEXT, INITIAL_MAIN_TEXT } from '../data/consts';
+import modeRules from './components/modeRules';
 import buttonPlay from './components/buttonPlay';
 import createImage from './components/createImage';
 import doBtnHallOfFame from './components/doBtnHallOfFame';
-import hallOfFame from './components/doHallOfFameContent';
-// import modeRules from './components/modeRules';
+import doHallOfFameContent from './components/doHallOfFameContent';
 import displayTimerText from './components/displayTimerText';
+import buttonRules from './components/buttonRules';
+import elementCreator from '../utils/elementCreator';
 
 class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
-  constructor() {}
+  constructor() {
+    this.toggle = false;
+  }
 
   // eslint-disable-next-line class-methods-use-this
   render(query, ...children) {
@@ -31,12 +35,36 @@ class View {
 
   showViewsForChosenMode(mode) {
     this.render('.game__mode', questionForMode(mode));
-    this.render('.game__mode-rules', ...hallOfFame(mode));
-    this.render(
-      '.game__btns',
-      doBtnHallOfFame(`Hall of fame`, mode),
-      buttonPlay('Play'),
+    this.render('.game__mode-rules', ...modeRules(mode));
+    // this.render(
+    //   '.game__btns',
+    //   doBtnHallOfFame(`Hall of fame`, mode),
+    //   buttonPlay('Play the game'),
+    // );
+
+    const toggleRules = doBtnHallOfFame('Hall of fame', mode);
+    toggleRules.addEventListener(
+      'click',
+      this.toggleButtons,
+      console.log('czy to działa toogle RULES?'),
+      // updateViewsForHallOfFameAtChosenMode(mode),
     );
+    // this.render('.game__btns', toggleRules, buttonPlay('Play'));
+    this.render('.game__btns', toggleRules, buttonPlay('Play'));
+  }
+
+  // przygotowane pod dzialanie przycisku Hall Of Fame
+  updateViewsForHallOfFameAtChosenMode(mode) {
+    // this.render('.game__mode', questionForMode(mode));
+    const dupaDupa = elementCreator(
+      'span',
+      {
+        class: 'dupa',
+      },
+      'TEEEEKST',
+    );
+    this.render('.game__mode-rules', ...doHallOfFameContent(mode));
+    // this.render('.game__btns', doBtnHallOfFame(`Back`, mode));
   }
 
   renderInitialScreen() {
@@ -44,13 +72,39 @@ class View {
     this.render('.header__game-nav', ...modeButtons);
     this.render('.game__mode', INITIAL_GAME_MODE_TEXT);
     this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
+    // this.render(
+    //   '.game__btns',
+    //   doBtnHallOfFame('Hall of fame'),
+    //   buttonPlay('Play'),
+    // );
+    this.render('.game-image__content', createImage());
+  }
+
+  showRules() {
+    this.render('.game__btns', buttonRules('rules'), buttonPlay('Play'));
+  }
+
+  showHoF() {
     this.render(
       '.game__btns',
       doBtnHallOfFame('Hall of fame'),
       buttonPlay('Play'),
     );
-    this.render('.game-image__content', createImage());
   }
+
+  toggleButtons = () => {
+    // console.log('dupaaaa');
+    if (!this.toggle) {
+      console.log('DZIAŁA?');
+
+      this.showRules();
+      this.updateViewsForHallOfFameAtChosenMode();
+    } else {
+      this.showHoF();
+    }
+    // console.log('TEN LOG TO EVENT NA BUTTONIE');
+    // this.toggle = !this.toggle;
+  };
 
   renderTimer() {
     this.render('.game-timer', displayTimerText());

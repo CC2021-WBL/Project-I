@@ -1,7 +1,7 @@
 import elementCreator from '../../utils/elementCreator';
 import hofTable from './modal/hofTable';
 
-const hallOfFame = (mode) => {
+const doHallOfFameContent = (mode) => {
   const cupIcon = elementCreator('span', {
     class: 'rules-icon fas fa-graduation-cap',
   });
@@ -17,4 +17,4 @@ const hallOfFame = (mode) => {
   return hofFullElement;
 };
 
-export default hallOfFame;
+export default doHallOfFameContent;
