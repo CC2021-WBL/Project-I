@@ -1,7 +1,7 @@
 @import '_vars';
 
 .game__button {
-  width: clamp(100px, 50%, 500px);
+  width: clamp(100px, 49%, 49%);
   // height: 2rem;
   border: none;
   outline: none;
@@ -9,9 +9,8 @@
   cursor: pointer;
   position: relative;
   z-index: 0;
-  border-radius: 10px;
+  border-radius: $default-radius;
   text-transform: uppercase;
-  margin: 0 0.5rem;
 
   &::before {
     content: '';
@@ -35,7 +34,7 @@
     animation: glowing 20s linear infinite;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-    border-radius: 10px;
+    border-radius: $default-radius;
   }
   &:active {
     color: $black-color;
@@ -55,9 +54,10 @@
     background: $white-color;
     left: 0;
     top: 0;
-    border-radius: 10px;
+    border-radius: $default-radius;
   }
   &--orange {
+    margin: 0 0 0 10px;
     color: $white-color;
     z-index: 0;
     &::after {
@@ -70,18 +70,6 @@
       }
     }
   }
-  &--disabled {
-  width: clamp(100px, 50%, 500px);
-  border: none;
-  outline: none;
-  background: #111111;
-  pointer-events: none;
-  position: relative;
-  z-index: 0;
-  border-radius: 10px;
-  margin: 0 0.5rem;
-  opacity: .5;
-}
 }
 
 @keyframes glowing {
