@@ -45,7 +45,7 @@ class View {
     );
   }
 
-  howViewsForDifficultyLevel(difficultyLevel) {
+  showViewsForDifficultyLevel(difficultyLevel) {
     // TODO wyświetlanie opisu poziomu trudności
   }
 
@@ -80,6 +80,7 @@ class View {
       buttonWhite('back'),
       buttonPlay('Save & return'),
     );
+    this.bindDifficultyLevelButton(window.app.changeDifficultyLevel);
   }
 
   // hide settings screen
@@ -144,7 +145,7 @@ class View {
     );
   }
 
-/*  bindSettingsButton(handler) {
+/*  bindLevelButtons(handler) {
     const settingButton = document.querySelector('.game__button');
     settingButton.addEventListener('click', () => {
       handler();

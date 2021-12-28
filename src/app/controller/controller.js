@@ -56,8 +56,9 @@ class Controller {
   };
 
   changeDifficultyLevel = (difficultyLevel) => {
+    console.log(difficultyLevel);
     this.model.difficultyLevel = difficultyLevel.toLowerCase();
-    this.view.showViewsForDifficultyLevel(difficultyLevel);
+    // this.view.showViewsForDifficultyLevel(difficultyLevel);
   };
 
   startCountdown() {

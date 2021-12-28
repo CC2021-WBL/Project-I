@@ -23,6 +23,7 @@ const levelButtons = [
   button.addEventListener('click', () => {
     clearActive(levelButtons);
     button.classList.add('active');
+    window.app.changeDifficultyLevel(button.innerText);
   }),
 ); */
 
