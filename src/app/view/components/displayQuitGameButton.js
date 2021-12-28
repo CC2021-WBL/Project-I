@@ -11,12 +11,7 @@ export default function displayQuitGameButton() {
     'Quit Game',
     quitElem,
   );
-
-  console.log('quitGameButton');
   const clearNav = document.querySelector('.header__game-nav');
   clearNav.style.visibility = 'hidden';
-  
   return quitGameButton;
 }
-
-// displayQuitGameButton();

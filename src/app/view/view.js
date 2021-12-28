@@ -60,6 +60,13 @@ class View {
 
   renderQuitGame() {
     this.render('.game__btns', displayQuitGameButton());
+    const quitButtonEvent = document.querySelector('.fa-times-circle');
+    quitButtonEvent.addEventListener('click', () => {
+      console.log('quit Button EVENT');
+      // this.render('.modal', ModalWindow());
+      // this.renderModal();  // nie działa, JAK WYWOŁAĆ STĄD JAKĄŚ FUNKCJĘ ??
+      // Wywołać funclcje: clearInterval, stopTimer ??, renderModal ?? coś jeszcze ?
+    });
   }
 
   renderQuestion(question) {
@@ -69,7 +76,6 @@ class View {
       '.game-image__content',
       displayImage(question.image, 'very handsome Harry'),
     );
-    // this.render('.game-wrapper', displayQuitGameButton());
     console.log('question w view');
     console.log(question);
   }

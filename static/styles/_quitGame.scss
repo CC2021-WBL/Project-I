@@ -1,4 +1,5 @@
 .quit-game {
+    
     position: fixed;
     top: 70px;
     right: 80px;
@@ -7,9 +8,16 @@
     font-size: 35px;
     // display: flex;
     // align-self: center;
+    vertical-align: middle;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .fa-times-circle {
+    cursor: pointer;
     padding-left: 20px;
     font-size: 70px;
+}
+
+.fa-times-circle:hover {
+    color: rgba(255,255,255, 0.4);
 }
