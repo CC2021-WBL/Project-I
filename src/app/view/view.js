@@ -43,15 +43,14 @@ class View {
 
     const toggleRules = doBtnHallOfFame('Hall of fame', mode);
     toggleRules.addEventListener('click', this.toggleButtons);
-    // this.render('.game__btns', toggleRules, buttonPlay('Play'));
     this.render('.game__btns', toggleRules, buttonPlay('Play'));
   }
 
   // przygotowane pod dzialanie przycisku Hall Of Fame
   updateViewsForHallOfFameAtChosenMode(mode) {
     // this.render('.game__mode', questionForMode(mode));
-    this.render('.game__mode-rules', doHallOfFameContent);
-    this.render('.game__btns', doBtnHallOfFame(`Back`, mode));
+    this.render('.game__mode-rules', ...doHallOfFameContent(mode));
+    // this.render('.game__btns', doBtnHallOfFame(`Back`, mode));
   }
 
   renderInitialScreen() {
@@ -80,10 +79,14 @@ class View {
   }
 
   toggleButtons = () => {
+    // const aaa = document.getElementsByClassName('game__button');
     if (!this.toggle) {
       this.showRules();
+      this.updateViewsForHallOfFameAtChosenMode();
+      console.log('aaaa');
     } else {
       this.showHoF();
+      console.log('bbbbb');
     }
     // this.toggle = !this.toggle;
   };
