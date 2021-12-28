@@ -2,6 +2,10 @@ import elementCreator from '../../utils/elementCreator';
 import img from '../../../../static/assets/img/wand.png';
 
 export default function displayWand(timeLeft, timeStart) {
+  const timerWrapper = elementCreator('div', {
+    class: 'game-timer__text',
+  });
+
   const image = elementCreator('img', {
     class: 'game-timer__image',
     src: img,
@@ -20,7 +24,16 @@ export default function displayWand(timeLeft, timeStart) {
     wandInner,
   );
 
-  const fullWand = [image, wand];
+  const wandWrapper = elementCreator(
+    'div',
+    {
+      class: 'game-timer__wand-wrapper',
+    },
+    image,
+    wand,
+  );
+
+  const fullWand = [wandWrapper, timerWrapper];
 
   // const innerPart = document.getElementsByClassName('game-timer__wand-inner');
   if (timeLeft === 0) {

@@ -60,9 +60,9 @@ class View {
     this.render('.game-image__content', createImage());
   }
 
-  renderTimer() {
-    this.render('.game-timer', displayTimerText());
-    this.render('.game-timer', ...displayWand());
+  renderTimer(timeInSeconds, initialTime) {
+    this.render('.game-timer', ...displayWand(timeInSeconds, initialTime));
+    this.render('.game-timer__text', displayTimerText(timeInSeconds));
   }
 
   renderModal() {
