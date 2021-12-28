@@ -1,0 +1,27 @@
+@import '_vars';
+
+.hof__table {
+    font-size: calc($primary-font-size - 6px);
+    width: 70%;
+    margin: 0 auto 0 auto;
+    height: 42px;
+    }
+
+.game__mode-rules table {
+    background: rgba(200,200,200,.1);
+    padding: 50px;
+    border-radius: 20px;
+    }
+
+td:nth-child(3) {
+    width: 40%;
+   }
+  
+td:first-child {
+    width: 20%;
+   }
+
+  .hof__table--header {
+    font-weight: bold;
+    font-size: 32px;
+  }

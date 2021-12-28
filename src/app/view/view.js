@@ -5,11 +5,11 @@ import modeButtons from './components/mainMenu';
 import createLogo from './components/createLogo';
 import ModalWindow from './components/modal/modalWindow';
 import { INITIAL_GAME_MODE_TEXT, INITIAL_MAIN_TEXT } from '../data/consts';
-import modeRules from './components/modeRules';
 import buttonPlay from './components/buttonPlay';
 import createImage from './components/createImage';
 import doBtnHallOfFame from './components/doBtnHallOfFame';
-import doHallOfFameContent from './components/doHallOfFameContent';
+import hallOfFame from './components/doHallOfFameContent';
+// import modeRules from './components/modeRules';
 import displayTimerText from './components/displayTimerText';
 
 class View {
@@ -31,19 +31,12 @@ class View {
 
   showViewsForChosenMode(mode) {
     this.render('.game__mode', questionForMode(mode));
-    this.render('.game__mode-rules', ...modeRules(mode));
+    this.render('.game__mode-rules', ...hallOfFame(mode));
     this.render(
       '.game__btns',
       doBtnHallOfFame(`Hall of fame`, mode),
-      buttonPlay('Play the game'),
+      buttonPlay('Play'),
     );
-  }
-
-  // przygotowane pod dzialanie przycisku Hall Of Fame
-  updateViewsForHallOfFameAtChosenMode(mode) {
-    // this.render('.game__mode', questionForMode(mode));
-    this.render('.game__mode-rules', doHallOfFameContent);
-    this.render('.game__btns', doBtnHallOfFame(`Back`, mode));
   }
 
   renderInitialScreen() {

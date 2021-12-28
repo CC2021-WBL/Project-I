@@ -71,15 +71,7 @@
     }
   }
   &--disabled {
-  width: clamp(100px, 50%, 500px);
-  border: none;
-  outline: none;
-  background: #111111;
   pointer-events: none;
-  position: relative;
-  z-index: 0;
-  border-radius: 10px;
-  margin: 0 0.5rem;
   opacity: .5;
 }
 }

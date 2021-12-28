@@ -19,10 +19,5 @@ class Controller {
     this.view.renderTimer();
     startCountdown();
   }
-
-  updateViewsForHallOfFameAtChosenMode(mode) {
-    // this.model.gameMode = mode;
-    this.view.updateViewsForHallOfFameAtChosenMode(mode);
-  }
 }
 export default Controller;
