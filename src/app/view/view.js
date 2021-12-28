@@ -63,9 +63,12 @@ class View {
     const quitButtonEvent = document.querySelector('.fa-times-circle');
     quitButtonEvent.addEventListener('click', () => {
       console.log('quit Button EVENT');
+      const clearNav = document.querySelector('.header__game-nav');
+      clearNav.removeAttribute('style');
+      this.renderInitialScreen();
       // this.render('.modal', ModalWindow());
       // this.renderModal();  // nie działa, JAK WYWOŁAĆ STĄD JAKĄŚ FUNKCJĘ ??
-      // Wywołać funclcje: clearInterval, stopTimer ??, renderModal ?? coś jeszcze ?
+      // Wywołać funckcje: clearInterval, stopTimer ??, renderModal ?? coś jeszcze ? ZATRZYMAĆ GAME!
     });
   }
 
