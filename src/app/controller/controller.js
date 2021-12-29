@@ -1,5 +1,4 @@
 import GameMaker from '../logic/gameMaker';
-import answersButtons from '../view/components/answersButtons';
 import { startCountdown } from '../view/components/timerText';
 
 class Controller {
@@ -11,16 +10,19 @@ class Controller {
     this.view.renderModal();
     this.view.renderInitialScreen();
     this.view.bindModeButtons(this.changeGameMode);
-    // this.view.bindSettingsButton(this.view.toggleSettingsView);
+    // TODO: przeniesienie bindowania Settings do controllera this.view.bindSettingsButton(this.view.toggleSettingsView);
   }
 
   doAtInterval = (timeInSeconds) => {
     this.view.renderTimer(timeInSeconds);
-    // @TODO do dodania różdżka czasu
+    // TODO: do dodania różdżka czasu
   };
 
   doAtEnd = () => {
+    const endGameData = this.model.gameMaker.getEndGameData();
+    console.log(endGameData);
     console.log('dupa');
+    // render modal
   };
 
   startGame = async () => {
@@ -34,8 +36,8 @@ class Controller {
     );
     const closure = this;
     await closure.showQuestion();
-    // @TODO funckja blokująca przyciski
-    // @TODO zamiana przycisku play gme na quit game
+    // TODO: funckja blokująca przyciski
+    // TODO: zamiana przycisku play gme na quit game
   };
 
   async showQuestion() {
