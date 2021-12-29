@@ -15,6 +15,7 @@ import levelButtons from './components/settingsLevel';
 import buttonWhite from './components/buttonWhite';
 import answersButtons from './components/answersButtons';
 import clearActive from '../utils/clearActive';
+import displayWand from './components/wand';
 
 class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
@@ -94,8 +95,9 @@ class View {
     this.settings = !this.settings;
   };
 
-  renderTimer(timeInSeconds) {
-    this.render('.game-timer', displayTimerText(timeInSeconds));
+  renderTimer(timeInSeconds, initialTime) {
+    this.render('.game-timer', ...displayWand(timeInSeconds, initialTime));
+    this.render('.game-timer__text', displayTimerText(timeInSeconds));
   }
 
   renderModal() {
