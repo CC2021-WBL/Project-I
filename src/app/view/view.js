@@ -32,7 +32,7 @@ class View {
     elementInjector(parentElem, children);
   }
 
-  showViewsForChosenMode(mode) {
+  showViewsForChosenMode(mode, level) {
     this.render('.game__mode', questionForMode(mode));
     this.render('.game__mode-rules', ...modeRules(mode));
     // this.render(
@@ -44,26 +44,14 @@ class View {
     const toggleRules = doBtnHallOfFame('Hall of fame', mode);
     toggleRules.addEventListener(
       'click',
-      this.toggleButtons,
-      console.log('czy to działa toogle RULES?'),
-      // updateViewsForHallOfFameAtChosenMode(mode),
+      this.toggleButtons(mode, level),
+      console.log('toggleRules zadziałał'),
     );
-    // this.render('.game__btns', toggleRules, buttonPlay('Play'));
     this.render('.game__btns', toggleRules, buttonPlay('Play'));
   }
 
-  // przygotowane pod dzialanie przycisku Hall Of Fame
-  updateViewsForHallOfFameAtChosenMode(mode) {
-    // this.render('.game__mode', questionForMode(mode));
-    const dupaDupa = elementCreator(
-      'span',
-      {
-        class: 'dupa',
-      },
-      'TEEEEKST',
-    );
-    this.render('.game__mode-rules', ...doHallOfFameContent(mode));
-    // this.render('.game__btns', doBtnHallOfFame(`Back`, mode));
+  updateViewsForHallOfFameAtChosenMode(mode, level) {
+    this.render('.game__mode-rules', ...doHallOfFameContent(mode, level));
   }
 
   renderInitialScreen() {
@@ -91,18 +79,20 @@ class View {
     );
   }
 
-  toggleButtons = () => {
-    // console.log('dupaaaa');
+  toggleButtons = (mode, level) => {
+    // const _gameMode = document.querySelector(
+    //   '.header__game-nav.button.active',
+    // ).textContent;
+    // console.log(_gameMode);
+    console.log(`toggleButtons zadzialal, ${mode}`);
     if (!this.toggle) {
-      console.log('DZIAŁA?');
-
+      console.log('toggleButtons this.toggle zadzialal');
       this.showRules();
-      this.updateViewsForHallOfFameAtChosenMode();
+      //
+      this.updateViewsForHallOfFameAtChosenMode(mode, level);
     } else {
       this.showHoF();
     }
-    // console.log('TEN LOG TO EVENT NA BUTTONIE');
-    // this.toggle = !this.toggle;
   };
 
   renderTimer() {

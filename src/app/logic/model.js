@@ -8,6 +8,8 @@ class Model {
     this.gameMode = '';
     this.rankings = LocalStorageService.loadRankings();
     this.localStorageService = LocalStorageService;
+    this.difficultyLevel = DEFAULT_DIFFICULTY_LEVEL;
+    this.gameMaker = undefined;
   }
 }
 
