@@ -21,10 +21,7 @@ export class Player {
     }
     const isAnswerCorrect = playerAnswer === correctAnswer;
 
-    if (
-      DIFFICULTY_LEVELS[difficultyLevelsProperty].calculatingPoints !==
-      DIFFICULTY_LEVELS.easy.calculatingPoints
-    ) {
+    if (difficultyLevelsProperty !== DIFFICULTY_LEVELS.easy.level) {
       this.correctAnswersScore = calculatePoints(
         this.correctAnswersScore,
         isAnswerCorrect,

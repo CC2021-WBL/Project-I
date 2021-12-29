@@ -6,29 +6,25 @@ export function calculatePoints(
   isAnswerCorrect,
   difficultyLevelsProperty,
 ) {
-  if (
-    DIFFICULTY_LEVELS[difficultyLevelsProperty].calculatingPoints ===
-    DIFFICULTY_LEVELS.medium.calculatingPoints
-  ) {
-    let newCorrectAnswersScore = correctAnswersScore;
-    if (isAnswerCorrect) {
-      newCorrectAnswersScore = correctAnswersScore + 1;
-    }
-    return newCorrectAnswersScore;
-  }
-  if (
-    DIFFICULTY_LEVELS[difficultyLevelsProperty].calculatingPoints ===
-    DIFFICULTY_LEVELS.hard.calculatingPoints
-  ) {
-    let newCorrectAnswersScore = correctAnswersScore;
-    if (isAnswerCorrect) {
-      newCorrectAnswersScore += 1;
-    } else {
-      newCorrectAnswersScore -= 1;
-    }
-    return newCorrectAnswersScore;
-  }
-  throw new Error('wrong difficulty level property or calculatingPoints value');
-}
+  let newScore;
 
+  const isMediumMode =
+    difficultyLevelsProperty === DIFFICULTY_LEVELS.medium.level;
+  const isHardMode = difficultyLevelsProperty === DIFFICULTY_LEVELS.hard.level;
+  if (!isMediumMode && !isHardMode) {
+    throw new Error(
+      'wrong difficulty level property or calculatingPoints value',
+    );
+  }
+
+  if (isMediumMode) {
+    newScore = isAnswerCorrect ? correctAnswersScore + 1 : correctAnswersScore;
+  }
+  if (isHardMode) {
+    newScore = isAnswerCorrect
+      ? correctAnswersScore + 1
+      : correctAnswersScore - 1;
+  }
+  return newScore;
+}
 export default calculatePoints;
