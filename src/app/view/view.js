@@ -41,6 +41,7 @@ class View {
     //   doBtnHallOfFame(`Hall of fame`, mode),
     //   buttonPlay('Play the game'),
     // );
+    
 
     const toggleRules = doBtnHallOfFame('Hall of fame', mode);
     toggleRules.addEventListener('click', this.toggleButtons);
