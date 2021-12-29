@@ -66,17 +66,16 @@ class View {
     this.render('.game-image__content', createImage());
     const settingsButton = buttonWhite('settings');
     settingsButton.addEventListener('click', this.toggleSettingsView);
-    this.render('.settings', settingsButton);
+    this.render('.game-image__button', settingsButton);
   }
 
   showSettings() {
     this.render('.game__mode', 'Choose level');
     this.render('.game__mode-rules', ...levelButtons);
-    this.render(
-      '.game__btns',
-      buttonWhite('back'),
-      buttonPlay('Save & return'),
-    );
+    const settingsButton = buttonWhite('Return');
+    settingsButton.addEventListener('click', this.toggleSettingsView);
+    this.render('.game-image__button', settingsButton);
+    this.render('.game__btns', buttonPlay('Save & return'));
     this.bindDifficultyLevelButton(window.app.changeDifficultyLevel);
   }
 

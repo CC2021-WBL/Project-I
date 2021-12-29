@@ -12,6 +12,7 @@
   z-index: 0;
   border-radius: $default-radius;
   text-transform: uppercase;
+  padding: 3px;
 
   &::before {
     content: '';
@@ -71,6 +72,11 @@
       }
     }
   }
+  &--settingsBtn {
+    width: 99%;
+    border: $white-color;
+    padding: 0 25px;
+  }
   &--lvlSettings {
     width: 99%;
     height: 33.33%;
@@ -79,7 +85,7 @@
     justify-content: space-between;
     text-transform: none;
     background-color: $white-color;
-    margin: 10px;
+    margin: 5px 0;
     &.active {
       background-color: #ffd3bb;
       border-width: 0.1rem;
