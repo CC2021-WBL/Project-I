@@ -8,6 +8,7 @@ export function calculatePoints(
 ) {
   const difficultyLevelsProperties =
     Object.getOwnPropertyNames(DIFFICULTY_LEVELS);
+  let newScore;
 
   const isMediumMode =
     difficultyLevelsProperty === difficultyLevelsProperties[1];
@@ -19,22 +20,13 @@ export function calculatePoints(
   }
 
   if (isMediumMode) {
-    let newCorrectAnswersScore = correctAnswersScore;
-    if (isAnswerCorrect) {
-      newCorrectAnswersScore = correctAnswersScore + 1;
-    }
-    return newCorrectAnswersScore;
+    newScore = isAnswerCorrect ? correctAnswersScore + 1 : correctAnswersScore;
   }
   if (isHardMode) {
-    let newCorrectAnswersScore = correctAnswersScore;
-    if (isAnswerCorrect) {
-      newCorrectAnswersScore += 1;
-    } else {
-      newCorrectAnswersScore -= 1;
-    }
-    return newCorrectAnswersScore;
+    newScore = isAnswerCorrect
+      ? correctAnswersScore + 1
+      : correctAnswersScore - 1;
   }
-  throw new Error('wrong difficulty level property or calculatingPoints value');
+  return newScore;
 }
-
 export default calculatePoints;
