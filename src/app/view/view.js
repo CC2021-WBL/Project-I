@@ -12,6 +12,7 @@ import doBtnHallOfFame from './components/doBtnHallOfFame';
 import doHallOfFameContent from './components/doHallOfFameContent';
 import displayTimerText from './components/displayTimerText';
 import buttonRules from './components/buttonRules';
+import displayWand from './components/wand';
 
 class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
@@ -95,8 +96,9 @@ class View {
     }
   };
 
-  renderTimer() {
-    this.render('.game-timer', displayTimerText());
+  renderTimer(timeInSeconds, initialTime) {
+    this.render('.game-timer', ...displayWand(timeInSeconds, initialTime));
+    this.render('.game-timer__text', displayTimerText(timeInSeconds));
   }
 
   renderModal() {
