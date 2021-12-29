@@ -6,7 +6,7 @@ const questionForMode = (mode) => {
     Staff: "Who is this from Hogwart's staff?",
     Houses: 'To which house do they belong\n?',
   };
-  return elementCreator('h1', {}, `MODE: ${questions[mode]}`);
+  return elementCreator('div', {}, `MODE: ${questions[mode]}`);
 };
 
 export default questionForMode;

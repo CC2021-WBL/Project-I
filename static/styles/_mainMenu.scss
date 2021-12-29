@@ -7,7 +7,7 @@
   align-items: center;
 
   button {
-    width: 150px;
+    width: 33.3%;
     height: 50px;
     color: $white-opacity;
     background: none;
@@ -19,12 +19,15 @@
 
       &::before {
         content: '';
-        width: 80%;
+        width: 40%;
         height: 10px;
         background: $lite-orange;
-        border-radius: 4px;
+        border-radius: $default-radius;
         position: absolute;
         bottom: -25px;
+        left: 25%;
+        right: 25%;
+        margin-left: 20px;
       }
     }
   }
