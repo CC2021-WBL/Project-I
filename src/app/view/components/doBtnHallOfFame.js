@@ -5,7 +5,7 @@ function doBtnHallOfFame(text) {
   // eslint-disable-next-line prettier/prettier
   const imageCup = elementCreator('img', {
     src: HallOfFameBtn,
-    class: 'halloffame-icon',
+    class: 'game__button-icon',
     alt: 'Victory Cup',
   });
 

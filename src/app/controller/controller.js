@@ -12,7 +12,8 @@ class Controller {
 
   changeGameMode(mode) {
     this.model.gameMode = mode;
-    this.view.showViewsForChosenMode(mode);
+    const level = this.model.difficultyLevel;
+    this.view.showViewsForChosenMode(mode, level);
   }
 
   startCountdown() {

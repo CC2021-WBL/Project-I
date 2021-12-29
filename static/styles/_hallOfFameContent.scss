@@ -1,7 +1,7 @@
 @import '_vars';
 
 .hof__table {
-    font-size: calc($primary-font-size - 6px);
+    font-size: calc($primary-font-size - 8px);
     width: 70%;
     margin: 0 auto 0 auto;
     height: 42px;
@@ -21,7 +21,7 @@ td:first-child {
     width: 20%;
    }
 
-  .hof__table--header {
+  .hof__table-header {
     font-weight: bold;
     font-size: 32px;
   }

@@ -12,6 +12,7 @@ modeButtons.map((button) =>
     clearActive(modeButtons);
     button.classList.add('active');
     window.app.changeGameMode(button.textContent);
+    console.log('modeButton zadzialal');
   }),
 );
 

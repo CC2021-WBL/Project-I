@@ -13,6 +13,11 @@
   text-transform: uppercase;
   margin: 0 0.5rem;
 
+  &-icon {
+    position: absolute;
+    left: 50px;
+  }
+
   &::before {
     content: '';
     background: linear-gradient(
