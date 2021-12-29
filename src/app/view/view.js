@@ -12,6 +12,7 @@ import doBtnHallOfFame from './components/doBtnHallOfFame';
 import doHallOfFameContent from './components/doHallOfFameContent';
 import displayTimerText from './components/displayTimerText';
 import displayWand from './components/wand';
+import displayInitialMainText from './components/displayInitialMainText';
 
 class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
@@ -51,7 +52,7 @@ class View {
     this.render('.header__game-logo', createLogo());
     this.render('.header__game-nav', ...modeButtons);
     this.render('.game__mode', INITIAL_GAME_MODE_TEXT);
-    this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
+    this.render('.game__mode-rules', ...displayInitialMainText);
     this.render('.game-image__content', createImage());
   }
 
