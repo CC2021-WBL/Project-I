@@ -1,4 +1,4 @@
-import displayInitialMainText from "../view/components/displayInitialMainText";
+import displayInitialMainText from '../view/components/displayInitialMainText';
 
 export const GAME_MODES = {
   students: {
@@ -42,7 +42,7 @@ export const HOGWART_HOUSES = [
 
 export const INITIAL_GAME_MODE_TEXT = 'Harry Potter Quiz Game';
 
-export const INITIAL_MAIN_TEXT = displayInitialMainText();
+// export const INITIAL_MAIN_TEXT = displayInitialMainText();
 
 export const DEFAULT_BASE_URL = GAME_MODES.students.urlAdress;
 
