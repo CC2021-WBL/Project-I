@@ -13,8 +13,8 @@ class Controller {
     // TODO: przeniesienie bindowania Settings do controllera this.view.bindSettingsButton(this.view.toggleSettingsView);
   }
 
-  doAtInterval = (timeInSeconds) => {
-    this.view.renderTimer(timeInSeconds);
+  doAtInterval = (timeInSeconds, initialTime) => {
+    this.view.renderTimer(timeInSeconds, initialTime);
     // TODO: do dodania różdżka czasu
   };
 
