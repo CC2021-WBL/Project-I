@@ -41,15 +41,15 @@ export const HOGWART_HOUSES = [
 export const DIFFICULTY_LEVELS = {
   easy: {
     time: null,
-    calculatingPoints: 'training',
+    level: 'easy',
   },
   medium: {
     time: 1,
-    calculatingPoints: 'regular',
+    level: 'medium',
   },
   hard: {
     time: 0.5,
-    calculatingPoints: 'minus',
+    level: 'hard',
   },
 };
 
