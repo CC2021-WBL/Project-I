@@ -42,7 +42,12 @@ class View {
     // );
 
     const toggleRules = doBtnHallOfFame('Hall of fame', mode);
-    toggleRules.addEventListener('click', this.toggleButtons);
+    toggleRules.addEventListener(
+      'click',
+      this.toggleButtons,
+      console.log('czy to działa toogle RULES?'),
+      // updateViewsForHallOfFameAtChosenMode(mode),
+    );
     // this.render('.game__btns', toggleRules, buttonPlay('Play'));
     this.render('.game__btns', toggleRules, buttonPlay('Play'));
   }
@@ -50,8 +55,15 @@ class View {
   // przygotowane pod dzialanie przycisku Hall Of Fame
   updateViewsForHallOfFameAtChosenMode(mode) {
     // this.render('.game__mode', questionForMode(mode));
-    this.render('.game__mode-rules', doHallOfFameContent);
-    this.render('.game__btns', doBtnHallOfFame(`Back`, mode));
+    const dupaDupa = elementCreator(
+      'span',
+      {
+        class: 'dupa',
+      },
+      'TEEEEKST',
+    );
+    this.render('.game__mode-rules', ...doHallOfFameContent(mode));
+    // this.render('.game__btns', doBtnHallOfFame(`Back`, mode));
   }
 
   renderInitialScreen() {
@@ -80,11 +92,16 @@ class View {
   }
 
   toggleButtons = () => {
+    // console.log('dupaaaa');
     if (!this.toggle) {
+      console.log('DZIAŁA?');
+
       this.showRules();
+      this.updateViewsForHallOfFameAtChosenMode();
     } else {
       this.showHoF();
     }
+    // console.log('TEN LOG TO EVENT NA BUTTONIE');
     // this.toggle = !this.toggle;
   };
 
