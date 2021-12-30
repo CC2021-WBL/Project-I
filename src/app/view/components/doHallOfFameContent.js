@@ -1,5 +1,5 @@
 import elementCreator from '../../utils/elementCreator';
-import hofTable from './modal/hofTable';
+import hofTable from './hofTable';
 
 const doHallOfFameContent = (mode, level) => {
   console.log('halloffameContent zadzialal');
