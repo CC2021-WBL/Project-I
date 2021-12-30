@@ -52,6 +52,7 @@ export const DIFFICULTY_LEVELS = {
     level: 'hard',
   },
 };
+export const DEFAULT_DIFFICULTY_LEVEL = 'medium';
 
 export const INITIAL_GAME_MODE_TEXT = 'Choose category';
 
@@ -65,4 +66,4 @@ export const ONE_MINUTE_SECONDS = 60;
 
 export const DECIMAL_SYSTEM = 10;
 
-export const DEFAULT_MAX_TIME = 2; // in minutes
+export const DEFAULT_TIME = 0.5; // in minutes

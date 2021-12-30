@@ -1,13 +1,13 @@
+import { DEFAULT_DIFFICULTY_LEVEL } from '../data/consts';
 import LocalStorageService from './localStorage';
 
 class Model {
-  constructor(object) {
-    this.title = object.title;
-    this.apiBase = object.options.hpApiBaseUrl;
-    this.quizMaxTime = object.options.quizMaxTime;
+  constructor() {
     this.gameMode = '';
+    this.difficultyLevel = DEFAULT_DIFFICULTY_LEVEL;
     this.rankings = LocalStorageService.loadRankings();
     this.localStorageService = LocalStorageService;
+    this.gameMaker = undefined;
   }
 }
 
