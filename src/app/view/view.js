@@ -69,7 +69,7 @@ class View {
     this.render('.game-image__content', createImage());
     const settingsButton = buttonWhite('settings');
     settingsButton.addEventListener('click', this.toggleSettingsView);
-    this.render('.settings', settingsButton);
+    this.render('.game-image__btns', settingsButton);
   }
 
   showSettings() {

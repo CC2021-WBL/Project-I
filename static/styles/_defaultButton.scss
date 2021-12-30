@@ -56,6 +56,10 @@
     top: 0;
     border-radius: $default-radius;
   }
+
+  &-settingsMain {
+    width: 100%;
+  }
   &--orange {
     margin: 0 0 0 10px;
     color: $white-color;
