@@ -1,9 +1,13 @@
+import testGameInfos from '../../../tests/localStorage/localStorageTestData';
+import testLocalStorage from '../../../tests/localStorage/localStorageTest';
+
 class Controller {
   constructor(model, view) {
     this.model = model;
     this.view = view;
     // INIT LOOK OF OUR APP
     this.view.renderInitialScreen();
+    testLocalStorage(this.model.rankings, testGameInfos);
   }
 
   // Funkcja znajduje się w kontrolerze, odpalana jest w momencie kliknięcia buttona na stronie.
