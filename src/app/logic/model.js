@@ -1,4 +1,5 @@
 import LocalStorageService from './localStorage';
+import { DEFAULT_DIFFICULTY_LEVEL } from '../data/consts';
 
 class Model {
   constructor(object) {
@@ -9,6 +10,7 @@ class Model {
     this.rankings = LocalStorageService.loadRankings();
     this.localStorageService = LocalStorageService;
     this.difficultyLevel = DEFAULT_DIFFICULTY_LEVEL;
+    console.log(this.difficultyLevel);
     this.gameMaker = undefined;
   }
 }

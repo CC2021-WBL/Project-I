@@ -13,6 +13,7 @@ class Controller {
   changeGameMode(mode) {
     this.model.gameMode = mode;
     const level = this.model.difficultyLevel;
+    console.log(level);
     this.view.showViewsForChosenMode(mode, level);
   }
 
