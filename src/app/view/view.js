@@ -58,14 +58,14 @@ class View {
 
   updateViewsForHallOfFameAtChosenMode(mode, level) {
     this.render('.game__mode-rules', ...doHallOfFameContent(mode, level));
-  // this.render('.game__mode', questionForMode(mode));
+    // this.render('.game__mode', questionForMode(mode));
     this.render('.game__btns', doBtnHallOfFame(`Back`, mode));
   }
   // TODO: wyświetlanie opisu poziomu trudności w miejscu zdjęcia
-  
+
   showViewsForDifficultyLevel(difficultyLevel) {
     //  wyświetlanie opisu poziomu trudności
-  };
+  }
 
   renderInitialScreen() {
     this.render('.header__game-logo', createLogo());
@@ -88,8 +88,8 @@ class View {
       doBtnHallOfFame('Hall of fame'),
       buttonPlay('Play'),
     );
-   };
-  
+  }
+
   showSettings() {
     this.render('.game__mode', 'Choose level');
     this.render('.game__mode-rules', ...levelButtons);
@@ -100,11 +100,13 @@ class View {
     );
     this.bindDifficultyLevelButton(window.app.changeDifficultyLevel);
   }
+
   // hide settings screen
   hideSettings() {
     this.renderInitialScreen();
     // TODO: do stg after hiding the settings
   }
+
   toggleSettingsView = () => {
     if (!this.settings) {
       this.showSettings();
@@ -113,7 +115,6 @@ class View {
     }
     this.settings = !this.settings;
   };
-  }
 
   toggleButtons = (mode, level) => {
     // const _gameMode = document.querySelector(
@@ -129,7 +130,7 @@ class View {
     } else {
       this.showHoF();
     }
-  
+  };
 
   renderTimer(timeInSeconds, initialTime) {
     this.render('.game-timer', ...displayWand(timeInSeconds, initialTime));

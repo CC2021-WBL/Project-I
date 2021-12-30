@@ -1,57 +1,46 @@
 import elementCreator from '../../utils/elementCreator';
 
-function hofTable() {
+function hofTable(mode, level, obj) {
   // (Definicja) naglowkow
   const tableHead1 = elementCreator(
     'td',
-    { class: 'hof__table hof__table-header' },
+    { class: 'hof__table-header' },
     'Place',
   );
   const tableHead2 = elementCreator(
     'td',
-    { class: 'hof__table hof__table-header' },
+    { class: 'hof__table-header' },
     'Player',
   );
   const tableHead3 = elementCreator(
     'td',
-    { class: 'hof__table hof__table-header' },
+    { class: 'hof__table-header' },
     'Answered',
   );
+
   //
   // (Definicja) mniejszych bloków (table row)
   //
   const tableRow1stPlace = elementCreator(
     'tr',
     {},
-    elementCreator('td', { class: 'hof__table hof__table-place' }, '1'),
-    elementCreator(
-      'td',
-      { class: 'hof__table hof__table--player' },
-      'Anna Maria',
-    ),
-    elementCreator('td', { class: 'hof__table hof__table-answered' }, '30/30'),
+    elementCreator('td', { class: 'hof__table-place' }, '1'),
+    elementCreator('td', { class: 'hof__table-player' }, 'Anna Maria'),
+    elementCreator('td', { class: 'hof__table-answered' }, '30/30'),
   );
   const tableRow2ndPlace = elementCreator(
     'tr',
     {},
-    elementCreator('td', { class: 'hof__table hof__table-place' }, '2'),
-    elementCreator(
-      'td',
-      { class: 'hof__table hof__table--player' },
-      'Maria Janiak',
-    ),
-    elementCreator('td', { class: 'hof__table hof__table-answered' }, '20/30'),
+    elementCreator('td', { class: 'hof__table-place' }, '2'),
+    elementCreator('td', { class: 'hof__table-player' }, 'Maria Janiak'),
+    elementCreator('td', { class: 'hof__table-answered' }, '20/30'),
   );
   const tableRow3rdPlace = elementCreator(
     'tr',
     {},
-    elementCreator('td', { class: 'hof__table hof__table-place' }, '3'),
-    elementCreator(
-      'td',
-      { class: 'hof__table hof__table--player' },
-      'Jopek Czesław',
-    ),
-    elementCreator('td', { class: 'hof__table hof__table-answered' }, '10/30'),
+    elementCreator('td', { class: 'hof__table-place' }, '3'),
+    elementCreator('td', { class: 'hof__table-player' }, 'Jopek Czesław'),
+    elementCreator('td', { class: 'hof__table-answered' }, '10/30'),
   );
   // (Definicja) zlozenie calej tabeli
   const wholeTable = elementCreator(
@@ -68,3 +57,21 @@ function hofTable() {
   return wholeTable;
 }
 export default hofTable;
+
+function getHofData(mode, level, obj, place, property) {
+  let index;
+  if (level === 'medium') {
+    index = 1;
+  } else if (level === 'hard') {
+    index = 2;
+  } else {
+    throw Error('Wrong level data');
+  }
+  const students = [obj.students_easy, obj.students_medium, obj.students_hard];
+  const houses = [obj.houses_easy, obj.houses_medium, obj.houses_hard];
+  const staff = [obj.staff_easy, obj.staff_medium, obj.staff_hard];
+
+  const { name } = mode[index];
+  const { result } = mode[index];
+  return mode[index][place][property];
+}
