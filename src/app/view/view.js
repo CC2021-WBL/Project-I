@@ -17,6 +17,7 @@ import answersButtons from './components/answersButtons';
 import clearActive from '../utils/clearActive';
 import displayWand from './components/wand';
 import displayInitialMainText from './components/displayInitialMainText';
+import displayButtonSettings from './components/displaySettingsBtn';
 
 class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
@@ -45,6 +46,9 @@ class View {
       doBtnHallOfFame(`Hall of fame`, mode),
       buttonPlay('Play the game'),
     );
+    const settingsButton = displayButtonSettings('settings');
+    settingsButton.addEventListener('click', this.toggleSettingsView);
+    this.render('.game-image__btns', settingsButton);
   }
 
   // TODO: wyświetlanie opisu poziomu trudności w miejscu zdjęcia
@@ -67,9 +71,6 @@ class View {
     // this.render('.game-image__content', createImage());
     // this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
     this.render('.game-image__content', createImage());
-    const settingsButton = buttonWhite('settings');
-    settingsButton.addEventListener('click', this.toggleSettingsView);
-    this.render('.game-image__btns', settingsButton);
   }
 
   showSettings() {
