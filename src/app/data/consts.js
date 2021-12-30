@@ -1,4 +1,4 @@
-import displayInitialMainText from '../view/components/displayInitialMainText';
+// import displayInitialMainText from '../view/components/displayInitialMainText';
 
 export const GAME_MODES = {
   students: {
@@ -56,7 +56,7 @@ export const DIFFICULTY_LEVELS = {
   },
 };
 
-export const INITIAL_GAME_MODE_TEXT = 'Choose category';
+// export const INITIAL_GAME_MODE_TEXT = 'Choose category';
 
 // export const INITIAL_MAIN_TEXT = displayInitialMainText();
 
