@@ -1,6 +1,6 @@
+import { GAME_MODES } from '../data/consts';
 import GameMaker from '../logic/gameMaker';
 import answersButtons from '../view/components/answersButtons';
-import { startCountdown } from '../view/components/timerText';
 
 class Controller {
   constructor(model, view) {
@@ -36,6 +36,15 @@ class Controller {
     // @TODO funckja blokująca przyciski
     // @TODO zamiana przycisku play gme na quit game
     this.view.renderQuitGame();
+    this.view.bindQuitGameButton(this.doAfterQuitGame);
+  };
+
+  doAfterQuitGame = () => {
+    // const mode = GAME_MODES[this.model.gameMode].gamemode;
+    this.model.gameMaker.clearCurrentGameData();
+    // this.view.backRes();
+    // this.view.showViewsForChosenMode(mode);
+    this.view.renderInitialScreen();
   };
 
   async showQuestion() {
@@ -55,9 +64,6 @@ class Controller {
     this.view.bindButtonPlay(this.startGame);
   };
 
-  startCountdown() {
-    this.view.renderTimer();
-    startCountdown();
-  }
+
 }
 export default Controller;

@@ -31,6 +31,7 @@ class View {
   }
 
   showViewsForChosenMode(mode) {
+    console.log(mode);
     this.render('.game__mode', questionForMode(mode));
     this.render('.game__mode-rules', ...modeRules(mode));
   }
@@ -60,16 +61,12 @@ class View {
 
   renderQuitGame() {
     this.render('.game__btns', displayQuitGameButton());
-    const quitButtonEvent = document.querySelector('.fa-times-circle');
-    quitButtonEvent.addEventListener('click', () => {
-      console.log('quit Button EVENT');
-      const clearNav = document.querySelector('.header__game-nav');
-      clearNav.removeAttribute('style');
-      this.renderInitialScreen();
-      // this.render('.modal', ModalWindow());
-      // this.renderModal();  // nie działa, JAK WYWOŁAĆ STĄD JAKĄŚ FUNKCJĘ ??
-      // Wywołać funckcje: clearInterval, stopTimer ??, renderModal ?? coś jeszcze ? ZATRZYMAĆ GAME!
-    });
+  }
+
+  backRes() {
+    const backRes = document.querySelector('.game__mode-rules');
+    backRes.style.background = '#FFF';
+    backRes.style.boxShadow = '0px 4px 4px rgba(0, 0, 0, 0.25);';
   }
 
   renderQuestion(question) {
@@ -106,6 +103,13 @@ class View {
         handler(button.textContent);
       }),
     );
+  }
+
+  bindQuitGameButton(handler) {
+    const quitButtonEvent = document.querySelector('.fa-times-circle');
+    quitButtonEvent.addEventListener('click', () => {
+      handler();
+    });
   }
 }
 
