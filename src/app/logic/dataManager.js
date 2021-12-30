@@ -58,7 +58,7 @@ class DataManager {
       this.rightAnswer = obj.name;
     }
     const imgFromFile = await fetch(
-      `./static/assets/img/images/${this.imgSubfolder}/${this.idOfRightAnswer}.jpg`,
+      `./img/images/${this.imgSubfolder}/${this.idOfRightAnswer}.jpg`,
     );
     const imgBlob = await imgFromFile.blob();
 

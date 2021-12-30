@@ -1,6 +1,6 @@
 import elementCreator from '../../utils/elementCreator';
 
-export default function displayTimerText(timeInSeconds) {
+function displayTimerText(timeInSeconds) {
   const min = Math.floor(timeInSeconds / 60);
   const sec = timeInSeconds % 60;
 
@@ -17,3 +17,5 @@ export default function displayTimerText(timeInSeconds) {
   }
   return timer;
 }
+
+export default displayTimerText;

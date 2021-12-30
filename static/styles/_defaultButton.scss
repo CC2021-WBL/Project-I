@@ -75,6 +75,26 @@
       }
     }
   }
+  &--lvlSettings {
+    width: 99%;
+    height: 33.33%;
+    align-content: space-around;
+    flex-direction: column;
+    justify-content: space-between;
+    text-transform: none;
+    background-color: $white-color;
+    margin: 10px;
+    &.active {
+      background-color: #ffd3bb;
+      border-width: 0.1rem;
+      border-style: solid;
+      border-color: $lite-orange;
+      &::after {
+        background-color: #ffd3bb;
+        border-style: 0.1rem;
+      }
+    }
+  }
   &--disabled {
   pointer-events: none;
   opacity: .5;
