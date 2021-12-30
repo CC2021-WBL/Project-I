@@ -15,7 +15,7 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-rows: 22% 65% 13%;
   padding: 0 50px 0 0;
 
   .header {
@@ -26,9 +26,10 @@
     align-items: center;
 
     &__game {
+      
       &-logo {
-        width: 28%;
-        height: 75%;
+        width: 25%;
+        min-height: 70%;
         display: flex;
         justify-content: center;
       }
@@ -40,7 +41,7 @@
 
       &-nav {
         width: 60%;
-        height: 80%;
+        height: 70%;
       }
     }
   }
@@ -50,13 +51,14 @@
     grid-row: 2/3;
     display: flex;
     flex-direction: column;
+    gap: 24px;
 
     &-image {
       grid-column: 1/2;
       grid-row: 2/3;
       display: flex;
-      justify-content: center;
-      align-items: flex-start;
+      justify-content: space-between;
+      align-items: center;
       flex-direction: column;
 
       &__content {
@@ -64,7 +66,7 @@
         height: 70%;
 
         &-image {
-          width: 100%;
+          width: 85%;
           height: auto;
           border: 16px solid rgba(173, 25, 132, 0.26);
           filter: drop-shadow(13px 17px 11px rgba(0, 0, 0, 0.5));
@@ -88,7 +90,6 @@
 
       &-rules {
         font-size: 1.5rem;
-        margin: 30px 0;
         width: 100%;
         height: 50%;
         background-color: #ffffff;
@@ -96,7 +97,7 @@
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-evenly;
         align-items: center;
         flex: 1;
 
@@ -128,9 +129,9 @@
       }
     }
     &__btns {
-      height: 20%;
       display: flex;
       justify-content: space-between;
+      align-items: flex-end;
     }
   }
 
