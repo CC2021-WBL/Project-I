@@ -99,7 +99,7 @@
         justify-content: space-between;
         align-items: center;
         text-align: center;
-        flex: 1; //musi zniknąć przy odpowiedziach
+        flex-grow: 1; //musi zniknąć przy odpowiedziach
 
         &-answrBtn {
           border: none;

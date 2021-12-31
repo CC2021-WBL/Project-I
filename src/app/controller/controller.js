@@ -22,6 +22,7 @@ class Controller {
     const endGameData = this.model.gameMaker.getEndGameData();
     console.log(endGameData);
     console.log('dupa');
+    // TODO: zdjąć klasę i ID chowające przyciski i tło po rozpoczęciu rozgrywki
     // render modal
   };
 
@@ -37,9 +38,8 @@ class Controller {
     const closure = this;
     await closure.showQuestion();
     this.view.disappearButtonsAndBackground();
-    // zmienia się styl pojemni mode rules
 
-    // TODO: zamiana przycisku play gme na quit game
+    // TODO: pojawia się quit game
   };
 
   async showQuestion() {
