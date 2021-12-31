@@ -36,7 +36,9 @@ class Controller {
     );
     const closure = this;
     await closure.showQuestion();
-    // TODO: funckja blokująca przyciski
+    this.view.disappearButtonsAndBackground();
+    // zmienia się styl pojemni mode rules
+
     // TODO: zamiana przycisku play gme na quit game
   };
 

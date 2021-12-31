@@ -121,6 +121,20 @@ class View {
     );
   }
 
+  disappearButtonsAndBackground() {
+    // TODO: dodać klasę, do wszystkich znikających elementów i zamienić na querySelecorAll
+    const modeNav = document.querySelector('.header__game-nav');
+    modeNav.classList.add('hidden-elements');
+    const playAndHofButtons = document.querySelector('.game__btns');
+    playAndHofButtons.classList.add('hidden-elements');
+    const settingsButton = document.querySelector('.game__button-settingsMain');
+    settingsButton.classList.add('hidden-elements');
+    const gameModeContainer = document.querySelector('.game__mode-rules');
+    gameModeContainer.classList.add('question-mode');
+  }
+
+  // -------------- BINDINGS ------------------------------------
+
   bindButtonPlay(handler) {
     const playButton = document.querySelector('.game__button--orange');
     playButton.addEventListener('click', () => {
@@ -139,7 +153,9 @@ class View {
   }
 
   bindAnswerButtons(handler) {
-    const answerButtons = [...document.getElementsByClassName('game__mode-rules-answrBtn')];
+    const answerButtons = [
+      ...document.getElementsByClassName('game__mode-rules-answrBtn'),
+    ];
     answerButtons.map((button) =>
       button.addEventListener('click', () => {
         handler(button.textContent);
