@@ -130,7 +130,7 @@ class View {
     const settingsButton = document.querySelector('.game__button-settingsMain');
     settingsButton.classList.add('hidden-elements');
     const gameModeContainer = document.querySelector('.game__mode-rules');
-    gameModeContainer.classList.add('question-mode');
+    gameModeContainer.id = 'question-mode';
   }
 
   // -------------- BINDINGS ------------------------------------
