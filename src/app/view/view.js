@@ -139,7 +139,7 @@ class View {
   }
 
   bindAnswerButtons(handler) {
-    const answerButtons = [...document.getElementsByClassName('answerButton')];
+    const answerButtons = [...document.getElementsByClassName('game__mode-rules-answrBtn')];
     answerButtons.map((button) =>
       button.addEventListener('click', () => {
         handler(button.textContent);
