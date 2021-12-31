@@ -14,7 +14,7 @@ const doHallOfFameContent = (mode, level) => {
     ` ${mode} Mode Ranking - Level ${level}`,
   );
 
-  const hofFullElement = [hofHeader, hofTable()];
+  const hofFullElement = [hofHeader, hofTable(mode, level)];
   return hofFullElement;
 };
 
