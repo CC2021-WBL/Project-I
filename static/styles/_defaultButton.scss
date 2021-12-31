@@ -75,7 +75,7 @@
       }
     }
   }
-  &--lvlSettings {
+  &-lvlSettings {
     width: 99%;
     height: 33.33%;
     align-content: space-around;
@@ -83,7 +83,6 @@
     justify-content: space-between;
     text-transform: none;
     background-color: $white-color;
-    margin: 10px;
     &.active {
       background-color: #ffd3bb;
       border-width: 0.1rem;

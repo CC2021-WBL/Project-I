@@ -1,5 +1,5 @@
 @import '_mainMenu.scss', '_vars.scss', '_wand.scss', '_modalStyles',
-  '_timerText.scss', '_defaultButton', '_gameSettingsContainer';
+  '_timerText.scss', '_defaultButton';
 
 * {
   margin: 0;
@@ -26,7 +26,6 @@
     align-items: center;
 
     &__game {
-      
       &-logo {
         width: 25%;
         min-height: 70%;
@@ -106,15 +105,16 @@
           border-radius: 16px;
           width: 48%;
           height: $button-height;
-          background-color: #FFF;
-          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+          background-color: #fff;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+            inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 
           &:nth-child(even) {
             margin: 0 0 0 25px;
           }
 
           &:focus {
-            background-color: #E33336;
+            background-color: #e33336;
             font-weight: 500;
           }
         }
