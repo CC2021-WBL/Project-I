@@ -64,6 +64,8 @@ const obj = {
   ],
 };
 
+export default obj;
+
 /* // przyklad dostepu do wlasciwosci name poprzez wywolanie [0] elementu array
 const obiektyHouses = obj.houses_hard[0];
 console.log(obiektyHouses.result);
