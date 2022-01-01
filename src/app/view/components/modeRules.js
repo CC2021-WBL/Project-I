@@ -1,13 +1,13 @@
 import elementCreator from '../../utils/elementCreator';
 
 const rulesTextBoiler =
-  'You have limited time to answer as many questions as possible. During the game, on each question you need to select';
+  'You have limited time to answer as many questions, as possible. During the game, on each question you need to select';
 
 const modeRules = (mode) => {
   const rulesTextPart = {
-    Students: "the name of the Hogwart's student,",
-    Staff: "the name of the Hogwart's staff member,",
-    Houses: "a Hogwart's house of the character,",
+    Students: "the name of Hogwart's student",
+    Staff: "the name of Hogwart's staff member",
+    Houses: "a Hogwart's house of the character",
   };
 
   const rulesIcon = elementCreator('span', {
