@@ -1,13 +1,11 @@
 import elementCreator from '../../utils/elementCreator';
 
-const buttonPlay = elementCreator(
-  'button',
-  { class: 'buttonPlay' },
-  `Play the game`,
-);
-
-/* buttonPlay.addEventListener('click', () => {
-  window.app.startGame();
-}); */
-
+function buttonPlay(text) {
+  const buttonCreator = elementCreator(
+    'button',
+    { class: 'game__button game__button--orange' },
+    text,
+  );
+  return buttonCreator;
+}
 export default buttonPlay;

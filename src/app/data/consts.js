@@ -1,3 +1,5 @@
+// import displayInitialMainText from '../view/components/displayInitialMainText';
+
 export const GAME_MODES = {
   students: {
     gamemode: 'Students',
@@ -38,9 +40,26 @@ export const HOGWART_HOUSES = [
   'Ravenclaw',
 ];
 
-export const INITIAL_GAME_MODE_TEXT = 'Choose category';
+export const INITIAL_GAME_MODE_TEXT = 'Harry Potter Quiz Game';
+export const DIFFICULTY_LEVELS = {
+  easy: {
+    time: null,
+    level: 'easy',
+  },
+  medium: {
+    time: 1,
+    level: 'medium',
+  },
+  hard: {
+    time: 0.5,
+    level: 'hard',
+  },
+};
+export const DEFAULT_DIFFICULTY_LEVEL = 'medium';
 
-export const INITIAL_MAIN_TEXT = 'Harry Potter Quiz Game';
+// export const INITIAL_GAME_MODE_TEXT = 'Choose category';
+
+// export const INITIAL_MAIN_TEXT = displayInitialMainText();
 
 export const DEFAULT_BASE_URL = GAME_MODES.students.urlAdress;
 

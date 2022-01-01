@@ -1,16 +1,17 @@
 /* eslint-disable import/extensions */
 /* eslint-disable import/named */
-import answersButtons from '../view/components/answersButtons.js';
 import MainQuestionManager from './mainQuestionManager.js';
 import { Player } from './player.js';
 import GameTimer from './timer.js';
+import { DIFFICULTY_LEVELS, DEFAULT_TIME } from '../data/consts.js';
 
 class GameMaker {
   // ---------------------------------PRIVATE METHODS----------------------------------------------
 
-  constructor(gameModesProperty, gameTime) {
+  constructor(gameModesProperty, difficultyLevelsProperty) {
     this.mainQuestionManager = new MainQuestionManager(gameModesProperty);
-    this.timer = new GameTimer(gameTime);
+    this.difficultyLevelsProperty = difficultyLevelsProperty;
+    this.timer = new GameTimer(DEFAULT_TIME);
     this.player = new Player();
     this.initialGameTimeMinutes = 2;
     this.objectsForMode = [];
@@ -27,14 +28,19 @@ class GameMaker {
 
   createPlayerAndRunTimer(callbackOnInterval, callbackOnEndOfTime) {
     this.player = new Player();
-    this.timer.runTimer(callbackOnInterval, callbackOnEndOfTime);
+    if (DIFFICULTY_LEVELS[this.difficultyLevelsProperty].time !== null) {
+      this.timer = new GameTimer(
+        DIFFICULTY_LEVELS[this.difficultyLevelsProperty].time,
+      );
+      this.timer.runTimer(callbackOnInterval, callbackOnEndOfTime);
+    }
   }
 
   checkAndRegisterAnswer(answer) {
-    console.log(answer);
     const isAnswerCorrect = this.player.checkAndRegisterAnswer(
       answer,
       this.questionObject.rightAnswer,
+      this.difficultyLevelsProperty,
     );
     return isAnswerCorrect;
   }

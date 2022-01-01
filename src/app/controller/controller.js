@@ -1,7 +1,6 @@
-import { GAME_MODES } from '../data/consts';
 import GameMaker from '../logic/gameMaker';
+import { GAME_MODES } from '../data/consts';
 import answersButtons from '../view/components/answersButtons';
-
 class Controller {
   constructor(model, view) {
     this.model = model;
@@ -11,21 +10,26 @@ class Controller {
     this.view.renderModal();
     this.view.renderInitialScreen();
     this.view.bindModeButtons(this.changeGameMode);
+    // TODO: przeniesienie bindowania Settings do controllera this.view.bindSettingsButton(this.view.toggleSettingsView);
   }
 
-  doAtInterval = (timeInSeconds) => {
-    this.view.renderTimer(timeInSeconds);
-    // @TODO do dodania różdżka czasu
+  doAtInterval = (timeInSeconds, initialTime) => {
+    this.view.renderTimer(timeInSeconds, initialTime);
+    // TODO: do dodania różdżka czasu
   };
 
   doAtEnd = () => {
+    const endGameData = this.model.gameMaker.getEndGameData();
+    console.log(endGameData);
     console.log('dupa');
+    // TODO: zdjąć klasę i ID chowające przyciski i tło po rozpoczęciu rozgrywki
+    // render modal
   };
 
   startGame = async () => {
     this.model.gameMaker = new GameMaker(
       this.model.gameMode,
-      this.model.gameTime,
+      this.model.difficultyLevel,
     );
     this.model.gameMaker.createPlayerAndRunTimer(
       this.doAtInterval,
@@ -33,18 +37,16 @@ class Controller {
     );
     const closure = this;
     await closure.showQuestion();
-    // @TODO funckja blokująca przyciski
-    // @TODO zamiana przycisku play gme na quit game
+    this.view.disappearButtonsAndBackground();
     this.view.renderQuitGame();
     this.view.bindQuitGameButton(this.doAfterQuitGame);
   };
 
   doAfterQuitGame = () => {
-    // const mode = GAME_MODES[this.model.gameMode].gamemode;
     this.model.gameMaker.clearCurrentGameData();
-    // this.view.backRes();
-    // this.view.showViewsForChosenMode(mode);
-    this.view.renderInitialScreen();
+    this.changeGameMode(GAME_MODES[this.model.gameMode].gamemode);
+    this.view.appearBackgroundAndButtons();
+    this.view.renderAfterQuitGame();
   };
 
   async showQuestion() {
@@ -64,6 +66,19 @@ class Controller {
     this.view.bindButtonPlay(this.startGame);
   };
 
+  changeDifficultyLevel = (difficultyLevel) => {
+    console.log(difficultyLevel);
+    this.model.difficultyLevel = difficultyLevel.toLowerCase();
+    // this.view.showViewsForDifficultyLevel(difficultyLevel);
+  };
 
+  showSettingsScreen() {
+    this.view.showSettings();
+  }
+
+  updateViewsForHallOfFameAtChosenMode(mode) {
+    // this.model.gameMode = mode;
+    this.view.updateViewsForHallOfFameAtChosenMode(mode);
+  }
 }
 export default Controller;

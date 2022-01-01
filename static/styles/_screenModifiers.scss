@@ -1,0 +1,9 @@
+.hidden-elements {
+  visibility: hidden;
+}
+
+#question-mode {
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: none;
+  flex-grow: 0;
+}

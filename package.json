@@ -9,7 +9,7 @@
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
-    "clean": "rimraf .cache && rimraf dist && rimraf node_modules && rimraf .parcel-cache"
+    "clean": "rimraf .cache && rimraf dist && rimraf node_modules"
   },
   "repository": {
     "type": "git",
