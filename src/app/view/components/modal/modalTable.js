@@ -1,64 +1,59 @@
 import elementCreator from '../../../utils/elementCreator';
+import prepareDataForDetailsTable from './prepareDatForDetails';
 
 function modalTable() {
-  const tableCell1 = elementCreator(
-    'td',
-    { class: 'details__text' },
-    'Game Picture',
-  );
-  const tableCell2 = elementCreator(
-    'td',
-    { class: 'details__text' },
-    'Human Answer',
-  );
-  const tableCell3 = elementCreator(
-    'td',
-    { class: 'details__text' },
-    'Correct Answer',
+  const answersRows = () => {
+    const imageCell = elementCreator('td', { class: 'details__td' }, 'picture');
+    const playerAnswer = elementCreator(
+      'td',
+      { class: 'details__td' },
+      'playerAnswer',
+    );
+    const correctAnswer = elementCreator(
+      'td',
+      { class: 'details__td' },
+      'correctAnswer',
+    );
+    const newRow = elementCreator(
+      'tr',
+      { class: 'details__tbody' },
+      imageCell,
+      playerAnswer,
+      correctAnswer,
+    );
+    return newRow;
+  };
+
+  // answersRows should be iterable
+  const tableBody = elementCreator('tbody', {}, answersRows());
+
+  // table headeer
+  const tableHeaders = ['Picture', 'You', 'Answer'];
+  const tableHeadersElements = tableHeaders.map((header) => {
+    const tableHeader = elementCreator(
+      'th',
+      {
+        class: 'details__td',
+      },
+      header,
+    );
+    return tableHeader;
+  });
+  const tableHeadRow = elementCreator(
+    'tr',
+    { class: 'details__thead' },
+    ...tableHeadersElements,
   );
 
-  const TableConstructor = elementCreator(
-    'div',
-    { class: 'details__table' },
-    tableCell1,
-    tableCell2,
-    tableCell3,
+  const tableHead = elementCreator('thead', {}, tableHeadRow);
+  const newTable = elementCreator(
+    'table',
+    {
+      class: 'details__table',
+    },
+    tableHead,
+    tableBody,
   );
-
-  return TableConstructor;
+  return newTable;
 }
 export default modalTable;
-
-// function ModalScoreTable() {
-//   const imageCell = elementCreator(
-//     'td',
-//     {
-//       class: 'details__table__image',
-//     },
-//     'image',
-//   );
-//   const playerAnswer = elementCreator(
-//     'td',
-//     {
-//       class: 'details__table__image',
-//     },
-//     'player answear',
-//   );
-//   const correctAnswer = elementCreator(
-//     'td',
-//     {
-//       class: 'details__table__image',
-//     },
-//     'correct answear',
-//   );
-//   const newRow = elementCreator(
-//     'tr',
-//     {},
-//     imageCell,
-//     playerAnswer,
-//     correctAnswer,
-//   );
-//   return newRow;
-// });
-
-// export default ModalScoreTable;

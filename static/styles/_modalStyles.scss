@@ -69,6 +69,7 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
+  font-size: 12px;
 
   &__heading {
     margin: 0 0 4px 50px;
@@ -79,8 +80,23 @@
     justify-content: space-around;
     padding: 0.5rem;
     border-bottom: 2px solid rgb(98, 98, 98);
+    justify-content: space-around;
+    flex-direction: column;
+  }
+  &__thead {
+    display: flex;
+    justify-content: space-around;
+  }
+  &__tbody {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
   }
   &__text {
     font-size: 0.5rem;
+  }
+  &__td {
+    width: 30%;
+    font-size: 16px;
   }
 }
