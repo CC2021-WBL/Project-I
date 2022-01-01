@@ -20,13 +20,15 @@ class GameTimer {
     let timeLeft = initialTimeInMilisec;
 
     const timer = setInterval(() => {
-      timeLeft -= timeInterval;
-      const timeLeftInSec = timeLeft / ONE_SECOND_MILLIS;
-      callbackOnInterval(timeLeftInSec, totalTimeInSec);
       if (timeLeft <= 0 || this.stopGame === true) {
         clearInterval(timer);
         timeLeft = initialTimeInMilisec;
         callbackOnEndOfTime();
+      }
+      timeLeft -= timeInterval;
+      const timeLeftInSec = timeLeft / ONE_SECOND_MILLIS;
+      if (this.stopGame === false) {
+        callbackOnInterval(timeLeftInSec, totalTimeInSec);
       }
     }, timeInterval);
   }
