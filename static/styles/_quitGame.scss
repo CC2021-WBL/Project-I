@@ -1,27 +1,26 @@
 .quit-game {
-    
-    position: fixed;
-    top: 70px;
-    right: 140px;
-    // font-size: 100px;
-    color: gray;
-    font-size: 35px;
-    // display: flex;
-    // align-self: center;
-    vertical-align: middle;
-    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    
+  //   display: inline;
+  position: fixed;
+  top: 70px;
+  right: 140px;
+  // font-size: 100px;
+  color: gray;
+  font-size: 35px;
+  // display: flex;
+  // align-self: center;
+  //   vertical-align: middle;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .fa-times-circle {
-    position: absolute;
-    top: -11px;
-    cursor: pointer;
-    padding-left: 20px;
-    font-size: 60px;
-    transition: all .3s ease-in-out;
+  position: absolute;
+  top: -11px;
+  cursor: pointer;
+  padding-left: 20px;
+  font-size: 60px;
+  transition: all 0.3s ease-in-out;
 }
 
 .fa-times-circle:hover {
-    color: #FEE40A;
+  color: #fee40a;
 }
