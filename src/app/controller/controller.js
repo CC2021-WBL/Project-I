@@ -1,6 +1,6 @@
 import GameMaker from '../logic/gameMaker';
 import { GAME_MODES } from '../data/consts';
-import answersButtons from '../view/components/answersButtons';
+
 class Controller {
   constructor(model, view) {
     this.model = model;
@@ -15,13 +15,12 @@ class Controller {
 
   doAtInterval = (timeInSeconds, initialTime) => {
     this.view.renderTimer(timeInSeconds, initialTime);
+    console.log('sprzwdzamy tajmera czy idzie czy nie idzie');
     // TODO: do dodania różdżka czasu
   };
 
   doAtEnd = () => {
     const endGameData = this.model.gameMaker.getEndGameData();
-    console.log(endGameData);
-    console.log('dupa');
     // TODO: zdjąć klasę i ID chowające przyciski i tło po rozpoczęciu rozgrywki
     // render modal
   };
@@ -55,7 +54,6 @@ class Controller {
     this.view.bindAnswerButtons(async (answer) => {
       const isAnswerCorrect =
         closure.model.gameMaker.checkAndRegisterAnswer(answer);
-      console.log(isAnswerCorrect);
       await closure.showQuestion();
     });
   }
@@ -67,7 +65,6 @@ class Controller {
   };
 
   changeDifficultyLevel = (difficultyLevel) => {
-    console.log(difficultyLevel);
     this.model.difficultyLevel = difficultyLevel.toLowerCase();
     // this.view.showViewsForDifficultyLevel(difficultyLevel);
   };

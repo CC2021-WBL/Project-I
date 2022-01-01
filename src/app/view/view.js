@@ -104,6 +104,8 @@ class View {
   renderTimer(timeInSeconds, initialTime) {
     this.render('.game-timer', ...displayWand(timeInSeconds, initialTime));
     this.render('.game-timer__text', displayTimerText(timeInSeconds));
+    // const timersOn = document.querySelector('.footer');
+    // timersOn.classList.remove('hidden-elements');
   }
 
   renderModal() {
@@ -130,9 +132,6 @@ class View {
   }
 
   disappearButtonsAndBackground() {
-    // TODO: dodać klasę, do wszystkich znikających elementów i zamienić na querySelecorAll
-    // const modeNav = document.querySelector('.header__game-nav');
-    // modeNav.classList.add('hidden-elements');
     const playAndHofButtons = document.querySelector('.game__btns');
     playAndHofButtons.classList.add('hidden-elements');
     const settingsButton = document.querySelector('.game__button-settingsMain');
@@ -153,8 +152,12 @@ class View {
 
   renderAfterQuitGame() {
     this.render('.header__game-nav', ...modeButtons);
-    const timers = document.querySelector('.footer');
-    timers.classList.add('hidden-elements');
+    // const timers = document.querySelector('.game-timer');
+    const timerWand = document.querySelector('.game-timer__wand-wrapper');
+    timerWand.remove(timerWand);
+    const timerText = document.querySelector('.game-timer__text');
+    timerText.remove(timerText);
+    // timers.classList.add('hidden-elements');
   }
 
   // -------------- BINDINGS ------------------------------------
