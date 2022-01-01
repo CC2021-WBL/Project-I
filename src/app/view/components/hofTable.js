@@ -1,5 +1,9 @@
 import elementCreator from '../../utils/elementCreator';
 
+// importy do propozycji funkcji 
+import getHofData from '../../../../tests/getHofDataTest';
+import obj from './../../../../tests/funkcja-testowa'
+
 function hofTable(mode, level, obj) {
   // (Definicja) naglowkow
   const tableHead1 = elementCreator(
@@ -25,6 +29,9 @@ function hofTable(mode, level, obj) {
     'tr',
     {},
     elementCreator('td', { class: 'hof__table-place' }, '1'),
+
+    // propozycja wywołania:     elementCreator('td', { class: 'hof__table-player' }, getHofData(mode, level, obj, 1, "name")),
+
     elementCreator('td', { class: 'hof__table-player' }, 'Anna Maria'),
     elementCreator('td', { class: 'hof__table-answered' }, '30/30'),
   );

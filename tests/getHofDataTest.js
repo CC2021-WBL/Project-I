@@ -3,7 +3,7 @@
 
 import obj from './funkcja-testowa.js';
 
-function getHofData(mode, level, placeAsNumber, property) {
+export default function getHofData(mode, level, placeAsNumber, property) {
   if (mode === 'students' && level === 'medium') {
     return obj.students_medium[placeAsNumber - 1][property];
   }
