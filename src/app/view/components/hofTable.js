@@ -4,6 +4,14 @@ import getHofData from './getHofData';
 function hofTable(mode, level) {
   console.log(mode);
 
+  if (level === 'easy') {
+    const altText = elementCreator(
+      'p',
+      { class: 'hof__table-alttxt' },
+      'Easy mode has no ranking available!!!',
+    );
+    return altText;
+  }
   // (Definicja) naglowkow
   const tableHead1 = elementCreator(
     'td',
