@@ -1,6 +1,9 @@
 import elementCreator from '../../utils/elementCreator';
+import getHofData from './getHofData';
 
-function hofTable(mode, level, obj) {
+function hofTable(mode, level) {
+  console.log(mode);
+
   // (Definicja) naglowkow
   const tableHead1 = elementCreator(
     'td',
@@ -25,22 +28,46 @@ function hofTable(mode, level, obj) {
     'tr',
     {},
     elementCreator('td', { class: 'hof__table-place' }, '1'),
-    elementCreator('td', { class: 'hof__table-player' }, 'Anna Maria'),
-    elementCreator('td', { class: 'hof__table-answered' }, '30/30'),
+    elementCreator(
+      'td',
+      { class: 'hof__table-player1' },
+      `${getHofData(mode, level, '1', 'name')}`,
+    ),
+    elementCreator(
+      'td',
+      { class: 'hof__table-answered1' },
+      `${getHofData(mode, level, '1', 'result')}`,
+    ),
   );
   const tableRow2ndPlace = elementCreator(
     'tr',
     {},
     elementCreator('td', { class: 'hof__table-place' }, '2'),
-    elementCreator('td', { class: 'hof__table-player' }, 'Maria Janiak'),
-    elementCreator('td', { class: 'hof__table-answered' }, '20/30'),
+    elementCreator(
+      'td',
+      { class: 'hof__table-player2' },
+      `${getHofData(mode, level, '2', 'name')}`,
+    ),
+    elementCreator(
+      'td',
+      { class: 'hof__table-answered2' },
+      `${getHofData(mode, level, '2', 'result')}`,
+    ),
   );
   const tableRow3rdPlace = elementCreator(
     'tr',
     {},
     elementCreator('td', { class: 'hof__table-place' }, '3'),
-    elementCreator('td', { class: 'hof__table-player' }, 'Jopek Czesław'),
-    elementCreator('td', { class: 'hof__table-answered' }, '10/30'),
+    elementCreator(
+      'td',
+      { class: 'hof__table-player3' },
+      `${getHofData(mode, level, '3', 'name')}`,
+    ),
+    elementCreator(
+      'td',
+      { class: 'hof__table-answered3' },
+      `${getHofData(mode, level, '3', 'result')}`,
+    ),
   );
   // (Definicja) zlozenie calej tabeli
   const wholeTable = elementCreator(
@@ -57,21 +84,3 @@ function hofTable(mode, level, obj) {
   return wholeTable;
 }
 export default hofTable;
-
-function getHofData(mode, level, obj, place, property) {
-  let index;
-  if (level === 'medium') {
-    index = 1;
-  } else if (level === 'hard') {
-    index = 2;
-  } else {
-    throw Error('Wrong level data');
-  }
-  const students = [obj.students_easy, obj.students_medium, obj.students_hard];
-  const houses = [obj.houses_easy, obj.houses_medium, obj.houses_hard];
-  const staff = [obj.staff_easy, obj.staff_medium, obj.staff_hard];
-
-  const { name } = mode[index];
-  const { result } = mode[index];
-  return mode[index][place][property];
-}

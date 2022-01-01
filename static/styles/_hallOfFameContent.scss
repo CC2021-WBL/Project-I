@@ -7,7 +7,7 @@
     }
 
 tr, td {
-    font-size: clamp(32px, 1.5vw, 1.8vw);
+    font-size: clamp(36px, 1vw, 1.8vw);
     }
 
 .game__mode-rules table {
@@ -31,5 +31,5 @@ td:first-child {
 
   .hof__table-header {
     font-weight: bold;
-    font-size: clamp(32px, 1.8vw, 1.8vw);
+    font-size: clamp(36px, 1.2vw, 1.8vw);
   }
