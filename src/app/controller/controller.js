@@ -8,7 +8,7 @@ class Controller {
     this.view = view;
     // INIT LOOK OF OUR APP
 
-    this.view.renderModal();
+    // this.view.renderModal();
     this.view.renderInitialScreen();
     this.view.bindModeButtons(this.changeGameMode);
     // TODO: przeniesienie bindowania Settings do controllera this.view.bindSettingsButton(this.view.toggleSettingsView);
@@ -22,9 +22,10 @@ class Controller {
   doAtEnd = () => {
     const endGameData = this.model.gameMaker.getEndGameData();
     console.log(endGameData);
-    renderModal();
     console.log('dupa');
     this.view.renderModal();
+    this.view.bindModalButton();
+    console.log();
     // TODO: zdjąć klasę i ID chowające przyciski i tło po rozpoczęciu rozgrywki
     // render modal
   };

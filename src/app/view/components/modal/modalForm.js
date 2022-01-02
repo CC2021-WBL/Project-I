@@ -36,15 +36,14 @@ function modalForm() {
     modalInput,
     modalButton,
   );
-  function closeModal() {
-    const modal = document.querySelector('.modal');
-    // modal.classList.toggle('modal__button');
-    modal.classList.add('modal__hidden');
-  }
+  // function closeModal() {
+  //   const modal = document.querySelector('.modal');
+  //   modal.classList.add('modal__hidden');
+  // }
 
-  modalButton.addEventListener('click', () => {
-    closeModal();
-  });
+  // modalButton.addEventListener('click', () => {
+  //   closeModal();
+  // });
 
   return modalFormConstructor;
 }

@@ -34,7 +34,7 @@ function ModalWindow() {
     detailsContainer,
     modalFormContainer,
   );
-  const modal = elementCreator('div', { className: 'modal' }, modalContainer);
+  const modal = elementCreator('div', { class: 'modal' }, modalContainer);
 
   return modal;
 }

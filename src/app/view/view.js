@@ -105,8 +105,13 @@ class View {
   }
 
   renderModal() {
+    console.log('wchodzisz?');
     this.render('.modal', ModalWindow());
+    const modal = document.querySelector('.modal');
+    modal.classList.remove('modal__hidden');
   }
+
+  // showModal() {}
 
   renderImage() {
     this.render('.game-image__content', displayImage());
@@ -186,6 +191,16 @@ class View {
         handler(button.textContent);
       }),
     );
+  }
+
+  bindModalButton(handler) {
+    const modalButton = document.querySelector('.game__button-modalBtn');
+    console.log(modalButton);
+    const modal = document.querySelector('.modal');
+    modalButton.addEventListener('click', () => {
+      modal.classList.add('modal__hidden');
+      this.renderInitialScreen();
+    });
   }
 }
 
