@@ -3,7 +3,6 @@
 .game__button {
   height: $button-height;
   width: clamp(100px, 49%, 49%);
-  // height: 2rem;
   border: none;
   outline: none;
   background: $white-color;
@@ -58,6 +57,11 @@
     top: 0;
     border-radius: $default-radius;
   }
+
+  &-settingsMain {
+    width: 100%;
+    padding: 0 20px;
+  }
   &--orange {
     margin: 0 0 0 10px;
     color: $white-color;
@@ -78,6 +82,7 @@
     padding: 0 25px;
   }
   &--lvlSettings {
+  &-lvlSettings {
     width: 99%;
     height: 33.33%;
     align-content: space-around;

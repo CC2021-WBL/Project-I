@@ -13,8 +13,8 @@ class Controller {
     // TODO: przeniesienie bindowania Settings do controllera this.view.bindSettingsButton(this.view.toggleSettingsView);
   }
 
-  doAtInterval = (timeInSeconds) => {
-    this.view.renderTimer(timeInSeconds);
+  doAtInterval = (timeInSeconds, initialTime) => {
+    this.view.renderTimer(timeInSeconds, initialTime);
     // TODO: do dodania różdżka czasu
   };
 
@@ -22,6 +22,7 @@ class Controller {
     const endGameData = this.model.gameMaker.getEndGameData();
     console.log(endGameData);
     console.log('dupa');
+    // TODO: zdjąć klasę i ID chowające przyciski i tło po rozpoczęciu rozgrywki
     // render modal
   };
 
@@ -36,8 +37,9 @@ class Controller {
     );
     const closure = this;
     await closure.showQuestion();
-    // TODO: funckja blokująca przyciski
-    // TODO: zamiana przycisku play gme na quit game
+    this.view.disappearButtonsAndBackground();
+
+    // TODO: pojawia się quit game
   };
 
   async showQuestion() {
