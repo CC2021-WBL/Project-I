@@ -19,12 +19,4 @@ const levelButtons = [
   ),
 ];
 
-/* levelButtons.map((button) =>
-  button.addEventListener('click', () => {
-    clearActive(levelButtons);
-    button.classList.add('active');
-    window.app.changeDifficultyLevel(button.innerText);
-  }),
-); */
-
 export default levelButtons;

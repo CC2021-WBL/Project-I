@@ -75,6 +75,25 @@
       }
     }
   }
+  &-modalBtn {
+    align-self: center;
+    font-size: 24px;
+    margin: 10px;
+    width: 70%;
+    height: 70px;
+    margin: 0 0 0 10px;
+    color: $white-color;
+    z-index: 0;
+    &::after {
+      background: $lite-orange;
+    }
+    &:active {
+      color: $white-color;
+      &::after {
+        background: $orange;
+      }
+    }
+  }
   &-lvlSettings {
     width: 99%;
     height: 33.33%;
@@ -94,6 +113,7 @@
       }
     }
   }
+
   &--disabled {
     width: clamp(100px, 50%, 500px);
     border: none;

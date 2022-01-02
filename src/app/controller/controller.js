@@ -1,5 +1,6 @@
 import GameMaker from '../logic/gameMaker';
 import { startCountdown } from '../view/components/timerText';
+import ModalWindow from '../view/components/modal/modalWindow';
 
 class Controller {
   constructor(model, view) {
@@ -21,7 +22,9 @@ class Controller {
   doAtEnd = () => {
     const endGameData = this.model.gameMaker.getEndGameData();
     console.log(endGameData);
+    renderModal();
     console.log('dupa');
+    this.view.renderModal();
     // TODO: zdjąć klasę i ID chowające przyciski i tło po rozpoczęciu rozgrywki
     // render modal
   };
