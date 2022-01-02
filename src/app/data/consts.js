@@ -1,5 +1,3 @@
-// import displayInitialMainText from '../view/components/displayInitialMainText';
-
 export const GAME_MODES = {
   students: {
     gamemode: 'Students',

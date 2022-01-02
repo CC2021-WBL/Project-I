@@ -1,5 +1,4 @@
 import GameMaker from '../logic/gameMaker';
-import { startCountdown } from '../view/components/timerText';
 
 class Controller {
   constructor(model, view) {
@@ -61,11 +60,6 @@ class Controller {
     console.log(difficultyLevel);
     this.model.difficultyLevel = difficultyLevel.toLowerCase();
   };
-
-  startCountdown() {
-    this.view.renderTimer();
-    startCountdown();
-  }
 
   showSettingsScreen() {
     this.view.showSettings();

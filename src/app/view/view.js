@@ -38,6 +38,16 @@ class View {
     elementInjector(parentElem, children);
   }
 
+  renderInitialScreen() {
+    this.render('.header__game-logo', createLogo());
+    this.render('.header__game-nav', ...modeButtons);
+    this.render('.game__mode', INITIAL_GAME_MODE_TEXT);
+    this.render('.game__mode-rules', ...displayInitialMainText);
+    // this.render('.game-image__content', createImage());
+    // this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
+    this.render('.game-image__content', createImage());
+  }
+
   showViewsForChosenMode(mode) {
     this.render('.game__mode', questionForMode(mode));
     this.render('.game__mode-rules', ...modeRules(mode));
@@ -56,16 +66,6 @@ class View {
     // this.render('.game__mode', questionForMode(mode));
     this.render('.game__mode-rules', doHallOfFameContent);
     this.render('.game__btns', doBtnHallOfFame(`Back`, mode));
-  }
-
-  renderInitialScreen() {
-    this.render('.header__game-logo', createLogo());
-    this.render('.header__game-nav', ...modeButtons);
-    this.render('.game__mode', INITIAL_GAME_MODE_TEXT);
-    this.render('.game__mode-rules', ...displayInitialMainText);
-    // this.render('.game-image__content', createImage());
-    // this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
-    this.render('.game-image__content', createImage());
   }
 
   showSettings() {
