@@ -15,6 +15,7 @@ import levelButtons from './components/settingsLevel';
 import buttonWhite from './components/buttonWhite';
 import answersButtons from './components/answersButtons';
 import clearActive from '../utils/clearActive';
+import displayQuitGameButton from './components/displayQuitGameButton';
 import displayWand from './components/wand';
 import displayInitialMainText from './components/displayInitialMainText';
 import displayButtonSettings from './components/displaySettingsBtn';
@@ -51,14 +52,8 @@ class View {
     this.render('.game-image__btns', settingsButton);
   }
 
-  // TODO: wyświetlanie opisu poziomu trudności w miejscu zdjęcia
-  showViewsForDifficultyLevel(difficultyLevel) {
-    //  wyświetlanie opisu poziomu trudności
-  }
-
   // przygotowane pod dzialanie przycisku Hall Of Fame
   updateViewsForHallOfFameAtChosenMode(mode) {
-    // this.render('.game__mode', questionForMode(mode));
     this.render('.game__mode-rules', doHallOfFameContent);
     this.render('.game__btns', doBtnHallOfFame(`Back`, mode));
   }
@@ -68,8 +63,6 @@ class View {
     this.render('.header__game-nav', ...modeButtons);
     this.render('.game__mode', INITIAL_GAME_MODE_TEXT);
     this.render('.game__mode-rules', ...displayInitialMainText);
-    // this.render('.game-image__content', createImage());
-    // this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
     this.render('.game-image__content', createImage());
   }
 
@@ -84,7 +77,6 @@ class View {
     this.bindDifficultyLevelButton(window.app.changeDifficultyLevel);
   }
 
-  // hide settings screen
   hideSettings() {
     this.renderInitialScreen();
     // TODO: do stg after hiding the settings
@@ -117,8 +109,25 @@ class View {
     this.render('.game-image__content', displayImage());
   }
 
-  renderQuestion(question) {
-    this.render('.game__mode', 'Who is this? What is his house');
+  changeAnswrBtnBgColor(answer) {
+    const posAnswrBtn = document.querySelectorAll('.game__mode-rules-answrBtn');
+    if (answer === true) {
+      posAnswrBtn.forEach((el) =>
+        el.classList.add('game__mode-rules-answrBtn-correct'),
+      );
+    } else {
+      posAnswrBtn.forEach((el) =>
+        el.classList.add('game__mode-rules-answrBtn-false'),
+      );
+    }
+  }
+
+  renderQuitGame() {
+    this.render('.header__game-nav', displayQuitGameButton());
+  }
+
+  renderQuestion(question, modeQuestion) {
+    this.render('.game__mode', modeQuestion);
     this.render('.game__mode-rules', ...answersButtons(question));
     this.render(
       '.game-image__content',
@@ -127,15 +136,30 @@ class View {
   }
 
   disappearButtonsAndBackground() {
-    // TODO: dodać klasę, do wszystkich znikających elementów i zamienić na querySelecorAll
-    const modeNav = document.querySelector('.header__game-nav');
-    modeNav.classList.add('hidden-elements');
     const playAndHofButtons = document.querySelector('.game__btns');
     playAndHofButtons.classList.add('hidden-elements');
     const settingsButton = document.querySelector('.game__button-settingsMain');
     settingsButton.classList.add('hidden-elements');
     const gameModeContainer = document.querySelector('.game__mode-rules');
     gameModeContainer.id = 'question-mode';
+  }
+
+  appearBackgroundAndButtons() {
+    const playAndHofButtons = document.querySelector('.game__btns');
+    playAndHofButtons.classList.remove('hidden-elements');
+    const settingsButton = document.querySelector('.game__button-settingsMain');
+    settingsButton.classList.remove('hidden-elements');
+    const gameModeContainer = document
+      .querySelector('.game__mode-rules')
+      .removeAttribute('id');
+  }
+
+  renderAfterQuitGame() {
+    this.render('.header__game-nav', ...modeButtons);
+    const timerWand = document.querySelector('.game-timer__wand-wrapper');
+    timerWand.remove(timerWand);
+    const timerText = document.querySelector('.game-timer__text');
+    timerText.remove(timerText);
   }
 
   // -------------- BINDINGS ------------------------------------
@@ -167,23 +191,17 @@ class View {
       }),
     );
   }
-  // TODO: przeniesienie funkcji bindujących do controllera
-  /*    bindSettingsButton(handler){
-  
-  } */
 
-  /*  bindLevelButtons(handler) {
-    const settingButton = document.querySelector('.game__button');
-    settingButton.addEventListener('click', () => {
+  bindQuitGameButton(handler) {
+    const quitButtonEvent = document.querySelector('.fa-times-circle');
+    quitButtonEvent.addEventListener('click', () => {
       handler();
     });
-  } */
+  }
 
+  // TODO: przeniesienie funkcji bindujących do controllera
   bindDifficultyLevelButton(handler) {
-    /* 
-  TODO: przeniesienie funkcji bindujących do controllera
-    const difficultyLevelButtons =
-      document.querySelectorAll('.game__mode-rules'); */
+    // TODO: przeniesienie funkcji bindujących do controllera
     levelButtons.map((button) =>
       button.addEventListener('click', () => {
         clearActive(levelButtons);

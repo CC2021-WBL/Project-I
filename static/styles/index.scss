@@ -1,5 +1,5 @@
 @import '_mainMenu.scss', '_vars.scss', '_wand.scss', '_modalStyles',
-  '_timerText.scss', '_defaultButton', '_screenModifiers';
+  '_timerText.scss', '_defaultButton', '_screenModifiers', '_quitGame.scss';
 
 * {
   margin: 0;
@@ -99,9 +99,10 @@
         justify-content: space-between;
         align-items: center;
         text-align: center;
-        flex-grow: 1; //musi zniknąć przy odpowiedziach
+        flex-grow: 1;
 
         &-answrBtn {
+          cursor: pointer;
           border: none;
           border-radius: 16px;
           width: 48%;
@@ -114,15 +115,27 @@
             margin: 0 0 0 25px;
           }
 
-          &:focus {
-            background-color: #e33336;
-            font-weight: 500;
+          &-false {
+            &:focus {
+              background-color: #e33336;
+              font-weight: 500;
+            }
           }
+
+          &-correct {
+            &:focus {
+              background-color: green;
+              font-weight: 500;
+            }
+          }
+        }
+
+        .rules-icon {
+          font-size: 1.2em;
         }
 
         &-header {
           position: relative;
-          // position: absolute;
           left: 42%;
           padding: 20px 0 8px;
           font-size: 0.6em;

@@ -1,6 +1,5 @@
 import GameMaker from '../logic/gameMaker';
-import { startCountdown } from '../view/components/timerText';
-import ModalWindow from '../view/components/modal/modalWindow';
+import { GAME_MODES } from '../data/consts';
 
 class Controller {
   constructor(model, view) {
@@ -16,18 +15,12 @@ class Controller {
 
   doAtInterval = (timeInSeconds, initialTime) => {
     this.view.renderTimer(timeInSeconds, initialTime);
-    // TODO: do dodania różdżka czasu
   };
 
   doAtEnd = () => {
     const endGameData = this.model.gameMaker.getEndGameData();
-    console.log(endGameData);
-    console.log('dupa');
     this.view.renderModal();
     this.view.bindModalButton();
-    console.log();
-    // TODO: zdjąć klasę i ID chowające przyciski i tło po rozpoczęciu rozgrywki
-    // render modal
   };
 
   startGame = async () => {
@@ -42,17 +35,28 @@ class Controller {
     const closure = this;
     await closure.showQuestion();
     this.view.disappearButtonsAndBackground();
+    this.view.renderQuitGame();
+    this.view.bindQuitGameButton(this.doAfterQuitGame);
+  };
 
-    // TODO: pojawia się quit game
+  doAfterQuitGame = () => {
+    this.model.gameMaker.clearCurrentGameData();
+    this.changeGameMode(GAME_MODES[this.model.gameMode].gamemode);
+    this.view.appearBackgroundAndButtons();
+    this.view.renderAfterQuitGame();
   };
 
   async showQuestion() {
-    this.view.renderQuestion(await this.model.gameMaker.createQuestion());
+    const { question } = GAME_MODES[this.model.gameMode.toLowerCase()];
+    this.view.renderQuestion(
+      await this.model.gameMaker.createQuestion(),
+      question,
+    );
     const closure = this;
     this.view.bindAnswerButtons(async (answer) => {
       const isAnswerCorrect =
         closure.model.gameMaker.checkAndRegisterAnswer(answer);
-      console.log(isAnswerCorrect);
+      this.view.changeAnswrBtnBgColor(isAnswerCorrect);
       await closure.showQuestion();
     });
   }
@@ -64,15 +68,9 @@ class Controller {
   };
 
   changeDifficultyLevel = (difficultyLevel) => {
-    console.log(difficultyLevel);
     this.model.difficultyLevel = difficultyLevel.toLowerCase();
     // this.view.showViewsForDifficultyLevel(difficultyLevel);
   };
-
-  startCountdown() {
-    this.view.renderTimer();
-    startCountdown();
-  }
 
   showSettingsScreen() {
     this.view.showSettings();
