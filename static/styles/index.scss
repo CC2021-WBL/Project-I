@@ -115,14 +115,17 @@
             margin: 0 0 0 25px;
           }
 
-          &:focus {
-            background-color: #e33336;
-            font-weight: 500;
+          &-false {
+            &:focus {
+              background-color: #e33336;
+              font-weight: 500;
+            }
           }
 
           &-correct {
             &:focus {
               background-color: green;
+              font-weight: 500;
             }
           }
         }

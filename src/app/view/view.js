@@ -118,9 +118,15 @@ class View {
   // changing correct answer button color
 
   changeAnswrBtnBgColor(answer) {
-    const posAnswrBtn = document.querySelector('.game__mode-rules-answrBtn');
+    const posAnswrBtn = document.querySelectorAll('.game__mode-rules-answrBtn');
     if (answer === true) {
-      posAnswrBtn.classList.add('game__mode-rules-answrBtn-correct');
+      posAnswrBtn.forEach((el) =>
+        el.classList.add('game__mode-rules-answrBtn-correct'),
+      );
+    } else {
+      posAnswrBtn.forEach((el) =>
+        el.classList.add('game__mode-rules-answrBtn-false'),
+      );
     }
   }
 
