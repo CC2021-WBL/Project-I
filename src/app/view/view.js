@@ -121,7 +121,7 @@ class View {
     modeNav.classList.add('hidden-elements');
     const playAndHofButtons = document.querySelector('.game__btns');
     playAndHofButtons.classList.add('hidden-elements');
-    const settingsButton = document.querySelector('.game__button-settingsMain');
+    const settingsButton = document.querySelector('.game-image__btns');
     settingsButton.classList.add('hidden-elements');
     const gameModeContainer = document.querySelector('.game__mode-rules');
     gameModeContainer.id = 'question-mode';
@@ -157,27 +157,17 @@ class View {
     );
   }
   // TODO: przeniesienie funkcji bindujących do controllera
-  /*    bindSettingsButton(handler){
-  
-  } */
-
-  /*  bindLevelButtons(handler) {
-    const settingButton = document.querySelector('.game__button');
-    settingButton.addEventListener('click', () => {
-      handler();
-    });
-  } */
 
   bindDifficultyLevelButton(handler) {
     /* 
   TODO: przeniesienie funkcji bindujących do controllera
     const difficultyLevelButtons =
       document.querySelectorAll('.game__mode-rules'); */
-    levelButtons.map((button) =>
+    levelButtons.map((button, index) =>
       button.addEventListener('click', () => {
         clearActive(levelButtons);
         button.classList.add('active');
-        handler(button.textContent);
+        handler(index);
       }),
     );
   }
