@@ -1,15 +1,12 @@
 .quit-game {
-  //   display: inline;
+  cursor: pointer;
   position: fixed;
   top: 70px;
   right: 140px;
-  // font-size: 100px;
   color: gray;
   font-size: 35px;
-  // display: flex;
-  // align-self: center;
-  //   vertical-align: middle;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease-in-out;
 }
 
 .fa-times-circle {
@@ -18,9 +15,8 @@
   cursor: pointer;
   padding-left: 20px;
   font-size: 60px;
-  transition: all 0.3s ease-in-out;
 }
 
-.fa-times-circle:hover {
-  color: #fee40a;
+.quit-game:hover {
+  color: #fe9e01;
 }
