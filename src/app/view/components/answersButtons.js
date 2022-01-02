@@ -14,7 +14,7 @@ function answersButtons(question) {
     buttons.push(
       elementCreator(
         'button',
-        { class: 'answerButton' },
+        { class: 'game__mode-rules-answrBtn' },
         question.answers[index],
       ),
     );
