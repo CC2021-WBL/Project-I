@@ -24,10 +24,9 @@ class GameTimer {
         clearInterval(timer);
         timeLeft = initialTimeInMilisec;
         callbackOnEndOfTime();
-      }
-      timeLeft -= timeInterval;
-      const timeLeftInSec = timeLeft / ONE_SECOND_MILLIS;
-      if (this.stopGame === false) {
+      } else {
+        timeLeft -= timeInterval;
+        const timeLeftInSec = timeLeft / ONE_SECOND_MILLIS;
         callbackOnInterval(timeLeftInSec, totalTimeInSec);
       }
     }, timeInterval);
