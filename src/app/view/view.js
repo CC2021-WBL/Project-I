@@ -12,7 +12,6 @@ import doBtnHallOfFame from './components/doBtnHallOfFame';
 import doHallOfFameContent from './components/doHallOfFameContent';
 import displayTimerText from './components/displayTimerText';
 import levelButtons from './components/settingsLevel';
-import buttonWhite from './components/buttonWhite';
 import answersButtons from './components/answersButtons';
 import clearActive from '../utils/clearActive';
 import displayQuitGameButton from './components/displayQuitGameButton';
@@ -39,6 +38,14 @@ class View {
     elementInjector(parentElem, children);
   }
 
+  renderInitialScreen() {
+    this.render('.header__game-logo', createLogo());
+    this.render('.header__game-nav', ...modeButtons);
+    this.render('.game__mode', INITIAL_GAME_MODE_TEXT);
+    this.render('.game__mode-rules', ...displayInitialMainText);
+    this.render('.game-image__content', createImage());
+  }
+
   showViewsForChosenMode(mode) {
     this.render('.game__mode', questionForMode(mode));
     this.render('.game__mode-rules', ...modeRules(mode));
@@ -56,14 +63,6 @@ class View {
   updateViewsForHallOfFameAtChosenMode(mode) {
     this.render('.game__mode-rules', doHallOfFameContent);
     this.render('.game__btns', doBtnHallOfFame(`Back`, mode));
-  }
-
-  renderInitialScreen() {
-    this.render('.header__game-logo', createLogo());
-    this.render('.header__game-nav', ...modeButtons);
-    this.render('.game__mode', INITIAL_GAME_MODE_TEXT);
-    this.render('.game__mode-rules', ...displayInitialMainText);
-    this.render('.game-image__content', createImage());
   }
 
   showSettings() {

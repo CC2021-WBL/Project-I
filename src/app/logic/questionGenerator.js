@@ -1,6 +1,4 @@
 class QuestionGenerator {
-  // argument argAmountOfId will be relaced by connection to CurrentMode and it's IDs'
-
   static generateRandomId(amountOfId) {
     const minId = 0;
     return Math.floor(Math.random() * (amountOfId - minId + 1) + minId);
