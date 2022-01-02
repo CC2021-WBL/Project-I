@@ -75,7 +75,6 @@ class View {
     const settingsButton = buttonWhite('Return');
     settingsButton.addEventListener('click', this.toggleSettingsView);
     this.render('.game-image__button', settingsButton);
-    this.render('.game__btns', buttonPlay('Save & return'));
     this.bindDifficultyLevelButton(window.app.changeDifficultyLevel);
   }
 
