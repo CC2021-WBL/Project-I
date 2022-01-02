@@ -73,7 +73,6 @@ class Controller {
     const levels = Object.keys(DIFFICULTY_LEVELS);
     const level = levels[difficultyLevelIndex];
     this.model.difficultyLevel = DIFFICULTY_LEVELS[level].level;
-    // this.view.showViewsForDifficultyLevel(difficultyLevel);
   };
 
   showSettingsScreen() {
@@ -81,7 +80,6 @@ class Controller {
   }
 
   updateViewsForHallOfFameAtChosenMode(mode) {
-    // this.model.gameMode = mode;
     this.view.updateViewsForHallOfFameAtChosenMode(mode);
   }
 }

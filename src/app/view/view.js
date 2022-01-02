@@ -136,7 +136,7 @@ class View {
   appearBackgroundAndButtons() {
     const playAndHofButtons = document.querySelector('.game__btns');
     playAndHofButtons.classList.remove('hidden-elements');
-    const settingsButton = document.querySelector('.game__button-settingsMain');
+    const settingsButton = document.querySelector('.game-image__btns');
     settingsButton.classList.remove('hidden-elements');
     const gameModeContainer = document
       .querySelector('.game__mode-rules')
@@ -180,7 +180,6 @@ class View {
       }),
     );
   }
-  // TODO: przeniesienie funkcji bindujących do controllera
 
   bindQuitGameButton(handler) {
     const quitButtonEvent = document.querySelector('.fa-times-circle');
@@ -191,10 +190,6 @@ class View {
 
   // TODO: przeniesienie funkcji bindujących do controllera
   bindDifficultyLevelButton(handler) {
-    /* 
-  TODO: przeniesienie funkcji bindujących do controllera
-    const difficultyLevelButtons =
-      document.querySelectorAll('.game__mode-rules'); */
     levelButtons.map((button, index) =>
       button.addEventListener('click', () => {
         clearActive(levelButtons);
