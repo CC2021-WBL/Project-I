@@ -136,8 +136,8 @@ class View {
     this.render('.header__game-nav', displayQuitGameButton());
   }
 
-  renderQuestion(question) {
-    this.render('.game__mode', 'Who is this? What is his house');
+  renderQuestion(question, modeQuestion) {
+    this.render('.game__mode', modeQuestion);
     this.render('.game__mode-rules', ...answersButtons(question));
     this.render(
       '.game-image__content',

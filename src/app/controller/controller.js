@@ -47,7 +47,11 @@ class Controller {
   };
 
   async showQuestion() {
-    this.view.renderQuestion(await this.model.gameMaker.createQuestion());
+    const { question } = GAME_MODES[this.model.gameMode.toLowerCase()];
+    this.view.renderQuestion(
+      await this.model.gameMaker.createQuestion(),
+      question,
+    );
     const closure = this;
     this.view.bindAnswerButtons(async (answer) => {
       const isAnswerCorrect =
