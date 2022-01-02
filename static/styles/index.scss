@@ -15,7 +15,7 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 2fr 50% 1fr;
+  grid-template-rows: 1fr 60% 1fr;
   padding: 0 50px 0 0;
 
   .header {
@@ -69,8 +69,9 @@
           height: 100%;
           border: 12px solid rgba(173, 25, 132, 0.26);
           filter: drop-shadow(13px 17px 11px rgba(0, 0, 0, 0.5));
-          border-radius: 16px;
+          border-radius: $default-radius;
           object-fit: fill;
+
         }
       }
     }
