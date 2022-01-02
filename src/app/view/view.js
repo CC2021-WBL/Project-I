@@ -97,7 +97,7 @@ class View {
 
   renderTimer(timeInSeconds, initialTime) {
     this.render('.game-timer', ...displayWand(timeInSeconds, initialTime));
-    this.render('.game-timer__text', displayTimerText(timeInSeconds));
+    this.render('.game-timer__text-wrapper', displayTimerText(timeInSeconds));
   }
 
   renderModal() {

@@ -3,7 +3,7 @@ import img from '../../../../static/assets/img/wand.png';
 
 export default function displayWand(timeLeft, timeStart) {
   const timerWrapper = elementCreator('div', {
-    class: 'game-timer__text',
+    class: 'game-timer__text-wrapper',
   });
 
   const image = elementCreator('img', {

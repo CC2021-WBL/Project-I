@@ -1,7 +1,14 @@
-.game-timer__text {
-    color:  rgba(255, 255, 255, 0.8);
+.game-timer__text-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .game-timer__text {
+    color: rgba(255, 255, 255, 0.8);
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     font-weight: 800;
     line-height: 50px;
     letter-spacing: 3px;
+    position: absolute;
+    bottom: 0;
+  }
 }
