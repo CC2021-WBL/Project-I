@@ -1,4 +1,5 @@
 import GameMaker from '../logic/gameMaker';
+import { DIFFICULTY_LEVELS } from '../data/consts';
 import { GAME_MODES } from '../data/consts';
 
 class Controller {
@@ -19,6 +20,7 @@ class Controller {
 
   doAtEnd = () => {
     const endGameData = this.model.gameMaker.getEndGameData();
+    this.view.renderModal();
     // TODO: zdjąć klasę i ID chowające przyciski i tło po rozpoczęciu rozgrywki
     // render modal
   };
@@ -67,9 +69,10 @@ class Controller {
     this.view.bindButtonPlay(this.startGame);
   };
 
-  changeDifficultyLevel = (difficultyLevel) => {
-    this.model.difficultyLevel = difficultyLevel.toLowerCase();
-    // this.view.showViewsForDifficultyLevel(difficultyLevel);
+  changeDifficultyLevel = (difficultyLevelIndex) => {
+    const levels = Object.keys(DIFFICULTY_LEVELS);
+    const level = levels[difficultyLevelIndex];
+    this.model.difficultyLevel = DIFFICULTY_LEVELS[level].level;
   };
 
   showSettingsScreen() {
@@ -77,7 +80,6 @@ class Controller {
   }
 
   updateViewsForHallOfFameAtChosenMode(mode) {
-    // this.model.gameMode = mode;
     this.view.updateViewsForHallOfFameAtChosenMode(mode);
   }
 }

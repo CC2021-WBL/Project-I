@@ -69,17 +69,11 @@ class View {
   showSettings() {
     this.render('.game__mode', 'Choose level');
     this.render('.game__mode-rules', ...levelButtons);
-    this.render(
-      '.game__btns',
-      buttonWhite('back'),
-      buttonPlay('Save & return'),
-    );
     this.bindDifficultyLevelButton(window.app.changeDifficultyLevel);
   }
 
   hideSettings() {
     this.renderInitialScreen();
-    // TODO: do stg after hiding the settings
   }
 
   toggleSettingsView = () => {
@@ -133,7 +127,7 @@ class View {
   disappearButtonsAndBackground() {
     const playAndHofButtons = document.querySelector('.game__btns');
     playAndHofButtons.classList.add('hidden-elements');
-    const settingsButton = document.querySelector('.game__button-settingsMain');
+    const settingsButton = document.querySelector('.game-image__btns');
     settingsButton.classList.add('hidden-elements');
     const gameModeContainer = document.querySelector('.game__mode-rules');
     gameModeContainer.id = 'question-mode';
@@ -142,7 +136,7 @@ class View {
   appearBackgroundAndButtons() {
     const playAndHofButtons = document.querySelector('.game__btns');
     playAndHofButtons.classList.remove('hidden-elements');
-    const settingsButton = document.querySelector('.game__button-settingsMain');
+    const settingsButton = document.querySelector('.game-image__btns');
     settingsButton.classList.remove('hidden-elements');
     const gameModeContainer = document
       .querySelector('.game__mode-rules')
@@ -196,12 +190,11 @@ class View {
 
   // TODO: przeniesienie funkcji bindujących do controllera
   bindDifficultyLevelButton(handler) {
-    // TODO: przeniesienie funkcji bindujących do controllera
-    levelButtons.map((button) =>
+    levelButtons.map((button, index) =>
       button.addEventListener('click', () => {
         clearActive(levelButtons);
         button.classList.add('active');
-        handler(button.textContent);
+        handler(index);
       }),
     );
   }
