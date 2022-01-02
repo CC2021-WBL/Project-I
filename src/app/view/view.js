@@ -12,9 +12,9 @@ import doBtnHallOfFame from './components/doBtnHallOfFame';
 import doHallOfFameContent from './components/doHallOfFameContent';
 import displayTimerText from './components/displayTimerText';
 import levelButtons from './components/settingsLevel';
-import buttonWhite from './components/buttonWhite';
 import answersButtons from './components/answersButtons';
 import clearActive from '../utils/clearActive';
+import displayQuitGameButton from './components/displayQuitGameButton';
 import displayWand from './components/wand';
 import displayInitialMainText from './components/displayInitialMainText';
 import displayButtonSettings from './components/displaySettingsBtn';
@@ -43,8 +43,6 @@ class View {
     this.render('.header__game-nav', ...modeButtons);
     this.render('.game__mode', INITIAL_GAME_MODE_TEXT);
     this.render('.game__mode-rules', ...displayInitialMainText);
-    // this.render('.game-image__content', createImage());
-    // this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
     this.render('.game-image__content', createImage());
   }
 
@@ -63,7 +61,6 @@ class View {
 
   // przygotowane pod dzialanie przycisku Hall Of Fame
   updateViewsForHallOfFameAtChosenMode(mode) {
-    // this.render('.game__mode', questionForMode(mode));
     this.render('.game__mode-rules', doHallOfFameContent);
     this.render('.game__btns', doBtnHallOfFame(`Back`, mode));
   }
@@ -71,17 +68,11 @@ class View {
   showSettings() {
     this.render('.game__mode', 'Choose level');
     this.render('.game__mode-rules', ...levelButtons);
-    this.render(
-      '.game__btns',
-      buttonWhite('back'),
-      buttonPlay('Save & return'),
-    );
     this.bindDifficultyLevelButton(window.app.changeDifficultyLevel);
   }
 
   hideSettings() {
     this.renderInitialScreen();
-    // TODO: do stg after hiding the settings
   }
 
   toggleSettingsView = () => {
@@ -106,8 +97,25 @@ class View {
     this.render('.game-image__content', displayImage());
   }
 
-  renderQuestion(question) {
-    this.render('.game__mode', 'Who is this? What is his house');
+  changeAnswrBtnBgColor(answer) {
+    const posAnswrBtn = document.querySelectorAll('.game__mode-rules-answrBtn');
+    if (answer === true) {
+      posAnswrBtn.forEach((el) =>
+        el.classList.add('game__mode-rules-answrBtn-correct'),
+      );
+    } else {
+      posAnswrBtn.forEach((el) =>
+        el.classList.add('game__mode-rules-answrBtn-false'),
+      );
+    }
+  }
+
+  renderQuitGame() {
+    this.render('.header__game-nav', displayQuitGameButton());
+  }
+
+  renderQuestion(question, modeQuestion) {
+    this.render('.game__mode', modeQuestion);
     this.render('.game__mode-rules', ...answersButtons(question));
     this.render(
       '.game-image__content',
@@ -116,15 +124,30 @@ class View {
   }
 
   disappearButtonsAndBackground() {
-    // TODO: dodać klasę, do wszystkich znikających elementów i zamienić na querySelecorAll
-    const modeNav = document.querySelector('.header__game-nav');
-    modeNav.classList.add('hidden-elements');
     const playAndHofButtons = document.querySelector('.game__btns');
     playAndHofButtons.classList.add('hidden-elements');
-    const settingsButton = document.querySelector('.game__button-settingsMain');
+    const settingsButton = document.querySelector('.game-image__btns');
     settingsButton.classList.add('hidden-elements');
     const gameModeContainer = document.querySelector('.game__mode-rules');
     gameModeContainer.id = 'question-mode';
+  }
+
+  appearBackgroundAndButtons() {
+    const playAndHofButtons = document.querySelector('.game__btns');
+    playAndHofButtons.classList.remove('hidden-elements');
+    const settingsButton = document.querySelector('.game-image__btns');
+    settingsButton.classList.remove('hidden-elements');
+    const gameModeContainer = document
+      .querySelector('.game__mode-rules')
+      .removeAttribute('id');
+  }
+
+  renderAfterQuitGame() {
+    this.render('.header__game-nav', ...modeButtons);
+    const timerWand = document.querySelector('.game-timer__wand-wrapper');
+    timerWand.remove(timerWand);
+    const timerText = document.querySelector('.game-timer__text');
+    timerText.remove(timerText);
   }
 
   // -------------- BINDINGS ------------------------------------
@@ -157,14 +180,20 @@ class View {
     );
   }
 
-  // TODO: przeniesienie funkcji bindujących settings do controllera
+  bindQuitGameButton(handler) {
+    const quitButtonEvent = document.querySelector('.fa-times-circle');
+    quitButtonEvent.addEventListener('click', () => {
+      handler();
+    });
+  }
 
+  // TODO: przeniesienie funkcji bindujących do controllera
   bindDifficultyLevelButton(handler) {
-    levelButtons.map((button) =>
+    levelButtons.map((button, index) =>
       button.addEventListener('click', () => {
         clearActive(levelButtons);
         button.classList.add('active');
-        handler(button.textContent);
+        handler(index);
       }),
     );
   }
