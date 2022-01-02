@@ -4,7 +4,7 @@ import displayImage from './components/displayImage';
 import modeButtons from './components/mainMenu';
 import createLogo from './components/createLogo';
 import ModalWindow from './components/modal/modalWindow';
-import { INITIAL_GAME_MODE_TEXT, INITIAL_MAIN_TEXT } from '../data/consts';
+import { INITIAL_GAME_MODE_TEXT } from '../data/consts';
 import modeRules from './components/modeRules';
 import buttonPlay from './components/buttonPlay';
 import createImage from './components/createImage';
@@ -16,6 +16,8 @@ import buttonWhite from './components/buttonWhite';
 import answersButtons from './components/answersButtons';
 import clearActive from '../utils/clearActive';
 import displayWand from './components/wand';
+import displayInitialMainText from './components/displayInitialMainText';
+import displayButtonSettings from './components/displaySettingsBtn';
 
 class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
@@ -44,6 +46,9 @@ class View {
       doBtnHallOfFame(`Hall of fame`, mode),
       buttonPlay('Play the game'),
     );
+    const settingsButton = displayButtonSettings('settings');
+    settingsButton.addEventListener('click', this.toggleSettingsView);
+    this.render('.game-image__btns', settingsButton);
   }
 
   // TODO: wyświetlanie opisu poziomu trudności w miejscu zdjęcia
@@ -62,11 +67,10 @@ class View {
     this.render('.header__game-logo', createLogo());
     this.render('.header__game-nav', ...modeButtons);
     this.render('.game__mode', INITIAL_GAME_MODE_TEXT);
-    this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
+    this.render('.game__mode-rules', ...displayInitialMainText);
+    // this.render('.game-image__content', createImage());
+    // this.render('.game__mode-rules', INITIAL_MAIN_TEXT);
     this.render('.game-image__content', createImage());
-    const settingsButton = buttonWhite('settings');
-    settingsButton.addEventListener('click', this.toggleSettingsView);
-    this.render('.settings', settingsButton);
   }
 
   showSettings() {
@@ -117,6 +121,20 @@ class View {
     );
   }
 
+  disappearButtonsAndBackground() {
+    // TODO: dodać klasę, do wszystkich znikających elementów i zamienić na querySelecorAll
+    const modeNav = document.querySelector('.header__game-nav');
+    modeNav.classList.add('hidden-elements');
+    const playAndHofButtons = document.querySelector('.game__btns');
+    playAndHofButtons.classList.add('hidden-elements');
+    const settingsButton = document.querySelector('.game__button-settingsMain');
+    settingsButton.classList.add('hidden-elements');
+    const gameModeContainer = document.querySelector('.game__mode-rules');
+    gameModeContainer.id = 'question-mode';
+  }
+
+  // -------------- BINDINGS ------------------------------------
+
   bindButtonPlay(handler) {
     const playButton = document.querySelector('.game__button--orange');
     playButton.addEventListener('click', () => {
@@ -135,7 +153,9 @@ class View {
   }
 
   bindAnswerButtons(handler) {
-    const answerButtons = [...document.getElementsByClassName('answerButton')];
+    const answerButtons = [
+      ...document.getElementsByClassName('game__mode-rules-answrBtn'),
+    ];
     answerButtons.map((button) =>
       button.addEventListener('click', () => {
         handler(button.textContent);
