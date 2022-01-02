@@ -5,7 +5,6 @@ class Controller {
   constructor(model, view) {
     this.model = model;
     this.view = view;
-    // INIT LOOK OF OUR APP
 
     this.view.renderModal();
     this.view.renderInitialScreen();
@@ -15,13 +14,12 @@ class Controller {
 
   doAtInterval = (timeInSeconds, initialTime) => {
     this.view.renderTimer(timeInSeconds, initialTime);
-    // TODO: do dodania różdżka czasu
   };
 
   doAtEnd = () => {
     const endGameData = this.model.gameMaker.getEndGameData();
+    console.log('END GAME DATA:');
     console.log(endGameData);
-    console.log('dupa');
     // TODO: zdjąć klasę i ID chowające przyciski i tło po rozpoczęciu rozgrywki
     // render modal
   };
@@ -39,7 +37,7 @@ class Controller {
     await closure.showQuestion();
     this.view.disappearButtonsAndBackground();
 
-    // TODO: pojawia się quit game
+    // TODO: quit game
   };
 
   async showQuestion() {
@@ -62,7 +60,6 @@ class Controller {
   changeDifficultyLevel = (difficultyLevel) => {
     console.log(difficultyLevel);
     this.model.difficultyLevel = difficultyLevel.toLowerCase();
-    // this.view.showViewsForDifficultyLevel(difficultyLevel);
   };
 
   startCountdown() {

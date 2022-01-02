@@ -51,11 +51,6 @@ class View {
     this.render('.game-image__btns', settingsButton);
   }
 
-  // TODO: wyświetlanie opisu poziomu trudności w miejscu zdjęcia
-  showViewsForDifficultyLevel(difficultyLevel) {
-    //  wyświetlanie opisu poziomu trudności
-  }
-
   // przygotowane pod dzialanie przycisku Hall Of Fame
   updateViewsForHallOfFameAtChosenMode(mode) {
     // this.render('.game__mode', questionForMode(mode));
@@ -84,7 +79,6 @@ class View {
     this.bindDifficultyLevelButton(window.app.changeDifficultyLevel);
   }
 
-  // hide settings screen
   hideSettings() {
     this.renderInitialScreen();
     // TODO: do stg after hiding the settings
@@ -162,23 +156,10 @@ class View {
       }),
     );
   }
-  // TODO: przeniesienie funkcji bindujących do controllera
-  /*    bindSettingsButton(handler){
-  
-  } */
 
-  /*  bindLevelButtons(handler) {
-    const settingButton = document.querySelector('.game__button');
-    settingButton.addEventListener('click', () => {
-      handler();
-    });
-  } */
+  // TODO: przeniesienie funkcji bindujących settings do controllera
 
   bindDifficultyLevelButton(handler) {
-    /* 
-  TODO: przeniesienie funkcji bindujących do controllera
-    const difficultyLevelButtons =
-      document.querySelectorAll('.game__mode-rules'); */
     levelButtons.map((button) =>
       button.addEventListener('click', () => {
         clearActive(levelButtons);
