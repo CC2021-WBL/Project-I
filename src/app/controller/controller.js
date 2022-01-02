@@ -1,11 +1,10 @@
 import GameMaker from '../logic/gameMaker';
-import { startCountdown } from '../view/components/timerText';
+import { DIFFICULTY_LEVELS, GAME_MODES } from '../data/consts';
 
 class Controller {
   constructor(model, view) {
     this.model = model;
     this.view = view;
-    // INIT LOOK OF OUR APP
 
     this.view.renderModal();
     this.view.renderInitialScreen();
@@ -15,14 +14,12 @@ class Controller {
 
   doAtInterval = (timeInSeconds, initialTime) => {
     this.view.renderTimer(timeInSeconds, initialTime);
-    // TODO: do dodania różdżka czasu
   };
 
   doAtEnd = () => {
     const endGameData = this.model.gameMaker.getEndGameData();
-    console.log(endGameData);
-    console.log('dupa');
-    // render modal
+    this.view.renderModal();
+    // TODO: zdjąć klasę i ID chowające przyciski i tło po rozpoczęciu rozgrywki
   };
 
   startGame = async () => {
@@ -36,17 +33,29 @@ class Controller {
     );
     const closure = this;
     await closure.showQuestion();
-    // TODO: funckja blokująca przyciski
-    // TODO: zamiana przycisku play gme na quit game
+    this.view.disappearButtonsAndBackground();
+    this.view.renderQuitGame();
+    this.view.bindQuitGameButton(this.doAfterQuitGame);
+  };
+
+  doAfterQuitGame = () => {
+    this.model.gameMaker.clearCurrentGameData();
+    this.changeGameMode(GAME_MODES[this.model.gameMode].gamemode);
+    this.view.appearBackgroundAndButtons();
+    this.view.renderAfterQuitGame();
   };
 
   async showQuestion() {
-    this.view.renderQuestion(await this.model.gameMaker.createQuestion());
+    const { question } = GAME_MODES[this.model.gameMode.toLowerCase()];
+    this.view.renderQuestion(
+      await this.model.gameMaker.createQuestion(),
+      question,
+    );
     const closure = this;
     this.view.bindAnswerButtons(async (answer) => {
       const isAnswerCorrect =
         closure.model.gameMaker.checkAndRegisterAnswer(answer);
-      console.log(isAnswerCorrect);
+      this.view.changeAnswrBtnBgColor(isAnswerCorrect);
       await closure.showQuestion();
     });
   }
@@ -57,23 +66,17 @@ class Controller {
     this.view.bindButtonPlay(this.startGame);
   };
 
-  changeDifficultyLevel = (difficultyLevel) => {
-    console.log(difficultyLevel);
-    this.model.difficultyLevel = difficultyLevel.toLowerCase();
-    // this.view.showViewsForDifficultyLevel(difficultyLevel);
+  changeDifficultyLevel = (difficultyLevelIndex) => {
+    const levels = Object.keys(DIFFICULTY_LEVELS);
+    const level = levels[difficultyLevelIndex];
+    this.model.difficultyLevel = DIFFICULTY_LEVELS[level].level;
   };
-
-  startCountdown() {
-    this.view.renderTimer();
-    startCountdown();
-  }
 
   showSettingsScreen() {
     this.view.showSettings();
   }
 
   updateViewsForHallOfFameAtChosenMode(mode) {
-    // this.model.gameMode = mode;
     this.view.updateViewsForHallOfFameAtChosenMode(mode);
   }
 }

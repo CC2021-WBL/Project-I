@@ -1,17 +1,16 @@
 @import '_vars';
 
 .game__button {
-  width: clamp(100px, 50%, 500px);
-  // height: 2rem;
+  height: $button-height;
+  width: clamp(100px, 49%, 49%);
   border: none;
   outline: none;
   background: $white-color;
   cursor: pointer;
   position: relative;
   z-index: 0;
-  border-radius: 10px;
+  border-radius: $default-radius;
   text-transform: uppercase;
-  margin: 0 0.5rem;
 
   &::before {
     content: '';
@@ -35,7 +34,7 @@
     animation: glowing 20s linear infinite;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-    border-radius: 10px;
+    border-radius: $default-radius;
   }
   &:active {
     color: $black-color;
@@ -55,9 +54,15 @@
     background: $white-color;
     left: 0;
     top: 0;
-    border-radius: 10px;
+    border-radius: $default-radius;
+  }
+
+  &-settingsBtn {
+    width: 100%;
+    padding: 0 40px;
   }
   &--orange {
+    margin: 0 0 0 10px;
     color: $white-color;
     z-index: 0;
     &::after {
@@ -70,7 +75,7 @@
       }
     }
   }
-  &--lvlSettings {
+  &-lvlSettings {
     width: 99%;
     height: 33.33%;
     align-content: space-around;
@@ -78,7 +83,7 @@
     justify-content: space-between;
     text-transform: none;
     background-color: $white-color;
-    margin: 10px;
+    font-size: 24px;
     &.active {
       background-color: #ffd3bb;
       border-width: 0.1rem;
