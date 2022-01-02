@@ -115,6 +115,14 @@ class View {
   renderImage() {
     this.render('.game-image__content', displayImage());
   }
+  // changing correct answer button color
+
+  changeAnswrBtnBgColor(answer) {
+    const posAnswrBtn = document.querySelector('.game__mode-rules-answrBtn');
+    if (answer === true) {
+      posAnswrBtn.classList.add('game__mode-rules-answrBtn-correct');
+    }
+  }
 
   // @quit game test
 

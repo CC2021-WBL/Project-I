@@ -119,6 +119,12 @@
             background-color: #e33336;
             font-weight: 500;
           }
+
+          &-correct {
+            &:focus {
+              background-color: green;
+            }
+          }
         }
 
         .rules-icon {

@@ -15,8 +15,6 @@ class Controller {
 
   doAtInterval = (timeInSeconds, initialTime) => {
     this.view.renderTimer(timeInSeconds, initialTime);
-    console.log('sprzwdzamy tajmera czy idzie czy nie idzie');
-    // TODO: do dodania różdżka czasu
   };
 
   doAtEnd = () => {
@@ -54,6 +52,7 @@ class Controller {
     this.view.bindAnswerButtons(async (answer) => {
       const isAnswerCorrect =
         closure.model.gameMaker.checkAndRegisterAnswer(answer);
+      this.view.changeAnswrBtnBgColor(isAnswerCorrect);
       await closure.showQuestion();
     });
   }
