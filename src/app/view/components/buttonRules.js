@@ -1,9 +1,8 @@
 import elementCreator from '../../utils/elementCreator';
 
 export default function doButtonRules(text) {
-  // eslint-disable-next-line prettier/prettier
   const rulesIcon = elementCreator('span', {
-    class: 'rules-icon fas fa-graduation-cap',
+    class: 'game__button-icon fas fa-graduation-cap',
   });
 
   const buttonCreator = elementCreator(

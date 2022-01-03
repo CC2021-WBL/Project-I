@@ -2,8 +2,6 @@ import elementCreator from '../../utils/elementCreator';
 import getHofData from './getHofData';
 
 function hofTable(mode, level) {
-  // console.log(mode);
-
   if (level === 'easy') {
     const altText = elementCreator(
       'p',
@@ -12,7 +10,7 @@ function hofTable(mode, level) {
     );
     return altText;
   }
-  // (Definicja) naglowkow
+
   const tableHead1 = elementCreator(
     'td',
     { class: 'hof__table-header' },
@@ -26,12 +24,9 @@ function hofTable(mode, level) {
   const tableHead3 = elementCreator(
     'td',
     { class: 'hof__table-header' },
-    'Answered',
+    'Points',
   );
 
-  //
-  // (Definicja) mniejszych bloków (table row)
-  //
   const tableRow1stPlace = elementCreator(
     'tr',
     {},
@@ -77,7 +72,7 @@ function hofTable(mode, level) {
       `${getHofData(mode, level, '3', 'result')}`,
     ),
   );
-  // (Definicja) zlozenie calej tabeli
+
   const wholeTable = elementCreator(
     'table',
     { class: 'hof__table' },
