@@ -13,7 +13,7 @@ function ModalWindow(gameData) {
   const modalText = elementCreator(
     'p',
     { class: 'modal__text' },
-    `This is magic! You have answered  // 23 questions! Congratulations!`,
+    `This is magic! You have answered ${gameData.correctAnswerScore}/${gameData.askedQuestions}  questions! Congratulations!`,
   );
 
   // DETAILS SECTION

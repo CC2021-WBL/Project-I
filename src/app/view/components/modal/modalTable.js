@@ -1,27 +1,25 @@
 import elementCreator from '../../../utils/elementCreator';
-import prepareDataForDetailsTable from './prepareDatForDetails';
 
-function modalTable(gameData = []) {
+function modalTable(gameData) {
   console.log(gameData);
-  let answersRows = (gameData = []) => {
-    answersRows = [];
-    for (let i = 0; i < gameData.length; i++) {
-      const element = gameData[i];
+  function getAnswersRows() {
+    const gameDetails = gameData.detailQuestionData;
+    let answersRows = [];
+    for (let i = 0; i < gameDetails.length; i++) {
+      const element = gameDetails[i];
       console.log(element);
+      const name = element.playerAnswer;
+      const answer = element.answer;
       const imageCell = elementCreator(
         'td',
         { class: 'details__td' },
         'picture',
       );
-      const playerAnswer = elementCreator(
-        'td',
-        { class: 'details__td' },
-        element.playerAnswer,
-      );
+      const playerAnswer = elementCreator('td', { class: 'details__td' }, name);
       const correctAnswer = elementCreator(
         'td',
         { class: 'details__td' },
-        element.anwswer,
+        answer,
       );
       const newRow = elementCreator(
         'tr',
@@ -30,16 +28,18 @@ function modalTable(gameData = []) {
         playerAnswer,
         correctAnswer,
       );
+      console.log(newRow);
+      console.log(answersRows);
       answersRows.push(newRow);
     }
-    // return newRow;
-  };
+    return answersRows;
+  }
 
   // answersRows should be iterable
-  const table = answersRows(gameData);
+  const table = getAnswersRows(gameData);
   console.log(table);
 
-  const tableBody = elementCreator('tbody', {}, answersRows(gameData));
+  const tableBody = elementCreator('tbody', {}, ...table);
 
   // table headeer
   const tableHeaders = ['Picture', 'You', 'Answer'];
