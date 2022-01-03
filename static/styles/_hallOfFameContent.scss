@@ -1,35 +1,37 @@
 @import '_vars';
 
 .hof__table {
-    font-size: 2vw;
-    width: 85%;
-    margin: 0 auto 0 auto;
-    }
+  font-size: 2vw;
+  width: 85%;
+  margin: 0 auto 0 auto;
+}
 
-tr, td {
-    font-size: clamp(36px, 1vw, 1.8vw);
-    }
+tr,
+td {
+  font-size: clamp(32px, 1vw, 1.8vw);
+}
 
 .game__mode-rules table {
-    background: rgba(200,200,200,.1);
-    padding: 50px;
-    border-radius: 20px;
-    min-width: 803px; // min width required for Albus Dumbledore Brother to display in one line
-    }
+  background: rgba(200, 200, 200, 0.1);
+  padding: 10px;
+  border-radius: 20px;
+  min-width: 803px; // min width required for Albus Dumbledore Brother to display in one line
+  text-align: left;
+}
 
 td:nth-child(3) {
-    width: 40%;
-   }
+  width: 40%;
+}
 td:nth-child(2) {
-    width: 60%;
-    min-width: 175px;
+  width: 60%;
+  min-width: 175px;
 }
 td:first-child {
-    width: 15%;
-    min-width: 80px;
-   }
+  width: 15%;
+  min-width: 80px;
+}
 
-  .hof__table-header {
-    font-weight: bold;
-    font-size: clamp(36px, 1.2vw, 1.8vw);
-  }
+.hof__table-header {
+  font-weight: bold;
+  font-size: clamp(36px, 1.2vw, 1.8vw);
+}

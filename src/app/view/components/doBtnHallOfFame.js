@@ -9,35 +9,19 @@ function doBtnHallOfFame(text) {
     alt: 'Victory Cup',
   });
 
-  // let buttonCreator;
-
-  // if (typeof mode === 'undefined') {
-  //   buttonCreator = elementCreator(
-  //     'button',
-  //     {
-  //       class: 'game__button game__button--disabled',
-  //       disabled: 'disabled',
-  //     },
-  //     imageCup,
-  //     text,
-  //   );
-  // } else {
   const hofButton = elementCreator(
     'button',
     {
-      class: 'game__button',
+      class: 'game__button-hof',
     },
     imageCup,
     text,
   );
-  // }
 
-  hofButton.addEventListener('click', () => {
-    window.app.view.toggleHofView(window.app.model.gameMode);
-    console.log('toggleHofView zawiadomiony przez eventListener');
-  });
-  // this.render('.game__btns', doBtnHallOfFame('hof'), buttonPlay('Play'));
-
+  // hofButton.addEventListener('click', () => {
+  //   window.app.view.toggleHofView(window.app.model.gameMode);
+  //   console.log('toggleHofView zawiadomiony przez eventListener');
+  // });
   return hofButton;
 }
 

@@ -63,7 +63,7 @@ class View {
   }
 
   showHof() {
-    this.render('.game__mode', 'showHof dupa game mode');
+    this.render('.game__mode', 'HALL OF FAME');
     this.render(
       '.game__mode-rules',
       ...doHallOfFameContent(
@@ -217,6 +217,20 @@ class View {
   bindQuitGameButton(handler) {
     const quitButtonEvent = document.querySelector('.fa-times-circle');
     quitButtonEvent.addEventListener('click', () => {
+      handler();
+    });
+  }
+
+  bindHofButton(handler) {
+    const hofButton = document.querySelector('.game__button-hof');
+    hofButton.addEventListener('click', () => {
+      handler();
+    });
+  }
+
+  bindRulesButton(handler) {
+    const rulesButton = document.querySelector('.game__button-rules');
+    rulesButton.addEventListener('click', () => {
       handler();
     });
   }

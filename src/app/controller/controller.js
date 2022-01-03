@@ -65,6 +65,7 @@ class Controller {
     const level = this.model.difficultyLevel;
     this.model.gameMode = mode.toLowerCase();
     this.view.showViewsForChosenMode(mode, level);
+    this.view.bindHofButton(this.showHofView);
     this.view.bindButtonPlay(this.startGame);
   };
 
@@ -78,8 +79,9 @@ class Controller {
     this.view.showSettings();
   }
 
-  showHofView(mode) {
-    this.view.showHof(mode);
-  }
+  showHofView = () => {
+    this.view.showHof(this.model.gameMode);
+    this.view.bindRulesButton(this.view.showViewsForChosenMode);
+  };
 }
 export default Controller;
