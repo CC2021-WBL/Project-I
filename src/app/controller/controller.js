@@ -5,6 +5,7 @@ class Controller {
   constructor(model, view) {
     this.model = model;
     this.view = view;
+    this.endGameData = {};
 
     // this.view.renderModal();
     this.view.renderInitialScreen();
@@ -17,13 +18,14 @@ class Controller {
   };
 
   doAtEnd = () => {
-    const endGameData = this.model.gameMaker.getEndGameData();
-    this.view.renderModal(endGameData);
+    this.endGameData = this.model.gameMaker.getEndGameData();
+    this.view.renderModal(this.endGameData);
     this.view.bindModalButton(this.saveName);
   };
 
   saveName = (name) => {
     this.model.name = name;
+    this.saveResult();
   };
 
   startGame = async () => {
@@ -83,6 +85,22 @@ class Controller {
 
   updateViewsForHallOfFameAtChosenMode(mode) {
     this.view.updateViewsForHallOfFameAtChosenMode(mode);
+  }
+
+  saveResult() {
+    const { rankings, name, gameMode, difficultyLevel } = this.model;
+    const result = this.endGameData.correctAnswersScore;
+    const mode = `${gameMode}_${difficultyLevel}`;
+
+    // push gameinfo (only name and result, we don't need mode in this place) into the right mode in
+    // rankings
+    rankings[mode].push({ name, result });
+    // sort in descending order by points
+    rankings[mode].sort((a, b) => (a.result < b.result ? 1 : -1));
+    // remove last element if there's to many gameinfos in our game ranking
+    if (rankings[mode].length > 3) rankings[mode].pop();
+    // update rankings in localStorage
+    this.model.localStorageService.saveRankings(rankings);
   }
 }
 export default Controller;
