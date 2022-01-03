@@ -214,9 +214,13 @@ class View {
     const modalButton = document.querySelector('.game__button-modalBtn');
     console.log(modalButton);
     const modal = document.querySelector('.modal');
+    const playersName = document.getElementById('name').value;
+    console.log(playersName);
     modalButton.addEventListener('click', () => {
+      handler(playersName);
       modal.classList.add('modal__hidden');
       this.renderInitialScreen();
+      console.log(playersName);
     });
   }
 }

@@ -19,7 +19,12 @@ class Controller {
   doAtEnd = () => {
     const endGameData = this.model.gameMaker.getEndGameData();
     this.view.renderModal(endGameData);
-    this.view.bindModalButton();
+    this.view.bindModalButton(this.saveName);
+  };
+
+  saveName = (name) => {
+    this.model.name = name;
+    console.log(name);
   };
 
   startGame = async () => {
