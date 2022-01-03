@@ -9,14 +9,18 @@
   font-size: $primary-font-size;
 }
 
-.game-wrapper {
-  background-image: url('../assets/img/QuizBackground.png');
+body {
   background-size: cover;
+  background-image: url('../assets/img/QuizBackground.png');
+}
+
+.game-wrapper {
   height: 100vh;
+  width: 1600px;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1fr 60% 1fr;
-  padding: 0 50px 0 0;
+  grid-template-rows: 1fr 4fr 1fr;
+  margin: 0 auto;
 
   .header {
     grid-column: 1/3;
@@ -24,6 +28,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding: 20px 0;
 
     &__game {
       &-logo {
@@ -71,7 +76,6 @@
           filter: drop-shadow(13px 17px 11px rgba(0, 0, 0, 0.5));
           border-radius: $default-radius;
           object-fit: fill;
-
         }
       }
     }
