@@ -137,7 +137,8 @@
 
         &-header {
           position: relative;
-          left: 42%;
+          left: 50%;
+          transform: translateX(-50%);
           padding: 20px 0 8px;
           font-size: 0.6em;
           font-weight: 500;
