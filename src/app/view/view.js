@@ -66,6 +66,7 @@ class View {
     );
   }
 
+  // Hof - Hall of Fame
   showHof = (gameMode, difficultyLevel) => {
     this.render('.game__mode', 'HALL OF FAME');
     this.render(
@@ -74,7 +75,6 @@ class View {
     );
     this.showRulesButtons();
 
-    // render('.game__btns', doBtnHallOfFame('Rules'), buttonPlay('Play'));
     const settingsButton = displayButtonSettings('settings');
     settingsButton.addEventListener('click', this.toggleSettingsView);
     this.render('.game-image__btns', settingsButton);
@@ -97,18 +97,6 @@ class View {
       this.hideSettings();
     }
     this.settings = !this.settings;
-  };
-
-  // method toggles between HOF button and view - and ModeRules button and view
-  toggleHofView = () => {
-    if (this.hofIsOn === false) {
-      this.hofIsOn = true;
-      console.log('hof is on');
-      this.showHof();
-    } else {
-      this.hofIsOn = false;
-      console.log('hof is off');
-    }
   };
 
   renderTimer(timeInSeconds, initialTime) {

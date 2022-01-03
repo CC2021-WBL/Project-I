@@ -9,14 +9,10 @@ export default function doButtonRules(text) {
   const buttonCreator = elementCreator(
     'button',
     {
-      class: 'game__button-rules',
+      class: 'game__button game__button-rules',
     },
     rulesIcon,
     text,
   );
-  // buttonCreator.addEventListener('click', () => {
-  //   window.app.view.toggleHofView();
-  //   window.app.view.showViewsForChosenMode(window.app.model.gameMode);
-  // });
   return buttonCreator;
 }
