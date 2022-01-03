@@ -2,23 +2,19 @@ import elementCreator from '../../../utils/elementCreator';
 import displayImage from '../displayImage';
 
 function modalTable(gameData) {
-  console.log(gameData);
   function getAnswersRows() {
     const gameDetails = gameData.detailQuestionData;
-    let answersRows = [];
+    const answersRows = [];
     for (let i = 0; i < gameDetails.length; i++) {
       const element = gameDetails[i];
-      console.log(element);
       const name = element.playerAnswer;
-      const answer = element.answer;
-      // const image = gameDetails.imageBase64;
-      const image = new Image();
-      image.src = gameDetails.imageBase64;
-      document.body.appendChild(image);
+      const { answer } = element;
+      const imageBase = element.imageBase64;
+
       const imageCell = elementCreator(
         'td',
         { class: 'details__td' },
-        displayImage(image),
+        displayImage(imageBase, 'very handsome someone'),
       );
       const playerAnswer = elementCreator('td', { class: 'details__td' }, name);
       const correctAnswer = elementCreator(
@@ -33,8 +29,6 @@ function modalTable(gameData) {
         playerAnswer,
         correctAnswer,
       );
-      console.log(newRow);
-      console.log(answersRows);
       answersRows.push(newRow);
     }
     return answersRows;
@@ -42,7 +36,6 @@ function modalTable(gameData) {
 
   // answersRows should be iterable
   const table = getAnswersRows(gameData);
-  console.log(table);
 
   const tableBody = elementCreator('tbody', {}, ...table);
 
