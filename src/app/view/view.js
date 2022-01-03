@@ -145,6 +145,8 @@ class View {
   changeCursorToCustom() {
     const customCursor = document.querySelector('.game');
     customCursor.classList.add('custom-cursor');
+    const custCursor = document.querySelector('.header');
+    custCursor.classList.add('custom-cursor');
   }
 
   renderAfterQuitGame() {
@@ -155,6 +157,8 @@ class View {
     timerText.remove(timerText);
     const normalCursor = document.querySelector('.game');
     normalCursor.classList.remove('custom-cursor');
+    const normalHeaderCursor = document.querySelector('.header');
+    normalHeaderCursor.classList.remove('custom-cursor');
   }
 
   // -------------- BINDINGS ------------------------------------
@@ -188,7 +192,7 @@ class View {
   }
 
   bindQuitGameButton(handler) {
-    const quitButtonEvent = document.querySelector('.fa-times-circle');
+    const quitButtonEvent = document.querySelector('.quit-game');
     quitButtonEvent.addEventListener('click', () => {
       handler();
     });
