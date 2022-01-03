@@ -21,6 +21,7 @@ function displayImage(imageSource, altDescription) {
     alt: `${altDescription}`,
   });
   imageNode.ref = image;
+  console.log(image);
   updateImage(imageSource);
   return image;
 }

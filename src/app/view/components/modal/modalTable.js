@@ -1,4 +1,5 @@
 import elementCreator from '../../../utils/elementCreator';
+import displayImage from '../displayImage';
 
 function modalTable(gameData) {
   console.log(gameData);
@@ -10,10 +11,14 @@ function modalTable(gameData) {
       console.log(element);
       const name = element.playerAnswer;
       const answer = element.answer;
+      // const image = gameDetails.imageBase64;
+      const image = new Image();
+      image.src = gameDetails.imageBase64;
+      document.body.appendChild(image);
       const imageCell = elementCreator(
         'td',
         { class: 'details__td' },
-        'picture',
+        displayImage(image),
       );
       const playerAnswer = elementCreator('td', { class: 'details__td' }, name);
       const correctAnswer = elementCreator(
