@@ -142,12 +142,19 @@ class View {
       .removeAttribute('id');
   }
 
+  changeCursorToCustom() {
+    const customCursor = document.querySelector('.game');
+    customCursor.classList.add('custom-cursor');
+  }
+
   renderAfterQuitGame() {
     this.render('.header__game-nav', ...modeButtons);
     const timerWand = document.querySelector('.game-timer__wand-wrapper');
     timerWand.remove(timerWand);
     const timerText = document.querySelector('.game-timer__text');
     timerText.remove(timerText);
+    const normalCursor = document.querySelector('.game');
+    normalCursor.classList.remove('custom-cursor');
   }
 
   // -------------- BINDINGS ------------------------------------
