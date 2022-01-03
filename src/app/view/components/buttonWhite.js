@@ -1,5 +1,5 @@
 import elementCreator from '../../utils/elementCreator';
-
+// This is a Settings button.
 function buttonWhite(text) {
   const buttonCreatorWhite = elementCreator(
     'button',
