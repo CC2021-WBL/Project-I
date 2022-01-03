@@ -36,6 +36,7 @@ class Controller {
     this.view.disappearButtonsAndBackground();
     this.view.renderQuitGame();
     this.view.bindQuitGameButton(this.doAfterQuitGame);
+    this.view.changeCursorToCustom();
   };
 
   doAfterQuitGame = () => {

@@ -104,7 +104,7 @@
         flex-grow: 1;
 
         &-answrBtn {
-          cursor: pointer;
+          cursor: url('../assets/img/cursor_wand.png') 2 2, pointer;
           border: none;
           border-radius: 16px;
           width: 48%;
@@ -179,5 +179,9 @@
   .halloffame-icon {
     position: absolute;
     left: 50px;
+  }
+
+  .custom-cursor {
+    cursor: url('../assets/img/cursor_wand.png') 2 2, pointer;
   }
 }
