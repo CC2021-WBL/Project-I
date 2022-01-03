@@ -3,4 +3,4 @@
 
 Harry Potter Quiz Game
 
-![img_1.png](img_1.png)
+![image](https://user-images.githubusercontent.com/75560322/147984279-ed99fafb-f441-4f12-bd5b-d2362545084e.png)
