@@ -1,7 +1,6 @@
 import elementCreator from '../../utils/elementCreator';
-// import HallOfFameBtn from '../../../../static/assets/img/HallOfFameBtn.svg';
 
-export default function buttonRules(text) {
+export default function doButtonRules(text) {
   // eslint-disable-next-line prettier/prettier
   const rulesIcon = elementCreator('span', {
     class: 'rules-icon fas fa-graduation-cap',
@@ -15,16 +14,9 @@ export default function buttonRules(text) {
     rulesIcon,
     text,
   );
-
+  buttonCreator.addEventListener('click', () => {
+    window.app.view.toggleHofView();
+    window.app.view.showViewsForChosenMode(window.app.model.gameMode);
+  });
   return buttonCreator;
 }
-// dzialanie przycisku - eventlistener
-// doBtnHallOfFame.map((button) =>
-//   doBtnHallOfFame.addEventListener('click', () => {
-//     clearActive(modeButtons);
-//     doBtnHallOfFame.classList.add('active');
-//     window.app.changeGameMode(button.textContent);
-//   }),
-// );
-
-// export default doBtnHallOfFame;

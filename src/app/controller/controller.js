@@ -73,9 +73,8 @@ class Controller {
     this.view.showSettings();
   }
 
-  updateViewsForHallOfFameAtChosenMode(mode) {
-    // this.model.gameMode = mode;
-    this.view.updateViewsForHallOfFameAtChosenMode(mode);
+  showHofView(mode) {
+    this.view.showHof(mode);
   }
 }
 export default Controller;

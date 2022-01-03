@@ -11,7 +11,7 @@ import createImage from './components/createImage';
 import doBtnHallOfFame from './components/doBtnHallOfFame';
 import doHallOfFameContent from './components/doHallOfFameContent';
 import displayTimerText from './components/displayTimerText';
-import buttonRules from './components/buttonRules';
+import doButtonRules from './components/buttonRules';
 import levelButtons from './components/settingsLevel';
 import buttonWhite from './components/buttonWhite';
 import answersButtons from './components/answersButtons';
@@ -21,7 +21,7 @@ import displayWand from './components/wand';
 class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
   constructor() {
-    this.toggle = false;
+    this.hofIsOn = false;
     this.settings = false;
   }
 
@@ -38,33 +38,14 @@ class View {
     elementInjector(parentElem, children);
   }
 
-  showViewsForChosenMode(mode, level) {
+  showViewsForChosenMode(mode) {
     this.render('.game__mode', questionForMode(mode));
     this.render('.game__mode-rules', ...modeRules(mode));
-    // this.render(
-    //   '.game__btns',
-    //   doBtnHallOfFame(`Hall of fame`, mode),
-    //   buttonPlay('Play the game'),
-    // );
-
-    const toggleRules = doBtnHallOfFame('Hall of fame', mode);
-    toggleRules.addEventListener(
-      'click',
-      this.toggleButtons(mode, level),
-      console.log('toggleRules zadziałał'),
+    this.render(
+      '.game__btns',
+      doBtnHallOfFame(`Hall of fame`),
+      buttonPlay('Play the game'),
     );
-    this.render('.game__btns', toggleRules, buttonPlay('Play'));
-  }
-
-  updateViewsForHallOfFameAtChosenMode(mode, level) {
-    this.render('.game__mode-rules', ...doHallOfFameContent(mode, level));
-    // this.render('.game__mode', questionForMode(mode));
-    this.render('.game__btns', doBtnHallOfFame(`Back`, mode));
-  }
-  // TODO: wyświetlanie opisu poziomu trudności w miejscu zdjęcia
-
-  showViewsForDifficultyLevel(difficultyLevel) {
-    //  wyświetlanie opisu poziomu trudności
   }
 
   renderInitialScreen() {
@@ -78,16 +59,23 @@ class View {
     this.render('.settings', settingsButton);
   }
 
-  showRules() {
-    this.render('.game__btns', buttonRules('rules'), buttonPlay('Play'));
+  showRulesButtons() {
+    this.render('.game__btns', doButtonRules('rules'), buttonPlay('Play'));
   }
 
-  showHoF() {
+  showHof() {
+    this.render('.game__mode', 'showHof dupa game mode');
     this.render(
-      '.game__btns',
-      doBtnHallOfFame('Hall of fame'),
-      buttonPlay('Play'),
+      '.game__mode-rules',
+      ...doHallOfFameContent(
+        window.app.model.gameMode,
+        window.app.model.difficultyLevel,
+      ),
     );
+    console.log('showHof');
+    this.showRulesButtons();
+
+    // render('.game__btns', doBtnHallOfFame('Rules'), buttonPlay('Play'));
   }
 
   showSettings() {
@@ -116,19 +104,15 @@ class View {
     this.settings = !this.settings;
   };
 
-  toggleButtons = (mode, level) => {
-    // const _gameMode = document.querySelector(
-    //   '.header__game-nav.button.active',
-    // ).textContent;
-    // console.log(_gameMode);
-    console.log(`toggleButtons zadzialal, ${mode}`);
-    if (!this.toggle) {
-      console.log('toggleButtons this.toggle zadzialal');
-      this.showRules();
-      //
-      this.updateViewsForHallOfFameAtChosenMode(mode, level);
+  // method toggles between HOF button and view - and ModeRules button and view
+  toggleHofView = () => {
+    if (this.hofIsOn === false) {
+      this.hofIsOn = true;
+      console.log('hof is on');
+      this.showHof();
     } else {
-      this.showHoF();
+      this.hofIsOn = false;
+      console.log('hof is off');
     }
   };
 

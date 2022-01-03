@@ -22,7 +22,7 @@ function doBtnHallOfFame(text) {
   //     text,
   //   );
   // } else {
-  const buttonCreator = elementCreator(
+  const hofButton = elementCreator(
     'button',
     {
       class: 'game__button',
@@ -32,15 +32,13 @@ function doBtnHallOfFame(text) {
   );
   // }
 
-  return buttonCreator;
+  hofButton.addEventListener('click', () => {
+    window.app.view.toggleHofView(window.app.model.gameMode);
+    console.log('toggleHofView zawiadomiony przez eventListener');
+  });
+  // this.render('.game__btns', doBtnHallOfFame('hof'), buttonPlay('Play'));
+
+  return hofButton;
 }
-// dzialanie przycisku - eventlistener
-// doBtnHallOfFame.map((button) =>
-//   doBtnHallOfFame.addEventListener('click', () => {
-//     clearActive(modeButtons);
-//     doBtnHallOfFame.classList.add('active');
-//     window.app.changeGameMode(button.textContent);
-//   }),
-// );
 
 export default doBtnHallOfFame;
