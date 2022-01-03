@@ -18,7 +18,7 @@ class Controller {
 
   doAtEnd = () => {
     const endGameData = this.model.gameMaker.getEndGameData();
-    this.view.renderModal();
+    this.view.renderModal(endGameData);
     this.view.bindModalButton();
   };
 

@@ -89,9 +89,9 @@ class View {
     this.render('.game-timer__text', displayTimerText(timeInSeconds));
   }
 
-  renderModal() {
+  renderModal(gameData) {
     console.log('wchodzisz?');
-    this.render('.modal', ModalWindow());
+    this.render('.modal', ModalWindow(gameData));
     const modal = document.querySelector('.modal');
     modal.classList.remove('modal__hidden');
   }

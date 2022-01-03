@@ -3,7 +3,7 @@ import modalDetails from './modalDetails';
 import modalForm from './modalForm';
 import calculatePoints from '../../../logic/calculatePoints';
 
-function ModalWindow() {
+function ModalWindow(gameData) {
   // parametry//
   const modalHeader = elementCreator(
     'h2',
@@ -17,7 +17,7 @@ function ModalWindow() {
   );
 
   // DETAILS SECTION
-  const detailsContainer = modalDetails();
+  const detailsContainer = modalDetails(gameData);
 
   // FORMS SECTION
   const modalFormContainer = modalForm();
