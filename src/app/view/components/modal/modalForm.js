@@ -8,7 +8,7 @@ function modalForm() {
       placeholder: 'your nickname',
       type: 'text',
       name: 'name',
-      id: 'name',
+      id: 'playerName',
       required: null,
     },
     'Input',

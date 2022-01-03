@@ -24,7 +24,6 @@ class Controller {
 
   saveName = (name) => {
     this.model.name = name;
-    console.log(name);
   };
 
   startGame = async () => {
