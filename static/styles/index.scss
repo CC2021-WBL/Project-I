@@ -68,11 +68,10 @@ body {
       flex-direction: column;
 
       &__content {
-        width: 70%;
-        height: calc(100% - 124px);
+        width: 250px;
 
         &-image {
-          width: 100%;
+          width: 101%;
           height: 100%;
           border: 12px solid rgba(173, 25, 132, 0.26);
           filter: drop-shadow(13px 17px 11px rgba(0, 0, 0, 0.5));

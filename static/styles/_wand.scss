@@ -11,20 +11,13 @@
     width: 100%;
     &__wand-wrapper {
       width: 100%;
-      // height: fit-content;
-      // height: 1000px;
-      // position: relative;
       display: flex;
-      justify-content: center;
       align-items: center;
     }
 
     &__wand {
       height: 26px;
-      width: 70%;
-      // position: absolute;
-      // left: 227px;
-      // top: 27px;
+      width: 90%;
       background: url('../assets/img/burn.png');
       background-size: cover;
       background-position: -7px;
