@@ -2,7 +2,6 @@
 
 .game__button {
   height: $button-height;
-  width: clamp(100px, 49%, 49%);
   border: none;
   outline: none;
   background: $white-color;
@@ -11,6 +10,7 @@
   z-index: 0;
   border-radius: $default-radius;
   text-transform: uppercase;
+  flex: 1;
 
   &::before {
     content: '';
@@ -58,11 +58,10 @@
   }
 
   &-settingsBtn {
-    width: 100%;
+    width: calc(100% - 24px);
     padding: 0 40px;
   }
   &--orange {
-    margin: 0 0 0 10px;
     color: $white-color;
     z-index: 0;
     &::after {
