@@ -2,7 +2,7 @@ import elementCreator from '../../utils/elementCreator';
 import getHofData from './getHofData';
 
 function hofTable(mode, level) {
-  console.log(mode);
+  // console.log(mode);
 
   if (level === 'easy') {
     const altText = elementCreator(

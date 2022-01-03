@@ -48,7 +48,7 @@ class View {
     this.render('.game-image__content', createImage());
   }
 
-  showViewsForChosenMode(mode) {
+  showViewsForChosenMode = (mode) => {
     this.render('.game__mode', questionForMode(mode));
     this.render('.game__mode-rules', ...modeRules(mode));
     this.render(
@@ -56,29 +56,29 @@ class View {
       doBtnHallOfFame(`Hall of fame`),
       buttonPlay('Play the game'),
     );
-  }
+  };
 
   showRulesButtons() {
-    this.render('.game__btns', doButtonRules('rules'), buttonPlay('Play'));
+    this.render(
+      '.game__btns',
+      doButtonRules('rules'),
+      buttonPlay('Play the game'),
+    );
   }
 
-  showHof() {
+  showHof = (gameMode, difficultyLevel) => {
     this.render('.game__mode', 'HALL OF FAME');
     this.render(
       '.game__mode-rules',
-      ...doHallOfFameContent(
-        window.app.model.gameMode,
-        window.app.model.difficultyLevel,
-      ),
+      ...doHallOfFameContent(gameMode, difficultyLevel),
     );
-    console.log('showHof');
     this.showRulesButtons();
 
     // render('.game__btns', doBtnHallOfFame('Rules'), buttonPlay('Play'));
     const settingsButton = displayButtonSettings('settings');
     settingsButton.addEventListener('click', this.toggleSettingsView);
     this.render('.game-image__btns', settingsButton);
-  }
+  };
 
   showSettings() {
     this.render('.game__mode', 'Choose level');
@@ -198,7 +198,7 @@ class View {
       button.addEventListener('click', () => {
         clearActive(modeButtons);
         button.classList.add('active');
-        handler(button.textContent);
+        handler(button.textContent.toLowerCase());
       }),
     );
   }

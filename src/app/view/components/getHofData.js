@@ -7,26 +7,26 @@ const arrHouses = [obj.houses_easy, obj.houses_medium, obj.houses_hard];
 const arrStaff = [obj.staff_easy, obj.staff_medium, obj.staff_hard];
 
 function getHofData(mode, level, place, property) {
-  mode = mode.toLowerCase();
-  level = level.toLowerCase();
+  const _mode = mode.toLowerCase();
+  const _level = level.toLowerCase();
 
   let selectedLevel;
-  if (level === 'easy') {
+  if (_level === 'easy') {
     selectedLevel = 0;
-  } else if (level === 'medium') {
+  } else if (_level === 'medium') {
     selectedLevel = 1;
-  } else if (level === 'hard') {
+  } else if (_level === 'hard') {
     selectedLevel = 2;
   } else {
     throw Error('Wrong level data');
   }
 
   let selectedMode;
-  if (mode === 'staff') {
+  if (_mode === 'staff') {
     selectedMode = arrStaff;
-  } else if (mode === 'students') {
+  } else if (_mode === 'students') {
     selectedMode = arrStudents;
-  } else if (mode === 'houses') {
+  } else if (_mode === 'houses') {
     selectedMode = arrHouses;
   } else {
     throw Error('Wrong mode data');
@@ -43,10 +43,10 @@ function getHofData(mode, level, place, property) {
     throw Error('Wrong place data');
   }
 
-  console.log(`wybrane: ${mode}, ${level}, ${place}`);
-  console.log(typeof selectedMode[selectedLevel][selectedPlace][property]);
+  // console.log(`wybrane: ${mode}, ${level}, ${place}`);
+  // console.log(typeof selectedMode[selectedLevel][selectedPlace][property]);
   if (!selectedLevel || selectedMode[selectedLevel].length < selectedPlace) {
-    console.log('No ranking data in local storage!');
+    // console.log('No ranking data in local storage!');
   } else return selectedMode[selectedLevel][selectedPlace][property];
 }
 

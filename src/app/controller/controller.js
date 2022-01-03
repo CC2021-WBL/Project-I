@@ -80,8 +80,20 @@ class Controller {
   }
 
   showHofView = () => {
-    this.view.showHof(this.model.gameMode);
-    this.view.bindRulesButton(this.view.showViewsForChosenMode);
+    this.view.showHof(this.model.gameMode, this.model.difficultyLevel);
+    this.view.bindRulesButton(this.showRulesForChosenMode);
+    this.view.bindModeButtons(this.changeHofView);
+    this.view.bindButtonPlay(this.startGame);
+  };
+
+  changeHofView = () => {
+    this.showHofView();
+  };
+
+  showRulesForChosenMode = () => {
+    this.view.showViewsForChosenMode(this.model.gameMode);
+    this.view.bindHofButton(this.showHofView);
+    this.view.bindButtonPlay(this.startGame);
   };
 }
 export default Controller;
