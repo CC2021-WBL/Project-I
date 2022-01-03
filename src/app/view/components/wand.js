@@ -46,6 +46,3 @@ export default function displayWand(timeLeft, timeStart) {
 
   return fullWand;
 }
-
-// displayWand();
-// start.addEventListener('click', wand);

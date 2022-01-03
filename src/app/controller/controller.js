@@ -1,12 +1,10 @@
 import GameMaker from '../logic/gameMaker';
-import { DIFFICULTY_LEVELS } from '../data/consts';
-import { GAME_MODES } from '../data/consts';
+import { DIFFICULTY_LEVELS, GAME_MODES } from '../data/consts';
 
 class Controller {
   constructor(model, view) {
     this.model = model;
     this.view = view;
-    // INIT LOOK OF OUR APP
 
     this.view.renderModal();
     this.view.renderInitialScreen();
@@ -22,7 +20,6 @@ class Controller {
     const endGameData = this.model.gameMaker.getEndGameData();
     this.view.renderModal();
     // TODO: zdjąć klasę i ID chowające przyciski i tło po rozpoczęciu rozgrywki
-    // render modal
   };
 
   startGame = async () => {

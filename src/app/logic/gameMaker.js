@@ -6,8 +6,6 @@ import GameTimer from './timer.js';
 import { DIFFICULTY_LEVELS, DEFAULT_TIME } from '../data/consts.js';
 
 class GameMaker {
-  // ---------------------------------PRIVATE METHODS----------------------------------------------
-
   constructor(gameModesProperty, difficultyLevelsProperty) {
     this.mainQuestionManager = new MainQuestionManager(gameModesProperty);
     this.difficultyLevelsProperty = difficultyLevelsProperty;
