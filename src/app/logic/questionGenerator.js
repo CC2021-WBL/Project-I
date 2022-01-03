@@ -1,6 +1,4 @@
 class QuestionGenerator {
-  // argument argAmountOfId will be relaced by connection to CurrentMode and it's IDs'
-
   static generateRandomId(amountOfId) {
     const minId = 0;
     return Math.floor(Math.random() * (amountOfId - minId + 1) + minId);
@@ -14,8 +12,7 @@ class QuestionGenerator {
       amountOfId < amountOfAnswersPerQuestion ||
       typeof amountOfId !== `number`
     ) {
-      throw Error`Check amout of ID's and datatype. amountOfId must be greater or equal ${amountOfAnswersPerQuestion}. Passed value: ${amountOfId}
-            Type must be number. Passed type: ${typeof amountOfId}`;
+      throw Error`Check amout of ID's and datatype. amountOfId must be greater or equal ${amountOfAnswersPerQuestion}. Passed value: ${amountOfId}, Type must be number. Passed type: ${typeof amountOfId}`;
     }
 
     for (let index = 0; index < amountOfAnswersPerQuestion; index += 1) {
