@@ -57,9 +57,9 @@
     border-radius: $default-radius;
   }
 
-  &-settingsMain {
+  &-settingsBtn {
     width: 100%;
-    padding: 0 20px;
+    padding: 0 40px;
   }
   &--orange {
     margin: 0 0 0 10px;
@@ -102,6 +102,7 @@
     justify-content: space-between;
     text-transform: none;
     background-color: $white-color;
+    font-size: 24px;
     &.active {
       background-color: #ffd3bb;
       border-width: 0.1rem;

@@ -11,9 +11,7 @@ class DataManager {
     this.idOfRightAnswer = idOfRightAnswer;
     this.resourceAPIadress = resourceAPIadress;
     this.answerProperty = answerProperty;
-    // answerProperty should be 'name' for Students Mode or 'house' for Houses mode
     this.imgSubfolder = imgSubfolder;
-    // imgSubfolder should be 'students' for Students Mode or 'staff' for Staff Mode, or in future 'houses' for Houses Mode
     this.IDsArray = IDsArray;
     this.arraywithHPObjects = [];
     this.rightAnswer = '';
@@ -25,7 +23,6 @@ class DataManager {
     return this.arraywithHPObjects;
   }
 
-  // 1) CREATING ARRAY WITH ANSWERS = NAMES OF HARRY POTTER CHARACTERS
   getDataForIDs(arraywithHPObjects) {
     let arrayWithAnswers = [];
     if (this.answerProperty === 'house') {
@@ -49,7 +46,6 @@ class DataManager {
     });
   }
 
-  // 2) GETTING NAME OF CHARACTER AND URL FOR IMAGE FOR CORRECT ANSWER
   async getDataForCorrectAnswer() {
     const obj = this.arraywithHPObjects[this.idOfRightAnswer];
     if (this.answerProperty === 'house') {
@@ -67,7 +63,6 @@ class DataManager {
 
   async getDataByAPI() {
     try {
-      // Checking if data are download, if yes -->  creating creating array with answers, img and name for correct answer
       if (
         this.arraywithHPObjects !== null &&
         this.arraywithHPObjects !== undefined &&
@@ -75,11 +70,8 @@ class DataManager {
       ) {
         this.arraywithAnswersForQuestion = this.getDataForIDs(this.IDsArray);
 
-        // data for right answer:
         await this.getDataForCorrectAnswer();
-      }
-      // Getting data first time and creating array with answers, img and name for correct answer
-      else {
+      } else {
         const response = await fetch(this.resourceAPIadress);
         const jsonData = await response.json();
         this.arraywithHPObjects = jsonData;
@@ -87,7 +79,6 @@ class DataManager {
           this.arraywithHPObjects,
         );
 
-        // img for right answer:
         await this.getDataForCorrectAnswer();
       }
     } catch (error) {
