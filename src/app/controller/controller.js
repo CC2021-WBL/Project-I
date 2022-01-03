@@ -19,6 +19,7 @@ class Controller {
   doAtEnd = () => {
     const endGameData = this.model.gameMaker.getEndGameData();
     this.view.renderModal();
+    console.log(endGameData);
     // TODO: zdjąć klasę i ID chowające przyciski i tło po rozpoczęciu rozgrywki
   };
 
