@@ -40,12 +40,12 @@ function modalTable(gameData) {
   const tableBody = elementCreator('tbody', {}, ...table);
 
   // table headeer
-  const tableHeaders = ['Picture', 'You', 'Answer'];
+  const tableHeaders = ['Picture', 'Your answer', 'Answer'];
   const tableHeadersElements = tableHeaders.map((header) => {
     const tableHeader = elementCreator(
       'th',
       {
-        class: 'details__td',
+        class: 'details__th',
       },
       header,
     );

@@ -63,7 +63,6 @@
   }
 
   &-settingsBtn {
-    width: 350px;
     padding: 0 40px;
   }
   &--orange {
@@ -80,10 +79,9 @@
     }
   }
   &-modalBtn {
-    align-self: center;
+    width: 49%;
+    padding: 10px;
     font-size: 24px;
-    margin: 10px;
-    width: 70%;
     height: 70px;
     margin: 0 0 0 10px;
     color: $white-color;

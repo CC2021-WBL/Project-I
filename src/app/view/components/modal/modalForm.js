@@ -17,7 +17,7 @@ function modalForm() {
   const playerFormLabel = elementCreator(
     'label',
     {
-      class: 'modal__text',
+      class: 'modal__label',
       for: 'name',
     },
     'Please fill your name to bring glory to your house!',
