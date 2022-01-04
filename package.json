@@ -1,5 +1,6 @@
 {
-  "name": "@coderscamp2021/project-javascript-harrypottersquiz",
+  "name": "Project-I",
+  "homepage": "https://cc2021-wbl.github.io/Project-I/",
   "version": "1.0.0",
   "description": "",
   "source": "index.html",
@@ -8,8 +9,10 @@
   ],
   "scripts": {
     "start": "parcel",
-    "build": "parcel build",
-    "clean": "rimraf .cache && rimraf dist && rimraf node_modules"
+    "build": "parcel build index.html",
+    "clean": "rimraf .cache && rimraf dist && rimraf node_modules",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
