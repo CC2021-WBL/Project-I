@@ -1,16 +1,25 @@
-import obj from '../../../../tests/localStorage/przykladowyranking';
+import LocalStorageService from '../../logic/localStorage';
 
-// tablica zlozona z obiektow - definicja trybu gry //
-// pierwszy obiekt w tablicy: easy, drugi: medium, trzeci: hard //
-const arrStudents = [obj.students_easy, obj.students_medium, obj.students_hard];
-const arrHouses = [obj.houses_easy, obj.houses_medium, obj.houses_hard];
-const arrStaff = [obj.staff_easy, obj.staff_medium, obj.staff_hard];
+// const _ranking = app.model.localStorageService.loadRankings();
+const hofData = LocalStorageService.loadRankings();
+
+const arrStudents = [
+  hofData.students_easy,
+  hofData.students_medium,
+  hofData.students_hard,
+];
+const arrHouses = [
+  hofData.houses_easy,
+  hofData.houses_medium,
+  hofData.houses_hard,
+];
+const arrStaff = [hofData.staff_easy, hofData.staff_medium, hofData.staff_hard];
 
 function getHofData(mode, level, place, property) {
   const _mode = mode.toLowerCase();
   const _level = level.toLowerCase();
-
   let selectedLevel;
+
   if (_level === 'easy') {
     selectedLevel = 0;
   } else if (_level === 'medium') {
@@ -43,10 +52,8 @@ function getHofData(mode, level, place, property) {
     throw Error('Wrong place data');
   }
 
-  // console.log(`wybrane: ${mode}, ${level}, ${place}`);
-  // console.log(typeof selectedMode[selectedLevel][selectedPlace][property]);
   if (!selectedLevel || selectedMode[selectedLevel].length < selectedPlace) {
-    // console.log('No ranking data in local storage!');
+    // optional console.log('No ranking data in local storage!');
   } else return selectedMode[selectedLevel][selectedPlace][property];
 }
 
