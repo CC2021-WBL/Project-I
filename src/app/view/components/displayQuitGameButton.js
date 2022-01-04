@@ -5,10 +5,18 @@ export default function displayQuitGameButton() {
     class: 'far fa-times-circle',
   });
 
+  const quitElemText = elementCreator(
+    'p',
+    {
+      class: '.quit-game-text',
+    },
+    'Quit Game',
+  );
+
   const quitGameButton = elementCreator(
     'div',
     { class: 'quit-game' },
-    'Quit Game',
+    quitElemText,
     quitElem,
   );
 

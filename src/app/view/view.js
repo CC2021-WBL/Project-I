@@ -56,6 +56,9 @@ class View {
       doBtnHallOfFame(`Hall of fame`),
       buttonPlay('Play the game'),
     );
+    const settingsButton = displayButtonSettings('settings');
+    settingsButton.addEventListener('click', this.toggleSettingsView);
+    this.render('.game-image__btns', settingsButton);
   };
 
   showRulesButtons() {
@@ -74,10 +77,6 @@ class View {
       ...doHallOfFameContent(gameMode, difficultyLevel),
     );
     this.showRulesButtons();
-
-    const settingsButton = displayButtonSettings('settings');
-    settingsButton.addEventListener('click', this.toggleSettingsView);
-    this.render('.game-image__btns', settingsButton);
   };
 
   showSettings() {
@@ -101,7 +100,7 @@ class View {
 
   renderTimer(timeInSeconds, initialTime) {
     this.render('.game-timer', ...displayWand(timeInSeconds, initialTime));
-    this.render('.game-timer__text', displayTimerText(timeInSeconds));
+    this.render('.game-timer__text-wrapper', displayTimerText(timeInSeconds));
   }
 
   renderModal() {
@@ -164,6 +163,16 @@ class View {
     custCursor.classList.add('custom-cursor');
   }
 
+  changeGridSizes() {
+    const changedGrid = document.querySelector('.game-wrapper');
+    changedGrid.style.gridTemplateRows = '1fr 2fr 1fr';
+  }
+
+  changeNavStyles() {
+    const changedNav = document.querySelector('.header__game-nav');
+    changedNav.style.justifyContent = 'flex-end';
+  }
+
   renderAfterQuitGame() {
     this.render('.header__game-nav', ...modeButtons);
     const timerWand = document.querySelector('.game-timer__wand-wrapper');
@@ -174,6 +183,10 @@ class View {
     normalCursor.classList.remove('custom-cursor');
     const normalHeaderCursor = document.querySelector('.header');
     normalHeaderCursor.classList.remove('custom-cursor');
+    const rmvStyle = document.querySelector('.header__game-nav');
+    rmvStyle.removeAttribute('style');
+    const removeStyle = document.querySelector('.game-wrapper');
+    removeStyle.removeAttribute('style');
   }
 
   // -------------- BINDINGS ------------------------------------
