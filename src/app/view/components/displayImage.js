@@ -17,7 +17,7 @@ const updateImage = (imageSource) => {
 
 function displayImage(imageSource, altDescription) {
   const image = elementCreator('img', {
-    class: 'game-image__content-image',
+    class: 'game-image__content-image modal-img-node',
     alt: `${altDescription}`,
   });
   imageNode.ref = image;

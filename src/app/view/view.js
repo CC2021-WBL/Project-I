@@ -106,9 +106,14 @@ class View {
     this.render('.game-timer__text-wrapper', displayTimerText(timeInSeconds));
   }
 
-  renderModal() {
-    this.render('.modal', ModalWindow());
+  renderModal(gameData) {
+    console.log('wchodzisz?');
+    this.render('.modal', ModalWindow(gameData));
+    const modal = document.querySelector('.modal');
+    modal.classList.remove('modal__hidden');
   }
+
+  // showModal() {}
 
   renderImage() {
     this.render('.game-image__content', displayImage());
@@ -261,6 +266,17 @@ class View {
         handler(index);
       }),
     );
+  }
+
+  bindModalButton(handler) {
+    const modalButton = document.querySelector('.game__button-modalBtn');
+    const modal = document.querySelector('.modal');
+
+    modalButton.addEventListener('click', () => {
+      handler(document.getElementById('playerName').value);
+      modal.classList.add('modal__hidden');
+      this.renderInitialScreen();
+    });
   }
 }
 

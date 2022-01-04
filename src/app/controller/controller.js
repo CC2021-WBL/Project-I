@@ -5,8 +5,9 @@ class Controller {
   constructor(model, view) {
     this.model = model;
     this.view = view;
+    this.endGameData = {};
 
-    this.view.renderModal();
+    // this.view.renderModal();
     this.view.renderInitialScreen();
     this.view.bindModeButtons(this.changeGameMode);
     // TODO: przeniesienie bindowania Settings do controllera this.view.bindSettingsButton(this.view.toggleSettingsView);
@@ -17,9 +18,16 @@ class Controller {
   };
 
   doAtEnd = () => {
-    const endGameData = this.model.gameMaker.getEndGameData();
-    this.view.renderModal();
-    // TODO: zdjąć klasę i ID chowające przyciski i tło po rozpoczęciu rozgrywki
+    this.endGameData = this.model.gameMaker.getEndGameData();
+    this.view.renderModal(this.endGameData);
+    this.view.bindModalButton(this.saveName);
+    this.view.appearBackgroundAndButtons();
+    this.view.renderAfterQuitGame();
+  };
+
+  saveName = (name) => {
+    this.model.name = name;
+    this.saveResult();
   };
 
   startGame = async () => {
@@ -79,6 +87,21 @@ class Controller {
 
   showSettingsScreen() {
     this.view.showSettings();
+  }
+
+  updateViewsForHallOfFameAtChosenMode(mode) {
+    this.view.updateViewsForHallOfFameAtChosenMode(mode);
+  }
+
+  saveResult() {
+    const { rankings, name, gameMode, difficultyLevel } = this.model;
+    const result = this.endGameData.correctAnswerScore;
+    const mode = `${gameMode}_${difficultyLevel}`;
+
+    rankings[mode].push({ name, result });
+    rankings[mode].sort((a, b) => (a.result < b.result ? 1 : -1));
+    if (rankings[mode].length > 3) rankings[mode].pop();
+    this.model.localStorageService.saveRankings(rankings);
   }
 
   showHofView = () => {
