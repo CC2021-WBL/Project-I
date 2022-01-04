@@ -37,6 +37,8 @@ class Controller {
     this.view.renderQuitGame();
     this.view.bindQuitGameButton(this.doAfterQuitGame);
     this.view.changeCursorToCustom();
+    this.view.changeGridSizes();
+    this.view.changeNavStyles();
   };
 
   doAfterQuitGame = () => {
