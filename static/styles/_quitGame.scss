@@ -1,9 +1,10 @@
 @import '_vars';
 
 .quit-game {
-  position: fixed;
-  top: 70px;
-  right: 245px;
+  // position: fixed;
+  justify-content: flex-end;
+  // top: 70px;
+  // right: 245px;
   color: $white-opacity;
   font-size: 35px;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -11,6 +12,9 @@
 
   &:hover {
     color: $lite-orange;
+  }
+
+  &-text {
   }
 
   .fa-times-circle {
