@@ -82,11 +82,14 @@ class View {
   showSettings() {
     this.render('.game__mode', 'Choose level');
     this.render('.game__mode-rules', ...levelButtons);
+    const settingsButton = displayButtonSettings('Save&back');
+    settingsButton.addEventListener('click', this.toggleSettingsView);
+    this.render('.game-image__btns', settingsButton);
     this.bindDifficultyLevelButton(window.app.changeDifficultyLevel);
   }
 
   hideSettings() {
-    this.renderInitialScreen();
+    this.showViewsForChosenMode();
   }
 
   toggleSettingsView = () => {
