@@ -35,6 +35,8 @@ But it's not as easy as you think. We have 3 difficulty levels:
 
 Good Luck! :)
 
+![image](https://user-images.githubusercontent.com/56206231/148139078-8ccd6a97-2e73-4074-ba44-821755e5268b.png)
+
 ### Links
 
 - Live Site URL: [Here will be link to our live version](https://your-live-site-url.com)
