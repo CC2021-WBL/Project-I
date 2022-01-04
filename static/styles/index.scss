@@ -5,8 +5,8 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: 'Bitter', serif;
+  box-sizing: border-box;
   font-size: $primary-font-size;
 }
 
@@ -70,7 +70,7 @@ body {
       &__content {
         &-image {
           width: 350px;
-          height: 448px;
+          height: 449px;
           object-position: top;
           object-fit: cover;
           border: 12px solid rgba(173, 25, 132, 0.26);
@@ -79,11 +79,12 @@ body {
         }
       }
     }
-
     &__mode {
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-shrink: 0;
+      margin: 0 0 12px 0;
       width: 100%;
       height: $button-height;
       color: black;
@@ -96,7 +97,7 @@ body {
       &-rules {
         font-size: 1.5rem;
         width: 100%;
-        height: 50%;
+        height: 100%;
         background-color: #fff;
         border-radius: $default-radius;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -190,4 +191,11 @@ body {
   .custom-cursor {
     cursor: url('../assets/img/cursor_wand.png') 2 2, pointer;
   }
+  // .modal-img-node {
+  //   border: none;
+  //   height: 100%;
+  //   width: auto;
+  //   border-radius: 10px;
+  //   filter: none;
+  // }
 }

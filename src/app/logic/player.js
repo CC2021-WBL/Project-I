@@ -10,6 +10,7 @@ export class Player {
   }
 
   checkAndRegisterAnswer(
+    imageBase64,
     playerAnswer,
     correctAnswer,
     difficultyLevelsProperty,
@@ -27,13 +28,19 @@ export class Player {
         isAnswerCorrect,
         difficultyLevelsProperty,
       );
-      this.registerAnswer(correctAnswer, playerAnswer, isAnswerCorrect);
+      this.registerAnswer(
+        imageBase64,
+        correctAnswer,
+        playerAnswer,
+        isAnswerCorrect,
+      );
     }
     return isAnswerCorrect;
   }
 
-  registerAnswer(correctAnswer, playerAnswer, isAnswerCorrect) {
+  registerAnswer(imageBase64, correctAnswer, playerAnswer, isAnswerCorrect) {
     this.detailQuestionData.push({
+      imageBase64,
       playerAnswer,
       isAnswerCorrect,
       answer: correctAnswer,

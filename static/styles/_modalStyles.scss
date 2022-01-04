@@ -23,6 +23,9 @@
     flex-direction: column;
     background: $white-color;
     text-align: center;
+    border: 12px solid rgba(173, 25, 132, 0.26);
+    filter: drop-shadow(13px 17px 11px rgba(0, 0, 0, 0.5));
+    border-radius: 16px;
   }
   &__text {
     font-size: 0.5rem;
@@ -34,6 +37,10 @@
     font-size: 1rem;
     text-align: center;
     margin: 0.1rem;
+  }
+  &__builder {
+    display: flex;
+    margin-top: 20px;
   }
   &__button {
     background-color: $orange;
@@ -51,36 +58,76 @@
   &__form {
     margin: 0.1rem;
     display: flex;
-    justify-content: center;
     flex-direction: column;
   }
   &__input {
-    height: 64px;
-    width: 340px;
+    height: 70px;
+    width: 49%;
     padding-left: 24px;
     border: 4px solid #c4c4c4;
     border-radius: 8px;
     font-size: 0.5rem;
   }
+  &__label {
+    font-size: 16px;
+    margin-top: 20px;
+  }
 }
 
 .details {
-  position: relative;
+  // position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
+  font-size: 12px;
 
   &__heading {
     margin: 0 0 4px 50px;
   }
   &__table {
-    height: 40%;
+    min-height: 200px;
+    max-height: 350px;
     display: flex;
     justify-content: space-around;
     padding: 0.5rem;
     border-bottom: 2px solid rgb(98, 98, 98);
+    // justify-content: space-around;
+    flex-direction: column;
+    overflow: auto;
+    margin-top: 10px;
+  }
+  &__thead {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  tbody {
+    overflow-y: scroll;
+  }
+  &__tbody {
+    display: flex;
+    max-height: 300px;
+    justify-content: center;
   }
   &__text {
     font-size: 0.5rem;
+  }
+  &__tr {
+    margin: 4px;
+  }
+  &__td {
+    img {
+      border: none !important;
+      height: 60px !important;
+      width: auto !important;
+      border-radius: 10px !important;
+      filter: none !important;
+    }
+    max-width: 30%;
+    // max-height: 60px;
+    font-size: 16px;
+  }
+  &__th {
+    width: 30%;
+    font-size: 16px;
   }
 }
