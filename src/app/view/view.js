@@ -196,6 +196,7 @@ class View {
     gameButtonsOn.removeAttribute('style');
     const setButtonsOn = document.querySelector('.game-image__btns');
     setButtonsOn.removeAttribute('style');
+    this.render('.game-image__content', createImage());
   }
 
   // -------------- BINDINGS ------------------------------------
