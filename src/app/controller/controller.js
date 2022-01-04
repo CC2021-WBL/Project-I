@@ -41,7 +41,7 @@ class Controller {
 
   doAfterQuitGame = () => {
     this.model.gameMaker.clearCurrentGameData();
-    this.changeGameMode(GAME_MODES[this.model.gameMode].gamemode);
+    this.changeGameMode(GAME_MODES[this.model.gameMode].gamemode.toLowerCase());
     this.view.appearBackgroundAndButtons();
     this.view.renderAfterQuitGame();
   };
@@ -62,8 +62,10 @@ class Controller {
   }
 
   changeGameMode = (mode) => {
+    const level = this.model.difficultyLevel;
     this.model.gameMode = mode.toLowerCase();
-    this.view.showViewsForChosenMode(mode);
+    this.view.showViewsForChosenMode(mode, level);
+    this.view.bindHofButton(this.showHofView);
     this.view.bindButtonPlay(this.startGame);
   };
 
@@ -77,8 +79,22 @@ class Controller {
     this.view.showSettings();
   }
 
-  updateViewsForHallOfFameAtChosenMode(mode) {
-    this.view.updateViewsForHallOfFameAtChosenMode(mode);
-  }
+  showHofView = () => {
+    this.view.showHof(this.model.gameMode, this.model.difficultyLevel);
+    this.view.bindRulesButton(this.showRulesForChosenMode);
+    this.view.bindModeButtons(this.changeHofView);
+    this.view.bindButtonPlay(this.startGame);
+  };
+
+  changeHofView = () => {
+    this.showHofView();
+  };
+
+  showRulesForChosenMode = () => {
+    this.view.showViewsForChosenMode(this.model.gameMode);
+    this.view.bindModeButtons(this.changeGameMode);
+    this.view.bindHofButton(this.showHofView);
+    this.view.bindButtonPlay(this.startGame);
+  };
 }
 export default Controller;

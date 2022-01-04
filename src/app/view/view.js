@@ -11,6 +11,7 @@ import createImage from './components/createImage';
 import doBtnHallOfFame from './components/doBtnHallOfFame';
 import doHallOfFameContent from './components/doHallOfFameContent';
 import displayTimerText from './components/displayTimerText';
+import doButtonRules from './components/buttonRules';
 import levelButtons from './components/settingsLevel';
 import answersButtons from './components/answersButtons';
 import clearActive from '../utils/clearActive';
@@ -22,6 +23,7 @@ import displayButtonSettings from './components/displaySettingsBtn';
 class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
   constructor() {
+    this.hofIsOn = false;
     this.settings = false;
   }
 
@@ -46,24 +48,37 @@ class View {
     this.render('.game-image__content', createImage());
   }
 
-  showViewsForChosenMode(mode) {
+  showViewsForChosenMode = (mode) => {
     this.render('.game__mode', questionForMode(mode));
     this.render('.game__mode-rules', ...modeRules(mode));
     this.render(
       '.game__btns',
-      doBtnHallOfFame(`Hall of fame`, mode),
+      doBtnHallOfFame(`Hall of fame`),
       buttonPlay('Play the game'),
     );
+  };
+
+  showRulesButtons() {
+    this.render(
+      '.game__btns',
+      doButtonRules('rules'),
+      buttonPlay('Play the game'),
+    );
+  }
+
+  // Hof - Hall of Fame
+  showHof = (gameMode, difficultyLevel) => {
+    this.render('.game__mode', 'HALL OF FAME');
+    this.render(
+      '.game__mode-rules',
+      ...doHallOfFameContent(gameMode, difficultyLevel),
+    );
+    this.showRulesButtons();
+
     const settingsButton = displayButtonSettings('settings');
     settingsButton.addEventListener('click', this.toggleSettingsView);
     this.render('.game-image__btns', settingsButton);
-  }
-
-  // przygotowane pod dzialanie przycisku Hall Of Fame
-  updateViewsForHallOfFameAtChosenMode(mode) {
-    this.render('.game__mode-rules', doHallOfFameContent);
-    this.render('.game__btns', doBtnHallOfFame(`Back`, mode));
-  }
+  };
 
   showSettings() {
     this.render('.game__mode', 'Choose level');
@@ -148,6 +163,8 @@ class View {
   changeCursorToCustom() {
     const customCursor = document.querySelector('.game');
     customCursor.classList.add('custom-cursor');
+    const custCursor = document.querySelector('.header');
+    custCursor.classList.add('custom-cursor');
   }
 
   renderAfterQuitGame() {
@@ -158,6 +175,8 @@ class View {
     timerText.remove(timerText);
     const normalCursor = document.querySelector('.game');
     normalCursor.classList.remove('custom-cursor');
+    const normalHeaderCursor = document.querySelector('.header');
+    normalHeaderCursor.classList.remove('custom-cursor');
   }
 
   // -------------- BINDINGS ------------------------------------
@@ -174,7 +193,7 @@ class View {
       button.addEventListener('click', () => {
         clearActive(modeButtons);
         button.classList.add('active');
-        handler(button.textContent);
+        handler(button.textContent.toLowerCase());
       }),
     );
   }
@@ -191,8 +210,22 @@ class View {
   }
 
   bindQuitGameButton(handler) {
-    const quitButtonEvent = document.querySelector('.fa-times-circle');
+    const quitButtonEvent = document.querySelector('.quit-game');
     quitButtonEvent.addEventListener('click', () => {
+      handler();
+    });
+  }
+
+  bindHofButton(handler) {
+    const hofButton = document.querySelector('.game__button-hof');
+    hofButton.addEventListener('click', () => {
+      handler();
+    });
+  }
+
+  bindRulesButton(handler) {
+    const rulesButton = document.querySelector('.game__button-rules');
+    rulesButton.addEventListener('click', () => {
       handler();
     });
   }

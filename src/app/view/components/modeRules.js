@@ -5,9 +5,9 @@ const rulesTextBoiler =
 
 const modeRules = (mode) => {
   const rulesTextPart = {
-    Students: "the name of Hogwart's student",
-    Staff: "the name of Hogwart's staff member",
-    Houses: "a Hogwart's house of the character",
+    students: "the name of Hogwart's student",
+    staff: "the name of Hogwart's staff member",
+    houses: "a Hogwart's house of the character",
   };
 
   const rulesIcon = elementCreator('span', {

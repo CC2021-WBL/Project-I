@@ -1,7 +1,6 @@
 @import '_vars';
 
 .quit-game {
-  cursor: pointer;
   position: fixed;
   top: 70px;
   right: 140px;
@@ -19,6 +18,5 @@
     top: -11px;
     padding: 0 0 0 20px;
     font-size: 60px;
-    cursor: pointer;
   }
 }

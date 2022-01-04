@@ -1,46 +1,20 @@
 import elementCreator from '../../utils/elementCreator';
-import HallOfFameBtn from '../../../../static/assets/img/HallOfFameBtn.svg';
 
-function doBtnHallOfFame(text, mode) {
-  // eslint-disable-next-line prettier/prettier
-  const imageCup = elementCreator('img', {
-    src: HallOfFameBtn,
-    class: 'halloffame-icon',
-    alt: 'Victory Cup',
+function doBtnHallOfFame(text) {
+  const imageCup = elementCreator('span', {
+    class: 'game__button-icon fas fa-trophy',
   });
 
-  let buttonCreator;
+  const hofButton = elementCreator(
+    'button',
+    {
+      class: 'game__button game__button-hof',
+    },
+    imageCup,
+    text,
+  );
 
-  if (typeof mode === 'undefined') {
-    buttonCreator = elementCreator(
-      'button',
-      {
-        class: 'game__button game__button--disabled',
-        disabled: 'disabled',
-      },
-      imageCup,
-      text,
-    );
-  } else {
-    buttonCreator = elementCreator(
-      'button',
-      {
-        class: 'game__button',
-      },
-      imageCup,
-      text,
-    );
-  }
-
-  return buttonCreator;
+  return hofButton;
 }
-// dzialanie przycisku - eventlistener
-// doBtnHallOfFame.map((button) =>
-//   doBtnHallOfFame.addEventListener('click', () => {
-//     clearActive(modeButtons);
-//     doBtnHallOfFame.classList.add('active');
-//     window.app.changeGameMode(button.textContent);
-//   }),
-// );
 
 export default doBtnHallOfFame;
