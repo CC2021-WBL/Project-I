@@ -21,6 +21,8 @@ class Controller {
     this.endGameData = this.model.gameMaker.getEndGameData();
     this.view.renderModal(this.endGameData);
     this.view.bindModalButton(this.saveName);
+    this.view.appearBackgroundAndButtons();
+    this.view.renderAfterQuitGame();
   };
 
   saveName = (name) => {

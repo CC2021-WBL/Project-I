@@ -34,7 +34,6 @@ function modalTable(gameData) {
     return answersRows;
   }
 
-  // answersRows should be iterable
   const table = getAnswersRows(gameData);
 
   const tableBody = elementCreator('tbody', {}, ...table);

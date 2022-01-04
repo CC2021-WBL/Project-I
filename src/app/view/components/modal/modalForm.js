@@ -28,13 +28,18 @@ function modalForm() {
     { class: 'game__button game__button-modalBtn' },
     'Save result and return to lobby!',
   );
+  const modalFormBuilder = elementCreator(
+    'div',
+    { class: 'modal__builder' },
+    modalInput,
+    modalButton,
+  );
 
   const modalFormConstructor = elementCreator(
     'div',
     { class: 'modal__form' },
     playerFormLabel,
-    modalInput,
-    modalButton,
+    modalFormBuilder,
   );
 
   return modalFormConstructor;
