@@ -37,13 +37,15 @@ class Controller {
     this.view.renderQuitGame();
     this.view.bindQuitGameButton(this.doAfterQuitGame);
     this.view.changeCursorToCustom();
+    this.view.changeGridSizes();
+    this.view.changeNavStyles();
   };
 
   doAfterQuitGame = () => {
     this.model.gameMaker.clearCurrentGameData();
     this.changeGameMode(GAME_MODES[this.model.gameMode].gamemode.toLowerCase());
     this.view.appearBackgroundAndButtons();
-    this.view.renderAfterQuitGame();
+    this.view.renderAfterQuitGame(this.model.difficultyLevel);
   };
 
   async showQuestion() {
