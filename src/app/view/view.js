@@ -59,6 +59,7 @@ class View {
     const settingsButton = displayButtonSettings('settings');
     settingsButton.addEventListener('click', this.toggleSettingsView);
     this.render('.game-image__btns', settingsButton);
+    this.settings = false;
   };
 
   showRulesButtons() {
