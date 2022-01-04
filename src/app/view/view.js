@@ -96,10 +96,11 @@ class View {
   toggleSettingsView = () => {
     if (!this.settings) {
       this.showSettings();
+      this.settings = true;
     } else {
       this.hideSettings();
+      this.settings = false;
     }
-    this.settings = !this.settings;
   };
 
   renderTimer(timeInSeconds, initialTime) {
