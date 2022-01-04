@@ -70,9 +70,15 @@ class Controller {
     if (this.view.toggleRulesHof === 'hall of fame') {
       this.view.showViewsForChosenMode(mode, level);
       this.bindInitialHofAndPlay();
+      this.bindSettingsButton();
     } else {
       this.showHofView();
+      this.bindSettingsButton();
     }
+  };
+
+  bindSettingsButton = () => {
+    this.view.bindSettingsButton(this.toggleSettings);
   };
 
   toggleRulesHof = () => {
@@ -82,6 +88,16 @@ class Controller {
     } else if (this.view.toggleRulesHof === 'rules') {
       this.showRulesForChosenMode();
       this.view.toggleRulesHof = 'hall of fame';
+    }
+  };
+
+  toggleSettings = () => {
+    if (this.view.toggleSettings === 'settings') {
+      this.showSettingsScreen();
+      this.view.toggleSettings = 'save & back';
+    } else if (this.view.toggleSettings === 'save & back') {
+      this.hideSettingsScreen();
+      this.view.toggleSettings = 'settings';
     }
   };
 
@@ -103,6 +119,11 @@ class Controller {
 
   showSettingsScreen() {
     this.view.showSettings();
+    this.bindSettingsButton(this.toggleSettings);
+  }
+
+  hideSettingsScreen() {
+    this.view.hideSettingsScreen();
   }
 
   showHofView = () => {

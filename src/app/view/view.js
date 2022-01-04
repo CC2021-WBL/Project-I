@@ -24,6 +24,7 @@ class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
   constructor() {
     this.toggleRulesHof = 'hall of fame';
+    this.toggleSettings = 'settings';
     this.settings = false;
   }
 
@@ -56,9 +57,7 @@ class View {
       doBtnHallOfFame(`Hall of fame`),
       buttonPlay('Play the game'),
     );
-    const settingsButton = displayButtonSettings('settings');
-    settingsButton.addEventListener('click', this.toggleSettingsView);
-    this.render('.game-image__btns', settingsButton);
+    this.render('.game-image__btns', displayButtonSettings('settings'));
   };
 
   showRulesButtons() {
@@ -82,9 +81,8 @@ class View {
   showSettings() {
     this.render('.game__mode', 'Choose level');
     this.render('.game__mode-rules', ...levelButtons);
-    const settingsButton = displayButtonSettings('Save&back');
-    settingsButton.addEventListener('click', this.toggleSettingsView);
-    this.render('.game-image__btns', settingsButton);
+    // settingsButton.addEventListener('click', this.toggleSettingsView);
+    this.render('.game-image__btns', displayButtonSettings('Save&back'));
     this.bindDifficultyLevelButton(window.app.changeDifficultyLevel);
   }
 
@@ -92,14 +90,14 @@ class View {
     this.showViewsForChosenMode();
   }
 
-  toggleSettingsView = () => {
-    if (!this.settings) {
-      this.showSettings();
-    } else {
-      this.hideSettings();
-    }
-    this.settings = !this.settings;
-  };
+  // toggleSettingsView = () => {
+  //   if (!this.settings) {
+  //     this.showSettings();
+  //   } else {
+  //     this.hideSettings();
+  //   }
+  //   this.settings = !this.settings;
+  // };
 
   renderTimer(timeInSeconds, initialTime) {
     this.render('.game-timer', ...displayWand(timeInSeconds, initialTime));
@@ -248,6 +246,15 @@ class View {
   bindRulesButton(handler) {
     const rulesButton = document.querySelector('.game__button-rules');
     rulesButton.addEventListener('click', () => {
+      handler();
+    });
+  }
+
+  bindSettingsButton(handler) {
+    console.log('jajko');
+    const settingsButton = document.querySelector('.game__button-settingsBtn');
+    console.log(settingsButton);
+    settingsButton.addEventListener('click', () => {
       handler();
     });
   }
