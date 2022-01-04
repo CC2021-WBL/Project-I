@@ -4,7 +4,7 @@ import displayImage from './components/displayImage';
 import modeButtons from './components/mainMenu';
 import createLogo from './components/createLogo';
 import ModalWindow from './components/modal/modalWindow';
-import { INITIAL_GAME_MODE_TEXT } from '../data/consts';
+import { DIFFICULTY_LEVELS, INITIAL_GAME_MODE_TEXT } from '../data/consts';
 import modeRules from './components/modeRules';
 import buttonPlay from './components/buttonPlay';
 import createImage from './components/createImage';
@@ -147,9 +147,11 @@ class View {
 
   disappearButtonsAndBackground() {
     const playAndHofButtons = document.querySelector('.game__btns');
-    playAndHofButtons.classList.add('hidden-elements');
+    // playAndHofButtons.classList.add('hidden-elements');
+    playAndHofButtons.style.display = 'none';
     const settingsButton = document.querySelector('.game-image__btns');
-    settingsButton.classList.add('hidden-elements');
+    // settingsButton.classList.add('hidden-elements');
+    settingsButton.style.display = 'none';
     const gameModeContainer = document.querySelector('.game__mode-rules');
     gameModeContainer.id = 'question-mode';
   }
@@ -181,12 +183,14 @@ class View {
     changedNav.style.justifyContent = 'flex-end';
   }
 
-  renderAfterQuitGame() {
+  renderAfterQuitGame(level) {
+    if (level !== DIFFICULTY_LEVELS.easy.level) {
+      const timerWand = document.querySelector('.game-timer__wand-wrapper');
+      timerWand.remove(timerWand);
+      const timerText = document.querySelector('.game-timer__text');
+      timerText.remove(timerText);
+    }
     this.render('.header__game-nav', ...modeButtons);
-    const timerWand = document.querySelector('.game-timer__wand-wrapper');
-    timerWand.remove(timerWand);
-    const timerText = document.querySelector('.game-timer__text');
-    timerText.remove(timerText);
     const normalCursor = document.querySelector('.game');
     normalCursor.classList.remove('custom-cursor');
     const normalHeaderCursor = document.querySelector('.header');
@@ -195,6 +199,11 @@ class View {
     rmvStyle.removeAttribute('style');
     const removeStyle = document.querySelector('.game-wrapper');
     removeStyle.removeAttribute('style');
+    const gameButtonsOn = document.querySelector('.game__btns');
+    gameButtonsOn.removeAttribute('style');
+    const setButtonsOn = document.querySelector('.game-image__btns');
+    setButtonsOn.removeAttribute('style');
+    this.render('.game-image__content', createImage());
   }
 
   // -------------- BINDINGS ------------------------------------
