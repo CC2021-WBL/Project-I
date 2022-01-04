@@ -92,6 +92,7 @@ class Controller {
 
   showRulesForChosenMode = () => {
     this.view.showViewsForChosenMode(this.model.gameMode);
+    this.view.bindModeButtons(this.changeGameMode);
     this.view.bindHofButton(this.showHofView);
     this.view.bindButtonPlay(this.startGame);
   };
