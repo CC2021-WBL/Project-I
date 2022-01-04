@@ -24,7 +24,7 @@ function modalTable(gameData) {
       );
       const newRow = elementCreator(
         'tr',
-        { class: 'details__tbody' },
+        { class: 'details__tr' },
         imageCell,
         playerAnswer,
         correctAnswer,
