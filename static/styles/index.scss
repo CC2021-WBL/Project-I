@@ -1,5 +1,6 @@
 @import '_mainMenu.scss', '_vars.scss', '_wand.scss', '_modalStyles',
-  '_timerText.scss', '_defaultButton', '_screenModifiers', '_quitGame.scss';
+  '_timerText.scss', '_defaultButton', '_screenModifiers', '_quitGame.scss',
+  '_hallOfFameContent.scss';
 
 * {
   margin: 0;
@@ -130,16 +131,14 @@
           }
         }
 
-        .rules-icon {
-          font-size: 1.2em;
-        }
-
         &-header {
           position: relative;
-          left: 42%;
+          left: 50%;
+          transform: translateX(-50%);
           padding: 20px 0 8px;
           font-size: 0.6em;
           font-weight: 500;
+          text-transform: capitalize;
 
           .rules-icon {
             position: absolute;
@@ -166,17 +165,17 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
+
+      .game__button-icon {
+        position: absolute;
+        left: 50px;
+      }
     }
   }
 
   .footer {
     grid-column: 1/3;
     grid-row: 3/4;
-  }
-
-  .halloffame-icon {
-    position: absolute;
-    left: 50px;
   }
 
   .custom-cursor {
