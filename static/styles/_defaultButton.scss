@@ -12,6 +12,11 @@
   border-radius: $default-radius;
   text-transform: uppercase;
 
+  &-icon {
+    position: absolute;
+    left: 50px;
+  }
+
   &::before {
     content: '';
     background: linear-gradient(
@@ -116,17 +121,9 @@
   }
 
   &--disabled {
-    width: clamp(100px, 50%, 500px);
-    border: none;
-    outline: none;
-    background: #111111;
-    pointer-events: none;
-    position: relative;
-    z-index: 0;
-    border-radius: 10px;
-    margin: 0 0.5rem;
-    opacity: 0.5;
-  }
+  pointer-events: none;
+  opacity: .5;
+}
 }
 
 @keyframes glowing {
