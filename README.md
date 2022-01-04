@@ -65,7 +65,7 @@ Ours ideas for future:
  - [Monika Krella](https://github.com/MonikaKrella)
  - [Tomasz Skrętkowski](https://github.com/n0macx) as Product Owner and later Development Managaer
  - [Adam Smycz](https://github.com/Smyku6) as Teach Leader
- - [Rovert Soldynski](https://github.com/RobertS-ki) 
+ - [Robert Soldynski](https://github.com/RobertS-ki) 
 
 ## Acknowledgments
 
