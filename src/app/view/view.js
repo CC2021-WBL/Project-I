@@ -142,9 +142,11 @@ class View {
 
   disappearButtonsAndBackground() {
     const playAndHofButtons = document.querySelector('.game__btns');
-    playAndHofButtons.classList.add('hidden-elements');
+    // playAndHofButtons.classList.add('hidden-elements');
+    playAndHofButtons.style.display = 'none';
     const settingsButton = document.querySelector('.game-image__btns');
-    settingsButton.classList.add('hidden-elements');
+    // settingsButton.classList.add('hidden-elements');
+    settingsButton.style.display = 'none';
     const gameModeContainer = document.querySelector('.game__mode-rules');
     gameModeContainer.id = 'question-mode';
   }
@@ -190,6 +192,10 @@ class View {
     rmvStyle.removeAttribute('style');
     const removeStyle = document.querySelector('.game-wrapper');
     removeStyle.removeAttribute('style');
+    const gameButtonsOn = document.querySelector('.game__btns');
+    gameButtonsOn.removeAttribute('style');
+    const setButtonsOn = document.querySelector('.game-image__btns');
+    setButtonsOn.removeAttribute('style');
   }
 
   // -------------- BINDINGS ------------------------------------
