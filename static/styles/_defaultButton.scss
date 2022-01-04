@@ -12,10 +12,10 @@
   text-transform: uppercase;
   flex: 1;
 
-  &-icon {
-    position: absolute;
-    left: 50px;
-  }
+  // &-icon {
+  // position: absolute;
+  // left: 50px;
+  // }
 
   &::before {
     content: '';
@@ -99,9 +99,10 @@
       }
     }
   }
-  &--disabled {
-    pointer-events: none;
-    opacity: 0.5;
+  &--hof {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
 }
 

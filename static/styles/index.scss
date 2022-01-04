@@ -147,7 +147,8 @@ body {
 
           .rules-icon {
             position: absolute;
-            left: -100px;
+            // left: -100px;
+            left: -70px;
             font-size: 1.2em;
             margin-right: 50px;
           }
@@ -172,10 +173,12 @@ body {
       align-items: flex-end;
       gap: 24px;
 
-      .game__button-icon {
-        position: absolute;
-        left: 50px;
-      }
+      // .game__button-icon {
+      //   position: absolute;
+      //   // left: 50px;
+      //   left: 50px;
+
+      // }
     }
   }
 

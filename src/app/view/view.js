@@ -227,7 +227,7 @@ class View {
   }
 
   bindHofButton(handler) {
-    const hofButton = document.querySelector('.game__button-hof');
+    const hofButton = document.querySelector('.game__button--hof');
     hofButton.addEventListener('click', () => {
       handler();
     });
