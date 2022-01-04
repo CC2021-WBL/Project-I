@@ -8,7 +8,8 @@ class Controller {
 
     this.view.renderModal();
     this.view.renderInitialScreen();
-    this.view.bindModeButtons(this.changeGameMode);
+    this.bindModeButtons();
+
     // TODO: przeniesienie bindowania Settings do controllera this.view.bindSettingsButton(this.view.toggleSettingsView);
   }
 
@@ -64,8 +65,31 @@ class Controller {
   changeGameMode = (mode) => {
     const level = this.model.difficultyLevel;
     this.model.gameMode = mode.toLowerCase();
-    this.view.showViewsForChosenMode(mode, level);
-    this.view.bindHofButton(this.showHofView);
+    if (this.view.toggleRulesHof === 'hall of fame') {
+      this.view.showViewsForChosenMode(mode, level);
+      this.bindInitialHofAndPlay();
+    } else {
+      this.showHofView();
+    }
+  };
+
+  toggleRulesHof = () => {
+    if (this.view.toggleRulesHof === 'hall of fame') {
+      this.showHofView();
+      this.view.toggleRulesHof = 'rules';
+    } else if (this.view.toggleRulesHof === 'rules') {
+      this.showRulesForChosenMode();
+      this.view.toggleRulesHof = 'hall of fame';
+    }
+  };
+
+  bindInitialHofAndPlay = () => {
+    this.view.bindHofButton(this.toggleRulesHof);
+    this.view.bindButtonPlay(this.startGame);
+  };
+
+  bindInitialRulesAndPlay = () => {
+    this.view.bindRulesButton(this.toggleRulesHof);
     this.view.bindButtonPlay(this.startGame);
   };
 
@@ -81,20 +105,17 @@ class Controller {
 
   showHofView = () => {
     this.view.showHof(this.model.gameMode, this.model.difficultyLevel);
-    this.view.bindRulesButton(this.showRulesForChosenMode);
-    this.view.bindModeButtons(this.changeHofView);
-    this.view.bindButtonPlay(this.startGame);
-  };
-
-  changeHofView = () => {
-    this.showHofView();
+    this.bindInitialRulesAndPlay();
   };
 
   showRulesForChosenMode = () => {
     this.view.showViewsForChosenMode(this.model.gameMode);
     this.view.bindModeButtons(this.changeGameMode);
-    this.view.bindHofButton(this.showHofView);
-    this.view.bindButtonPlay(this.startGame);
+    this.bindInitialHofAndPlay();
+  };
+
+  bindModeButtons = () => {
+    this.view.bindModeButtons(this.changeGameMode);
   };
 }
 export default Controller;
