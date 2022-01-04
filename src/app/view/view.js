@@ -4,7 +4,11 @@ import displayImage from './components/displayImage';
 import modeButtons from './components/mainMenu';
 import createLogo from './components/createLogo';
 import ModalWindow from './components/modal/modalWindow';
-import { INITIAL_GAME_MODE_TEXT } from '../data/consts';
+import {
+  DIFFICULTY_LEVELS,
+  GAME_MODES,
+  INITIAL_GAME_MODE_TEXT,
+} from '../data/consts';
 import modeRules from './components/modeRules';
 import buttonPlay from './components/buttonPlay';
 import createImage from './components/createImage';
@@ -178,12 +182,8 @@ class View {
     changedNav.style.justifyContent = 'flex-end';
   }
 
-  renderAfterQuitGame() {
+  renderAfterQuitGame(level) {
     this.render('.header__game-nav', ...modeButtons);
-    const timerWand = document.querySelector('.game-timer__wand-wrapper');
-    timerWand.remove(timerWand);
-    const timerText = document.querySelector('.game-timer__text');
-    timerText.remove(timerText);
     const normalCursor = document.querySelector('.game');
     normalCursor.classList.remove('custom-cursor');
     const normalHeaderCursor = document.querySelector('.header');
@@ -196,6 +196,12 @@ class View {
     gameButtonsOn.removeAttribute('style');
     const setButtonsOn = document.querySelector('.game-image__btns');
     setButtonsOn.removeAttribute('style');
+    if (level !== DIFFICULTY_LEVELS.easy.level) {
+      const timerWand = document.querySelector('.game-timer__wand-wrapper');
+      timerWand.remove(timerWand);
+      const timerText = document.querySelector('.game-timer__text');
+      timerText.remove(timerText);
+    }
   }
 
   // -------------- BINDINGS ------------------------------------

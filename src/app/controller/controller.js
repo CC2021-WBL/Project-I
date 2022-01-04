@@ -45,7 +45,7 @@ class Controller {
     this.model.gameMaker.clearCurrentGameData();
     this.changeGameMode(GAME_MODES[this.model.gameMode].gamemode.toLowerCase());
     this.view.appearBackgroundAndButtons();
-    this.view.renderAfterQuitGame();
+    this.view.renderAfterQuitGame(this.model.difficultyLevel);
   };
 
   async showQuestion() {
