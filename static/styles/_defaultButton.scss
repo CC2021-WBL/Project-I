@@ -2,7 +2,6 @@
 
 .game__button {
   height: $button-height;
-  width: clamp(100px, 49%, 49%);
   border: none;
   outline: none;
   background: $white-color;
@@ -11,6 +10,7 @@
   z-index: 0;
   border-radius: $default-radius;
   text-transform: uppercase;
+  flex: 1;
 
   &-icon {
     position: absolute;
@@ -63,11 +63,10 @@
   }
 
   &-settingsBtn {
-    width: 100%;
+    width: 350px;
     padding: 0 40px;
   }
   &--orange {
-    margin: 0 0 0 10px;
     color: $white-color;
     z-index: 0;
     &::after {
@@ -101,9 +100,9 @@
     }
   }
   &--disabled {
-  pointer-events: none;
-  opacity: .5;
-}
+    pointer-events: none;
+    opacity: 0.5;
+  }
 }
 
 @keyframes glowing {
