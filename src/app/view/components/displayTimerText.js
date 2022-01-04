@@ -7,7 +7,7 @@ function displayTimerText(timeInSeconds) {
   const timer = elementCreator('p', { class: 'game-timer__text' });
 
   if (timeInSeconds <= 20) {
-    timer.style.color = 'rgba(255, 0, 0, 0.8)';
+    timer.style.color = '#E23336';
   }
 
   if (timeInSeconds < 10 || timeInSeconds % 60 === 0) {

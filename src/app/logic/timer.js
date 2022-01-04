@@ -20,7 +20,10 @@ class GameTimer {
     let timeLeft = initialTimeInMilisec;
 
     const timer = setInterval(() => {
-      if (timeLeft <= 0 || this.stopGame === true) {
+      if (this.stopGame === true) {
+        clearInterval(timer);
+        timeLeft = initialTimeInMilisec;
+      } else if (timeLeft <= 0) {
         clearInterval(timer);
         timeLeft = initialTimeInMilisec;
         callbackOnEndOfTime();

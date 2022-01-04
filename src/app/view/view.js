@@ -4,7 +4,7 @@ import displayImage from './components/displayImage';
 import modeButtons from './components/mainMenu';
 import createLogo from './components/createLogo';
 import ModalWindow from './components/modal/modalWindow';
-import { INITIAL_GAME_MODE_TEXT } from '../data/consts';
+import { DIFFICULTY_LEVELS, INITIAL_GAME_MODE_TEXT } from '../data/consts';
 import modeRules from './components/modeRules';
 import buttonPlay from './components/buttonPlay';
 import createImage from './components/createImage';
@@ -56,6 +56,9 @@ class View {
       doBtnHallOfFame(`Hall of fame`),
       buttonPlay('Play the game'),
     );
+    const settingsButton = displayButtonSettings('settings');
+    settingsButton.addEventListener('click', this.toggleSettingsView);
+    this.render('.game-image__btns', settingsButton);
   };
 
   showRulesButtons() {
@@ -74,20 +77,19 @@ class View {
       ...doHallOfFameContent(gameMode, difficultyLevel),
     );
     this.showRulesButtons();
-
-    const settingsButton = displayButtonSettings('settings');
-    settingsButton.addEventListener('click', this.toggleSettingsView);
-    this.render('.game-image__btns', settingsButton);
   };
 
   showSettings() {
     this.render('.game__mode', 'Choose level');
     this.render('.game__mode-rules', ...levelButtons);
+    const settingsButton = displayButtonSettings('Save&back');
+    settingsButton.addEventListener('click', this.toggleSettingsView);
+    this.render('.game-image__btns', settingsButton);
     this.bindDifficultyLevelButton(window.app.changeDifficultyLevel);
   }
 
   hideSettings() {
-    this.renderInitialScreen();
+    this.showViewsForChosenMode();
   }
 
   toggleSettingsView = () => {
@@ -101,7 +103,7 @@ class View {
 
   renderTimer(timeInSeconds, initialTime) {
     this.render('.game-timer', ...displayWand(timeInSeconds, initialTime));
-    this.render('.game-timer__text', displayTimerText(timeInSeconds));
+    this.render('.game-timer__text-wrapper', displayTimerText(timeInSeconds));
   }
 
   renderModal() {
@@ -140,9 +142,11 @@ class View {
 
   disappearButtonsAndBackground() {
     const playAndHofButtons = document.querySelector('.game__btns');
-    playAndHofButtons.classList.add('hidden-elements');
+    // playAndHofButtons.classList.add('hidden-elements');
+    playAndHofButtons.style.display = 'none';
     const settingsButton = document.querySelector('.game-image__btns');
-    settingsButton.classList.add('hidden-elements');
+    // settingsButton.classList.add('hidden-elements');
+    settingsButton.style.display = 'none';
     const gameModeContainer = document.querySelector('.game__mode-rules');
     gameModeContainer.id = 'question-mode';
   }
@@ -164,16 +168,37 @@ class View {
     custCursor.classList.add('custom-cursor');
   }
 
-  renderAfterQuitGame() {
+  changeGridSizes() {
+    const changedGrid = document.querySelector('.game-wrapper');
+    changedGrid.style.gridTemplateRows = '1fr 2fr 1fr';
+  }
+
+  changeNavStyles() {
+    const changedNav = document.querySelector('.header__game-nav');
+    changedNav.style.justifyContent = 'flex-end';
+  }
+
+  renderAfterQuitGame(level) {
+    if (level !== DIFFICULTY_LEVELS.easy.level) {
+      const timerWand = document.querySelector('.game-timer__wand-wrapper');
+      timerWand.remove(timerWand);
+      const timerText = document.querySelector('.game-timer__text');
+      timerText.remove(timerText);
+    }
     this.render('.header__game-nav', ...modeButtons);
-    const timerWand = document.querySelector('.game-timer__wand-wrapper');
-    timerWand.remove(timerWand);
-    const timerText = document.querySelector('.game-timer__text');
-    timerText.remove(timerText);
     const normalCursor = document.querySelector('.game');
     normalCursor.classList.remove('custom-cursor');
     const normalHeaderCursor = document.querySelector('.header');
     normalHeaderCursor.classList.remove('custom-cursor');
+    const rmvStyle = document.querySelector('.header__game-nav');
+    rmvStyle.removeAttribute('style');
+    const removeStyle = document.querySelector('.game-wrapper');
+    removeStyle.removeAttribute('style');
+    const gameButtonsOn = document.querySelector('.game__btns');
+    gameButtonsOn.removeAttribute('style');
+    const setButtonsOn = document.querySelector('.game-image__btns');
+    setButtonsOn.removeAttribute('style');
+    this.render('.game-image__content', createImage());
   }
 
   // -------------- BINDINGS ------------------------------------
