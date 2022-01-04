@@ -56,6 +56,9 @@ class View {
       doBtnHallOfFame(`Hall of fame`),
       buttonPlay('Play the game'),
     );
+    const settingsButton = displayButtonSettings('settings');
+    settingsButton.addEventListener('click', this.toggleSettingsView);
+    this.render('.game-image__btns', settingsButton);
   };
 
   showRulesButtons() {
@@ -74,10 +77,6 @@ class View {
       ...doHallOfFameContent(gameMode, difficultyLevel),
     );
     this.showRulesButtons();
-
-    const settingsButton = displayButtonSettings('settings');
-    settingsButton.addEventListener('click', this.toggleSettingsView);
-    this.render('.game-image__btns', settingsButton);
   };
 
   showSettings() {
