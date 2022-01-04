@@ -1,14 +1,13 @@
 @import '_vars';
 
 .hof__table {
-  font-size: 2vw;
   width: 85%;
   margin: 0 auto 0 auto;
 }
 
 tr,
 td {
-  font-size: clamp(32px, 1vw, 1.8vw);
+  font-size: 31.5px;
 }
 
 .game__mode-rules table {
@@ -21,16 +20,19 @@ td {
 td:nth-child(3) {
   width: 40%;
 }
+
 td:nth-child(2) {
-  width: 60%;
+  width: 65%;
   min-width: 175px;
 }
+
 td:first-child {
   width: 15%;
   min-width: 80px;
 }
 
 .hof__table-header {
-  font-weight: bold;
-  font-size: clamp(36px, 1.2vw, 1.8vw);
+  font-weight: 500;
+  font-size: 37.8px;
+  padding-bottom: 10px;
 }
