@@ -79,7 +79,6 @@ body {
         }
       }
     }
-
     &__mode {
       display: flex;
       justify-content: center;
@@ -189,4 +188,11 @@ body {
   .custom-cursor {
     cursor: url('../assets/img/cursor_wand.png') 2 2, pointer;
   }
+  // .modal-img-node {
+  //   border: none;
+  //   height: 100%;
+  //   width: auto;
+  //   border-radius: 10px;
+  //   filter: none;
+  // }
 }

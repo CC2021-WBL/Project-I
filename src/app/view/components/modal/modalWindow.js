@@ -1,8 +1,9 @@
 import elementCreator from '../../../utils/elementCreator';
 import modalDetails from './modalDetails';
 import modalForm from './modalForm';
+import calculatePoints from '../../../logic/calculatePoints';
 
-function ModalWindow() {
+function ModalWindow(gameData) {
   // parametry//
   const modalHeader = elementCreator(
     'h2',
@@ -12,11 +13,11 @@ function ModalWindow() {
   const modalText = elementCreator(
     'p',
     { class: 'modal__text' },
-    'This is  This is magic! During 1 minute you have answered 10 / 23 questions. And Computer quessed 5 / 23.Magic!.',
+    `This is magic! You have answered ${gameData.correctAnswerScore}/${gameData.askedQuestions}  questions! Congratulations!`,
   );
 
   // DETAILS SECTION
-  const detailsContainer = modalDetails();
+  const detailsContainer = modalDetails(gameData);
 
   // FORMS SECTION
   const modalFormContainer = modalForm();
@@ -33,7 +34,7 @@ function ModalWindow() {
     detailsContainer,
     modalFormContainer,
   );
-  const modal = elementCreator('div', { className: 'modal' }, modalContainer);
+  const modal = elementCreator('div', { class: 'modal' }, modalContainer);
 
   return modal;
 }

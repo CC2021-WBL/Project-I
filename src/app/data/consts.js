@@ -26,9 +26,12 @@ export const GAME_MODES = {
 };
 
 export const RANKINGS_TEMPLATE = {
-  students: [],
-  staff: [],
-  houses: [],
+  students_medium: [],
+  students_hard: [],
+  staff_medium: [],
+  staff_hard: [],
+  houses_medium: [],
+  houses_hard: [],
 };
 
 export const HOGWART_HOUSES = [

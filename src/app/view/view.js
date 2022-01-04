@@ -106,9 +106,14 @@ class View {
     this.render('.game-timer__text-wrapper', displayTimerText(timeInSeconds));
   }
 
-  renderModal() {
-    this.render('.modal', ModalWindow());
+  renderModal(gameData) {
+    console.log('wchodzisz?');
+    this.render('.modal', ModalWindow(gameData));
+    const modal = document.querySelector('.modal');
+    modal.classList.remove('modal__hidden');
   }
+
+  // showModal() {}
 
   renderImage() {
     this.render('.game-image__content', displayImage());
@@ -152,13 +157,9 @@ class View {
   }
 
   appearBackgroundAndButtons() {
-    const playAndHofButtons = document.querySelector('.game__btns');
-    playAndHofButtons.classList.remove('hidden-elements');
-    const settingsButton = document.querySelector('.game-image__btns');
-    settingsButton.classList.remove('hidden-elements');
-    const gameModeContainer = document
-      .querySelector('.game__mode-rules')
-      .removeAttribute('id');
+    this.removeClassFromHtmlElement('.game__btns', 'hidden-elements');
+    this.removeClassFromHtmlElement('.game-image__btns', 'hidden-elements');
+    this.removeAttributeFromHtmlElement('.game__mode-rules', 'id');
   }
 
   changeCursorToCustom() {
@@ -186,19 +187,23 @@ class View {
       timerText.remove(timerText);
     }
     this.render('.header__game-nav', ...modeButtons);
-    const normalCursor = document.querySelector('.game');
-    normalCursor.classList.remove('custom-cursor');
-    const normalHeaderCursor = document.querySelector('.header');
-    normalHeaderCursor.classList.remove('custom-cursor');
-    const rmvStyle = document.querySelector('.header__game-nav');
-    rmvStyle.removeAttribute('style');
-    const removeStyle = document.querySelector('.game-wrapper');
-    removeStyle.removeAttribute('style');
-    const gameButtonsOn = document.querySelector('.game__btns');
-    gameButtonsOn.removeAttribute('style');
-    const setButtonsOn = document.querySelector('.game-image__btns');
-    setButtonsOn.removeAttribute('style');
+    this.removeClassFromHtmlElement('.game', 'custom-cursor');
+    this.removeClassFromHtmlElement('.header', 'custom-cursor');
+    this.removeAttributeFromHtmlElement('.header__game-nav', 'style');
+    this.removeAttributeFromHtmlElement('.game-wrapper', 'style');
+    this.removeAttributeFromHtmlElement('.game__btns', 'style');
+    this.removeAttributeFromHtmlElement('.game-image__btns', 'style');
     this.render('.game-image__content', createImage());
+  }
+
+  removeAttributeFromHtmlElement(querySelector = '', attribute = '') {
+    const element = document.querySelector(querySelector);
+    element.removeAttribute(attribute);
+  }
+
+  removeClassFromHtmlElement(querySelector = '', classNameWithoutDot = '') {
+    const element = document.querySelector(querySelector);
+    element.classList.remove(classNameWithoutDot);
   }
 
   // -------------- BINDINGS ------------------------------------
@@ -261,6 +266,17 @@ class View {
         handler(index);
       }),
     );
+  }
+
+  bindModalButton(handler) {
+    const modalButton = document.querySelector('.game__button-modalBtn');
+    const modal = document.querySelector('.modal');
+
+    modalButton.addEventListener('click', () => {
+      handler(document.getElementById('playerName').value);
+      modal.classList.add('modal__hidden');
+      this.renderInitialScreen();
+    });
   }
 }
 
