@@ -41,7 +41,7 @@ class Controller {
 
   doAfterQuitGame = () => {
     this.model.gameMaker.clearCurrentGameData();
-    this.changeGameMode(GAME_MODES[this.model.gameMode].gamemode);
+    this.changeGameMode(GAME_MODES[this.model.gameMode].gamemode.toLowerCase());
     this.view.appearBackgroundAndButtons();
     this.view.renderAfterQuitGame();
   };
@@ -92,6 +92,7 @@ class Controller {
 
   showRulesForChosenMode = () => {
     this.view.showViewsForChosenMode(this.model.gameMode);
+    this.view.bindModeButtons(this.changeGameMode);
     this.view.bindHofButton(this.showHofView);
     this.view.bindButtonPlay(this.startGame);
   };
