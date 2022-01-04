@@ -1,4 +1,4 @@
-## Team #DavesOnTheWaves presents
+## Team #DevsOnTheWaves presents
 
 
 # CodersCamp 2021 - JavaScript Project
@@ -74,4 +74,4 @@ Special thanks for our mentor [Weronika Boszko](https://github.com/vieraboschkov
 ### Screenshots
 
 ![](./screenshot.jpg)
-Here you can see some screnshots from ours game
+Here you can see some screnshots from our game
