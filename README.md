@@ -10,13 +10,13 @@
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshots](#screenshots)
   - [Links](#links)
 - [Process](#process)
   - [Built with](#built-with)
   - [Continued development](#continued-development)
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgments)
+-  [Screenshots](#screenshots)
 
 ## Overview
 
