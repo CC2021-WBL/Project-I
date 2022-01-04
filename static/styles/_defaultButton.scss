@@ -63,7 +63,7 @@
   }
 
   &-settingsBtn {
-    width: calc(100% - 24px);
+    width: 350px;
     padding: 0 40px;
   }
   &--orange {
@@ -100,9 +100,9 @@
     }
   }
   &--disabled {
-  pointer-events: none;
-  opacity: .5;
-}
+    pointer-events: none;
+    opacity: 0.5;
+  }
 }
 
 @keyframes glowing {
