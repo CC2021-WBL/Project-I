@@ -1,7 +1,6 @@
 @import '_vars';
 
 .hof__table {
-  // width: 85%;
   width: 90%;
   margin: 0 auto 0 auto;
 }
@@ -36,4 +35,10 @@ td:first-child {
   font-weight: 500;
   font-size: 37.8px;
   padding-bottom: 10px;
+}
+
+.hof__table-alttxt {
+  display: flex;
+  font-size: 37.8px;
+  margin: 0 auto 0 auto;
 }
