@@ -26,12 +26,90 @@ export const GAME_MODES = {
 };
 
 export const RANKINGS_TEMPLATE = {
-  students_medium: [],
-  students_hard: [],
-  staff_medium: [],
-  staff_hard: [],
-  houses_medium: [],
-  houses_hard: [],
+  students_medium: [
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+  ],
+  students_hard: [
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+  ],
+  staff_medium: [
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+  ],
+  staff_hard: [
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+  ],
+  houses_medium: [
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+  ],
+  houses_hard: [
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+  ],
 };
 
 export const HOGWART_HOUSES = [
