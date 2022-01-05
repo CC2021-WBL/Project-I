@@ -1,9 +1,9 @@
 import LocalStorageService from '../../logic/localStorage';
 
 // const _ranking = app.model.localStorageService.loadRankings();
-const hofData = LocalStorageService.loadRankings();
+// const hofData = LocalStorageService.loadRankings();
 
-const arrStudents = [
+/* const arrStudents = [
   hofData.students_easy,
   hofData.students_medium,
   hofData.students_hard,
@@ -13,9 +13,27 @@ const arrHouses = [
   hofData.houses_medium,
   hofData.houses_hard,
 ];
-const arrStaff = [hofData.staff_easy, hofData.staff_medium, hofData.staff_hard];
+const arrStaff = [hofData.staff_easy, hofData.staff_medium, hofData.staff_hard]; */
 
 function getHofData(mode, level, place, property) {
+  const hofData = LocalStorageService.loadRankings();
+
+  const arrStudents = [
+    hofData.students_easy,
+    hofData.students_medium,
+    hofData.students_hard,
+  ];
+  const arrHouses = [
+    hofData.houses_easy,
+    hofData.houses_medium,
+    hofData.houses_hard,
+  ];
+  const arrStaff = [
+    hofData.staff_easy,
+    hofData.staff_medium,
+    hofData.staff_hard,
+  ];
+
   const _mode = mode.toLowerCase();
   const _level = level.toLowerCase();
   let selectedLevel;
