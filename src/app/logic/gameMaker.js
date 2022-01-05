@@ -36,6 +36,7 @@ class GameMaker {
 
   checkAndRegisterAnswer(answer) {
     const isAnswerCorrect = this.player.checkAndRegisterAnswer(
+      this.questionObject.image,
       answer,
       this.questionObject.rightAnswer,
       this.difficultyLevelsProperty,

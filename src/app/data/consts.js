@@ -29,85 +29,85 @@ export const RANKINGS_TEMPLATE = {
   students_medium: [
     {
       name: 'unranked',
-      result: 'unranked',
+      result: '0',
     },
     {
       name: 'unranked',
-      result: 'unranked',
+      result: '0',
     },
     {
       name: 'unranked',
-      result: 'unranked',
+      result: '0',
     },
   ],
   students_hard: [
     {
       name: 'unranked',
-      result: 'unranked',
+      result: '0',
     },
     {
       name: 'unranked',
-      result: 'unranked',
+      result: '0',
     },
     {
       name: 'unranked',
-      result: 'unranked',
+      result: '0',
     },
   ],
   staff_medium: [
     {
       name: 'unranked',
-      result: 'unranked',
+      result: '0',
     },
     {
       name: 'unranked',
-      result: 'unranked',
+      result: '0',
     },
     {
       name: 'unranked',
-      result: 'unranked',
+      result: '0',
     },
   ],
   staff_hard: [
     {
       name: 'unranked',
-      result: 'unranked',
+      result: '0',
     },
     {
       name: 'unranked',
-      result: 'unranked',
+      result: '0',
     },
     {
       name: 'unranked',
-      result: 'unranked',
+      result: '0',
     },
   ],
   houses_medium: [
     {
       name: 'unranked',
-      result: 'unranked',
+      result: '0',
     },
     {
       name: 'unranked',
-      result: 'unranked',
+      result: '0',
     },
     {
       name: 'unranked',
-      result: 'unranked',
+      result: '0',
     },
   ],
   houses_hard: [
     {
       name: 'unranked',
-      result: 'unranked',
+      result: '0',
     },
     {
       name: 'unranked',
-      result: 'unranked',
+      result: '0',
     },
     {
       name: 'unranked',
-      result: 'unranked',
+      result: '0',
     },
   ],
 };

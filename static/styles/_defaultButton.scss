@@ -63,10 +63,27 @@
   }
 
   &-settingsBtn {
-    width: 350px;
     padding: 0 40px;
+    width: 350px;
   }
   &--orange {
+    color: $white-color;
+    z-index: 0;
+    &::after {
+      background: $lite-orange;
+    }
+    &:active {
+      color: $white-color;
+      &::after {
+        background: $orange;
+      }
+    }
+  }
+  &-modalBtn {
+    width: 49%;
+    font-size: 18px;
+    height: 70px;
+    margin: 0 0 0 10px;
     color: $white-color;
     z-index: 0;
     &::after {
@@ -97,6 +114,7 @@
       }
     }
   }
+
   &--disabled {
     pointer-events: none;
     opacity: 0.5;
