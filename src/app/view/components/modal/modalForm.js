@@ -26,7 +26,7 @@ function modalForm() {
   const modalButton = elementCreator(
     'button',
     { class: 'game__button game__button-modalBtn' },
-    'Save result and return to lobby!',
+    'Save result and return!',
   );
   const modalFormBuilder = elementCreator(
     'div',

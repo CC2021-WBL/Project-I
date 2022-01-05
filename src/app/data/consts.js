@@ -48,7 +48,7 @@ export const DIFFICULTY_LEVELS = {
     level: 'easy',
   },
   medium: {
-    time: 1,
+    time: 0.1,
     level: 'medium',
   },
   hard: {
