@@ -1,4 +1,4 @@
-// import 'regenerator-runtime/runtime'; // async/await with Parcel
+import 'regenerator-runtime/runtime'; // async/await with Parcel
 import Model from './app/logic/model';
 import View from './app/view/view';
 import Controller from './app/controller/controller';
