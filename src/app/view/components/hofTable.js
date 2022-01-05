@@ -34,7 +34,7 @@ function hofTable(mode, level) {
     elementCreator(
       'td',
       { class: 'hof__table-player1' },
-      `${getHofData(mode, level, '1', 'name')}`,
+      `${getPlayerNameOrDefaultName(mode, level, '1')}`,
     ),
     elementCreator(
       'td',
@@ -49,7 +49,7 @@ function hofTable(mode, level) {
     elementCreator(
       'td',
       { class: 'hof__table-player2' },
-      `${getHofData(mode, level, '2', 'name')}`,
+      `${getPlayerNameOrDefaultName(mode, level, '2')}`,
     ),
     elementCreator(
       'td',
@@ -64,7 +64,7 @@ function hofTable(mode, level) {
     elementCreator(
       'td',
       { class: 'hof__table-player3' },
-      `${getHofData(mode, level, '3', 'name')}`,
+      `${getPlayerNameOrDefaultName(mode, level, '3')}`,
     ),
     elementCreator(
       'td',
@@ -86,4 +86,12 @@ function hofTable(mode, level) {
 
   return wholeTable;
 }
+
+function getPlayerNameOrDefaultName(mode, level, place) {
+  if (getHofData(mode, level, place, 'name') === '') {
+    return 'Noname Muggle';
+  }
+  return getHofData(mode, level, place, 'name');
+}
+
 export default hofTable;
