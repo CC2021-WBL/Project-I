@@ -2,10 +2,10 @@
   "name": "@coderscamp2021/project-javascript-harrypottersquiz",
   "version": "1.0.0",
   "scripts": {
-    "start": "parcel --no-cache",
+    "start": "parcel index.html --no-cache",
     "prebuild": "rimraf dist",
     "build": "parcel build ./index.html --public-url ./",
-    "clean": "rimraf .cache && rimraf dist && rimraf node_modules",
+    "clean": "rimraf .cache && rimraf dist && rimraf node_modules"
   },
   "repository": {
     "type": "git",
