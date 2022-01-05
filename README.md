@@ -42,6 +42,7 @@ Good Luck! :)
 ### Links
 
 - [Demo](https://cc2021-wbl.github.io/Project-I/)
+- [Design](https://www.figma.com/file/jIk4BGOH44RNJuDvsiGx71/CodersCamp2021.Project.JavaScript.HarryPotterQuiz2021?node-id=256%3A116)
 
 ## Process
 
