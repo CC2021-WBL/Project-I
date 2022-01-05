@@ -90,7 +90,9 @@ class View {
   }
 
   hideSettings() {
-    this.showViewsForChosenMode();
+    this.showViewsForChosenMode(window.app.model.gameMode);
+    window.app.bindInitialHofAndPlay();
+    this.toggleRulesHof = 'hall of fame';
   }
 
   toggleSettingsView = () => {
@@ -109,7 +111,6 @@ class View {
   }
 
   renderModal(gameData) {
-    console.log('wchodzisz?');
     this.render('.modal', ModalWindow(gameData));
     const modal = document.querySelector('.modal');
     modal.classList.remove('modal__hidden');
