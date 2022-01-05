@@ -6,6 +6,8 @@
 
 ## Harry Potter Quiz Game
 
+This is our first team task on course. We have to use API (and all the things we learned before like html, css and js) so we decided to create a quiz about Harry Potter.
+
 ## Table of contents
 
 - [Overview](#overview)
@@ -65,8 +67,8 @@ Ours ideas for future:
  - [Katarzyna Chmielecka](https://github.com/KatarzynaChmielecka)
  - [Alicja Kondrat](https://github.com/pierwszazlewej) as UI/UX Designer
  - [Monika Krella](https://github.com/MonikaKrella)
- - [Tomasz Skrętkowski](https://github.com/n0macx) as Product Owner and Development Managaer
- - [Adam Smycz](https://github.com/Smyku6) as Teach Leader
+ - [Tomasz Skrętkowski](https://github.com/n0macx) as Product Owner and Development Manager
+ - [Adam Smycz](https://github.com/Smyku6) as Tech Leader
  - [Robert Soldynski](https://github.com/RobertS-ki) 
 
 ## Acknowledgments
@@ -75,8 +77,7 @@ Special thanks to our mentor [Weronika Boszko Lucena](https://github.com/vierabo
 
 ### Screenshots
 
-![](./screenshot.jpg)
-Here you can see some screnshots from our game
+Here you can see some screenshots from our game
 
 
 ![initialScreen_405x185](https://user-images.githubusercontent.com/56206231/148138282-8a899baa-ead9-41c3-8a03-5dc1ee0214bc.png)
