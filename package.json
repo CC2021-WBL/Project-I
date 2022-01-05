@@ -1,14 +1,10 @@
 {
   "name": "@coderscamp2021/project-javascript-harrypottersquiz",
   "version": "1.0.0",
-  "description": "",
-  "source": "index.html",
-  "browserslist": [
-    "> 0.5%, last 2 versions, not dead"
-  ],
   "scripts": {
-    "start": "parcel",
-    "build": "parcel build",
+    "start": "parcel index.html --no-cache",
+    "prebuild": "rimraf dist",
+    "build": "parcel build ./index.html --public-url ./",
     "clean": "rimraf .cache && rimraf dist && rimraf node_modules"
   },
   "repository": {
@@ -63,6 +59,7 @@
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
     "@parcel/transformer-sass": "^2.0.1",
+    "@swc/helpers": "^0.3.2",
     "eslint": "^8.3.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.3.0",
@@ -70,18 +67,13 @@
     "eslint-plugin-prettier": "^4.0.0",
     "parcel": "^2.0.1",
     "prettier": "^2.5.1",
-    "rimraf": "^3.0.2",
-    "sass": "^1.45.0"
+    "rimraf": "^3.0.2"
   },
-  "staticFiles": {
-    "staticPath": [
-      {
-        "staticPath": "static",
-        "staticOutDir": "static"
-      }
-    ]
-  },
-  "dependencies": {
-    "regenerator-runtime": "^0.13.9"
-  }
+  "browserslist": [
+    "last 3 and_chr versions",
+    "last 3 chrome versions",
+    "last 3 opera versions",
+    "last 3 ios_saf versions",
+    "last 3 safari versions"
+  ]
 }
