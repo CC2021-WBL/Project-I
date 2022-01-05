@@ -23,7 +23,7 @@ import displayButtonSettings from './components/displaySettingsBtn';
 class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
   constructor() {
-    this.hofIsOn = false;
+    this.toggleRulesHof = 'hall of fame';
     this.settings = false;
   }
 
@@ -59,6 +59,7 @@ class View {
     const settingsButton = displayButtonSettings('settings');
     settingsButton.addEventListener('click', this.toggleSettingsView);
     this.render('.game-image__btns', settingsButton);
+    this.settings = false;
   };
 
   showRulesButtons() {
@@ -95,10 +96,11 @@ class View {
   toggleSettingsView = () => {
     if (!this.settings) {
       this.showSettings();
+      this.settings = true;
     } else {
       this.hideSettings();
+      this.settings = false;
     }
-    this.settings = !this.settings;
   };
 
   renderTimer(timeInSeconds, initialTime) {
@@ -244,7 +246,7 @@ class View {
   }
 
   bindHofButton(handler) {
-    const hofButton = document.querySelector('.game__button-hof');
+    const hofButton = document.querySelector('.game__button--hof');
     hofButton.addEventListener('click', () => {
       handler();
     });

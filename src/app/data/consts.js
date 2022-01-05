@@ -3,7 +3,7 @@ export const GAME_MODES = {
     gamemode: 'Students',
     imgSubfolder: 'students',
     question: 'Who is this student?',
-    urlAdress: 'http://hp-api.herokuapp.com/api/characters/students',
+    urlAdress: 'https://hp-api.herokuapp.com/api/characters/students',
     ids: 28,
     answerProperty: 'name',
   },
@@ -11,7 +11,7 @@ export const GAME_MODES = {
     gamemode: 'Staff',
     imgSubfolder: 'staff',
     question: 'Who is this staff?',
-    urlAdress: 'http://hp-api.herokuapp.com/api/characters/staff',
+    urlAdress: 'https://hp-api.herokuapp.com/api/characters/staff',
     ids: 20,
     answerProperty: 'name',
   },
@@ -19,19 +19,97 @@ export const GAME_MODES = {
     gamemode: 'Houses',
     imgSubfolder: 'students',
     question: 'From which house is this student?',
-    urlAdress: 'http://hp-api.herokuapp.com/api/characters/students',
+    urlAdress: 'https://hp-api.herokuapp.com/api/characters/students',
     ids: 28,
     answerProperty: 'house',
   },
 };
 
 export const RANKINGS_TEMPLATE = {
-  students_medium: [],
-  students_hard: [],
-  staff_medium: [],
-  staff_hard: [],
-  houses_medium: [],
-  houses_hard: [],
+  students_medium: [
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+  ],
+  students_hard: [
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+  ],
+  staff_medium: [
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+  ],
+  staff_hard: [
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+  ],
+  houses_medium: [
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+  ],
+  houses_hard: [
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+    {
+      name: 'unranked',
+      result: '0',
+    },
+  ],
 };
 
 export const HOGWART_HOUSES = [

@@ -8,7 +8,7 @@ function doBtnHallOfFame(text) {
   const hofButton = elementCreator(
     'button',
     {
-      class: 'game__button game__button-hof',
+      class: 'game__button game__button--hof',
     },
     imageCup,
     text,
