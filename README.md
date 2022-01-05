@@ -53,7 +53,7 @@ Good Luck! :)
 - Parcel
 - MVC design pattern
 - BEM methodology
-
+- https://hp-api.herokuapp.com/
 
 ### Continued development
 
