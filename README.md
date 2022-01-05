@@ -1,5 +1,5 @@
+![logo-devs-on-the-waves](https://user-images.githubusercontent.com/19845958/148253540-f0634b50-c66f-43d1-af6c-70890e74ef64.png)
 
-![image](https://user-images.githubusercontent.com/56206231/148226833-e66bcbc2-79a3-49d7-a6a1-da5989fad97c.png)
 
 # CodersCamp 2021 - JavaScript Project
 **CodersCamp (https://www.coderscamp.edu.pl/) - Biggest free programming course** 
