@@ -97,8 +97,8 @@
     margin-top: 10px;
   }
   &__thead {
-    display: flex;
-    justify-content: space-evenly;
+    // display: flex;
+    // justify-content: space-evenly;
   }
   tbody {
     overflow-y: scroll;
@@ -127,7 +127,16 @@
     font-size: 16px;
   }
   &__th {
-    width: 30%;
-    font-size: 16px;
+    font-size: 18px;
+    &:nth-child(1) {
+      padding-left: 22px;
+    }
+    &:nth-child(2) {
+      padding-right: 0px;
+      padding-left: 85px;
+    }
+    &:nth-child(3) {
+      padding-left: 122px;
+    }
   }
 }
