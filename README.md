@@ -60,7 +60,7 @@ Good Luck! :)
 Ours ideas for future:
 - Make our app fully responsive
 - Add music
-- Add unit test
+- Add unit tests
 
 ## Authors
 
