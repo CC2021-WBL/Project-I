@@ -23,7 +23,7 @@ import displayButtonSettings from './components/displaySettingsBtn';
 class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
   constructor() {
-    this.hofIsOn = false;
+    this.toggleRulesHof = 'hall of fame';
     this.settings = false;
   }
 
@@ -244,7 +244,7 @@ class View {
   }
 
   bindHofButton(handler) {
-    const hofButton = document.querySelector('.game__button-hof');
+    const hofButton = document.querySelector('.game__button--hof');
     hofButton.addEventListener('click', () => {
       handler();
     });
