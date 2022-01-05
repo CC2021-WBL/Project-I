@@ -79,11 +79,10 @@ Special thanks to our mentor [Weronika Boszko Lucena](https://github.com/vierabo
 
 Here you can see some screenshots from our game
 
-![initialScreen2](https://user-images.githubusercontent.com/56206231/148206115-e5802261-8003-494d-b4cc-9d2bb5cb02d3.png)
-
-![game_on2](https://user-images.githubusercontent.com/56206231/148206211-e88e52b5-d4fd-4d78-bbe1-a77d2d66a078.png)
-
-![modal_386x185](https://user-images.githubusercontent.com/56206231/148138320-b5eca8ed-afec-4c3f-98e8-d1982da3e157.png)
+![initial_480x230](https://user-images.githubusercontent.com/56206231/148212376-cebc2c4f-2887-40b8-9545-076fa44013fb.png)
+![settings_480x230](https://user-images.githubusercontent.com/56206231/148212558-23b2292a-a5ed-4d03-9ec7-abbac0f5001d.png)
+![gameOn_480x230](https://user-images.githubusercontent.com/56206231/148212414-1c817403-25bc-4f8d-8203-381402c60458.png)
+![modal_480x230](https://user-images.githubusercontent.com/56206231/148212477-2013c016-f066-4f45-8093-0fd8b6563f48.png)
 
 
 
