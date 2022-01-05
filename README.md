@@ -6,6 +6,8 @@
 
 ## Harry Potter Quiz Game
 
+This is our first team task on course. We have to use API (and all the things we learned before like html, css and js) so we decided to create a quiz about Harry Potter.
+
 ## Table of contents
 
 - [Overview](#overview)
@@ -51,22 +53,22 @@ Good Luck! :)
 - Parcel
 - MVC design pattern
 - BEM methodology
-
+- https://hp-api.herokuapp.com/
 
 ### Continued development
 
 Ours ideas for future:
 - Make our app fully responsive
 - Add music
-- Add unit test
+- Add unit tests
 
 ## Authors
 
  - [Katarzyna Chmielecka](https://github.com/KatarzynaChmielecka)
  - [Alicja Kondrat](https://github.com/pierwszazlewej) as UI/UX Designer
  - [Monika Krella](https://github.com/MonikaKrella)
- - [Tomasz Skrętkowski](https://github.com/n0macx) as Product Owner and Development Managaer
- - [Adam Smycz](https://github.com/Smyku6) as Teach Leader
+ - [Tomasz Skrętkowski](https://github.com/n0macx) as Product Owner and Development Manager
+ - [Adam Smycz](https://github.com/Smyku6) as Tech Leader
  - [Robert Soldynski](https://github.com/RobertS-ki) 
 
 ## Acknowledgments
@@ -75,15 +77,12 @@ Special thanks to our mentor [Weronika Boszko Lucena](https://github.com/vierabo
 
 ### Screenshots
 
-![](./screenshot.jpg)
-Here you can see some screnshots from our game
+Here you can see some screenshots from our game
 
-
-![initialScreen_405x185](https://user-images.githubusercontent.com/56206231/148138282-8a899baa-ead9-41c3-8a03-5dc1ee0214bc.png)
-
-![game_on_428x203](https://user-images.githubusercontent.com/56206231/148138179-d42c352d-9fce-4ca4-8351-2b554251c839.png)
-
-![modal_386x185](https://user-images.githubusercontent.com/56206231/148138320-b5eca8ed-afec-4c3f-98e8-d1982da3e157.png)
+![initial_480x230](https://user-images.githubusercontent.com/56206231/148212376-cebc2c4f-2887-40b8-9545-076fa44013fb.png)
+![settings_480x230](https://user-images.githubusercontent.com/56206231/148212558-23b2292a-a5ed-4d03-9ec7-abbac0f5001d.png)
+![gameOn_480x230](https://user-images.githubusercontent.com/56206231/148212414-1c817403-25bc-4f8d-8203-381402c60458.png)
+![modal_480x230](https://user-images.githubusercontent.com/56206231/148212477-2013c016-f066-4f45-8093-0fd8b6563f48.png)
 
 
 

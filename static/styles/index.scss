@@ -70,7 +70,7 @@ body {
       &__content {
         &-image {
           width: 350px;
-          height: 449px;
+          height: 451px;
           object-position: top;
           object-fit: cover;
           border: 12px solid rgba(173, 25, 132, 0.26);
@@ -148,7 +148,6 @@ body {
 
           .rules-icon {
             position: absolute;
-            // left: -100px;
             left: -70px;
             font-size: 1.2em;
             margin-right: 50px;
@@ -173,13 +172,6 @@ body {
       justify-content: space-between;
       align-items: flex-end;
       gap: 24px;
-
-      // .game__button-icon {
-      //   position: absolute;
-      //   // left: 50px;
-      //   left: 50px;
-
-      // }
     }
   }
 
@@ -191,11 +183,4 @@ body {
   .custom-cursor {
     cursor: url('../assets/img/cursor_wand.png') 2 2, pointer;
   }
-  // .modal-img-node {
-  //   border: none;
-  //   height: 100%;
-  //   width: auto;
-  //   border-radius: 10px;
-  //   filter: none;
-  // }
 }
