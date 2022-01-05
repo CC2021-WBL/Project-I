@@ -1,4 +1,4 @@
-![logo-devs-on-the-waves](https://user-images.githubusercontent.com/19845958/148253540-f0634b50-c66f-43d1-af6c-70890e74ef64.png)
+![logo-devs-on-the-waves-stroke](https://user-images.githubusercontent.com/19845958/148255475-9f24bd68-7020-42e8-a0d7-c2ed885848e5.png)
 
 
 # CodersCamp 2021 - JavaScript Project
