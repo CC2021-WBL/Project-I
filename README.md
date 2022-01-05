@@ -1,4 +1,4 @@
-## Team #DevsOnTheWaves presents
+![logo-devs-on-the-waves-stroke](https://user-images.githubusercontent.com/19845958/148255475-9f24bd68-7020-42e8-a0d7-c2ed885848e5.png)
 
 
 # CodersCamp 2021 - JavaScript Project
@@ -42,6 +42,7 @@ Good Luck! :)
 ### Links
 
 - [Demo](https://cc2021-wbl.github.io/Project-I/)
+- [Design](https://www.figma.com/file/jIk4BGOH44RNJuDvsiGx71/CodersCamp2021.Project.JavaScript.HarryPotterQuiz2021?node-id=256%3A116)
 
 ## Process
 
@@ -76,8 +77,6 @@ Ours ideas for future:
 Special thanks to our mentor [Weronika Boszko Lucena](https://github.com/vieraboschkova)
 
 ### Screenshots
-
-Here you can see some screenshots from our game
 
 ![initial_480x230](https://user-images.githubusercontent.com/56206231/148212376-cebc2c4f-2887-40b8-9545-076fa44013fb.png)
 ![settings_480x230](https://user-images.githubusercontent.com/56206231/148212558-23b2292a-a5ed-4d03-9ec7-abbac0f5001d.png)
