@@ -8,6 +8,29 @@
 
 This is our first team task on course. We have to use API (and all the things we learned before like html, css and js) so we decided to create a quiz about Harry Potter.
 
+---
+
+### 🔄 2025 Update
+
+> **Note:** This project was originally built in 2021 and has been updated in 2025 to ensure continued functionality.
+
+**What was updated:**
+- ✅ Deprecated GitHub Actions updated (v1/v2 → v4)
+- ✅ Build system migrated from npm to pnpm
+- ✅ Node.js and pnpm versions updated to modern standards
+- ✅ Fixed deprecated packages and dependencies
+- ✅ Minor bug fixes (HTML syntax errors, etc.)
+- ✅ API endpoints verified and updated
+
+**What remains unchanged:**
+- The core functionality and game mechanics remain as originally designed
+- UI/UX design and user experience preserved from the original 2021 version
+- All features and game modes work as intended
+
+This update focused solely on modernizing the tooling and infrastructure while preserving the original project's character and functionality.
+
+---
+
 ## Table of contents
 
 - [Overview](#overview)
