@@ -26,6 +26,13 @@ class GameMaker {
 
   createPlayerAndRunTimer(callbackOnInterval, callbackOnEndOfTime) {
     this.player = new Player();
+
+    // Stop existing timer if any
+    if (this.timer) {
+      console.log('Stopping existing timer before creating new one');
+      this.timer.stopGame = true;
+    }
+
     if (DIFFICULTY_LEVELS[this.difficultyLevelsProperty].time !== null) {
       this.timer = new GameTimer(
         DIFFICULTY_LEVELS[this.difficultyLevelsProperty].time,

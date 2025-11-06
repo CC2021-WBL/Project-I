@@ -1,14 +1,22 @@
 import elementCreator from '../../utils/elementCreator';
-import img from '../../../../static/assets/img/wand.png';
+import displayTimerText from './displayTimerText';
 
-export default function displayWand(timeLeft, timeStart) {
+export default function displayWand(timeLeft, _timeStart) {
   const timerWrapper = elementCreator('div', {
     class: 'game-timer__text-wrapper',
   });
 
+  // Add initial timer text
+  const initialTimerText = displayTimerText(timeLeft);
+  timerWrapper.appendChild(initialTimerText);
+
+  const wandImg = new URL(
+    '../../../../static/assets/img/wand.png',
+    import.meta.url,
+  );
   const image = elementCreator('img', {
     class: 'game-timer__image',
-    src: img,
+    src: wandImg.href,
     alt: 'The shaft of the wand',
   });
 
@@ -35,13 +43,14 @@ export default function displayWand(timeLeft, timeStart) {
 
   const fullWand = [wandWrapper, timerWrapper];
 
-  // const innerPart = document.getElementsByClassName('game-timer__wand-inner');
+  // Use CSS animation for smooth progress
   if (timeLeft === 0) {
     wandInner.style.width = '0%';
+    wandInner.style.animation = 'none';
   } else {
-    const progressWidth = (timeLeft / timeStart) * 100;
-
-    wandInner.style.width = `${progressWidth}%`;
+    // Set animation duration to remaining time
+    wandInner.style.animationDuration = `${timeLeft}s`;
+    wandInner.style.animationPlayState = 'running';
   }
 
   return fullWand;

@@ -5,6 +5,7 @@ class GameTimer {
   constructor(gameTime) {
     this.gameTime = gameTime;
     this.stopGame = false;
+    this.timer = null; // Store timer reference
   }
 
   setGameTime(newGameTime) {
@@ -12,6 +13,13 @@ class GameTimer {
   }
 
   runTimer(callbackOnInterval, callbackOnEndOfTime) {
+    // Clear any existing timer first
+    if (this.timer) {
+      console.log('Clearing existing timer');
+      clearInterval(this.timer);
+      this.timer = null;
+    }
+
     this.stopGame = false;
     const initialTimeInMilisec =
       this.gameTime * ONE_MINUTE_SECONDS * ONE_SECOND_MILLIS;
@@ -19,12 +27,17 @@ class GameTimer {
     const timeInterval = ONE_SECOND_MILLIS;
     let timeLeft = initialTimeInMilisec;
 
-    const timer = setInterval(() => {
+    // Call immediately to render wand at start
+    callbackOnInterval(timeLeft / ONE_SECOND_MILLIS, totalTimeInSec);
+
+    this.timer = setInterval(() => {
       if (this.stopGame === true) {
-        clearInterval(timer);
+        clearInterval(this.timer);
+        this.timer = null;
         timeLeft = initialTimeInMilisec;
       } else if (timeLeft <= 0) {
-        clearInterval(timer);
+        clearInterval(this.timer);
+        this.timer = null;
         timeLeft = initialTimeInMilisec;
         callbackOnEndOfTime();
       } else {

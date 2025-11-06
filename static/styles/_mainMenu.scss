@@ -1,4 +1,4 @@
-@import '_vars';
+@use 'vars';
 
 .header__game-nav {
   width: 830px;
@@ -8,20 +8,20 @@
 
   button {
     height: 50px;
-    color: $white-opacity;
+    color: vars.$white-opacity;
     background: none;
     border: none;
 
     &.active {
-      color: $lite-gray;
+      color: vars.$lite-gray;
       position: relative;
 
       &::before {
         content: '';
         width: 100%;
         height: 10px;
-        background: $lite-orange;
-        border-radius: $default-radius;
+        background: vars.$lite-orange;
+        border-radius: vars.$default-radius;
         position: absolute;
         bottom: -25px;
       }

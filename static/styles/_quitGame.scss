@@ -1,7 +1,7 @@
-@import '_vars';
+@use 'vars';
 
 .quit-game {
-  color: $white-opacity;
+  color: vars.$white-opacity;
   font-size: 35px;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease-in-out;
@@ -9,7 +9,7 @@
   align-items: center;
 
   &:hover {
-    color: $lite-orange;
+    color: vars.$lite-orange;
   }
 
   &-text {

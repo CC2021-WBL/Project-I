@@ -1,11 +1,16 @@
 {
   "name": "@coderscamp2021/project-javascript-harrypottersquiz",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "start": "parcel index.html --no-cache",
     "prebuild": "rimraf dist",
     "build": "parcel build ./index.html --public-url ./",
-    "clean": "rimraf .cache && rimraf dist && rimraf node_modules"
+    "clean": "rimraf .cache && rimraf dist && rimraf node_modules",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"**/*.{js,json,md,scss,css,html}\"",
+    "format:check": "prettier --check \"**/*.{js,json,md,scss,css,html}\""
   },
   "repository": {
     "type": "git",
@@ -55,19 +60,23 @@
     "url": "https://github.com/CC2021-WBL/Project-I/issues"
   },
   "homepage": "https://github.com/CC2021-WBL/Project-I/#readme",
+  "engines": {
+    "node": ">=22.0.0 <23.0.0",
+    "pnpm": ">=10.0.0"
+  },
   "devDependencies": {
-    "@babel/core": "^7.16.0",
-    "@babel/preset-env": "^7.16.4",
-    "@parcel/transformer-sass": "^2.0.1",
-    "@swc/helpers": "^0.3.2",
-    "eslint": "^8.3.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-prettier": "^4.0.0",
-    "parcel": "^2.0.1",
-    "prettier": "^2.5.1",
-    "rimraf": "^3.0.2"
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.39.1",
+    "@parcel/transformer-sass": "^2.13.3",
+    "@swc/helpers": "^0.5.17",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.2.1",
+    "parcel": "^2.13.3",
+    "prettier": "^3.4.2",
+    "rimraf": "^6.0.1"
   },
   "browserslist": [
     "last 3 and_chr versions",

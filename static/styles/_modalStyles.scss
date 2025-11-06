@@ -1,4 +1,4 @@
-@import '_vars.scss';
+@use 'vars';
 
 .modal {
   position: absolute;
@@ -17,11 +17,11 @@
   &__container {
     max-height: calc(100vh - 64px);
     max-width: 1200px;
-    border-radius: $default-radius;
+    border-radius: vars.$default-radius;
     padding: 48px 64px;
     display: flex;
     flex-direction: column;
-    background: $white-color;
+    background: vars.$white-color;
     text-align: center;
     border: 12px solid rgba(173, 25, 132, 0.26);
     filter: drop-shadow(13px 17px 11px rgba(0, 0, 0, 0.5));
@@ -43,10 +43,10 @@
     margin-top: 20px;
   }
   &__button {
-    background-color: $orange;
-    border-radius: $default-radius;
+    background-color: vars.$orange;
+    border-radius: vars.$default-radius;
     font-size: 0.5rem;
-    color: $white-color;
+    color: vars.$white-color;
     padding: 0.7rem;
     text-transform: uppercase;
     margin: 0.5rem;
