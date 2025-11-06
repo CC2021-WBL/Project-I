@@ -24,7 +24,7 @@ jobs:
           node-version: 22.x
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
-      - run: pnpm run build --if-present
+      - run: pnpm run build
       - run: pnpm test
       - uses: actions/upload-artifact@v4
         name: Upload build as artifact
