@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/extensions
 import { DIFFICULTY_LEVELS } from '../data/consts.js';
 
 export function calculatePoints(

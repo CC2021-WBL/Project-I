@@ -1,9 +1,14 @@
-// eslint-disable-next-line import/no-absolute-path,import/no-unresolved
-import logo from '../../../../static/assets/img/logo.png';
 import elementCreator from '../../utils/elementCreator';
 
 const createLogo = () => {
-  const img = elementCreator('img', { src: logo, class: 'header__game-img' });
+  const logo = new URL(
+    '../../../../static/assets/img/logo.png',
+    import.meta.url,
+  );
+  const img = elementCreator('img', {
+    src: logo.href,
+    class: 'header__game-img',
+  });
   return img;
 };
 

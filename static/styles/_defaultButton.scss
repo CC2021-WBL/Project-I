@@ -1,14 +1,14 @@
-@import '_vars';
+@use 'vars';
 
 .game__button {
-  height: $button-height;
+  height: vars.$button-height;
   border: none;
   outline: none;
-  background: $white-color;
+  background: vars.$white-color;
   cursor: pointer;
   position: relative;
   z-index: 0;
-  border-radius: $default-radius;
+  border-radius: vars.$default-radius;
   text-transform: uppercase;
   flex: 1;
 
@@ -39,12 +39,12 @@
     animation: glowing 20s linear infinite;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-    border-radius: $default-radius;
+    border-radius: vars.$default-radius;
   }
   &:active {
-    color: $black-color;
+    color: vars.$black-color;
     &::after {
-      background: $lite-gray;
+      background: vars.$lite-gray;
     }
   }
   &:hover::before {
@@ -56,10 +56,10 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: $white-color;
+    background: vars.$white-color;
     left: 0;
     top: 0;
-    border-radius: $default-radius;
+    border-radius: vars.$default-radius;
   }
 
   &-settingsBtn {
@@ -67,15 +67,15 @@
     width: 350px;
   }
   &--orange {
-    color: $white-color;
+    color: vars.$white-color;
     z-index: 0;
     &::after {
-      background: $lite-orange;
+      background: vars.$lite-orange;
     }
     &:active {
-      color: $white-color;
+      color: vars.$white-color;
       &::after {
-        background: $orange;
+        background: vars.$orange;
       }
     }
   }
@@ -84,15 +84,15 @@
     font-size: 18px;
     height: 70px;
     margin: 0 0 0 10px;
-    color: $white-color;
+    color: vars.$white-color;
     z-index: 0;
     &::after {
-      background: $lite-orange;
+      background: vars.$lite-orange;
     }
     &:active {
-      color: $white-color;
+      color: vars.$white-color;
       &::after {
-        background: $orange;
+        background: vars.$orange;
       }
     }
   }
@@ -101,13 +101,13 @@
     height: 25%;
     margin: 0 10px;
     text-transform: none;
-    background-color: $white-color;
+    background-color: vars.$white-color;
     font-size: 24px;
     &.active {
       background-color: #ffd3bb;
       border-width: 0.1rem;
       border-style: solid;
-      border-color: $lite-orange;
+      border-color: vars.$lite-orange;
       &::after {
         background-color: #ffd3bb;
         border-style: 0.1rem;
