@@ -8,7 +8,11 @@ const updateImage = (imageSource) => {
     /^data:image\/(?:gif|png|jpeg|bmp|webp)(?:;charset=utf-8)?;base64,(?:[A-Za-z0-9]|[+/])+={0,2}/;
   const imageUrlReg = /\.(jpg|jpeg|png|gif|bmp|webp)$/i;
 
-  if (base64Reg.test(imageSource) || imageUrlReg.test(imageSource) || imageSource.startsWith('http')) {
+  if (
+    base64Reg.test(imageSource) ||
+    imageUrlReg.test(imageSource) ||
+    imageSource.startsWith('http')
+  ) {
     imageNode.ref.setAttribute('src', imageSource);
   } else {
     throw new Error('Ups, format of input string is incorrect');

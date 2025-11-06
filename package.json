@@ -6,7 +6,11 @@
     "start": "parcel index.html --no-cache",
     "prebuild": "rimraf dist",
     "build": "parcel build ./index.html --public-url ./",
-    "clean": "rimraf .cache && rimraf dist && rimraf node_modules"
+    "clean": "rimraf .cache && rimraf dist && rimraf node_modules",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"**/*.{js,json,md,scss,css,html}\"",
+    "format:check": "prettier --check \"**/*.{js,json,md,scss,css,html}\""
   },
   "repository": {
     "type": "git",

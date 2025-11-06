@@ -4,13 +4,13 @@ function loadingScreen() {
   const loadingText = elementCreator(
     'h2',
     { class: 'loading-screen__text' },
-    'Get ready!'
+    'Get ready!',
   );
 
   const loadingSubtext = elementCreator(
     'p',
     { class: 'loading-screen__subtext' },
-    'Loading your question...'
+    'Loading your question...',
   );
 
   return [loadingText, loadingSubtext];

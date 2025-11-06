@@ -33,7 +33,12 @@ class Controller {
   };
 
   startGame = async () => {
-    console.log('Starting game with mode:', this.model.gameMode, 'difficulty:', this.model.difficultyLevel);
+    console.log(
+      'Starting game with mode:',
+      this.model.gameMode,
+      'difficulty:',
+      this.model.difficultyLevel,
+    );
     try {
       // Stop any existing game/timer first
       if (this.model.gameMaker) {
@@ -58,7 +63,7 @@ class Controller {
       this.view.renderLoadingScreen();
 
       // Wait 1 second before starting the game
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
       // Render wand immediately if there's a time limit
       const difficultyTime = DIFFICULTY_LEVELS[this.model.difficultyLevel].time;
@@ -101,10 +106,7 @@ class Controller {
       return;
     }
 
-    this.view.renderQuestion(
-      questionData,
-      question,
-    );
+    this.view.renderQuestion(questionData, question);
     const closure = this;
     this.view.bindAnswerButtons(async (answer) => {
       const isAnswerCorrect =

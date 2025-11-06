@@ -22,13 +22,11 @@ import displayButtonSettings from './components/displaySettingsBtn';
 import loadingScreen from './components/loadingScreen';
 
 class View {
-  // eslint-disable-next-line no-useless-constructor,no-empty-function
   constructor() {
     this.toggleRulesHof = 'hall of fame';
     this.settings = false;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   render(query, ...children) {
     if (children.length === 0 || !query) {
       throw new Error('Required query and at least one child in arguments');

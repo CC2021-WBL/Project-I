@@ -4,7 +4,6 @@ about: Problem z konfiguracją projektu, działaniem IDE itp.
 title: ''
 labels: 'type: development issue'
 assignees: ''
-
 ---
 
 **Opisz z czym masz problem**

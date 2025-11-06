@@ -43,7 +43,7 @@ class DataManager {
   }
 
   async blobToBase64(blob) {
-    return new Promise((resolve, _) => {
+    return new Promise((resolve) => {
       const reader = new FileReader();
       reader.onloadend = () => resolve(reader.result);
       reader.readAsDataURL(blob);
@@ -87,10 +87,7 @@ class DataManager {
   async getDataByAPI() {
     try {
       // Only fetch if we don't have data yet
-      if (
-        !this.arraywithHPObjects ||
-        this.arraywithHPObjects.length === 0
-      ) {
+      if (!this.arraywithHPObjects || this.arraywithHPObjects.length === 0) {
         let jsonData;
         try {
           const response = await fetch(this.resourceAPIadress);
@@ -101,19 +98,30 @@ class DataManager {
         } catch (apiError) {
           console.warn('Failed to fetch from API, using mock data:', apiError);
           // Fallback to mock data
-          const mockResponse = await fetch('./src/app/data/characters-mock.json');
+          const mockResponse = await fetch(
+            './src/app/data/characters-mock.json',
+          );
           jsonData = await mockResponse.json();
         }
 
         // Filter data if filterKey and filterValue are provided
         if (this.filterKey && this.filterValue !== null) {
           this.arraywithHPObjects = jsonData.filter(
-            (character) => character[this.filterKey] === this.filterValue && character.image && character.image !== ''
+            (character) =>
+              character[this.filterKey] === this.filterValue &&
+              character.image &&
+              character.image !== '',
           );
-          console.log(`Filtered ${this.arraywithHPObjects.length} characters with ${this.filterKey}=${this.filterValue}`);
+          console.log(
+            `Filtered ${this.arraywithHPObjects.length} characters with ${this.filterKey}=${this.filterValue}`,
+          );
         } else {
-          this.arraywithHPObjects = jsonData.filter(character => character.image && character.image !== '');
-          console.log(`Filtered ${this.arraywithHPObjects.length} characters with images`);
+          this.arraywithHPObjects = jsonData.filter(
+            (character) => character.image && character.image !== '',
+          );
+          console.log(
+            `Filtered ${this.arraywithHPObjects.length} characters with images`,
+          );
         }
       }
     } catch (error) {

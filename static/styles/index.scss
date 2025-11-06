@@ -116,13 +116,16 @@ body {
         flex-grow: 1;
 
         &-answrBtn {
-          cursor: url('../assets/img/cursor_wand.png') 2 2, pointer;
+          cursor:
+            url('../assets/img/cursor_wand.png') 2 2,
+            pointer;
           border: none;
           border-radius: 16px;
           width: 48%;
           height: vars.$button-height;
           background-color: #fff;
-          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+          box-shadow:
+            0px 4px 4px rgba(0, 0, 0, 0.25),
             inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 
           &:nth-child(even) {
@@ -188,6 +191,8 @@ body {
   }
 
   .custom-cursor {
-    cursor: url('../assets/img/cursor_wand.png') 2 2, pointer;
+    cursor:
+      url('../assets/img/cursor_wand.png') 2 2,
+      pointer;
   }
 }

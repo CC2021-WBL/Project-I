@@ -1,7 +1,7 @@
 import elementCreator from '../../utils/elementCreator';
 import displayTimerText from './displayTimerText';
 
-export default function displayWand(timeLeft, timeStart) {
+export default function displayWand(timeLeft, _timeStart) {
   const timerWrapper = elementCreator('div', {
     class: 'game-timer__text-wrapper',
   });
@@ -10,7 +10,10 @@ export default function displayWand(timeLeft, timeStart) {
   const initialTimerText = displayTimerText(timeLeft);
   timerWrapper.appendChild(initialTimerText);
 
-  const wandImg = new URL('../../../../static/assets/img/wand.png', import.meta.url);
+  const wandImg = new URL(
+    '../../../../static/assets/img/wand.png',
+    import.meta.url,
+  );
   const image = elementCreator('img', {
     class: 'game-timer__image',
     src: wandImg.href,

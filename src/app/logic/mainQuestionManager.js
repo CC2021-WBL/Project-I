@@ -31,13 +31,17 @@ class MainQuestionManager {
     if (this.arrayWithObjectsForMode.length === 0) {
       await dataManager.getDataByAPI();
       this.arrayWithObjectsForMode = dataManager.getDataForMode();
-      console.log(`Loaded ${this.arrayWithObjectsForMode.length} characters for mode`);
+      console.log(
+        `Loaded ${this.arrayWithObjectsForMode.length} characters for mode`,
+      );
     } else {
       dataManager.arraywithHPObjects = this.arrayWithObjectsForMode;
     }
 
     // Check if all questions have been used
-    if (this.usedQuestionIndices.length >= this.arrayWithObjectsForMode.length) {
+    if (
+      this.usedQuestionIndices.length >= this.arrayWithObjectsForMode.length
+    ) {
       console.log('All questions used! Game over.');
       return null; // No more questions available
     }
@@ -50,7 +54,9 @@ class MainQuestionManager {
       }
     }
 
-    console.log(`Available questions: ${availableIndices.length}, Total: ${this.arrayWithObjectsForMode.length}`);
+    console.log(
+      `Available questions: ${availableIndices.length}, Total: ${this.arrayWithObjectsForMode.length}`,
+    );
 
     // Pick a random question from available ones
     const randomIndex = Math.floor(Math.random() * availableIndices.length);
@@ -58,7 +64,9 @@ class MainQuestionManager {
 
     // Mark this question as used
     this.usedQuestionIndices.push(idOfCorrectAnswer);
-    console.log(`Used ${this.usedQuestionIndices.length}/${this.arrayWithObjectsForMode.length} questions`);
+    console.log(
+      `Used ${this.usedQuestionIndices.length}/${this.arrayWithObjectsForMode.length} questions`,
+    );
 
     // Generate answer options - filter by gender of correct answer
     const correctCharacter = this.arrayWithObjectsForMode[idOfCorrectAnswer];
@@ -72,7 +80,9 @@ class MainQuestionManager {
       }
     }
 
-    console.log(`Correct answer gender: ${correctGender}, available same gender: ${sameGenderIndices.length}`);
+    console.log(
+      `Correct answer gender: ${correctGender}, available same gender: ${sameGenderIndices.length}`,
+    );
 
     // Generate 3 wrong answers with the same gender
     let arrayWithID = [idOfCorrectAnswer]; // Start with correct answer
@@ -81,18 +91,26 @@ class MainQuestionManager {
       // We have enough same-gender characters, pick 3 random wrong ones
       const wrongAnswers = [];
       while (wrongAnswers.length < 3) {
-        const randomIndex = Math.floor(Math.random() * sameGenderIndices.length);
+        const randomIndex = Math.floor(
+          Math.random() * sameGenderIndices.length,
+        );
         const candidateId = sameGenderIndices[randomIndex];
-        if (candidateId !== idOfCorrectAnswer && !wrongAnswers.includes(candidateId)) {
+        if (
+          candidateId !== idOfCorrectAnswer &&
+          !wrongAnswers.includes(candidateId)
+        ) {
           wrongAnswers.push(candidateId);
         }
       }
       arrayWithID.push(...wrongAnswers);
     } else {
       // Not enough same-gender characters, use all available characters
-      console.warn(`Not enough same-gender characters (${sameGenderIndices.length}), using all characters`);
+      console.warn(
+        `Not enough same-gender characters (${sameGenderIndices.length}), using all characters`,
+      );
       const actualAmount = this.arrayWithObjectsForMode.length - 1;
-      arrayWithID = QuestionGenerator.generateQuestionsForCurrentMode(actualAmount);
+      arrayWithID =
+        QuestionGenerator.generateQuestionsForCurrentMode(actualAmount);
 
       // Make sure the correct answer is in the options
       if (!arrayWithID.includes(idOfCorrectAnswer)) {
