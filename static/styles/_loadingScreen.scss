@@ -1,0 +1,28 @@
+@use 'vars';
+
+.loading-screen__text {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: vars.$orange;
+  text-align: center;
+  margin-bottom: 1rem;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.loading-screen__subtext {
+  font-size: 1.2rem;
+  color: vars.$black-color;
+  text-align: center;
+  opacity: 0.7;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}

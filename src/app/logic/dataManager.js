@@ -7,12 +7,16 @@ class DataManager {
     answerProperty,
     imgSubfolder,
     IDsArray = [],
+    filterKey = null,
+    filterValue = null,
   ) {
     this.idOfRightAnswer = idOfRightAnswer;
     this.resourceAPIadress = resourceAPIadress;
     this.answerProperty = answerProperty;
     this.imgSubfolder = imgSubfolder;
     this.IDsArray = IDsArray;
+    this.filterKey = filterKey;
+    this.filterValue = filterValue;
     this.arraywithHPObjects = [];
     this.rightAnswer = '';
     this.base64dataImg = '';
@@ -53,33 +57,64 @@ class DataManager {
     } else {
       this.rightAnswer = obj.name;
     }
-    const imgFromFile = await fetch(
-      `./img/images/${this.imgSubfolder}/${this.idOfRightAnswer}.jpg`,
-    );
-    const imgBlob = await imgFromFile.blob();
 
-    this.base64dataImg = await this.blobToBase64(imgBlob);
+    // Use image URL from API if available, otherwise fallback to local
+    if (obj.image && obj.image !== '') {
+      // Try to fetch and convert to base64
+      try {
+        const imgFromAPI = await fetch(obj.image);
+        const imgBlob = await imgFromAPI.blob();
+        this.base64dataImg = await this.blobToBase64(imgBlob);
+      } catch (error) {
+        console.warn('Failed to fetch image from API, using fallback:', error);
+        // Fallback to local image
+        const imgFromFile = await fetch(
+          `./img/images/${this.imgSubfolder}/${this.idOfRightAnswer}.jpg`,
+        );
+        const imgBlob = await imgFromFile.blob();
+        this.base64dataImg = await this.blobToBase64(imgBlob);
+      }
+    } else {
+      // No image in API, use local
+      const imgFromFile = await fetch(
+        `./img/images/${this.imgSubfolder}/${this.idOfRightAnswer}.jpg`,
+      );
+      const imgBlob = await imgFromFile.blob();
+      this.base64dataImg = await this.blobToBase64(imgBlob);
+    }
   }
 
   async getDataByAPI() {
     try {
+      // Only fetch if we don't have data yet
       if (
-        this.arraywithHPObjects !== null &&
-        this.arraywithHPObjects !== undefined &&
-        this.arraywithHPObjects.length !== 0
+        !this.arraywithHPObjects ||
+        this.arraywithHPObjects.length === 0
       ) {
-        this.arraywithAnswersForQuestion = this.getDataForIDs(this.IDsArray);
+        let jsonData;
+        try {
+          const response = await fetch(this.resourceAPIadress);
+          if (!response.ok) {
+            throw new Error(`API responded with status ${response.status}`);
+          }
+          jsonData = await response.json();
+        } catch (apiError) {
+          console.warn('Failed to fetch from API, using mock data:', apiError);
+          // Fallback to mock data
+          const mockResponse = await fetch('./src/app/data/characters-mock.json');
+          jsonData = await mockResponse.json();
+        }
 
-        await this.getDataForCorrectAnswer();
-      } else {
-        const response = await fetch(this.resourceAPIadress);
-        const jsonData = await response.json();
-        this.arraywithHPObjects = jsonData;
-        this.arraywithAnswersForQuestion = this.getDataForIDs(
-          this.arraywithHPObjects,
-        );
-
-        await this.getDataForCorrectAnswer();
+        // Filter data if filterKey and filterValue are provided
+        if (this.filterKey && this.filterValue !== null) {
+          this.arraywithHPObjects = jsonData.filter(
+            (character) => character[this.filterKey] === this.filterValue && character.image && character.image !== ''
+          );
+          console.log(`Filtered ${this.arraywithHPObjects.length} characters with ${this.filterKey}=${this.filterValue}`);
+        } else {
+          this.arraywithHPObjects = jsonData.filter(character => character.image && character.image !== '');
+          console.log(`Filtered ${this.arraywithHPObjects.length} characters with images`);
+        }
       }
     } catch (error) {
       throw Error(`${error}`);

@@ -3,7 +3,9 @@ export const GAME_MODES = {
     gamemode: 'Students',
     imgSubfolder: 'students',
     question: 'Who is this student?',
-    urlAdress: 'https://hp-api.herokuapp.com/api/characters/students',
+    urlAdress: 'https://hp-api.onrender.com/api/characters',
+    filterKey: 'hogwartsStudent',
+    filterValue: true,
     ids: 28,
     answerProperty: 'name',
   },
@@ -11,7 +13,9 @@ export const GAME_MODES = {
     gamemode: 'Staff',
     imgSubfolder: 'staff',
     question: 'Who is this staff?',
-    urlAdress: 'https://hp-api.herokuapp.com/api/characters/staff',
+    urlAdress: 'https://hp-api.onrender.com/api/characters',
+    filterKey: 'hogwartsStaff',
+    filterValue: true,
     ids: 20,
     answerProperty: 'name',
   },
@@ -19,7 +23,9 @@ export const GAME_MODES = {
     gamemode: 'Houses',
     imgSubfolder: 'students',
     question: 'From which house is this student?',
-    urlAdress: 'https://hp-api.herokuapp.com/api/characters/students',
+    urlAdress: 'https://hp-api.onrender.com/api/characters',
+    filterKey: 'hogwartsStudent',
+    filterValue: true,
     ids: 28,
     answerProperty: 'house',
   },
@@ -126,11 +132,11 @@ export const DIFFICULTY_LEVELS = {
     level: 'easy',
   },
   medium: {
-    time: 1,
+    time: 0.25, // 15 seconds (0.25 minutes)
     level: 'medium',
   },
   hard: {
-    time: 0.5,
+    time: 0.16667, // 10 seconds (10/60 minutes)
     level: 'hard',
   },
 };
@@ -141,6 +147,8 @@ export const DEFAULT_DIFFICULTY_LEVEL = 'medium';
 // export const INITIAL_MAIN_TEXT = displayInitialMainText();
 
 export const DEFAULT_BASE_URL = GAME_MODES.students.urlAdress;
+
+export const CHARACTERS_MOCK_PATH = './characters-mock.json';
 
 export const ONE_SECOND_MILLIS = 1000;
 

@@ -19,6 +19,7 @@ import displayQuitGameButton from './components/displayQuitGameButton';
 import displayWand from './components/wand';
 import displayInitialMainText from './components/displayInitialMainText';
 import displayButtonSettings from './components/displaySettingsBtn';
+import loadingScreen from './components/loadingScreen';
 
 class View {
   // eslint-disable-next-line no-useless-constructor,no-empty-function
@@ -105,9 +106,14 @@ class View {
     }
   };
 
-  renderTimer(timeInSeconds, initialTime) {
-    this.render('.game-timer', ...displayWand(timeInSeconds, initialTime));
-    this.render('.game-timer__text-wrapper', displayTimerText(timeInSeconds));
+  renderTimer(timeInSeconds, initialTime, isFirstRender = false) {
+    if (isFirstRender) {
+      // Only render wand on first call
+      this.render('.game-timer', ...displayWand(timeInSeconds, initialTime));
+    } else {
+      // Update only the timer text, not the wand
+      this.render('.game-timer__text-wrapper', displayTimerText(timeInSeconds));
+    }
   }
 
   renderModal(gameData) {
@@ -137,6 +143,13 @@ class View {
 
   renderQuitGame() {
     this.render('.header__game-nav', displayQuitGameButton());
+  }
+
+  renderLoadingScreen() {
+    this.render('.game__mode', 'Get Ready!');
+    this.render('.game__mode-rules', ...loadingScreen());
+    // Keep the initial Harry image or clear it
+    this.render('.game-image__content', createImage());
   }
 
   renderQuestion(question, modeQuestion) {

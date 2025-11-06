@@ -1,4 +1,4 @@
-@import '_vars';
+@use 'vars';
 
 .footer {
   width: 100%;
@@ -31,8 +31,19 @@
         box-shadow: 10px -5px 15px #ff8a00, 10px 5px 15px #8e22c2,
           inset 0px 5px 4px #ff5c00;
         border-radius: inherit;
-        background: $wand-color;
+        background: vars.$wand-color;
+        animation: shrinkWand linear forwards;
+        animation-play-state: paused;
       }
     }
+  }
+}
+
+@keyframes shrinkWand {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
   }
 }
